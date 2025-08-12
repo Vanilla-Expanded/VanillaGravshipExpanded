@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+    <VGE_TargetingTerminalCanOnlyLinkWithGravshipArtillery>Targeting terminal can only link with gravship artillery.</VGE_TargetingTerminalCanOnlyLinkWithGravshipArtillery>
+    <VGE_NeedsLinkedTargetingTerminal>Needs a linked targeting terminal.</VGE_NeedsLinkedTargetingTerminal>
+    <VGE_LinkWithTerminal>Link with a terminal</VGE_LinkWithTerminal>
+    <VGE_LinkWithTerminalDesc>Select a targeting terminal to link with. A targeting terminal is required to operate gravship artillery.</VGE_LinkWithTerminalDesc>
+    <VGE_UnlinkWithTerminal>Unlink with a terminal</VGE_UnlinkWithTerminal>
+    <VGE_UnlinkWithTerminalDesc>Break the current link to a targeting terminal, allowing you to link with a different one.</VGE_UnlinkWithTerminalDesc>
+    <VGE_SelectLinkedTerminal>Select linked terminal</VGE_SelectLinkedTerminal>
+    <VGE_SelectLinkedTerminalDesc>Show the linked targeting terminal.</VGE_SelectLinkedTerminalDesc>
+    <VGE_SetWorldTarget>Set world target</VGE_SetWorldTarget>
+    <VGE_SetWorldTargetDesc>Set the target on the world map for the gravship artillery to fire at. Shots fired over the world map are less accurate. Can only fire at revealed locations.</VGE_SetWorldTargetDesc>
+    <VGE_NeedsMannedTargetingTerminal>Needs a manned targeting terminal.</VGE_NeedsMannedTargetingTerminal>
+    <VGE_LinkWithTurret>Link with a turret</VGE_LinkWithTurret>
+    <VGE_LinkWithTurretDesc>Select a turret to link with. This targeting terminal will be used to operate that turret.</VGE_LinkWithTurretDesc>
+    <VGE_UnlinkWithTurret>Unlink with a turret</VGE_UnlinkWithTurret>
+    <VGE_UnlinkWithTurretDesc>Break the current link to a turret, allowing you to link with a different turret.</VGE_UnlinkWithTurretDesc>
+    <VGE_SelectLinkedTurret>Select linked turret</VGE_SelectLinkedTurret>
+    <VGE_SelectLinkedTurretDesc>Show the linked turret.</VGE_SelectLinkedTurretDesc>
+    <VGE_GravshipArtilleryNeedsVisibleMap>Gravship artillery needs to target a visible, explored map.</VGE_GravshipArtilleryNeedsVisibleMap>
+
+</LanguageData>

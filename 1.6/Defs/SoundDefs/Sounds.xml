@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <SoundDef>
+        <defName>VGE_GravshipHowitzer</defName>
+        <context>MapOnly</context>
+        <eventNames />
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Folder">
+                        <clipPath>GravshipHowitzer_Shot</clipPath>
+                    </li>
+                </grains>
+                <volumeRange>45</volumeRange>
+                <pitchRange>0.9~1.1</pitchRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>VGE_GravshipTarget_Acquired</defName>
+        <context>MapOnly</context>
+        <eventNames />
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>GravshipTarget_Acquired_01</clipPath>
+                    </li>
+                </grains>
+                <volumeRange>15</volumeRange>
+                <pitchRange>0.9~1.1</pitchRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+</Defs>

@@ -21,12 +21,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lib.Harmony" Version="2.3.6" ExcludeAssets="runtime" />
-    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4543" />
+    <PackageReference Include="Lib.Harmony" Version="2.*" ExcludeAssets="runtime" />
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.*-*" />
+    <PackageReference Include="Krafs.Publicizer" Version="2.*" PrivateAssets="all">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
     <None Remove=".editorconfig" />
     <None Remove="mono_crash.*.json" />
+  </ItemGroup>
+  
+
+  <ItemGroup>
+    <Publicize Include="Assembly-CSharp" />
   </ItemGroup>
 </Project>

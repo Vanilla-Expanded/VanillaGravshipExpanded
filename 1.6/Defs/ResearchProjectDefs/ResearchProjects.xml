@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ResearchProjectDef>
+        <defName>VGE_GravshipWeaponry</defName>
+        <label>gravship weaponry</label>
+        <description>Allows the construction of gravship artillery and other defensive systems.</description>
+        <baseCost>2000</baseCost>
+        <techLevel>Spacer</techLevel>
+        <prerequisites>
+            <li>GravshipBasics</li>
+        </prerequisites>
+        <researchViewX>10</researchViewX>
+        <researchViewY>4.5</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef>
+        <defName>GravshipBasics</defName>
+        <label>gravship basics</label>
+        <description>Allows the construction of basic gravship components.</description>
+        <baseCost>500</baseCost>
+        <techLevel>Spacer</techLevel>
+        <researchViewX>9</researchViewX>
+        <researchViewY>4.5</researchViewY>
+    </ResearchProjectDef>
+
+</Defs>
