@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <PipeSystem.PipeNetDef>
+    <defName>VGSE_OxygenNet</defName>
+    <resource>
+      <name>Oxygen</name>
+      <unit>u³</unit>
+      <color>(0.79, 0.64, 0.31)</color>
+      <onlyShowStored>True</onlyShowStored>
+      <offTexPath>UI/Overlays/Overlay_Oxygen</offTexPath>
+    </resource>
+    <pipeDefs>
+      <li>VGSE_OxygenPipe</li>
+    </pipeDefs>
+    <designator>
+      <deconstructIconPath>Things/PipeNetworks/Oxygen/OxygenPipes_Deconstruct</deconstructIconPath>
+      <designationCategoryDef>Odyssey</designationCategoryDef>
+    </designator>
+    <overlayOptions>
+      <overlayColor>(0.79, 0.64, 0.31)</overlayColor>
+    </overlayOptions>
+    <linkToRefuelables>
+      <li>
+        <thing>VGSE_OxygenCanister</thing>
+        <ratio>1</ratio>
+      </li>
+    </linkToRefuelables>
+  </PipeSystem.PipeNetDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>VGSE_OxygenPipe</defName>
+    <label>oxygen pipe</label>
+    <description>A reinforced tube for moving oxygen around. Can be placed under walls and other buildings. A reinforced tube for moving oxygen around. Can be placed under walls and other buildings.</description>
+    <thingClass>PipeSystem.Building_Pipe</thingClass>
+    <category>Building</category>
+    <tickerType>Rare</tickerType>
+    <graphicData>
+      <texPath>Things/PipeNetworks/Oxygen/OxygenPipes_Atlas</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <linkType>Basic</linkType>
+      <linkFlags>
+        <li>Custom7</li>
+      </linkFlags>
+      <damageData>
+        <rect>(0,0.35,1,0.3)</rect>
+      </damageData>
+    </graphicData>
+    <uiIconPath>Things/PipeNetworks/Oxygen/OxygenPipes_MenuIcon</uiIconPath>
+    <uiIconScale>0.7</uiIconScale>
+    <building>
+      <ai_chillDestination>false</ai_chillDestination>
+      <isInert>true</isInert>
+      <isEdifice>false</isEdifice>
+      <blueprintGraphicData>
+        <texPath>Things/PipeNetworks/Oxygen/OxygenPipes_Blueprint_Atlas</texPath>
+      </blueprintGraphicData>
+    </building>
+    <drawerType>MapMeshOnly</drawerType>
+    <altitudeLayer>Conduits</altitudeLayer>
+    <passability>Standable</passability>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <statBases>
+      <MaxHitPoints>80</MaxHitPoints>
+      <WorkToBuild>35</WorkToBuild>
+      <Flammability>0.7</Flammability>
+      <Beauty>-2</Beauty>
+    </statBases>
+    <drawStyleCategory>Conduits</drawStyleCategory>
+    <costList>
+      <Steel>1</Steel>
+    </costList>
+    <comps>
+      <li Class="PipeSystem.CompProperties_Resource">
+        <pipeNet>VGSE_OxygenNet</pipeNet>
+      </li>
+<!--      <li Class="PipeSystem.CompProperties_SpillWhenDamaged">-->
+<!--        <spillEachTicks>600</spillEachTicks>-->
+<!--        <startAtHitPointsPercent>0.333</startAtHitPointsPercent>-->
+<!--        <amountToDraw>1</amountToDraw>-->
+<!--        <filthMaxSpawnRadius>1</filthMaxSpawnRadius>-->
+<!--        <chooseFilthFrom>-->
+<!--          <li>Filth_Fuel</li>-->
+<!--        </chooseFilthFrom>-->
+<!--      </li>-->
+    </comps>
+    <placeWorkers>
+      <li>PipeSystem.PlaceWorker_Pipe</li>
+    </placeWorkers>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <neverMultiSelect>true</neverMultiSelect>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationCategory>Odyssey</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <clearBuildingArea>false</clearBuildingArea>
+    <researchPrerequisites>
+      <li>BiofuelRefining</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>VGSE_OxygenValve</defName>
+    <label>oxygen valve</label>
+    <description>Switches oxygen flow on and off.</description>
+    <thingClass>PipeSystem.Building_PipeValve</thingClass>
+    <category>Building</category>
+    <graphicData>
+      <texPath>Things/PipeNetworks/Oxygen/OxygenValve</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Transparent</shaderType>
+      <damageData>
+        <rect>(0.2,0.2,0.6,0.6)</rect>
+      </damageData>
+    </graphicData>
+    <building>
+      <ai_chillDestination>false</ai_chillDestination>
+      <allowWireConnection>false</allowWireConnection>
+    </building>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Standable</passability>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+      <WorkToBuild>200</WorkToBuild>
+      <Flammability>0.5</Flammability>
+      <Beauty>-2</Beauty>
+    </statBases>
+    <costList>
+      <Steel>15</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="PipeSystem.CompProperties_PipeValve">
+        <pipeNet>VGSE_OxygenNet</pipeNet>
+        <alwaysLinkToPipes>true</alwaysLinkToPipes>
+      </li>
+      <li Class="CompProperties_Flickable">
+        <commandTexture>UI/Overlays/Overlay_Oxygen</commandTexture>
+        <commandLabelKey>VSGE_OxygenValve</commandLabelKey>
+        <commandDescKey>VSGE_OxygenValveDesc</commandDescKey>
+      </li>
+    </comps>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <neverMultiSelect>false</neverMultiSelect>
+    <tickerType>Normal</tickerType>
+    <designationCategory>Odyssey</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites>
+      <li>BiofuelRefining</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>VGSE_SmallOxygenTank</defName>
+    <label>small oxygen tank</label>
+    <description>An oxygen tank that supplies oxygen to pumps throughout the gravship.</description>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <graphicData>
+      <texPath>Things/PipeNetworks/Oxygen/OxygenTank</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2,2)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <pathCost>50</pathCost>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>0.40</fillPercent>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <WorkToBuild>2250</WorkToBuild>
+      <Mass>25</Mass>
+      <Flammability>0.6</Flammability>
+    </statBases>
+    <size>(2,2)</size>
+    <costList>
+      <Steel>100</Steel>
+    </costList>
+    <comps>
+      <li Class="PipeSystem.CompProperties_ResourceStorage">
+        <pipeNet>VGSE_OxygenNet</pipeNet>
+        <storageCapacity>200</storageCapacity>
+        <barSize>(0.8, 0.15)</barSize>
+        <margin>0.1</margin>
+        <centerOffset>(0, 0, -0.5)</centerOffset>
+        <barHorizontal>true</barHorizontal>
+        <rotateBarWithBuilding>false</rotateBarWithBuilding>
+        <extractOptions>
+          <!-- TODO: Add actual icon -->
+          <texPath>UI/Overlays/Overlay_Oxygen</texPath>
+          <labelKey>VGSE_ExtractOxygen</labelKey>
+          <descKey>VGSE_ExtractOxygenDesc</descKey>
+          <extractAmount>10</extractAmount>
+          <thing>VGSE_OxygenCanister</thing>
+          <ratio>1</ratio>
+        </extractOptions>
+      </li>
+      <li Class="PipeSystem.CompProperties_ExplosiveContent">
+        <explosiveMaxRadius>7</explosiveMaxRadius>
+        <radiusRequiredForExplosion>2</radiusRequiredForExplosion>
+        <!-- Vanilla options below -->
+        <explosiveDamageType>Thump</explosiveDamageType>
+        <damageAmountBase>9</damageAmountBase>
+        <destroyThingOnExplosionSize>2</destroyThingOnExplosionSize>
+        <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+        <wickTicks>70~150</wickTicks>
+      </li>
+    </comps>
+    <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+    <designationCategory>Odyssey</designationCategory>
+    <staticSunShadowHeight>0.2</staticSunShadowHeight>
+    <constructEffect>ConstructMetal</constructEffect>
+    <canOverlapZones>false</canOverlapZones>
+    <researchPrerequisites>
+      <li>BiofuelRefining</li>
+    </researchPrerequisites>
+    <disableImpassableShotOverConfigError>true</disableImpassableShotOverConfigError>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>VGSE_LargeOxygenTank</defName>
+    <label>large oxygen tank</label>
+    <description>A large oxygen tank that supplies oxygen to pumps throughout the gravship.</description>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <graphicData>
+      <texPath>Things/PipeNetworks/Oxygen/LargeOxygenTank</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <pathCost>50</pathCost>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>0.40</fillPercent>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>3500</WorkToBuild>
+      <Mass>50</Mass>
+      <Flammability>0.6</Flammability>
+    </statBases>
+    <size>(3,3)</size>
+    <costList>
+      <Steel>200</Steel>
+    </costList>
+    <comps>
+      <li Class="PipeSystem.CompProperties_ResourceStorage">
+        <pipeNet>VGSE_OxygenNet</pipeNet>
+        <storageCapacity>500</storageCapacity>
+        <barSize>(1.3, 0.25)</barSize>
+        <margin>0.1</margin>
+        <centerOffset>(0, 0, -0.75)</centerOffset>
+        <barHorizontal>true</barHorizontal>
+        <rotateBarWithBuilding>false</rotateBarWithBuilding>
+        <extractOptions>
+          <!-- TODO: Add actual icon -->
+          <texPath>UI/Overlays/Overlay_Oxygen</texPath>
+          <labelKey>VGSE_ExtractOxygen</labelKey>
+          <descKey>VGSE_ExtractOxygenDesc</descKey>
+          <extractAmount>10</extractAmount>
+          <thing>VGSE_OxygenCanister</thing>
+          <ratio>1</ratio>
+        </extractOptions>
+      </li>
+      <li Class="PipeSystem.CompProperties_ExplosiveContent">
+        <explosiveMaxRadius>14</explosiveMaxRadius>
+        <radiusRequiredForExplosion>4</radiusRequiredForExplosion>
+        <!-- Vanilla options below -->
+        <explosiveDamageType>Thump</explosiveDamageType>
+        <damageAmountBase>9</damageAmountBase>
+        <destroyThingOnExplosionSize>2</destroyThingOnExplosionSize>
+        <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+        <wickTicks>70~150</wickTicks>
+      </li>
+    </comps>
+    <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+    <designationCategory>Odyssey</designationCategory>
+    <staticSunShadowHeight>0.2</staticSunShadowHeight>
+    <constructEffect>ConstructMetal</constructEffect>
+    <canOverlapZones>false</canOverlapZones>
+    <researchPrerequisites>
+      <li>BiofuelRefining</li>
+    </researchPrerequisites>
+    <disableImpassableShotOverConfigError>true</disableImpassableShotOverConfigError>
+  </ThingDef>
+
+  <ThingDef ParentName="FurnitureBase">
+    <defName>VGSE_OxygenCanisterFiller</defName>
+    <label>oxygen canister filler</label>
+    <description>A hopper-like storage device meant to hold dispensed oxygen in canisters for use later.</description>
+    <thingClass>Building_Storage</thingClass>
+    <minifiedDef IsNull="True" />
+    <thingCategories Inherit="False" />
+    <graphicData>
+      <texPath>Things/PipeNetworks/Oxygen/OxygenCanisterFiller</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+      <drawRotated>false</drawRotated>
+      <allowFlip>false</allowFlip>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.5</fillPercent>
+    <castEdgeShadows>true</castEdgeShadows>
+    <pathCost>50</pathCost>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>600</WorkToBuild>
+      <Flammability>0.7</Flammability>
+      <Beauty>-2</Beauty>
+    </statBases>
+    <size>(1,1)</size>
+    <costList>
+      <Steel>50</Steel>
+    </costList>
+    <building>
+      <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+      <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+      <fixedStorageSettings>
+        <filter>
+          <disallowNotEverStorable>true</disallowNotEverStorable>
+          <thingDefs>
+            <li>VGSE_OxygenCanister</li>
+          </thingDefs>
+        </filter>
+      </fixedStorageSettings>
+      <defaultStorageSettings>
+        <priority>Important</priority>
+        <filter>
+          <disallowNotEverStorable>true</disallowNotEverStorable>
+          <thingDefs>
+            <li>VGSE_OxygenCanister</li>
+          </thingDefs>
+        </filter>
+      </defaultStorageSettings>
+    </building>
+    <inspectorTabs>
+      <li>ITab_Storage</li>
+    </inspectorTabs>
+    <designationCategory>Odyssey</designationCategory>
+    <staticSunShadowHeight>0.5</staticSunShadowHeight>
+    <surfaceType>Item</surfaceType>
+    <canOverlapZones>false</canOverlapZones>
+    <comps>
+      <li Class="PipeSystem.CompProperties_ConvertResourceToThing">
+        <pipeNet>VGSE_OxygenNet</pipeNet>
+        <thing>VGSE_OxygenCanister</thing>
+      </li>
+    </comps>
+    <researchPrerequisites>
+      <li>BiofuelRefining</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="FurnitureBase">
+    <defName>VGSE_OxygenCanisterEmptier</defName>
+    <label>oxygen canister emptier</label>
+    <description>A hopper-like storage structure meant to input oxygen from canisters into the network, filling up connected tanks.</description>
+    <thingClass>Building_Storage</thingClass>
+    <minifiedDef IsNull="True" />
+    <thingCategories Inherit="False" />
+    <graphicData>
+      <texPath>Things/PipeNetworks/Oxygen/OxygenCanisterEmptier</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+      <drawRotated>false</drawRotated>
+      <allowFlip>false</allowFlip>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <!-- <altitudeLayer>Building</altitudeLayer> -->
+    <passability>Standable</passability>
+    <!-- <passability>PassThroughOnly</passability> -->
+    <fillPercent>0.5</fillPercent>
+    <castEdgeShadows>true</castEdgeShadows>
+    <pathCost>50</pathCost>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>600</WorkToBuild>
+      <Flammability>0.7</Flammability>
+      <Beauty>-2</Beauty>
+    </statBases>
+    <size>(1,1)</size>
+    <costList>
+      <Steel>50</Steel>
+    </costList>
+    <building>
+      <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+      <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+      <fixedStorageSettings>
+        <filter>
+          <disallowNotEverStorable>true</disallowNotEverStorable>
+          <thingDefs>
+            <li>VGSE_OxygenCanister</li>
+          </thingDefs>
+        </filter>
+      </fixedStorageSettings>
+      <defaultStorageSettings>
+        <priority>Important</priority>
+        <filter>
+          <disallowNotEverStorable>true</disallowNotEverStorable>
+          <thingDefs>
+            <li>VGSE_OxygenCanister</li>
+          </thingDefs>
+        </filter>
+      </defaultStorageSettings>
+    </building>
+    <inspectorTabs>
+      <li>ITab_Storage</li>
+    </inspectorTabs>
+    <designationCategory>Odyssey</designationCategory>
+    <staticSunShadowHeight>0.5</staticSunShadowHeight>
+    <surfaceType>Item</surfaceType>
+    <canOverlapZones>false</canOverlapZones>
+    <comps>
+      <li Class="PipeSystem.CompProperties_ConvertThingToResource">
+        <pipeNet>VGSE_OxygenNet</pipeNet>
+        <thing>VGSE_OxygenCanister</thing>
+      </li>
+    </comps>
+    <researchPrerequisites>
+      <li>BiofuelRefining</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>VGSE_OxygenHarvester</defName>
+    <label>oxygen harvester</label>
+    <description>A device that draws in breathable oxygen from the surrounding atmosphere and stores it in the oxygen network. It functions only on planetary surfaces with an atmosphere and will not operate in vacuum or low-oxygen environments.</description>
+    <graphicData>
+      <texPath>Things/Structures/OxygenScrubber/OxygenScrubber</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <blockWind>false</blockWind>
+    <fillPercent>0.4</fillPercent>
+    <canOverlapZones>false</canOverlapZones>
+    <castEdgeShadows>true</castEdgeShadows>
+    <staticSunShadowHeight>0.4</staticSunShadowHeight>
+    <statBases>
+      <WorkToBuild>10000</WorkToBuild>
+      <MaxHitPoints>250</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+      <Beauty>-8</Beauty>
+    </statBases>
+    <size>(2,2)</size>
+    <tickerType>Rare</tickerType>
+    <costList>
+      <Steel>200</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>700</basePowerConsumption>
+      </li>
+      <li Class="VanillaGravshipExpanded.CompProperties_ResourceTrader_NotInVacuumBiome">
+        <compClass>VanillaGravshipExpanded.CompResourceTrader_NotInVacuumBiome</compClass>
+        <lowOxygenEnvironmentOverlayPath>UI/Overlays/Overlay_LackingAtmosphere</lowOxygenEnvironmentOverlayPath>
+        <resourceOffOverlay>false</resourceOffOverlay>
+        <soundAmbientReceivingResource>GeothermalPlant_Ambience</soundAmbientReceivingResource>
+        <pipeNet>VGSE_OxygenNet</pipeNet>
+        <consumptionPerTick>-1</consumptionPerTick>
+        <idleConsumptionPerTick>-1</idleConsumptionPerTick>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+    <designationCategory>Odyssey</designationCategory>
+    <researchPrerequisites>
+      <li>BiofuelRefining</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+</Defs>

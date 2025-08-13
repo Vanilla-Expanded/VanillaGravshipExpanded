@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+  <VGSE_ExtractOxygen>Extract 10 oxygen canisters</VGSE_ExtractOxygen>
+  <VGSE_ExtractOxygenDesc>Extract 10 oxygen canisters from the tank. A pawn will come to extract it.</VGSE_ExtractOxygenDesc>
+
+  <VSGE_OxygenValve>Switches oxygen flow on/off.</VSGE_OxygenValve>
+  <VSGE_OxygenValveDesc>Switches oxygen flow on/off. A pawn will come open/close the valve.</VSGE_OxygenValveDesc>
+
+  <VGSE_DisabledNoAtmosphere>Can’t harvest oxygen: No atmosphere.</VGSE_DisabledNoAtmosphere>
+
+</LanguageData>
