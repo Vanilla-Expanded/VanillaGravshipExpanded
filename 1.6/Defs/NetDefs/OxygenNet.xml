@@ -3,6 +3,7 @@
 
   <PipeSystem.PipeNetDef>
     <defName>VGSE_OxygenNet</defName>
+    <pipeNetClass>VanillaGravshipExpanded.OxygenPipeNet</pipeNetClass>
     <resource>
       <name>Oxygen</name>
       <unit>u³</unit>
@@ -490,11 +491,13 @@
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>700</basePowerConsumption>
+        <idlePowerDraw>20</idlePowerDraw>
       </li>
       <li Class="VanillaGravshipExpanded.CompProperties_ResourceTrader_NotInVacuumBiome">
         <compClass>VanillaGravshipExpanded.CompResourceTrader_NotInVacuumBiome</compClass>
         <lowOxygenEnvironmentOverlayPath>UI/Overlays/Overlay_LackingAtmosphere</lowOxygenEnvironmentOverlayPath>
         <resourceOffOverlay>false</resourceOffOverlay>
+        <producerLowPowerWhenStorageFull>true</producerLowPowerWhenStorageFull>
         <soundAmbientReceivingResource>GeothermalPlant_Ambience</soundAmbientReceivingResource>
         <pipeNet>VGSE_OxygenNet</pipeNet>
         <consumptionPerTick>-1</consumptionPerTick>
