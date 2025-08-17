@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<WorkGiverDef>
+		<defName>VGE_DoBillsCook</defName>
+		<label>cook meals</label>
+		<giverClass>WorkGiver_DoBill</giverClass>
+		<workType>Cooking</workType>
+		<priorityInType>100</priorityInType>
+		<fixedBillGiverDefs>
+			<li>VGE_CompactStove</li>
+		</fixedBillGiverDefs>
+		<verb>cook</verb>
+		<gerund>cooking at</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<prioritizeSustains>true</prioritizeSustains>
+	</WorkGiverDef>
+	<WorkGiverDef>
+		<defName>VGE_DoBillsProduceDrugs</defName>
+		<label>synthesize drugs</label>
+		<giverClass>WorkGiver_DoBill</giverClass>
+		<workType>Crafting</workType>
+		<workTags>
+			<li>Intellectual</li>
+		</workTags>
+		<priorityInType>95</priorityInType>
+		<fixedBillGiverDefs>
+			<li>VGE_CompactDrugLab</li>
+		</fixedBillGiverDefs>
+		<verb>produce drugs at</verb>
+		<gerund>producing drugs at</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<prioritizeSustains>true</prioritizeSustains>
+	</WorkGiverDef>
+	<WorkGiverDef>
+		<defName>VGE_DoBillsMachiningTable</defName>
+		<label>make things at machining table</label>
+		<giverClass>WorkGiver_DoBill</giverClass>
+		<workType>Smithing</workType>
+		<priorityInType>75</priorityInType>
+		<fixedBillGiverDefs>
+			<li>VGE_CompactMachiningTable</li>
+		</fixedBillGiverDefs>
+		<verb>work at</verb>
+		<gerund>working at</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<prioritizeSustains>true</prioritizeSustains>
+	</WorkGiverDef>
+	<WorkGiverDef>
+		<defName>VGE_DoBillsMakeWeapons</defName>
+		<label>make weapons</label>
+		<giverClass>WorkGiver_DoBill</giverClass>
+		<workType>Smithing</workType>
+		<priorityInType>115</priorityInType>
+		<fixedBillGiverDefs>
+			<li>VGE_CompactSmithy</li>
+		</fixedBillGiverDefs>
+		<verb>smith at</verb>
+		<gerund>smithing at</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<prioritizeSustains>true</prioritizeSustains>
+	</WorkGiverDef>
+	<WorkGiverDef>
+		<defName>VGE_DoBillsMakeApparel</defName>
+		<label>make apparel</label>
+		<giverClass>WorkGiver_DoBill</giverClass>
+		<workType>Tailoring</workType>
+		<priorityInType>110</priorityInType>
+		<fixedBillGiverDefs>
+			<li>VGE_CompactTailor</li>
+		</fixedBillGiverDefs>
+		<verb>tailor at</verb>
+		<gerund>tailoring at</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<prioritizeSustains>true</prioritizeSustains>
+	</WorkGiverDef>
+	<WorkGiverDef>
+		<defName>VGE_DoBillsRefinery</defName>
+		<label>work at refinery</label>
+		<giverClass>WorkGiver_DoBill</giverClass>
+		<workType>Crafting</workType>
+		<priorityInType>97</priorityInType>
+		<fixedBillGiverDefs>
+			<li>VGE_CompactRefinery</li>
+		</fixedBillGiverDefs>
+		<verb>refine chemicals at</verb>
+		<gerund>refining chemicals at</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<prioritizeSustains>true</prioritizeSustains>
+	</WorkGiverDef>
+	<WorkGiverDef>
+		<defName>VGE_DoBillsFabricationBench</defName>
+		<label>fabricate things</label>
+		<giverClass>WorkGiver_DoBill</giverClass>
+		<workType>Smithing</workType>
+		<priorityInType>50</priorityInType>
+		<fixedBillGiverDefs>
+			<li>VGE_CompactFabBench</li>
+		</fixedBillGiverDefs>
+		<verb>fabricate things at</verb>
+		<gerund>fabricating things at</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<prioritizeSustains>true</prioritizeSustains>
+	</WorkGiverDef>
+</Defs>
