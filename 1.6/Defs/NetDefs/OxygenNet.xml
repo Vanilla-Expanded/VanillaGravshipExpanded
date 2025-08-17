@@ -8,7 +8,6 @@
       <name>Oxygen</name>
       <unit>u³</unit>
       <color>(0.79, 0.64, 0.31)</color>
-      <onlyShowStored>True</onlyShowStored>
       <offTexPath>UI/Overlays/Overlay_Oxygen</offTexPath>
     </resource>
     <pipeDefs>

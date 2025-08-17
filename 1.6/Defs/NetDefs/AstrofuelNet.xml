@@ -7,7 +7,6 @@
       <name>Astrofuel</name>
       <unit>l</unit>
       <color>(0.54, 0.30, 0.85)</color>
-      <onlyShowStored>True</onlyShowStored>
       <offTexPath>Things/Items/Resource/Astrofuel</offTexPath>
     </resource>
     <pipeDefs>
