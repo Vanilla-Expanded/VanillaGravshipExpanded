@@ -1,0 +1,8 @@
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[defName="GravshipLandingMarker"]</xpath>
+        <value>
+            <seeThroughFog>true</seeThroughFog>
+        </value>
+    </Operation>
+</Patch>    

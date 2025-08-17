@@ -20,4 +20,7 @@
     <VGE_SelectLinkedTurretDesc>Show the linked turret.</VGE_SelectLinkedTurretDesc>
     <VGE_GravshipArtilleryNeedsVisibleMap>Gravship artillery needs to target a visible, explored map.</VGE_GravshipArtilleryNeedsVisibleMap>
 
+    <VGE_ConfirmCrashLanding>Landing on this location will be considered a crash. Any highlighted structures underneath the gravship will damage any structures on the gravship in corresponding locations.\n\nThe substructure may also become damaged and will need replacing before the next launch.\n\nSome indestructible objects underneath may completely destroy the substructure and any objects on it.\n\nConsider picking a different landing zone.</VGE_ConfirmCrashLanding>
+    <VGE_CrashLandingWarning>Landing on this location will be considered a crash and will damage the gravship.</VGE_CrashLandingWarning>
+
 </LanguageData>

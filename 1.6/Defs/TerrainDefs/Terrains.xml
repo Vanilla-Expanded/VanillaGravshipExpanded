@@ -1,0 +1,34 @@
+<Defs>
+    <TerrainDef ParentName="FloorBase">
+        <defName>VGE_DamagedSubstructure</defName>
+        <label>damaged gravship substructure</label>
+        <description>A lightweight truss structure with flooring on top that forms the deck of a gravship. Only things on top of this substructure can be lifted by the grav engine's levitation field. This floor must be constructed within range of a grav engine.\n\nGravship substructure can be removed using the 'remove foundation' designator.</description>
+        <texturePath>Terrain/Surfaces/Substructure/Substructure</texturePath>
+        <fertility>0</fertility>
+        <edgeType>Hard</edgeType>
+        <renderPrecedence>399</renderPrecedence>
+        <constructEffect>ConstructMetal</constructEffect>
+        <isPaintable>true</isPaintable>
+        <isFoundation>true</isFoundation>
+        <preventCraters>true</preventCraters>
+        <designationHotKey>Misc9</designationHotKey>
+        <affordances>
+            <li>Substructure</li>
+        </affordances>
+        <statBases>
+            <Flammability>0</Flammability>
+            <CleaningTimeFactor>0.9</CleaningTimeFactor>
+        </statBases>
+        <uiOrder>1000</uiOrder>
+        <requireInspectedGravEngine>true</requireInspectedGravEngine>
+        <terrainAffordanceNeeded>Walkable</terrainAffordanceNeeded>
+        <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+        <tags>
+            <li>Substructure</li>
+        </tags>
+        <placeWorkers>
+            <li>PlaceWorker_InSubstructureFootprint</li>
+            <li>PlaceWorker_BuildingsValidOverSubstructure</li>
+        </placeWorkers>
+    </TerrainDef>
+</Defs>
