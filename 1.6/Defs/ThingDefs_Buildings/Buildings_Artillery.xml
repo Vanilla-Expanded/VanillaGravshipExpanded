@@ -3,7 +3,7 @@
 
     <ThingDef Name="VGE_GravshipBuildingBase" ParentName="BuildingBase" Abstract="True">
         <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
-        <designationCategory>Security</designationCategory>
+        <designationCategory>Odyssey</designationCategory>
         <researchPrerequisites>
             <li>VGE_GravshipWeaponry</li>
         </researchPrerequisites>
@@ -99,8 +99,8 @@
         <constructionSkillPrerequisite>10</constructionSkillPrerequisite>
         <building>
             <turretGunDef>VGE_Gun_GaussHowitzer</turretGunDef>
-            <turretBurstCooldownTime>1800</turretBurstCooldownTime>
-            <turretTopDrawSize>5</turretTopDrawSize>
+            <turretBurstCooldownTime>30</turretBurstCooldownTime>
+            <turretTopDrawSize>7</turretTopDrawSize>
         </building>
         <comps>
             <li Class="CompProperties_Refuelable">
@@ -234,7 +234,7 @@
         </comps>
         <building>
             <turretGunDef>VGE_Gun_PointDefense</turretGunDef>
-            <turretTopDrawSize>3</turretTopDrawSize>
+            <turretTopDrawSize>4</turretTopDrawSize>
         </building>
         <placeWorkers>
             <li>PlaceWorker_TurretTop</li>
