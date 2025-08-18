@@ -18,4 +18,14 @@
 		<expandingIconTexture>UI/MapIcons/IceAsteroid</expandingIconTexture>
 		<mapGenerator>VGE_IceAsteroid</mapGenerator>
 	</WorldObjectDef>
+	<WorldObjectDef ParentName="GeneratedAsteroid">
+		<defName>VGE_AsteroidCluster</defName>
+	
+		<description>A vacstone asteroid cluster orbiting the planet, consisting of several fragments drifting in close formation. It may have once been a larger body that broke apart, or a group of smaller asteroids captured together by gravity.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</description>
+		<label>asteroid cluster</label>
+		<!-- hidden -->
+		<nameMaker>NamerWorldObject_AsteroidBasic</nameMaker>
+		<expandingIconTexture>UI/MapIcons/AsteroidCluster</expandingIconTexture>
+		<mapGenerator>VGE_AsteroidCluster</mapGenerator>
+	</WorldObjectDef>
 </Defs>
