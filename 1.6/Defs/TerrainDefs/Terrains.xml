@@ -35,7 +35,7 @@
 		<defName>VGE_AsteroidIce</defName>
 		<label>asteroid ice</label>
 		<texturePath>Things/Terrain/AsteroidIce</texturePath>
-		<edgeType>FadeRough</edgeType>
+		<edgeType>Hard</edgeType>
 		<renderPrecedence>350</renderPrecedence>
 		<pathCost>14</pathCost>
 		<statBases>

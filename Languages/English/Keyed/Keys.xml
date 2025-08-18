@@ -24,5 +24,11 @@
     <VGE_CrashLandingWarning>Landing on this location will be considered a crash and will damage the gravship.</VGE_CrashLandingWarning>
 	
 	<VGE_SoildIceAsteroid>Solid ice with traces of {RESOURCE_label}</VGE_SoildIceAsteroid>
+	
+	<!-- Mod options -->
+	
+	<VGE_OrbitObjectsMultiplier>Orbital objects multiplier</VGE_OrbitObjectsMultiplier>
+	<VGE_OrbitObjectsMultiplierDesc>By default the game will try to keep 3,8,12 or 20 locations in orbit (depending on globe coverage of the planet). With this slider you can apply a multiplier to this number, making your planet orbits super sparse or very cluttered!</VGE_OrbitObjectsMultiplierDesc>
+	<VGE_Reset>Reset</VGE_Reset>
 
 </LanguageData>
