@@ -2,8 +2,8 @@
 	<TerrainDef ParentName="FloorBase">
 		<defName>VGE_DamagedSubstructure</defName>
 		<label>damaged gravship substructure</label>
-		<description>A lightweight truss structure with flooring on top that forms the deck of a gravship. Only things on top of this substructure can be lifted by the grav engine's levitation field. This floor must be constructed within range of a grav engine.\n\nGravship substructure can be removed using the 'remove foundation' designator.</description>
-		<texturePath>Terrain/Surfaces/Substructure/Substructure</texturePath>
+		<description>A warped and twisted section of gravship substructure. Once a solid truss with decking, it has been bent out of shape by heavy stress or impact. The grav engine’s levitation field still grips it, but its integrity is compromised: any further damage will cause this piece of substructure to collapse completely.</description>
+		<texturePath>Terrain/Substructure/DamagedSubstructure</texturePath>
 		<fertility>0</fertility>
 		<edgeType>Hard</edgeType>
 		<renderPrecedence>399</renderPrecedence>
