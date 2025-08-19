@@ -48,7 +48,6 @@ public class CompResourceTrader_OxygenPusher : CompResourceTrader
         }
 
         // If disabled due to no more vacuum/exposed to vacuum, skip most other checks
-        // TODO: Actually do this part
         if (lowPowerMode)
         {
             var r = parent.GetRoom();
@@ -91,20 +90,18 @@ public class CompResourceTrader_OxygenPusher : CompResourceTrader
 
     public override string CompInspectStringExtra()
     {
-        return string.Empty;
+        if (!Props.requiresPower)
+            return string.Empty;
 
-        // TODO: Finish working on this
-        if (parent.Spawned && parent.Map.Biome.inVacuum)
-        {
-            var room = parent.GetRoom();
-            if (room.ExposedToSpace)
-                return "".Translate();
+        string text;
+        if (PowerTrader.Off)
+            text = "PowerConsumptionOff".Translate();
+        else if (lowPowerMode)
+            text = "PowerConsumptionLow".Translate();
+        else
+            text = "PowerConsumptionHigh".Translate();
 
-            var vacuumOffset = 100f / room.CellCount * Props.airPerSecondPerHundredCells * CompOxygenPusher.IntervalToPerSecond;
-            // TODO: No oxygen in network
-        }
-
-        return string.Empty;
+        return $"{"PowerConsumptionMode".Translate()}: {text.CapitalizeFirst()}";
     }
 
     private void EnableLowPowerMode()
