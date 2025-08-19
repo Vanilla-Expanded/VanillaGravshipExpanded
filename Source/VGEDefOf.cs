@@ -12,6 +12,6 @@ namespace VanillaGravshipExpanded
         public static ThingDef Gun_MiniTurret, VGE_PointDefenseTurret, VGE_GaussSmoke;
         public static TerrainDef Substructure, VGE_GravshipSubscaffolding, VGE_DamagedSubstructure, VGE_AsteroidIce;
 
-        public static OrbitalDebrisDef VGE_IceAsteroid;
+        public static OrbitalDebrisDef VGE_IceAsteroid, VGE_AsteroidCluster;
     }
 }

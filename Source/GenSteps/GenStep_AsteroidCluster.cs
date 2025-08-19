@@ -84,7 +84,7 @@ namespace VanillaGravshipExpanded
                 {
                     GenerateArcheanTree(map, parms);
                 }
-                map.OrbitalDebris = OrbitalDebrisDefOf.Asteroid;
+                map.OrbitalDebris = VGEDefOf.VGE_AsteroidCluster;
             }
         }
 
@@ -102,7 +102,7 @@ namespace VanillaGravshipExpanded
                         map.terrainGrid.SetTerrain(allCell, ThingDefOf.Vacstone.building.naturalTerrain);
                     }
                   
-                    if (num <0.3f)
+                    if (num <0.45f)
                     {
                         GenSpawn.Spawn(ThingDefOf.Vacstone, allCell, map);
                         if (num2!= 0f)
