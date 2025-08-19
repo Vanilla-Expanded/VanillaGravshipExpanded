@@ -58,6 +58,7 @@
       <blueprintGraphicData>
         <texPath>Things/PipeNetworks/Oxygen/OxygenPipes_Blueprint_Atlas</texPath>
       </blueprintGraphicData>
+      <canConstructInCorner>true</canConstructInCorner>
     </building>
     <drawerType>MapMeshOnly</drawerType>
     <altitudeLayer>Conduits</altitudeLayer>
