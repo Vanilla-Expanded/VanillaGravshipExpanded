@@ -2,6 +2,7 @@
 using RimWorld;
 using RimWorld.Planet;
 using RimWorld.SketchGen;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
@@ -95,51 +96,24 @@ namespace VanillaGravshipExpanded
                 {
                     float num = MapGenerator.Elevation[allCell];
                     float num2 = MapGenerator.Caves[allCell];
-                    if (num < 0.5f && num2 == 0f)
+                    if (num < 0.5f)
                     {
-                        GenSpawn.Spawn(ThingDefOf.Vacstone, allCell, map);
-                    }
-                    if (num < 0.7f)
-                    {
-                        map.roofGrid.SetRoof(allCell, RoofDefOf.RoofRockThin);
-                    }
-                    if (num < 0.7f)
-                    {
+                       
                         map.terrainGrid.SetTerrain(allCell, ThingDefOf.Vacstone.building.naturalTerrain);
                     }
-
-                    /*
-
-                    if (num > 0.5f)
-                    {
-                        map.terrainGrid.SetTerrain(allCell, ThingDefOf.Vacstone.building.naturalTerrain);
-                    }
-                    if (num > 0.7f && num2 == 0f)
+                  
+                    if (num <0.3f)
                     {
                         GenSpawn.Spawn(ThingDefOf.Vacstone, allCell, map);
-                    }
-                    if (num > 0.7f)
-                    {
-                        map.roofGrid.SetRoof(allCell, RoofDefOf.RoofRockThin);
-                    }*/
-                }
-                HashSet<IntVec3> mainIsland = new HashSet<IntVec3>();
-                map.floodFiller.FloodFill(map.Center, (IntVec3 x) => x.GetTerrain(map) != TerrainDefOf.Space, delegate (IntVec3 x)
-                {
-                    mainIsland.Add(x);
-                });
-                foreach (IntVec3 allCell2 in map.AllCells)
-                {
-                    if (!mainIsland.Contains(allCell2))
-                    {
-                        map.terrainGrid.SetTerrain(allCell2, TerrainDefOf.Space);
-                        map.roofGrid.SetRoof(allCell2, null);
-                        foreach (Thing item in allCell2.GetThingList(map).ToList())
+                        if (num2!= 0f)
                         {
-                            item.Destroy();
+                            map.roofGrid.SetRoof(allCell, RoofDefOf.RoofRockThin);
                         }
                     }
+
+                  
                 }
+             
             }
         }
 
@@ -155,17 +129,16 @@ namespace VanillaGravshipExpanded
         protected virtual ModuleBase ConfigureNoise(Map map, GenStepParams parms)
         {
             ModuleBase input;
-            input = new Perlin(0.05000000074505806, 1.5, 0.5, 4, Rand.Int, QualityMode.Medium);
+            input = new Perlin(0.019999999552965164, 2.0, 0.5, 2, Rand.Int, QualityMode.Medium);
             input = new ScaleBias(0.5, 0.5, input);
+            input = MapNoiseUtility.AddDisplacementNoise(input, 0.015f, 25f);
 
-            //input = new ScaleBias(-1.0, 1.0, input);
-            input = new Scale(0.64999997615814209, 1.0, 1.0, input);
-            input = new Rotate(0.0, Rand.Range(0f, 360f), 0.0, input);
-            input = new Translate(-map.Center.x, 0.0, -map.Center.z, input);
-            NoiseDebugUI.StoreNoiseRender(input, "Base asteroid shape");
-            input = new Blend(new Perlin(0.0060000000521540642, 2.0, 2.0, 3, Rand.Int, QualityMode.Medium), input, new Const(0.800000011920929));
-            input = new Blend(new Perlin(0.05000000074505806, 2.0, 0.5, 6, Rand.Int, QualityMode.Medium), input, new Const(0.85000002384185791));
-            input = new Power(input, new Const(0.20000000298023224));
+            ModuleBase input2 = new DistFromPoint((float)map.Size.x * 0.95f);
+            input2 = new Scale(1, 1.0, 1.0, input2);
+            input2 = new Translate(input: new Rotate(0.0, 0.3, 0.0, input2), x: (float)(-map.Size.x) / 2f, y: 0.0, z: (float)(-map.Size.z) / 2f);
+            input2 = MapNoiseUtility.AddDisplacementNoise(input2, 0.015f, 35f, 4, map.Tile.tileId);
+
+            input = new Max(input2, input);
             NoiseDebugUI.StoreNoiseRender(input, "Asteroid");
             return input;
         }
