@@ -5,7 +5,6 @@ using Verse.Sound;
 
 namespace VanillaGravshipExpanded
 {
-
     [HarmonyPatch(typeof(Building_TurretGun), "TryStartShootSomething")]
     public static class Building_TurretGun_TryStartShootSomething_Patch
     {
@@ -17,7 +16,7 @@ namespace VanillaGravshipExpanded
             }
             return true;
         }
-        
+
         public static void Postfix(Building_TurretGun __instance)
         {
             if (__instance.CurrentTarget.IsValid)

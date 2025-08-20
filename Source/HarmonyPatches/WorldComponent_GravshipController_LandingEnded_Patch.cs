@@ -29,7 +29,7 @@ namespace VanillaGravshipExpanded
                         if (blocker.MaxHitPoints >= 300 && Rand.Chance(GetSubstructureDamageChance(blocker.MaxHitPoints)))
                         {
                             var terrain = map.terrainGrid.FoundationAt(cell);
-                            if (terrain == VGEDefOf.Substructure)
+                            if (terrain == TerrainDefOf.Substructure)
                             {
                                 map.terrainGrid.SetFoundation(cell, VGEDefOf.VGE_DamagedSubstructure);
                             }
@@ -57,7 +57,7 @@ namespace VanillaGravshipExpanded
                             }
                         }
                         var terrain = map.terrainGrid.FoundationAt(cell);
-                        if (terrain == VGEDefOf.Substructure || terrain == VGEDefOf.VGE_DamagedSubstructure)
+                        if (terrain == TerrainDefOf.Substructure || terrain == VGEDefOf.VGE_DamagedSubstructure)
                         {
                             map.terrainGrid.RemoveFoundation(cell);
                         }

@@ -16,6 +16,8 @@ namespace VanillaGravshipExpanded
             compClass = typeof(CompProjectileInterceptor);
         }
     }
+    
+    [HotSwappable]
     public class CompProjectileInterceptor : ThingComp
     {
         private CompRefuelable refuelableComp;
@@ -61,10 +63,12 @@ namespace VanillaGravshipExpanded
 
         private Thing FindTarget()
         {
-            var potentialTargets = parent.Map.listerThings.AllThings.Where(t =>
-                !t.Destroyed && t.Position.InHorDistOf(parent.Position, Props.interceptionRadius) && IsValidTarget(t));
+            var allThings = parent.Map.listerThings.AllThings.Where(t =>
+                !t.Destroyed && t.DrawPos.ToIntVec3().DistanceTo(parent.Position) <= Props.interceptionRadius);
 
-            return potentialTargets.OrderBy(t => t.Position.DistanceToSquared(parent.Position)).FirstOrDefault();
+            var potentialTargets = allThings.Where(t => IsValidTarget(t)).ToList();
+
+            return potentialTargets.OrderBy(t => t.DrawPos.ToIntVec3().DistanceTo(parent.Position)).FirstOrDefault();
         }
 
         private bool IsValidTarget(Thing t)
@@ -73,10 +77,23 @@ namespace VanillaGravshipExpanded
             {
                 return true;
             }
-            if (t is Skyfaller skyfaller && skyfaller.innerContainer.Any(thing => thing is Pawn pawn && pawn.HostileTo(parent.Faction)))
+
+            if (t is DropPodIncoming dropPod)
             {
-                return true;
+                var allPawns = dropPod.innerContainer.Where(thing => thing is Pawn).Cast<Pawn>().ToList();
+                var transporters = dropPod.innerContainer.Where(thing => thing is ActiveTransporter).Cast<ActiveTransporter>().ToList();
+                foreach (var transporter in transporters)
+                {
+                    var transporterPawns = transporter.Contents.innerContainer.Where(thing => thing is Pawn).Cast<Pawn>().ToList();
+                    allPawns.AddRange(transporterPawns);
+                }
+                var hostilePawns = allPawns.Where(pawn => pawn.HostileTo(parent.Faction)).ToList();
+                if (hostilePawns.Any())
+                {
+                    return true;
+                }
             }
+
             return false;
         }
 
@@ -88,8 +105,9 @@ namespace VanillaGravshipExpanded
                 eff.Trigger(parent, new TargetInfo(target.Position, parent.Map));
                 eff.Cleanup();
                 FleckMaker.ThrowSmoke(target.Position.ToVector3(), parent.Map, 1.2f);
-                if (target is Skyfaller)
+                if (target is DropPodIncoming)
                 {
+                    Log.Message($"CompProjectileInterceptor: {parent.Label} spawning slag for dropPod {target} at {target.Position}");
                     GenSpawn.Spawn(ThingDefOf.ChunkSlagSteel, target.Position, parent.Map);
                 }
                 target.Destroy(DestroyMode.Vanish);
@@ -103,14 +121,16 @@ namespace VanillaGravshipExpanded
             {
                 float velocity = projectile.def.projectile.speed;
                 float chance = 0.98f * (float)Math.Exp(-Math.Max(0, velocity - 30) / 60f);
-                if (Rand.Value < Mathf.Clamp(chance, 0.05f, 0.98f))
+                chance = Mathf.Clamp(chance, 0.05f, 0.98f);
+                if (Rand.Chance(chance))
                 {
                     success = true;
                 }
             }
-            else if (target is Skyfaller)
+            else if (target is DropPodIncoming)
             {
-                if (Rand.Value < 0.25f)
+                float chance = 0.25f;
+                if (Rand.Chance(chance))
                 {
                     success = true;
                 }

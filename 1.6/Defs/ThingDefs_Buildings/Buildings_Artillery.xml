@@ -266,5 +266,129 @@
             </li>
         </verbs>
     </ThingDef>
+    <ThingDef ParentName="VGE_GravshipArtilleryBase">
+        <defName>VGE_JavelinLauncher</defName>
+        <label>javelin launcher</label>
+        <description>A heavy multi-tube missile platform that fires a spread of 12 long-range guided astrofuel-propelled javelins. Designed for saturation strikes against surface targets and rival gravships in orbit. Requires a linked targeting terminal with an operator to function. It draws power directly from the grav engine.</description>
+        <thingClass>VanillaGravshipExpanded.Building_JavelinLauncher</thingClass>
+        <uiIconPath>Things/Structures/Artillery/JavelinLauncher_MenuIcon</uiIconPath>
+        <graphicData>
+            <texPath>Things/Structures/Artillery/GravshipArtillery_Base_Normal</texPath>
+            <drawSize>(5,5)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>900</MaxHitPoints>
+            <Flammability>0.4</Flammability>
+            <WorkToBuild>25000</WorkToBuild>
+            <Beauty>-40</Beauty>
+        </statBases>
+        <size>(5,5)</size>
+        <costList>
+            <Steel>400</Steel>
+            <GravlitePanel>60</GravlitePanel>
+            <ComponentIndustrial>10</ComponentIndustrial>
+            <VGSE_Astrofuel>60</VGSE_Astrofuel>
+        </costList>
+        <constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+        <building>
+            <turretGunDef>VGE_Gun_JavelinLauncher</turretGunDef>
+            <turretBurstCooldownTime>40</turretBurstCooldownTime>
+            <turretTopDrawSize>7</turretTopDrawSize>
+        </building>
+        <comps>
+            <li Class="CompProperties_Refuelable">
+                <fuelLabel>Astrofuel</fuelLabel>
+                <fuelGizmoLabel>Astrofuel</fuelGizmoLabel>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>VGSE_Astrofuel</li>
+                    </thingDefs>
+                </fuelFilter>
+                <fuelCapacity>60</fuelCapacity>
+                <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+                <showFuelGizmo>true</showFuelGizmo>
+                <outOfFuelMessage>Missing rockets</outOfFuelMessage>
+            </li>
+        </comps>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.TurretExtension_RotationSpeed">
+                <rotationSpeed>45</rotationSpeed>
+            </li>
+            <li Class="VanillaGravshipExpanded.TurretExtension_Barrels">
+                <barrels>
+                    <li>(2.375, 0, 4)</li>
+                    <li>(2.0625, 0, 4)</li>
+                    <li>(1.75, 0, 4)</li>
+                    <li>(-1.75, 0, 4)</li>
+                    <li>(-2.0625, 0, 4)</li>
+                    <li>(-2.375, 0, 5)</li>
+                </barrels>
+            </li>
+        </modExtensions>
+        <placeWorkers>
+            <li>PlaceWorker_TurretTop</li>
+        </placeWorkers>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>VGE_Gun_JavelinLauncher</defName>
+        <label>javelin launcher</label>
+        <description>A multi-tube javelin launcher for gravship use. Requires a linked, manned targeting terminal to operate.</description>
+        <graphicData>
+            <texPath>Things/Structures/Artillery/JavelinLauncher_TurretTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawOffset>(0,0,0.1)</drawOffset>
+        </graphicData>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <defaultProjectile>VGE_Rocket_JavelinRocket</defaultProjectile>
+                <warmupTime>300</warmupTime>
+                <range>99999</range>
+                <minRange>20.0</minRange>
+                <burstShotCount>12</burstShotCount>
+                <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
+                <soundCast>JavelinLauncher_Cast</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>8</muzzleFlashScale>
+                <forcedMissRadius>12</forcedMissRadius>
+                <requireLineOfSight>false</requireLineOfSight>
+                <consumeFuelPerShot>5</consumeFuelPerShot>
+                <isMortar>false</isMortar>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+            </li>
+        </verbs>
+        <building>
+            <turretTopLoadedGraphic>
+                <texPath>Things/Structures/Artillery/JavelinLauncher_TurretTop_Loaded</texPath>
+                <graphicClass>Graphic_Single</graphicClass>
+            </turretTopLoadedGraphic>
+        </building>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>VGE_Rocket_JavelinRocket</defName>
+        <label>Javelin rocket</label>
+        <graphicData>
+            <texPath>Things/Projectiles/Rocket_Javelin</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
+        <thingClass>VanillaGravshipExpanded.Projectile_JavelinRocket</thingClass>
+        <projectile>
+            <damageDef>Bomb</damageDef>
+            <damageAmountBase>50</damageAmountBase>
+            <armorPenetrationBase>0.1</armorPenetrationBase>
+            <speed>70</speed>
+            <explosionRadius>3.9</explosionRadius>
+            <flyOverhead>true</flyOverhead>
+            <stoppingPower>0.5</stoppingPower>
+            <soundImpact>BulletImpact_Metal</soundImpact>
+            <soundExplode>MortarBomb_Explode</soundExplode>
+            <soundAmbient>MortarRound_Ambient</soundAmbient>
+        </projectile>
+    </ThingDef>
 
 </Defs>
