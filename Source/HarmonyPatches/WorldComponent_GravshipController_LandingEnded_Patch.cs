@@ -3,19 +3,23 @@ using RimWorld;
 using Verse;
 using System.Linq;
 using RimWorld.Planet;
+using System.Collections.Generic;
 
 namespace VanillaGravshipExpanded
 {
+    [HotSwappable]
     [HarmonyPatch(typeof(WorldComponent_GravshipController), "LandingEnded")]
     public static class WorldComponent_GravshipController_LandingEnded_Patch
     {
         public static void Prefix(WorldComponent_GravshipController __instance)
         {
             var gravship = __instance.gravship;
-            var map = __instance.map;
-
-            foreach (var blocker in GravshipMapGenUtility.BlockingThings.Distinct().ToList())
+            var map = gravship.Engine.Map;
+            var foundations = gravship.Foundations.Keys;
+            
+            foreach (var blocker in GravshipMapGenUtility.BlockingThings)
             {
+                var cells = blocker.OccupiedRect();
                 if (blocker.def.destroyable)
                 {
                     float damageAmount = blocker.MaxHitPoints * 0.25f;
@@ -64,7 +68,6 @@ namespace VanillaGravshipExpanded
                     }
                 }
             }
-            GravshipMapGenUtility.Reset();
         }
 
         private static float GetSubstructureDamageChance(float hp)

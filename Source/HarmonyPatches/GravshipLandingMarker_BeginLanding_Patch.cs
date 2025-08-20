@@ -1,15 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
 using HarmonyLib;
 using RimWorld;
 using Verse;
 
 namespace VanillaGravshipExpanded
 {
+    [HotSwappable]
     [HarmonyPatch(typeof(GravshipLandingMarker), "BeginLanding")]
     public static class GravshipLandingMarker_BeginLanding_Patch
     {
         public static bool Prefix(GravshipLandingMarker __instance, WorldComponent_GravshipController gravshipController)
         {
-            if (GravshipMapGenUtility.BlockingThings.Any())
+            var things = GravshipMapGenUtility.GetBlockingThings(__instance.GravshipCells.Select(x => x + __instance.Position), __instance.Map);
+            if (things.Any())
             {
                 string text = "VGE_ConfirmCrashLanding".Translate();
                 Dialog_MessageBox dialog = Dialog_MessageBox.CreateConfirmation(text, delegate

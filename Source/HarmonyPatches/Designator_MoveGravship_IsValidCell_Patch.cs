@@ -4,6 +4,7 @@ using Verse;
 
 namespace VanillaGravshipExpanded
 {
+    [HotSwappable]
     [HarmonyPatch(typeof(Designator_MoveGravship), "IsValidCell")]
     public static class Designator_MoveGravship_IsValidCell_Patch
     {
@@ -18,7 +19,7 @@ namespace VanillaGravshipExpanded
             return false;
         }
 
-        private static AcceptanceReport IsValidCell(IntVec3 cell, Map map)
+        public static AcceptanceReport IsValidCell(IntVec3 cell, Map map)
         {
             if (!cell.InBounds(map))
             {
@@ -38,27 +39,13 @@ namespace VanillaGravshipExpanded
                     }
                 }
             }
-            if (cell.Roofed(map))
-            {
-                GravshipMapGenUtility.RoofedCells.Add(cell);
-            }
-            foreach (Thing thing in cell.GetThingList(map))
-            {
-                if (!thing.def.preventGravshipLandingOn)
-                {
-                    BuildingProperties building = thing.def.building;
-                    if (building == null || building.canLandGravshipOn)
-                    {
-                        continue;
-                    }
-                }
-                GravshipMapGenUtility.BlockingThings.Add(thing);
-            }
+            GravshipMapGenUtility.GetBlockingThingsInCell(cell, map);
             if (!GenConstruct.CanBuildOnTerrain(TerrainDefOf.Substructure, cell, map, Rot4.North))
             {
                 return "GravshipBlockedByTerrain".Translate(cell.GetTerrain(map));
             }
             return true;
         }
+
     }
 }

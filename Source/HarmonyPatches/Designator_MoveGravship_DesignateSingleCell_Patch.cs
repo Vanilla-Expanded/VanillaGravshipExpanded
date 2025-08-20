@@ -10,7 +10,8 @@ namespace VanillaGravshipExpanded
     {
         public static bool Prefix(Designator_MoveGravship __instance, IntVec3 c)
         {
-            if (GravshipMapGenUtility.BlockingThings.Any())
+            var things = GravshipMapGenUtility.GetBlockingThings(__instance.marker.GravshipCells.Select((IntVec3 cell) => cell + c), __instance.Map);
+            if (things.Any())
             {
                 Messages.Message("VGE_CrashLandingWarning".Translate(), MessageTypeDefOf.CautionInput);
             }

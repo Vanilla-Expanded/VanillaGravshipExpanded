@@ -1,3 +1,4 @@
+using RimWorld;
 using RimWorld.Planet;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +9,6 @@ namespace VanillaGravshipExpanded
     [HotSwappable]
     public static class GravshipMapGenUtility
     {
-        public static List<Thing> BlockingThings = new List<Thing>();
-        public static List<IntVec3> RoofedCells = new List<IntVec3>();
-        public static void Reset()
-        {
-            BlockingThings.Clear();
-            RoofedCells.Clear();
-            Log.Message("GravshipMapGenUtility reset called.");
-        }
         public static IEnumerable<CellRect> ClampOccupiedRectsToRadius(IEnumerable<CellRect> originalRects, Gravship gravship)
         {
             IntVec3 enginePosition = gravship.Engine.Position;
@@ -56,6 +49,34 @@ namespace VanillaGravshipExpanded
             IntVec3 enginePosition = gravship.Engine.Position;
             cells.RemoveWhere(cell => cell.DistanceTo(enginePosition) > 30f);
             return cells;
+        }
+        
+        public static HashSet<Thing> BlockingThings = new HashSet<Thing>();
+        public static HashSet<Thing> GetBlockingThings(IEnumerable<IntVec3> cells, Map map)
+        {
+            var blockingThings = new HashSet<Thing>();
+            foreach (var cell in cells)
+            {
+                blockingThings.AddRange(GetBlockingThingsInCell(cell, map));
+            }
+            BlockingThings = blockingThings;
+            return blockingThings;
+        }
+
+        public static IEnumerable<Thing> GetBlockingThingsInCell(IntVec3 cell, Map map)
+        {
+            foreach (var thing in cell.GetThingList(map))
+            {
+                if (!thing.def.preventGravshipLandingOn)
+                {
+                    var building = thing.def.building;
+                    if (building == null || building.canLandGravshipOn)
+                    {
+                        continue;
+                    }
+                }
+                yield return thing;
+            }
         }
     }
 }

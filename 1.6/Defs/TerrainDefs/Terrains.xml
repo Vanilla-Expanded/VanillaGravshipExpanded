@@ -5,17 +5,23 @@
 		<description>A warped and twisted section of gravship substructure. Once a solid truss with decking, it has been bent out of shape by heavy stress or impact. The grav engine’s levitation field still grips it, but its integrity is compromised: any further damage will cause this piece of substructure to collapse completely.</description>
 		<texturePath>Things/Terrain/Substructure/DamagedSubstructure</texturePath>
 		<fertility>0</fertility>
-		<edgeType>FadeRough</edgeType>
-		<renderPrecedence>340</renderPrecedence>
+		<edgeType>Hard</edgeType>
+		<renderPrecedence>399</renderPrecedence>
+		<constructEffect>ConstructMetal</constructEffect>
 		<isPaintable>true</isPaintable>
 		<isFoundation>true</isFoundation>
 		<preventCraters>true</preventCraters>
+		<affordances>
+			<li>Substructure</li>
+		</affordances>
 		<statBases>
 			<Flammability>0</Flammability>
 			<CleaningTimeFactor>0.9</CleaningTimeFactor>
 		</statBases>
-		<uiOrder>1000</uiOrder>
 		<terrainAffordanceNeeded>Walkable</terrainAffordanceNeeded>
+		<tags>
+			<li>Substructure</li>
+		</tags>
 		<placeWorkers>
 			<li>PlaceWorker_InSubstructureFootprint</li>
 			<li>PlaceWorker_BuildingsValidOverSubstructure</li>
