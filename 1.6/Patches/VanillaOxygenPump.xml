@@ -19,6 +19,7 @@
     </value>
 	</Operation>
 
+  <!-- Modify original cost to compensate for the need for entire pipe network. -->
   <Operation Class="PatchOperationReplace">
     <xpath>Defs/ThingDef[defName="OxygenPump"]/costList/Steel</xpath>
     <value>
@@ -33,6 +34,7 @@
     </value>
   </Operation>
 
+  <!-- Replace vanilla graphics with our own. -->
   <Operation Class="PatchOperationReplace">
     <xpath>Defs/ThingDef[defName="OxygenPump"]/uiIconPath</xpath>
     <value>
@@ -47,6 +49,7 @@
     </value>
   </Operation>
 
+  <!-- Remove low power mode comp from oxygen pump, as our oxygen pusher comp handles it itself. -->
   <Operation Class="PatchOperationRemove">
     <xpath>Defs/ThingDef[defName="OxygenPump"]/comps/li[@Class="CompProperties_LowPowerUnlessVacuum"]</xpath>
   </Operation>

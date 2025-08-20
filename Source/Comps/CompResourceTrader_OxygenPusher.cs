@@ -80,7 +80,7 @@ public class CompResourceTrader_OxygenPusher : CompResourceTrader
 
         var change = 100f / room.CellCount * Props.airPerSecondPerHundredCells * CompOxygenPusher.IntervalToPerSecond * (consumption / maxConsumption);
         var vacuumAfter = room.UnsanitizedVacuum - change;
-        // Scale the 
+        // Scale the consumption with the actual amount of oxygen pushed
         if (vacuumAfter < 0)
             consumption *= (change + vacuumAfter) / change;
 
