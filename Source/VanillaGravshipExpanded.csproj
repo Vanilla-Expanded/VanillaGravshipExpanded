@@ -43,9 +43,8 @@
     <None Remove=".editorconfig" />
     <None Remove="mono_crash.*.json" />
   </ItemGroup>
-  
 
   <ItemGroup>
-    <Publicize Include="Assembly-CSharp" />
+    <Publicize Include="Assembly-CSharp" IncludeCompilerGeneratedMembers="false" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="PlantBase">
+    <defName>VGSE_OxyalgaePlant</defName>
+    <label>oxyalgae plant</label>
+    <description>A fast-growing aquatic plant cultivated in hydroponics and used to generate oxygen when connected to a life support system. Rots quickly when harvested, making immediate processing essential.</description>
+    <statBases>
+      <MaxHitPoints>85</MaxHitPoints>
+      <Flammability>0.75</Flammability>
+      <Nutrition>0.3</Nutrition>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Plant/OxyalgaePlant</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+    </graphicData>
+    <selectable>true</selectable>
+    <pathCost>14</pathCost>
+    <ingestible />
+    <plant>
+      <fertilityMin>2</fertilityMin>
+      <fertilitySensitivity>1</fertilitySensitivity>
+      <growDays>5</growDays>
+      <dieIfLeafless>true</dieIfLeafless>
+      <maxMeshCount>4</maxMeshCount>
+      <harvestTag>Standard</harvestTag>
+      <harvestedThingDef>VGSE_Oxyalgae</harvestedThingDef>
+      <harvestYield>6</harvestYield>
+      <sowTags>
+        <li>Hydroponic</li>
+      </sowTags>
+      <sowWork>170</sowWork>
+      <harvestWork>200</harvestWork>
+      <sowResearchPrerequisites>
+        <li>StandardGravtech</li>
+      </sowResearchPrerequisites>
+      <topWindExposure>0.1</topWindExposure>
+      <visualSizeRange>0.5~0.8</visualSizeRange>
+      <wildOrder>1</wildOrder>
+      <purpose>Misc</purpose>
+    </plant>
+  </ThingDef>
+
+</Defs>
