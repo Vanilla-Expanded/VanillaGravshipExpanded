@@ -57,12 +57,13 @@ namespace VanillaGravshipExpanded
         public override void Launch(Thing launcher, Vector3 origin, LocalTargetInfo usedTarget, LocalTargetInfo intendedTarget, ProjectileHitFlags hitFlags, bool preventFriendlyFire = false, Thing equipment = null, ThingDef targetCoverDef = null)
         {
             var comp = launcher.TryGetComp<CompWorldArtillery>();
+            var turret = launcher as Building_GravshipTurret;
             if (comp.worldTarget.IsValid && comp.worldTarget.Tile != this.Tile)
             {
                 var edgeCell = comp.FindEdgeCell(launcher.Map, comp.worldTarget);
                 this.targetTile = comp.worldTarget.Tile;
                 this.targetCell = comp.targetCell;
-                var shooter = (launcher as Building_GravshipTurret).ManningPawn;
+                var shooter = turret.ManningPawn;
                 float newMiss = comp.FinalForcedMissRadius(comp.worldTarget, shooter);
                 this.missRadius = newMiss;
                 intendedTarget = edgeCell;
@@ -72,6 +73,7 @@ namespace VanillaGravshipExpanded
             {
                 base.Launch(launcher, origin, usedTarget, intendedTarget, hitFlags, preventFriendlyFire, equipment, targetCoverDef);
             }
+            turret.TrySwitchBarrel();
         }
 
         public override void ImpactSomething()

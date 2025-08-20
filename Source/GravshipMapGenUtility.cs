@@ -5,6 +5,7 @@ using Verse;
 
 namespace VanillaGravshipExpanded
 {
+    [HotSwappable]
     public static class GravshipMapGenUtility
     {
         public static List<Thing> BlockingThings = new List<Thing>();
@@ -13,6 +14,7 @@ namespace VanillaGravshipExpanded
         {
             BlockingThings.Clear();
             RoofedCells.Clear();
+            Log.Message("GravshipMapGenUtility reset called.");
         }
         public static IEnumerable<CellRect> ClampOccupiedRectsToRadius(IEnumerable<CellRect> originalRects, Gravship gravship)
         {

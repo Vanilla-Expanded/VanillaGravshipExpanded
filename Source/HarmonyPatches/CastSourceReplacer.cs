@@ -20,7 +20,7 @@ namespace VanillaGravshipExpanded
         {
             return instructions.MethodReplacer(
                 AccessTools.PropertyGetter(typeof(Thing), nameof(Thing.DrawPos)),
-                AccessTools.Method(typeof(Building_JavelinLauncher), nameof(Building_JavelinLauncher.GetCastSource))
+                AccessTools.Method(typeof(Building_GravshipTurret), nameof(Building_GravshipTurret.GetCastSource))
             );
         }
     }

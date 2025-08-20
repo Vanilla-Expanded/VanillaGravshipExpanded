@@ -5,6 +5,7 @@ using Verse.Sound;
 
 namespace VanillaGravshipExpanded
 {
+    [HotSwappable]
     [HarmonyPatch(typeof(Building_TurretGun), "TryStartShootSomething")]
     public static class Building_TurretGun_TryStartShootSomething_Patch
     {

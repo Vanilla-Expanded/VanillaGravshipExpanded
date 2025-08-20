@@ -17,10 +17,6 @@ namespace VanillaGravshipExpanded
         {
             smokeTicksLeft = 180;
             base.Launch(launcher, origin, usedTarget, intendedTarget, hitFlags, preventFriendlyFire, equipment, targetCoverDef);
-            if (launcher is Building_JavelinLauncher javelinLauncher)
-            {
-                javelinLauncher.SwitchBarrel();
-            }
         }
 
         public override void Tick()

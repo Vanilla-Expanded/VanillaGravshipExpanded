@@ -107,7 +107,6 @@ namespace VanillaGravshipExpanded
                 FleckMaker.ThrowSmoke(target.Position.ToVector3(), parent.Map, 1.2f);
                 if (target is DropPodIncoming)
                 {
-                    Log.Message($"CompProjectileInterceptor: {parent.Label} spawning slag for dropPod {target} at {target.Position}");
                     GenSpawn.Spawn(ThingDefOf.ChunkSlagSteel, target.Position, parent.Map);
                 }
                 target.Destroy(DestroyMode.Vanish);

@@ -12,6 +12,11 @@ namespace VanillaGravshipExpanded
         public float rotationSpeed;
     }
 
+    public class TurretExtension_Barrels : DefModExtension
+    {
+        public List<Vector3> barrels;
+    }
+
     [HotSwappable]
     [StaticConstructorOnStartup]
     public class Building_GravshipTurret : Building_TurretGun
@@ -19,6 +24,8 @@ namespace VanillaGravshipExpanded
         private float curAngle;
         private float rotationSpeed;
         private float rotationVelocity;
+        private int barrelIndex = -1;
+        private List<Vector3> barrels;
         public Building_TargetingTerminal linkedTerminal;
         private static readonly Texture2D ForceTargetIcon = ContentFinder<Texture2D>.Get("UI/Gizmos/GravshipArtilleryForceTarget");
         private static readonly Texture2D HoldFireIcon = ContentFinder<Texture2D>.Get("UI/Gizmos/GravshipArtilleryHoldFire");
@@ -29,6 +36,34 @@ namespace VanillaGravshipExpanded
         public bool MannedByPlayer => linkedTerminal?.MannableComp?.MannedNow ?? false;
 
         public Pawn ManningPawn => linkedTerminal?.MannableComp?.ManningPawn;
+
+        public Vector3 CastSource
+        {
+            get
+            {
+                if (barrels != null)
+                {
+                    if (barrelIndex < 0)
+                    {
+                        barrelIndex = 0;
+                    }
+                    var result = DrawPos + barrels[barrelIndex].RotatedBy(top.CurRotation);
+                    return result;
+                }
+                return DrawPos;
+            }
+        }
+
+        public static Vector3 GetCastSource(Thing thing) => thing is Building_GravshipTurret turret ? turret.CastSource : thing.DrawPos;
+
+        public void TrySwitchBarrel()
+        {
+            if (barrels != null)
+            {
+                barrelIndex = (barrelIndex + 1) % barrels.Count;
+            }
+        }
+
         public override bool CanSetForcedTarget
         {
             get
@@ -49,10 +84,22 @@ namespace VanillaGravshipExpanded
             {
                 rotationSpeed = ext.rotationSpeed;
             }
+
+            var barrelExt = def.GetModExtension<TurretExtension_Barrels>();
+            if (barrelExt != null)
+            {
+                barrels = barrelExt.barrels;
+            }
         }
         public override void Tick()
         {
             base.Tick();
+
+            if (linkedTerminal != null && (linkedTerminal.Destroyed || !linkedTerminal.Spawned))
+            {
+                Unlink();
+            }
+
             if (rotationSpeed > 0)
             {
                 if (MannedByPlayer && CurrentTarget.IsValid && Active && AttackVerb.Available())
@@ -87,7 +134,9 @@ namespace VanillaGravshipExpanded
         {
             base.ExposeData();
             Scribe_Values.Look(ref rotationVelocity, "rotationVelocity");
+            Scribe_Values.Look(ref barrelIndex, "barrelIndex", -1);
             Scribe_References.Look(ref linkedTerminal, "linkedTerminal");
+            Scribe_Values.Look(ref curAngle, "curAngle");
         }
 
 

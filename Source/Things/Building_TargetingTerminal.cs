@@ -36,6 +36,16 @@ namespace VanillaGravshipExpanded
             Scribe_References.Look(ref linkedTurret, "linkedTurret");
         }
 
+        public override void Tick()
+        {
+            base.Tick();
+
+            if (linkedTurret != null && (linkedTurret.Destroyed || !linkedTurret.Spawned))
+            {
+                Unlink();
+            }
+        }
+
         public override void DrawExtraSelectionOverlays()
         {
             base.DrawExtraSelectionOverlays();
