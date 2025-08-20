@@ -16,6 +16,8 @@ namespace VanillaGravshipExpanded
             compClass = typeof(CompWorldArtillery);
         }
     }
+    
+    [HotSwappable]
     [StaticConstructorOnStartup]
     public class CompWorldArtillery : ThingComp
     {
@@ -88,7 +90,7 @@ namespace VanillaGravshipExpanded
             Find.WorldTargeter.BeginTargeting(
                 (GlobalTargetInfo globalTarget) =>
                 {
-                    if (Find.WorldObjects.MapParentAt(globalTarget.Tile) is MapParent mapParent)
+                    if (Find.WorldObjects.MapParentAt(globalTarget.Tile) is MapParent mapParent && mapParent.Map != null)
                     {
                         var map = mapParent.Map;
                         Current.Game.CurrentMap = map;
@@ -136,11 +138,6 @@ namespace VanillaGravshipExpanded
                 delegate (GlobalTargetInfo t)
                 {
                     if (Find.WorldGrid.ApproxDistanceInTiles(parent.Map.Tile, t.Tile) > Props.worldMapAttackRange)
-                    {
-                        return false;
-                    }
-                    Map map = Find.WorldObjects.MapParentAt(t.Tile)?.Map;
-                    if (map == null)
                     {
                         return false;
                     }

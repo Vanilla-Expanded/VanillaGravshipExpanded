@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<WorldObjectDef>
-		<defName>VGE_WorldObject_ArtilleryProjectile</defName>
-		<label>artillery projectile</label>
+		<defName>VGE_ArtilleryProjectile</defName>
+		<label>artillery shot</label>
 		<worldObjectClass>VanillaGravshipExpanded.WorldObject_ArtilleryProjectile</worldObjectClass>
-		<texture>Things/Projectiles/GaussShot_Small</texture>
 		<expandingIcon>true</expandingIcon>
+		<texture>Things/Projectiles/Rocket_Javelin</texture>
 		<useDynamicDrawer>true</useDynamicDrawer>
+		<expandMore>true</expandMore>
 	</WorldObjectDef>
+
 	<WorldObjectDef ParentName="GeneratedAsteroid">
 		<defName>VGE_IceAsteroid</defName>
 		<worldObjectClass>VanillaGravshipExpanded.IceAsteroidMapParent</worldObjectClass>

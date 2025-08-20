@@ -14,6 +14,8 @@ namespace VanillaGravshipExpanded
         public ThingDef projectileDef;
         public float missRadius;
         public Thing launcher;
+
+        public override Material Material => projectileDef.graphic.MatSingle;
         public override Texture2D ExpandingIcon => projectileDef.uiIcon;
         public override Color ExpandingIconColor => projectileDef.graphic.color;
         public override void ExposeData()
@@ -28,6 +30,13 @@ namespace VanillaGravshipExpanded
         }
 
         private const float TravelSpeed = 0.00025f * 2f;
+
+        public override string Label => projectileDef.label;
+
+        public override string GetDescription()
+        {
+            return projectileDef.description;
+        }
         private float traveledPct;
         private float TraveledPctStepPerTick
         {
@@ -50,6 +59,22 @@ namespace VanillaGravshipExpanded
         private Vector3 Start => Find.WorldGrid.GetTileCenter(startTile);
         private Vector3 End => Find.WorldGrid.GetTileCenter(targetTile);
         public override Vector3 DrawPos => Vector3.Slerp(Start, End, traveledPct);
+        public override bool ExpandingIconFlipHorizontal => GenWorldUI.WorldToUIPosition(Start).x > GenWorldUI.WorldToUIPosition(End).x;
+
+        public override float ExpandingIconRotation
+        {
+            get
+            {
+                Vector2 vector = GenWorldUI.WorldToUIPosition(Start);
+                Vector2 vector2 = GenWorldUI.WorldToUIPosition(End);
+                float num = Mathf.Atan2(vector2.y - vector.y, vector2.x - vector.x) * 57.29578f;
+                if (num > 180f)
+                {
+                    num -= 180f;
+                }
+                return num + 90f;
+            }
+        }
         public override void Tick()
         {
             base.Tick();
@@ -58,34 +83,6 @@ namespace VanillaGravshipExpanded
             {
                 traveledPct = 1f;
                 OnArrival();
-            }
-        }
-
-        public override void Draw()
-        {
-            float averageTileSize = Tile.Layer.AverageTileSize;
-            float rawTransitionPct = ExpandableWorldObjectsUtility.RawTransitionPct;
-            if (!Tile.LayerDef.isSpace && (bool)Material)
-            {
-                float angle = Find.WorldGrid.GetHeadingFromTo(startTile, targetTile);
-                Material mat = Material;
-                if (projectileDef != null && projectileDef.graphic != null)
-                {
-                    mat = projectileDef.graphic.MatSingle;
-                }
-
-                var propertyBlock = new MaterialPropertyBlock();
-                if (def.expandingIcon && rawTransitionPct > 0f && !ExpandableWorldObjectsUtility.HiddenByRules(this))
-                {
-                    Color color = mat.color;
-                    float num = 1f - rawTransitionPct;
-                    propertyBlock.SetColor(ShaderPropertyIDs.Color, new Color(color.r, color.g, color.b, color.a * num));
-                    WorldRendererUtility.DrawQuadTangentialToPlanet(DrawPos, 0.7f * averageTileSize, DrawAltitude, mat, angle, counterClockwise: false, useSkyboxLayer: false, propertyBlock);
-                }
-                else
-                {
-                    WorldRendererUtility.DrawQuadTangentialToPlanet(DrawPos, 0.7f * averageTileSize, DrawAltitude, mat, angle);
-                }
             }
         }
 

@@ -41,7 +41,7 @@ namespace VanillaGravshipExpanded
         {
             if (targetTile.Valid)
             {
-                var worldProjectile = (WorldObject_ArtilleryProjectile)WorldObjectMaker.MakeWorldObject(VGEDefOf.VGE_WorldObject_ArtilleryProjectile);
+                var worldProjectile = (WorldObject_ArtilleryProjectile)WorldObjectMaker.MakeWorldObject(VGEDefOf.VGE_ArtilleryProjectile);
                 worldProjectile.Tile = this.Map.Tile;
                 worldProjectile.SetFaction(this.Faction);
                 worldProjectile.startTile = this.Map.Tile;
