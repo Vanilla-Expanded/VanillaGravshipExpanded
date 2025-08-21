@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <!-- Change label -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="FuelOptimizer"]/label/text()</xpath>
+    <value>astrofuel optimizer</value>
+  </Operation>
+
+  <!-- Change description -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="FuelOptimizer"]/description/text()</xpath>
+    <value>A gravtech unit that allows grav engine lift to coordinate more efficiently with traditional thrusters. It reduces the astrofuel needed for gravship flight.\n\nA gravship can support four astrofuel optimizers.</value>
+  </Operation>
+
+  <!-- Change graphic -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="FuelOptimizer"]/graphicData/texPath/text()</xpath>
+    <value>Things/Structures/AstrofuelOptimizer/AstrofuelOptimizer</value>
+  </Operation>
+
+  <!-- Change max links -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="FuelOptimizer"]/comps/li[@Class="CompProperties_GravshipFacility"]/maxSimultaneous/text()</xpath>
+    <value>4</value>
+  </Operation>
+
+  <!-- Change fuel saving amount -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="FuelOptimizer"]/comps/li[@Class="CompProperties_GravshipFacility"]/fuelSavingsPercent/text()</xpath>
+    <value>0.15</value>
+  </Operation>
+
+</Patch>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <GravshipComponentTypeDef>
+    <defName>VGSE_OxygenGenerator</defName>
+    <label>oxygen generator</label>
+    <requiredForLaunch>false</requiredForLaunch>
+  </GravshipComponentTypeDef>
+
+</Defs>

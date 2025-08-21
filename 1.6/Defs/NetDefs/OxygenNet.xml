@@ -157,7 +157,7 @@
     </researchPrerequisites>
   </ThingDef>
 
-  <ThingDef ParentName="BuildingBase">
+  <ThingDef ParentName="GravshipComponentBase">
     <defName>VGSE_SmallOxygenTank</defName>
     <label>small oxygen tank</label>
     <description>An oxygen tank that supplies oxygen to pumps throughout the gravship.</description>
@@ -176,7 +176,6 @@
     <altitudeLayer>Building</altitudeLayer>
     <passability>Impassable</passability>
     <pathCost>50</pathCost>
-    <blockWind>true</blockWind>
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>0.40</fillPercent>
     <tickerType>Normal</tickerType>
@@ -231,7 +230,7 @@
     <disableImpassableShotOverConfigError>true</disableImpassableShotOverConfigError>
   </ThingDef>
 
-  <ThingDef ParentName="BuildingBase">
+  <ThingDef ParentName="GravshipComponentBase">
     <defName>VGSE_LargeOxygenTank</defName>
     <label>large oxygen tank</label>
     <description>A large oxygen tank that supplies oxygen to pumps throughout the gravship.</description>
@@ -250,7 +249,6 @@
     <altitudeLayer>Building</altitudeLayer>
     <passability>Impassable</passability>
     <pathCost>50</pathCost>
-    <blockWind>true</blockWind>
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>0.40</fillPercent>
     <tickerType>Normal</tickerType>
@@ -455,10 +453,12 @@
     </researchPrerequisites>
   </ThingDef>
 
-  <ThingDef ParentName="BuildingBase">
+  <ThingDef ParentName="GravshipComponentBase">
     <defName>VGSE_OxygenHarvester</defName>
     <label>oxygen harvester</label>
     <description>A device that draws in breathable oxygen from the surrounding atmosphere and stores it in the oxygen network. It functions only on planetary surfaces with an atmosphere and will not operate in vacuum or low-oxygen environments.</description>
+    <minifiedDef IsNull="True"/>
+    <thingCategories IsNull="True"/>
     <graphicData>
       <texPath>Things/Structures/OxygenScrubber/OxygenScrubber</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -472,7 +472,6 @@
     </graphicData>
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
-    <blockWind>false</blockWind>
     <fillPercent>0.4</fillPercent>
     <canOverlapZones>false</canOverlapZones>
     <castEdgeShadows>true</castEdgeShadows>
@@ -503,8 +502,8 @@
         <producerLowPowerWhenStorageFull>true</producerLowPowerWhenStorageFull>
         <soundAmbientReceivingResource>GeothermalPlant_Ambience</soundAmbientReceivingResource>
         <pipeNet>VGSE_OxygenNet</pipeNet>
-        <consumptionPerTick>-1</consumptionPerTick>
-        <idleConsumptionPerTick>-1</idleConsumptionPerTick>
+        <!-- 0.4 per 100 ticks, or 1 per 250 ticks (rare tick) -->
+        <consumptionPerTick>-0.4</consumptionPerTick>
       </li>
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
@@ -517,10 +516,12 @@
     <rotatable>false</rotatable>
   </ThingDef>
 
-  <ThingDef ParentName="BuildingBase">
+  <ThingDef ParentName="GravshipComponentBase">
     <defName>VGSE_LifeSupportSystem</defName>
     <label>life support system</label>
     <description>A vital device that processes harvested oxyalgae into breathable oxygen. Converts biomass into gas and pumps it into the oxygen network to supply pressurized rooms and equipment.</description>
+    <minifiedDef IsNull="True"/>
+    <thingCategories IsNull="True"/>
     <graphicData>
       <texPath>Things/Structures/LifeSupportTank/LifeSupportTank_Empty</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -534,7 +535,6 @@
     </graphicData>
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
-    <blockWind>false</blockWind>
     <fillPercent>0.4</fillPercent>
     <canOverlapZones>false</canOverlapZones>
     <castEdgeShadows>true</castEdgeShadows>
@@ -603,12 +603,10 @@
     <defName>VGSE_IndustrialOxygenPump</defName>
     <label>industrial oxygen pump</label>
     <description>A powerful unit that releases large amounts of oxygen into the surrounding room, allowing enclosed areas to repressurize in space. Essential for long stays in orbit.</description>
+    <minifiedDef IsNull="True"/>
+    <thingCategories IsNull="True"/>
     <tickerType>Rare</tickerType>
     <rotatable>true</rotatable>
-    <minifiedDef>MinifiedThing</minifiedDef>
-    <thingCategories>
-      <li>BuildingsMisc</li>
-    </thingCategories>
     <graphicData>
       <texPath>Things/Structures/IndustrialOxygenPump/IndustrialOxygenPump</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -663,6 +661,72 @@
     </researchPrerequisites>
     <uiOrder>2505</uiOrder>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+  </ThingDef>
+
+  <ThingDef ParentName="GravshipComponentBase">
+    <defName>VGSE_OxygenReclaimer</defName>
+    <label>oxygen reclaimer</label>
+    <description>A self-contained atmospheric unit that extracts trace oxygen from surrounding gases. It produces oxygen at a slow, steady rate, but requires no input materials. Needs to be connected to an oxygen tank via oxygen pipes to work.</description>
+    <graphicData>
+      <texPath>Things/Structures/OxygenReclaimer/OxygenReclaimer</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2,2)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.4</fillPercent>
+    <canOverlapZones>false</canOverlapZones>
+    <castEdgeShadows>true</castEdgeShadows>
+    <staticSunShadowHeight>0.4</staticSunShadowHeight>
+    <statBases>
+      <MaxHitPoints>125</MaxHitPoints>
+      <WorkToBuild>10000</WorkToBuild>
+      <Flammability>0.3</Flammability>
+      <Mass>50</Mass>
+    </statBases>
+    <size>(2,2)</size>
+    <tickerType>Rare</tickerType>
+    <costList>
+      <Steel>100</Steel>
+      <GravlitePanel>50</GravlitePanel>
+      <ComponentSpacer>5</ComponentSpacer>
+    </costList>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>100</basePowerConsumption>
+      </li>
+      <li Class="PipeSystem.CompProperties_ResourceTrader">
+        <compClass>VanillaGravshipExpanded.CompResourceTrader_ConnectedToGravship</compClass>
+        <resourceOffOverlay>false</resourceOffOverlay>
+        <producerLowPowerWhenStorageFull>true</producerLowPowerWhenStorageFull>
+        <pipeNet>VGSE_OxygenNet</pipeNet>
+        <!-- 0.05 every 100 ticks, or 1 per 2000 ticks (long tick) -->
+        <consumptionPerTick>-0.05</consumptionPerTick>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="CompProperties_GravshipFacility">
+        <componentTypeDef>VGSE_OxygenGenerator</componentTypeDef>
+        <requiresLOS>false</requiresLOS>
+        <maxSimultaneous>4</maxSimultaneous>
+        <maxDistance>500</maxDistance>
+      </li>
+    </comps>
+    <designationCategory>Odyssey</designationCategory>
+    <researchPrerequisites>
+      <li>BiofuelRefining</li>
+    </researchPrerequisites>
+    <tradeTags>
+      <li>GravshipUpgrade</li>
+    </tradeTags>
   </ThingDef>
 
 </Defs>

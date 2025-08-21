@@ -174,7 +174,6 @@
     <altitudeLayer>Building</altitudeLayer>
     <passability>Impassable</passability>
     <pathCost>50</pathCost>
-    <blockWind>true</blockWind>
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>0.40</fillPercent>
     <tickerType>Normal</tickerType>
@@ -239,7 +238,7 @@
     <disableImpassableShotOverConfigError>true</disableImpassableShotOverConfigError>
   </ThingDef>
 
-  <ThingDef ParentName="FurnitureBase">
+  <ThingDef ParentName="GravshipComponentBase">
     <defName>VGSE_AstrofuelFiller</defName>
     <label>oxygen canister filler</label>
     <description>A hopper-like storage device meant to hold dispensed oxygen in canisters for use later.</description>
@@ -313,7 +312,7 @@
     </researchPrerequisites>
   </ThingDef>
 
-  <ThingDef ParentName="FurnitureBase">
+  <ThingDef ParentName="GravshipComponentBase">
     <defName>VGSE_AstrofuelEmptier</defName>
     <label>oxygen canister emptier</label>
     <description>A hopper-like storage structure meant to input oxygen from canisters into the network, filling up connected tanks.</description>
@@ -389,11 +388,12 @@
     </researchPrerequisites>
   </ThingDef>
 
-  <ThingDef ParentName="BuildingBase">
+  <ThingDef ParentName="GravshipComponentBase">
     <defName>VGSE_AstrofuelGenerator</defName>
     <label>gas powered generator</label>
     <description>Produces power by consuming astrofuel. Much more efficient than chemfuel generators.</description>
-    <thingClass>Building</thingClass>
+    <minifiedDef IsNull="True"/>
+    <thingCategories IsNull="True"/>
     <graphicData>
       <texPath>Things/Structures/Power/AstrofuelGenerator</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -406,7 +406,6 @@
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
-    <blockWind>true</blockWind>
     <fillPercent>1.0</fillPercent>
     <rotatable>false</rotatable>
     <statBases>
@@ -471,11 +470,12 @@
     <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
   </ThingDef>
 
-  <ThingDef ParentName="BuildingBase">
+  <ThingDef ParentName="GravshipComponentBase">
     <defName>VGSE_IndustrialAstrofuelGenerator</defName>
     <label>industrial gas powered generator</label>
     <description>Produces a large amount of power by consuming astrofuel. Much more efficient than chemfuel generators.</description>
-    <thingClass>Building</thingClass>
+    <minifiedDef IsNull="True"/>
+    <thingCategories IsNull="True"/>
     <graphicData>
       <texPath>Things/Structures/Power/IndustrialAstrofuelGenerator</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -488,7 +488,6 @@
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
     <pathCost>150</pathCost>
-    <blockWind>true</blockWind>
     <fillPercent>1.0</fillPercent>
     <rotatable>false</rotatable>
     <statBases>
@@ -554,10 +553,12 @@
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
   </ThingDef>
 
-  <ThingDef ParentName="BuildingBase">
+  <ThingDef ParentName="GravshipComponentBase">
     <defName>VGSE_AstrofuelSynthesizer</defName>
     <label>astrofuel synthesizer</label>
     <description>A specialized structure that refines chemfuel into high-grade astrofuel. It must be connected to the astrofuel pipe network and linked to at least one astrofuel tank to operate. Once connected, it automatically converts inserted chemfuel into astrofuel for use in engines and systems.</description>
+    <minifiedDef IsNull="True"/>
+    <thingCategories IsNull="True"/>
     <graphicData>
       <texPath>Things/Structures/AstrofuelSynthesizer/AstrofuelSynthesizer</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -572,7 +573,6 @@
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
-    <blockWind>true</blockWind>
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>0.40</fillPercent>
     <tickerType>Normal</tickerType>
@@ -633,7 +633,7 @@
     <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
   </ThingDef>
 
-  <ThingDef ParentName="BuildingBase">
+  <ThingDef ParentName="GravshipComponentBase">
     <defName>VGSE_Astropurifier</defName>
     <label>astropurifier</label>
     <description>A gravtech unit that enhances the precision and stability of astrofuel refinement. When placed next to an astrofuel synthesizer, it enables perfect 1:1 conversion from chemfuel to astrofuel, though the process takes twice as long.</description>
@@ -651,13 +651,12 @@
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
     <pathCost>20</pathCost>
-    <blockWind>true</blockWind>
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>0.40</fillPercent>
     <statBases>
       <MaxHitPoints>150</MaxHitPoints>
       <Flammability>0.3</Flammability>
-      <Beauty>-10</Beauty>
+      <Mass>50</Mass>
     </statBases>
     <size>(2,2)</size>
     <costList>
@@ -668,9 +667,6 @@
     <comps>
       <li Class="CompProperties_Facility">
         <compClass>VanillaGravshipExpanded.CompFacility_Astropurifier</compClass>
-        <linkableBuildings>
-          <li>VGSE_AstrofuelSynthesizer</li>
-        </linkableBuildings>
         <maxSimultaneous>1</maxSimultaneous>
         <mustBePlacedAdjacent>true</mustBePlacedAdjacent>
       </li>
@@ -681,10 +677,9 @@
     <staticSunShadowHeight>0.2</staticSunShadowHeight>
     <constructEffect>ConstructMetal</constructEffect>
     <canOverlapZones>false</canOverlapZones>
-    <researchPrerequisites>
-      <li>BiofuelRefining</li>
-    </researchPrerequisites>
-    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <tradeTags>
+      <li>GravshipUpgrade</li>
+    </tradeTags>
   </ThingDef>
 
 </Defs>

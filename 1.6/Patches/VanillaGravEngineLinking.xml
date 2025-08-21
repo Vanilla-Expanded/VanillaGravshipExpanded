@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <!-- Make vanilla grav engine link with our facilities. -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="GravEngine"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+		<value>
+      <li>VGSE_OxygenReclaimer</li>
+    </value>
+	</Operation>
+
+</Patch>
