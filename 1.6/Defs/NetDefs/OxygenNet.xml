@@ -523,8 +523,8 @@
     <minifiedDef IsNull="True"/>
     <thingCategories IsNull="True"/>
     <graphicData>
-      <texPath>Things/Structures/LifeSupportTank/LifeSupportTank_Empty</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Structures/LifeSupportTank/LifeSupportTank</texPath>
+      <graphicClass>VEF.Graphics.Graphic_RefuelableSingle</graphicClass>
       <drawSize>(2,2)</drawSize>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
@@ -589,6 +589,9 @@
         <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
 <!--        <canEjectFuel>true</canEjectFuel>-->
         <drawFuelGaugeInMap>false</drawFuelGaugeInMap>
+      </li>
+      <li>
+        <compClass>VEF.Graphics.CompDirtyMapMeshOnRefuelableChange</compClass>
       </li>
     </comps>
     <designationCategory>Odyssey</designationCategory>
