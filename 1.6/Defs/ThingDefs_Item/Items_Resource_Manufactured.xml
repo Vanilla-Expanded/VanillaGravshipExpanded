@@ -13,6 +13,7 @@
     </graphicData>
     <stackLimit>150</stackLimit>
     <healthAffectsPrice>false</healthAffectsPrice>
+    <tradeability>Buyable</tradeability>
     <statBases>
       <MaxHitPoints>50</MaxHitPoints>
       <MarketValue>0.4</MarketValue>
