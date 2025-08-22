@@ -19,7 +19,6 @@ namespace VanillaGravshipExpanded
             
             foreach (var blocker in GravshipMapGenUtility.BlockingThings)
             {
-                var cells = blocker.OccupiedRect();
                 if (blocker.def.destroyable)
                 {
                     float damageAmount = blocker.MaxHitPoints * 0.25f;
@@ -39,7 +38,7 @@ namespace VanillaGravshipExpanded
                             }
                             else if (terrain == VGEDefOf.VGE_DamagedSubstructure)
                             {
-                                map.terrainGrid.RemoveFoundation(cell);
+                                map.terrainGrid.RemoveFoundation(cell, false);
                             }
                             // TODO: figure out what to do with VGE_GravshipSubscaffolding once its created
                         }
@@ -63,7 +62,7 @@ namespace VanillaGravshipExpanded
                         var terrain = map.terrainGrid.FoundationAt(cell);
                         if (terrain == TerrainDefOf.Substructure || terrain == VGEDefOf.VGE_DamagedSubstructure)
                         {
-                            map.terrainGrid.RemoveFoundation(cell);
+                            map.terrainGrid.RemoveFoundation(cell, false);
                         }
                     }
                 }

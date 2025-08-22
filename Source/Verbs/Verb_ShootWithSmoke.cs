@@ -4,7 +4,7 @@ using RimWorld;
 
 namespace VanillaGravshipExpanded
 {
-    public class Verb_ShootWithSmoke : Verb_Shoot
+    public class Verb_ShootWithSmoke : Verb_ShootWithWorldTargeting
     {
         public override bool TryCastShot()
         {

@@ -29,10 +29,41 @@ namespace VanillaGravshipExpanded
         
         public CompProperties_WorldArtillery Props => props as CompProperties_WorldArtillery;
 
+        private float GetTargetingMultiplier(float targetingStat)
+        {
+            return 0.5f + (targetingStat * 0.5f);
+        }
+
+
+        private float HitFactorFromShooter(Thing caster, float distance)
+        {
+            float f = (caster is Pawn) ? caster.GetStatValue(StatDefOf.ShootingAccuracyPawn) : (caster?.GetStatValue(StatDefOf.ShootingAccuracyTurret) ?? 1f);
+            float num = Mathf.Pow(f, distance);
+            if (caster is Pawn)
+            {
+                var globalAccuracy = caster.GetStatValue(VGEDefOf.VGE_AccuracyGlobal);
+                num = num * globalAccuracy;
+            }
+            var finalResult = Mathf.Max(num, 0.0201f);
+            return finalResult;
+        }
+
+        public float GetHitChance(GlobalTargetInfo target, Pawn shooter)
+        {
+            var launcher = parent as Building_TurretGun;
+            var distance = Find.WorldGrid.ApproxDistanceInTiles(launcher.Map.Tile, target.Tile);
+            var hitFactor = HitFactorFromShooter(launcher, distance);
+            var targetingStat = shooter?.GetStatValue(VGEDefOf.VGE_GravshipTargeting) ?? 1f;
+            var targetingMultiplier = GetTargetingMultiplier(targetingStat);
+            float hitChance = hitFactor * targetingMultiplier;
+            return hitChance;
+        }
+
         public virtual float FinalForcedMissRadius(GlobalTargetInfo target, Pawn shooter)
         {
             var launcher = parent as Building_TurretGun;
             var verb = launcher.AttackVerb;
+
             var baseMissRadius = verb.verbProps.ForcedMissRadius;
             var distance = Find.WorldGrid.ApproxDistanceInTiles(launcher.Map.Tile, target.Tile);
             var worldMultiplier = 1.0f;
@@ -49,8 +80,8 @@ namespace VanillaGravshipExpanded
                 worldMultiplier = 1.2f;
             }
 
-            var gravshipTargetingStat = shooter?.GetStatValue(VGEDefOf.VGE_GravshipTargeting) ?? 1f;
-            var forcedMiss = (baseMissRadius * worldMultiplier) / (0.5f + (gravshipTargetingStat * 0.5f));
+            var targetingStat = shooter?.GetStatValue(VGEDefOf.VGE_GravshipTargeting) ?? 1f;
+            var forcedMiss = (baseMissRadius * worldMultiplier) / GetTargetingMultiplier(targetingStat);
             return forcedMiss;
         }
 

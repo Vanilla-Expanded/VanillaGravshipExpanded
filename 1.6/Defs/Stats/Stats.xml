@@ -41,4 +41,17 @@
         </capacityFactors>
     </StatDef>
 
+    <StatDef>
+        <defName>VGE_AccuracyGlobal</defName>
+        <label>global accuracy</label>
+        <description>Accuracy when firing at targets on the world map. Multiplied by the operator's gravship targeting skill.</description>
+        <category>Weapon_Ranged</category>
+        <defaultBaseValue>1</defaultBaseValue>
+        <minValue>0.01</minValue>
+        <maxValue>1</maxValue>
+        <toStringStyle>PercentZero</toStringStyle>
+        <showIfUndefined>false</showIfUndefined>
+        <displayPriorityInCategory>5105</displayPriorityInCategory>
+    </StatDef>
+
 </Defs>

@@ -88,35 +88,8 @@ namespace VanillaGravshipExpanded
 
         private void OnArrival()
         {
-            Map targetMap = GetMap();
-            if (targetMap != null)
-            {
-                SpawnProjectile(targetMap);
-            }
+            ArtilleryUtility.SpawnArtilleryProjectile(targetTile, Tile, projectileDef, launcher, targetCell, missRadius);
             Destroy();
         }
-
-        private void SpawnProjectile(Map map)
-        {
-            IntVec3 spawnCell = FindSpawnCell(map);
-            IntVec3 finalTargetCell = targetCell + (Rand.InsideUnitCircle * missRadius).ToVector3().ToIntVec3();
-            Projectile projectile = (Projectile)GenSpawn.Spawn(projectileDef, spawnCell, map);
-            projectile.Launch(launcher, spawnCell.ToVector3(), finalTargetCell, targetCell, ProjectileHitFlags.IntendedTarget);
-        }
-
-        private Map GetMap()
-        {
-            return Find.Maps.Find(m => m.Tile == targetTile);
-        }
-
-        private IntVec3 FindSpawnCell(Map map)
-        {
-            float angle = Find.WorldGrid.GetHeadingFromTo(targetTile, Tile);
-            var edgeCells = new CellRect(0, 0, map.Size.x, map.Size.z).EdgeCells;
-            var centerPos = map.Center.ToVector3();
-            IntVec3 targetCell = edgeCells.MinBy(c => Mathf.Abs(angle - (c.ToVector3() - centerPos).AngleFlat()));
-            return targetCell;
-        }
-
     }
 }

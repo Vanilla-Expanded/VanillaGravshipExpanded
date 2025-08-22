@@ -108,8 +108,8 @@ namespace VanillaGravshipExpanded
                     {
                         curAngle -= 360;
                     }
-
-                    if (Mathf.Abs(curAngle - targetAngle) > 0.1f)
+                    var angleDiff = Mathf.Min(Mathf.Abs(curAngle - targetAngle), 360 - Mathf.Abs(curAngle - targetAngle));
+                    if (angleDiff > 0.1f)
                     {
                         burstWarmupTicksLeft++;
                     }

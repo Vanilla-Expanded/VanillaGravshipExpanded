@@ -37,7 +37,7 @@ namespace VanillaGravshipExpanded
             base.TickInterval(delta);
         }
 
-        public void SpawnWorldProjectile()
+        public virtual void SpawnWorldProjectile()
         {
             if (targetTile.Valid)
             {

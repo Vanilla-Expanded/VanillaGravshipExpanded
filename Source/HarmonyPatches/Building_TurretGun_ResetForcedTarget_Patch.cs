@@ -1,5 +1,6 @@
 using HarmonyLib;
 using RimWorld;
+using Verse;
 
 namespace VanillaGravshipExpanded
 {
@@ -11,6 +12,7 @@ namespace VanillaGravshipExpanded
             if (__instance.GetComp<CompWorldArtillery>() is CompWorldArtillery comp)
             {
                 comp.Reset();
+                __instance.AttackVerb.Reset();
             }
         }
     }

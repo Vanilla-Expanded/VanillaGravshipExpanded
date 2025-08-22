@@ -14,7 +14,7 @@
     <VGE_NeedsMannedTargetingTerminal>Needs a manned targeting terminal.</VGE_NeedsMannedTargetingTerminal>
     <VGE_LinkWithTurret>Link with a turret</VGE_LinkWithTurret>
     <VGE_LinkWithTurretDesc>Select a turret to link with. This targeting terminal will be used to operate that turret.</VGE_LinkWithTurretDesc>
-    <VGE_UnlinkWithTurret>Unlink with a turret</VGE_UnlinkWithTurret>
+    <VGE_UnlinkWithTurret>Unlink turret</VGE_UnlinkWithTurret>
     <VGE_UnlinkWithTurretDesc>Break the current link to a turret, allowing you to link with a different turret.</VGE_UnlinkWithTurretDesc>
     <VGE_SelectLinkedTurret>Select linked turret</VGE_SelectLinkedTurret>
     <VGE_SelectLinkedTurretDesc>Show the linked turret.</VGE_SelectLinkedTurretDesc>
@@ -22,13 +22,13 @@
 
     <VGE_ConfirmCrashLanding>Landing on this location will be considered a crash. Any highlighted structures underneath the gravship will damage any structures on the gravship in corresponding locations.\n\nThe substructure may also become damaged and will need replacing before the next launch.\n\nSome indestructible objects underneath may completely destroy the substructure and any objects on it.\n\nConsider picking a different landing zone.</VGE_ConfirmCrashLanding>
     <VGE_CrashLandingWarning>Landing on this location will be considered a crash and will damage the gravship.</VGE_CrashLandingWarning>
-	
-	<VGE_SoildIceAsteroid>Solid ice with traces of {RESOURCE_label}</VGE_SoildIceAsteroid>
-	
-	<!-- Mod options -->
-	
-	<VGE_OrbitObjectsMultiplier>Orbital objects multiplier</VGE_OrbitObjectsMultiplier>
-	<VGE_OrbitObjectsMultiplierDesc>By default the game will try to keep 3,8,12 or 20 locations in orbit (depending on globe coverage of the planet). With this slider you can apply a multiplier to this number, making your planet orbits super sparse or very cluttered!</VGE_OrbitObjectsMultiplierDesc>
-	<VGE_Reset>Reset</VGE_Reset>
+
+    <VGE_SoildIceAsteroid>Solid ice with traces of {RESOURCE_label}</VGE_SoildIceAsteroid>
+
+    <!-- Mod options -->
+
+    <VGE_OrbitObjectsMultiplier>Orbital objects multiplier</VGE_OrbitObjectsMultiplier>
+    <VGE_OrbitObjectsMultiplierDesc>By default the game will try to keep 3,8,12 or 20 locations in orbit (depending on globe coverage of the planet). With this slider you can apply a multiplier to this number, making your planet orbits super sparse or very cluttered!</VGE_OrbitObjectsMultiplierDesc>
+    <VGE_Reset>Reset</VGE_Reset>
 
 </LanguageData>

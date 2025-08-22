@@ -10,7 +10,6 @@ namespace VanillaGravshipExpanded
         public static void Postfix(DamageWorker __instance, Explosion explosion, IntVec3 c)
         {
             var projectile = explosion.weapon?.GetModExtension<TurretExtension_SubstructureDamage>();
-            Log.Message(explosion.weapon + " has " + projectile?.substructureDamageRadius);
             if (projectile == null)
             {
                 return;
