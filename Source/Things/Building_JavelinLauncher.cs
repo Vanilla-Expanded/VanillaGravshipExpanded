@@ -7,10 +7,8 @@ using Verse;
 namespace VanillaGravshipExpanded
 {
     [HotSwappable]
-
     public class Building_JavelinLauncher : Building_GravshipTurret
     {
-
         public override Material TurretTopMaterial
         {
             get

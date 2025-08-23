@@ -5,4 +5,11 @@
             <seeThroughFog>true</seeThroughFog>
         </value>
     </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="GravEngine"]/comps</xpath>
+        <value>
+            <li Class="VanillaGravshipExpanded.CompProperties_HeatManager"></li>
+        </value>
+    </Operation>
 </Patch>    

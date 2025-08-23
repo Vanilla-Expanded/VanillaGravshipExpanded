@@ -5,8 +5,11 @@
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/ThingDef[defName="GravEngine"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
 		<value>
-      <li>VGSE_OxygenReclaimer</li>
-    </value>
+	     <li>VGSE_OxygenReclaimer</li>
+	     <li>VGE_SmallHeatsink</li>
+	     <li>VGE_LargeHeatsink</li>
+	     <li>VGE_GravheatAbsorber</li>
+	   </value>
 	</Operation>
 
 </Patch>

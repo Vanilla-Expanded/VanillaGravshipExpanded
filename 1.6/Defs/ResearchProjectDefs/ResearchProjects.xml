@@ -33,40 +33,52 @@
 		<researchViewX>11</researchViewX>
 		<researchViewY>4.5</researchViewY>
 	</ResearchProjectDef>
-  <ResearchProjectDef>
-    <defName>VGE_OxygenNetwork</defName>
-    <label>oxygen network</label>
-    <description>todo.</description>
-    <baseCost>500</baseCost>
-    <techLevel>Spacer</techLevel>
-    <prerequisites>
-      <li>BasicGravtech</li>
-    </prerequisites>
-    <researchViewX>12</researchViewX>
-    <researchViewY>4.5</researchViewY>
-  </ResearchProjectDef>
-  <ResearchProjectDef>
-    <defName>VGE_AstrofuelRefining</defName>
-    <label>astrofuel refining</label>
-    <description>todo.</description>
-    <baseCost>500</baseCost>
-    <techLevel>Spacer</techLevel>
-    <prerequisites>
-      <li>BasicGravtech</li>
-    </prerequisites>
-    <researchViewX>13</researchViewX>
-    <researchViewY>4.5</researchViewY>
-  </ResearchProjectDef>
-  <ResearchProjectDef>
-    <defName>VGE_GravshipPower</defName>
-    <label>gravship power</label>
-    <description>todo.</description>
-    <baseCost>500</baseCost>
-    <techLevel>Spacer</techLevel>
-    <prerequisites>
-      <li>BasicGravtech</li>
-    </prerequisites>
-    <researchViewX>14</researchViewX>
-    <researchViewY>4.5</researchViewY>
-  </ResearchProjectDef>
+	<ResearchProjectDef>
+		<defName>VGE_OxygenNetwork</defName>
+		<label>oxygen network</label>
+		<description>todo.</description>
+		<baseCost>500</baseCost>
+		<techLevel>Spacer</techLevel>
+		<prerequisites>
+			<li>BasicGravtech</li>
+		</prerequisites>
+		<researchViewX>12</researchViewX>
+		<researchViewY>4.5</researchViewY>
+	</ResearchProjectDef>
+	<ResearchProjectDef>
+		<defName>VGE_AstrofuelRefining</defName>
+		<label>astrofuel refining</label>
+		<description>todo.</description>
+		<baseCost>500</baseCost>
+		<techLevel>Spacer</techLevel>
+		<prerequisites>
+			<li>BasicGravtech</li>
+		</prerequisites>
+		<researchViewX>13</researchViewX>
+		<researchViewY>4.5</researchViewY>
+	</ResearchProjectDef>
+	<ResearchProjectDef>
+		<defName>VGE_GravshipPower</defName>
+		<label>gravship power</label>
+		<description>todo.</description>
+		<baseCost>500</baseCost>
+		<techLevel>Spacer</techLevel>
+		<prerequisites>
+			<li>BasicGravtech</li>
+		</prerequisites>
+		<researchViewX>14</researchViewX>
+		<researchViewY>4.5</researchViewY>
+	</ResearchProjectDef>
+	<ResearchProjectDef>
+		<defName>VGE_HeatDissipation</defName>
+		<label>heat dissipation</label>
+		<description>Allows the construction of heat dissipation systems for gravships, including heatsinks and gravheat absorbers to manage thermal buildup during space travel.</description>
+		<baseCost>1500</baseCost>
+		<techLevel>Spacer</techLevel>
+		<prerequisites>
+			<li>GravshipBasics</li>
+		</prerequisites>
+		<researchViewX>12</researchViewX>
+		<researchViewY>4.5</researchViewY>
+	</ResearchProjectDef>
 </Defs>

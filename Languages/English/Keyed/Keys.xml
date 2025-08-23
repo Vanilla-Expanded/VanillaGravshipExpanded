@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
     <VGE_TargetingTerminalCanOnlyLinkWithGravshipArtillery>Targeting terminal can only link with gravship artillery.</VGE_TargetingTerminalCanOnlyLinkWithGravshipArtillery>
@@ -30,5 +30,11 @@
     <VGE_OrbitObjectsMultiplier>Orbital objects multiplier</VGE_OrbitObjectsMultiplier>
     <VGE_OrbitObjectsMultiplierDesc>By default the game will try to keep 3,8,12 or 20 locations in orbit (depending on globe coverage of the planet). With this slider you can apply a multiplier to this number, making your planet orbits super sparse or very cluttered!</VGE_OrbitObjectsMultiplierDesc>
     <VGE_Reset>Reset</VGE_Reset>
-
+    <VGE_HeatsinkHeatStored>{0} / {1} heat units</VGE_HeatsinkHeatStored>
+    <VGE_AbsorbGravheat>Absorb gravheat</VGE_AbsorbGravheat>
+    <VGE_AbsorbGravheatDesc>Flush any remaining structural heat from the grav engine onto this gravheat absorber, allowing for an immediate gravship launch. Gravheat absorber will enter a long cooldown period during which it can't absorb any more heat.</VGE_AbsorbGravheatDesc>
+    <VGE_NoGravEngine>No grav engine found</VGE_NoGravEngine>
+    <VGE_NoCooldownToAbsorb>No cooldown to absorb</VGE_NoCooldownToAbsorb>
+    <VGE_GravheatAbsorberCoolingDown>Gravheat absorber is cooling down. Available in: {0}</VGE_GravheatAbsorberCoolingDown>
+    <VGE_LaunchHeatsinkCooldownInfo>The heatsinks will reduce the launch cooldown time by {0}.</VGE_LaunchHeatsinkCooldownInfo>
 </LanguageData>

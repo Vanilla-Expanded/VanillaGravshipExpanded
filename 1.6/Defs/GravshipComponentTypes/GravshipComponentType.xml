@@ -7,4 +7,10 @@
     <requiredForLaunch>false</requiredForLaunch>
   </GravshipComponentTypeDef>
 
+  <GravshipComponentTypeDef>
+    <defName>VGSE_Heatsink</defName>
+    <label>heatsink</label>
+    <requiredForLaunch>false</requiredForLaunch>
+  </GravshipComponentTypeDef>
+
 </Defs>

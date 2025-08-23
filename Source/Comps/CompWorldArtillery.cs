@@ -182,10 +182,6 @@ namespace VanillaGravshipExpanded
         {
             var turret = parent as Building_GravshipTurret;
             ThingDef projectile = turret.AttackVerb.verbProps.defaultProjectile;
-            if (projectile == null)
-            {
-                return;
-            }
             float num = projectile.projectile.explosionRadius + projectile.projectile.explosionRadiusDisplayPadding;
             float forcedMissRadius = FinalForcedMissRadius(worldTarget, turret.ManningPawn);
             if (forcedMissRadius > 0f && turret.AttackVerb.BurstShotCount > 1)

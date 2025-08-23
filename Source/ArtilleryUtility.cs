@@ -1,10 +1,9 @@
-using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 
 namespace VanillaGravshipExpanded
-{   
+{
     [HotSwappable]
     public static class ArtilleryUtility
     {

@@ -4,6 +4,7 @@ using Verse;
 using System.Linq;
 using RimWorld.Planet;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace VanillaGravshipExpanded
 {
@@ -14,9 +15,13 @@ namespace VanillaGravshipExpanded
         public static void Prefix(WorldComponent_GravshipController __instance)
         {
             var gravship = __instance.gravship;
+            ApplyCrashlanding(gravship);
+        }
+
+        private static void ApplyCrashlanding(Gravship gravship)
+        {
             var map = gravship.Engine.Map;
             var foundations = gravship.Foundations.Keys;
-            
             foreach (var blocker in GravshipMapGenUtility.BlockingThings)
             {
                 if (blocker.def.destroyable)
@@ -40,7 +45,6 @@ namespace VanillaGravshipExpanded
                             {
                                 map.terrainGrid.RemoveFoundation(cell, false);
                             }
-                            // TODO: figure out what to do with VGE_GravshipSubscaffolding once its created
                         }
                     }
                     if (blocker.Destroyed is false)

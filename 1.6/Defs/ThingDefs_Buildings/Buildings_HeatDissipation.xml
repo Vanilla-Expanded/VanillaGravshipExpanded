@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef Name="VGE_BaseHeatsink" ParentName="BuildingBase" Abstract="True">
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <uiIconScale>0.8</uiIconScale>
+        <graphicData>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+        <rotatable>true</rotatable>
+        <altitudeLayer>Building</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <tickerType>Normal</tickerType>
+        <statBases>
+            <Flammability>1.0</Flammability>
+        </statBases>
+        <resourcesFractionWhenDeconstructed>0.5</resourcesFractionWhenDeconstructed>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_BaseHeatsink">
+        <defName>VGE_SmallHeatsink</defName>
+        <label>small heatsink</label>
+        <description>A compact thermal regulator that absorbs heat from gravship travel and slowly converts part of it into usable power while preventing system overheating and decreasing the grav engine cooldown duration. A gravship can support up to ten small heatsinks.</description>
+        <graphicData>
+            <texPath>Things/Structures/Heatsinks/Heatsink</texPath>
+        </graphicData>
+        <fillPercent>0.4</fillPercent>
+        <statBases>
+            <MaxHitPoints>150</MaxHitPoints>
+            <WorkToBuild>3260</WorkToBuild>
+            <Beauty>-2</Beauty>
+            <Mass>30</Mass>
+        </statBases>
+        <size>(2,2)</size>
+        <costList>
+            <Steel>140</Steel>
+            <Gold>30</Gold>
+            <ComponentIndustrial>3</ComponentIndustrial>
+        </costList>
+        <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>0</basePowerConsumption>
+            </li>
+            <li Class="VanillaGravshipExpanded.CompProperties_Glower_Gravheat">
+                <glowRadius>7.17</glowRadius>
+                <glowColor>(217,217,217,0)</glowColor>
+            </li>
+            <li Class="VanillaGravshipExpanded.CompProperties_Heatsink">
+                <maxHeat>10</maxHeat>
+                <heatConsumptionPerHour>1</heatConsumptionPerHour>
+                <powerGenerated>100</powerGenerated>
+                <cooldownReductionPercent>0.02</cooldownReductionPercent>
+                <heatPushedPerSecond>21</heatPushedPerSecond>
+            </li>
+            <li Class="CompProperties_GravshipFacility">
+                <componentTypeDef>VGSE_Heatsink</componentTypeDef>
+                <requiresLOS>false</requiresLOS>
+                <maxSimultaneous>10</maxSimultaneous>
+                <maxDistance>500</maxDistance>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_BaseHeatsink">
+        <defName>VGE_LargeHeatsink</defName>
+        <label>large heatsink</label>
+        <description>A large thermal regulator that absorbs heat from gravship travel and slowly converts part of it into usable power while preventing system overheating and decreasing the grav engine cooldown duration. A gravship can support up to six large heatsinks.</description>
+        <graphicData>
+            <texPath>Things/Structures/Heatsinks/HeatsinkLarge</texPath>
+        </graphicData>
+        <fillPercent>0.6</fillPercent>
+        <statBases>
+            <MaxHitPoints>300</MaxHitPoints>
+            <WorkToBuild>4800</WorkToBuild>
+            <Beauty>-6</Beauty>
+            <Mass>50</Mass>
+        </statBases>
+        <size>(3,3)</size>
+        <costList>
+            <Steel>200</Steel>
+            <Gold>60</Gold>
+            <ComponentIndustrial>4</ComponentIndustrial>
+        </costList>
+        <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>0</basePowerConsumption>
+            </li>
+            <li Class="VanillaGravshipExpanded.CompProperties_Glower_Gravheat">
+                <glowRadius>9.17</glowRadius>
+                <glowColor>(217,217,217,0)</glowColor>
+            </li>
+            <li Class="VanillaGravshipExpanded.CompProperties_Heatsink">
+                <maxHeat>50</maxHeat>
+                <heatConsumptionPerHour>2</heatConsumptionPerHour>
+                <powerGenerated>200</powerGenerated>
+                <cooldownReductionPercent>0.05</cooldownReductionPercent>
+                <heatPushedPerSecond>21</heatPushedPerSecond>
+            </li>
+            <li Class="CompProperties_GravshipFacility">
+                <componentTypeDef>VGSE_Heatsink</componentTypeDef>
+                <requiresLOS>false</requiresLOS>
+                <maxSimultaneous>6</maxSimultaneous>
+                <maxDistance>500</maxDistance>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_BaseHeatsink">
+        <defName>VGE_GravheatAbsorber</defName>
+        <label>gravheat absorber</label>
+        <description>A specialized thermal sink that draws all residual heat from the grav engine, instantly clearing its cooldown. The absorbed heat leaves the gravheat absorber inoperable for an extended period while it safely dissipates the stored energy.</description>
+        <graphicData>
+            <texPath>Things/Structures/Heatsinks/GravheatAbsorber</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <rotatable>false</rotatable>
+        <fillPercent>0.6</fillPercent>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <WorkToBuild>5200</WorkToBuild>
+            <Beauty>-10</Beauty>
+            <Mass>50</Mass>
+        </statBases>
+        <size>(3,3)</size>
+        <costList>
+            <Steel>160</Steel>
+            <Gold>60</Gold>
+            <ComponentIndustrial>6</ComponentIndustrial>
+        </costList>
+        <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+        <comps>
+            <li Class="VanillaGravshipExpanded.CompProperties_Glower_Gravheat">
+                <glowRadius>9.17</glowRadius>
+                <glowColor>(255,100,100,0)</glowColor>
+            </li>
+            <li Class="VanillaGravshipExpanded.CompProperties_GravheatAbsorber">
+                <cooldownTicks>900000</cooldownTicks>
+                <heatPushedPerSecond>21</heatPushedPerSecond>
+            </li>
+            <li Class="CompProperties_GravshipFacility">
+                <componentTypeDef>VGSE_Heatsink</componentTypeDef>
+                <requiresLOS>false</requiresLOS>
+                <maxSimultaneous>2</maxSimultaneous>
+                <maxDistance>500</maxDistance>
+            </li>
+        </comps>
+    </ThingDef>
+
+</Defs>
