@@ -101,4 +101,38 @@
     </genStep>
   </GenStepDef>
   
+    <MapGeneratorDef ParentName="SpaceMapGenerator">
+    <defName>VGE_PorousAsteroid</defName>
+    <label>porous asteroid</label>
+    <genSteps>
+      <li>VGE_PorousAsteroid</li>
+      <li>AsteroidBasicTransportPods</li>
+      <li>AncientMiningCharge_Asteroid</li>
+      <li>AncientExplosivesCrate_Asteroid</li>
+      <li>AncientDrillPlatform_Asteroid</li>
+      <li>AncientTuneller_Asteroid</li>
+      <li>MechShipChunk_Asteroid</li>
+      <li>RockChunks</li>
+    </genSteps>
+  </MapGeneratorDef>
+  
+    <GenStepDef>
+    <defName>VGE_PorousAsteroid</defName>
+    <order>200</order>
+    <genStep Class="VanillaGravshipExpanded.GenStep_PorousAsteroid">
+      <numChunks>5~8</numChunks>
+      <ruinsChance>0.5</ruinsChance>
+      <archeanTreeChance>0.25</archeanTreeChance>
+      <mineableCounts>
+         <MineableGold>14~22</MineableGold>
+        <MineableSilver>50~70</MineableSilver>
+        <MineableSteel>80~110</MineableSteel>
+        <MineableUranium>15~25</MineableUranium>
+        <MineablePlasteel>12~15</MineablePlasteel>
+        <MineableComponentsIndustrial>65~85</MineableComponentsIndustrial>
+        <MineableJade>20~35</MineableJade>
+      </mineableCounts>
+    </genStep>
+  </GenStepDef>
+  
 </Defs>

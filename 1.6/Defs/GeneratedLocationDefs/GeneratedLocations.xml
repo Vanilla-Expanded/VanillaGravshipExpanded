@@ -52,4 +52,21 @@
     </preciousResources>
   </GeneratedLocationDef>
   
+  <GeneratedLocationDef>
+    <defName>VGE_PorousAsteroid</defName>
+    <worldObjectDef>VGE_PorousAsteroid</worldObjectDef>
+    <layerDefs>
+      <li>Orbit</li>
+    </layerDefs>
+    <preciousResources>
+      <li>MineableGold</li>
+      <li>MineableSilver</li>
+      <li>MineableSteel</li>
+      <li>MineableUranium</li>
+      <li>MineablePlasteel</li>
+      <li>MineableComponentsIndustrial</li>
+      <li>MineableJade</li>
+    </preciousResources>
+  </GeneratedLocationDef>
+  
 </Defs>

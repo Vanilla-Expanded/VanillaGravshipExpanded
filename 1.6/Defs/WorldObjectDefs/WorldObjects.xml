@@ -40,4 +40,14 @@
 		<expandingIconTexture>UI/MapIcons/AsteroidField</expandingIconTexture>
 		<mapGenerator>VGE_AsteroidField</mapGenerator>
 	</WorldObjectDef>
+	<WorldObjectDef ParentName="GeneratedAsteroid">
+		<defName>VGE_PorousAsteroid</defName>
+
+		<description>A vacstone asteroid riddled with countless cavities and hollow chambers, formed by ages of impacts and erosion. Its honeycombed structure makes it fragile and unstable, with many of its tunnels collapsing into each other over time.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</description>
+		<label>porous asteroid</label>
+		<!-- hidden -->
+		<nameMaker>NamerWorldObject_AsteroidBasic</nameMaker>
+		<expandingIconTexture>UI/MapIcons/PorousAsteroid</expandingIconTexture>
+		<mapGenerator>VGE_PorousAsteroid</mapGenerator>
+	</WorldObjectDef>
 </Defs>
