@@ -30,7 +30,7 @@ namespace VanillaGravshipExpanded
             {
                 newTerrain = VGEDefOf.VGE_DamagedSubstructure;
             }
-            else if (terrain == VGEDefOf.VGE_DamagedSubstructure || terrain == VGEDefOf.VGE_GravshipSubscaffolding)
+            else if (terrain == VGEDefOf.VGE_DamagedSubstructure || terrain == VGEDefOf.VGE_GravshipSubscaffold)
             {
                 map.terrainGrid.Notify_TerrainDestroyed(cell);
             }

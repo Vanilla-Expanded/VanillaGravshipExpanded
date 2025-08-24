@@ -13,5 +13,10 @@ namespace VanillaGravshipExpanded
 
             return thing.Map.listerBuildings.AllBuildingsColonistOfClass<Building_GravEngine>().FirstOrDefault(x => x.AllConnectedSubstructure.Contains(thing.Position));
         }
+        
+        public static bool IsSustructureOrScaffold(this TerrainDef terrainDef)
+        {
+            return terrainDef.HasTag("Substructure") || terrainDef == VGEDefOf.VGE_GravshipSubscaffold;
+        }
     }
 }

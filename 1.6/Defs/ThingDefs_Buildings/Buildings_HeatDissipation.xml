@@ -47,7 +47,7 @@
             </li>
             <li Class="VanillaGravshipExpanded.CompProperties_Glower_Gravheat">
                 <glowRadius>7.17</glowRadius>
-                <glowColor>(217,217,217,0)</glowColor>
+                <glowColor>(226,118,52,0)</glowColor>
             </li>
             <li Class="VanillaGravshipExpanded.CompProperties_Heatsink">
                 <maxHeat>10</maxHeat>
@@ -93,7 +93,7 @@
             </li>
             <li Class="VanillaGravshipExpanded.CompProperties_Glower_Gravheat">
                 <glowRadius>9.17</glowRadius>
-                <glowColor>(217,217,217,0)</glowColor>
+                <glowColor>(226,118,52,0)</glowColor>
             </li>
             <li Class="VanillaGravshipExpanded.CompProperties_Heatsink">
                 <maxHeat>50</maxHeat>

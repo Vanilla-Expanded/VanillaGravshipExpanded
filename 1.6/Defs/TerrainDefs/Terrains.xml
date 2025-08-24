@@ -57,4 +57,42 @@
 		<pollutionCloudColor>(1, 1, 1, 0.66)</pollutionCloudColor>
 		<canEverTerraform>false</canEverTerraform>
 	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBase">
+		<defName>VGE_GravshipSubscaffold</defName>
+		<label>gravship subscaffold</label>
+		<description>A scaffold layer built to support the framework of gravships. While part of the gravship’s structure, it cannot support buildings and slows movement significantly. It does not count toward the gravship’s substructure limit, making it ideal for walkways, access paths, or expansion staging areas.</description>
+		<texturePath>Things/Terrain/Substructure/Subscaffolding</texturePath>
+		<fertility>0</fertility>
+		<edgeType>Hard</edgeType>
+		<avoidWander>true</avoidWander>
+		<pathCost>14</pathCost>
+		<renderPrecedence>398</renderPrecedence>
+		<constructEffect>ConstructMetal</constructEffect>
+		<isPaintable>true</isPaintable>
+		<designationCategory>Odyssey</designationCategory>
+		<isFoundation>true</isFoundation>
+		<preventCraters>true</preventCraters>
+		<affordances Inherit="false">
+			<li>Walkable</li>
+		</affordances>
+		<statBases>
+			<WorkToBuild>300</WorkToBuild>
+			<Flammability>0</Flammability>
+			<CleaningTimeFactor>1.3</CleaningTimeFactor>
+			<Beauty>0</Beauty>
+			<MarketValue>6</MarketValue>
+			<FilthMultiplier>0</FilthMultiplier>
+			<Mass>0.5</Mass>
+		</statBases>
+		<costList>
+			<GravlitePanel>1</GravlitePanel>
+		</costList>
+		<uiOrder>1001</uiOrder>
+		<terrainAffordanceNeeded>Walkable</terrainAffordanceNeeded>
+		<resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+		<researchPrerequisites>
+			<li>StandardGravtech</li>
+		</researchPrerequisites>
+	</TerrainDef>
 </Defs>

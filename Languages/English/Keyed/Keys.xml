@@ -37,4 +37,6 @@
     <VGE_NoCooldownToAbsorb>No cooldown to absorb</VGE_NoCooldownToAbsorb>
     <VGE_GravheatAbsorberCoolingDown>Gravheat absorber is cooling down. Available in: {0}</VGE_GravheatAbsorberCoolingDown>
     <VGE_LaunchHeatsinkCooldownInfo>The heatsinks will reduce the launch cooldown time by {0}.</VGE_LaunchHeatsinkCooldownInfo>
+    <VGE_DesignatorRemoveSubstructure>Remove substructure</VGE_DesignatorRemoveSubstructure>
+    <VGE_DesignatorRemoveSubstructureDesc>Remove substructure from the gravship.</VGE_DesignatorRemoveSubstructureDesc>
 </LanguageData>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="GravshipComponentBase">
+    <defName>VGE_GravFieldAmplifier</defName>
+    <label>grav field amplifier</label>
+    <description>An advanced ultratech device that dramatically increases the size of a gravship.  It extends the area in which substructure can be built, and increases the amount of substructure that a gravship can support. Must be built near a grav engine. A gravship can support up to four grav field amplifiers.</description>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Structures/GravFieldAmplifier/GravFieldAmplifier</texPath>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <Mass>40</Mass>
+      <WorkToBuild>3200</WorkToBuild>
+      <Beauty>0</Beauty>
+    </statBases>
+    <size>(3,3)</size>
+    <fillPercent>0.4</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <pathCost>14</pathCost>
+    <canOverlapZones>false</canOverlapZones>
+    <designationCategory>Odyssey</designationCategory>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+    <researchPrerequisites>
+      <li>AdvancedGravtech</li>
+    </researchPrerequisites>
+    <costList>
+      <Gravcore>2</Gravcore>
+      <GravlitePanel>80</GravlitePanel>
+      <ComponentSpacer>4</ComponentSpacer>
+      <Steel>180</Steel>
+    </costList>
+    <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+    <placeWorkers>
+      <li>PlaceWorker_InRangeOfGravEngine</li>
+    </placeWorkers>
+    <building>
+      <relatedTerrain>
+        <li>Substructure</li>
+      </relatedTerrain>
+    </building>
+    <comps>
+      <li Class="CompProperties_SubstructureFootprint">
+        <radius>19.9</radius>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>5</glowRadius>
+        <glowColor>(0,218,255,0)</glowColor>
+      </li>
+      <li Class="CompProperties_GravshipFacility">
+        <statOffsets>
+          <SubstructureSupport>200</SubstructureSupport>
+        </statOffsets>
+        <requiresLOS>false</requiresLOS>
+        <maxSimultaneous>4</maxSimultaneous>
+        <maxDistance>18.9</maxDistance>
+        <onlyRequiresLooseConnection>true</onlyRequiresLooseConnection>
+      </li>
+    </comps>
+    <uiOrder>2301</uiOrder>
+  </ThingDef>
+
+</Defs>
