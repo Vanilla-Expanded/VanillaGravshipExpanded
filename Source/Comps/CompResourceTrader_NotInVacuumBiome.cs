@@ -28,7 +28,7 @@ public class CompResourceTrader_NotInVacuumBiome : CompResourceTrader
     public override string CompInspectStringExtra()
     {
         if (OxygenPipeNet.noAtmosphere)
-            return $"{"VGSE_DisabledNoAtmosphere".Translate()}\n{base.CompInspectStringExtra()}";
+            return $"{"VGE_DisabledNoAtmosphere".Translate()}\n{base.CompInspectStringExtra()}";
         return base.CompInspectStringExtra();
     }
 

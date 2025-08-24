@@ -40,7 +40,7 @@
         <maxDistance>500</maxDistance>
       </li>
       <li Class="PipeSystem.CompProperties_ResourceStorage">
-        <pipeNet>VGSE_AstrofuelNet</pipeNet>
+        <pipeNet>VGE_AstrofuelNet</pipeNet>
         <storageCapacity>250</storageCapacity>
         <barSize>(1.3, 0.25)</barSize>
         <margin>0.1</margin>
@@ -49,14 +49,14 @@
         <extractOptions>
           <!-- TODO: Add actual icon -->
           <texPath>UI/Overlays/Overlay_Oxygen</texPath>
-          <labelKey>VGSE_ExtractAstrofuel</labelKey>
-          <descKey>VGSE_ExtractAstrofuelDesc</descKey>
+          <labelKey>VGE_ExtractAstrofuel</labelKey>
+          <descKey>VGE_ExtractAstrofuelDesc</descKey>
           <extractAmount>150</extractAmount>
-          <thing>VGSE_Astrofuel</thing>
+          <thing>VGE_Astrofuel</thing>
           <ratio>1</ratio>
         </extractOptions>
         <refillOptions>
-          <thing>VGSE_Astrofuel</thing>
+          <thing>VGE_Astrofuel</thing>
         </refillOptions>
       </li>
       <li Class="PipeSystem.CompProperties_ExplosiveContent">
@@ -127,7 +127,7 @@
         <maxDistance>500</maxDistance>
       </li>
       <li Class="PipeSystem.CompProperties_ResourceStorage">
-        <pipeNet>VGSE_AstrofuelNet</pipeNet>
+        <pipeNet>VGE_AstrofuelNet</pipeNet>
         <storageCapacity>750</storageCapacity>
         <barSize>(1.3, 0.25)</barSize>
         <margin>0.1</margin>
@@ -136,14 +136,14 @@
         <extractOptions>
           <!-- TODO: Add actual icon -->
           <texPath>UI/Overlays/Overlay_Oxygen</texPath>
-          <labelKey>VGSE_ExtractAstrofuel</labelKey>
-          <descKey>VGSE_ExtractAstrofuelDesc</descKey>
+          <labelKey>VGE_ExtractAstrofuel</labelKey>
+          <descKey>VGE_ExtractAstrofuelDesc</descKey>
           <extractAmount>150</extractAmount>
-          <thing>VGSE_Astrofuel</thing>
+          <thing>VGE_Astrofuel</thing>
           <ratio>1</ratio>
         </extractOptions>
         <refillOptions>
-          <thing>VGSE_Astrofuel</thing>
+          <thing>VGE_Astrofuel</thing>
         </refillOptions>
       </li>
       <li Class="PipeSystem.CompProperties_ExplosiveContent">

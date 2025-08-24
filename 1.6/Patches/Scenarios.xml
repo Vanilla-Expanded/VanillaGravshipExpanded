@@ -4,7 +4,7 @@
 	<Operation Class="PatchOperationReplace">
     <xpath>Defs/ScenarioDef[defName="TheGravship"]/scenario/parts/li[@Class="ScenPart_StartingThing_Defined" and thingDef="Chemfuel"]/thingDef</xpath>
     <value>
-      <thingDef>VGSE_Astrofuel</thingDef>
+      <thingDef>VGE_Astrofuel</thingDef>
     </value>
 	</Operation>
 </Patch>

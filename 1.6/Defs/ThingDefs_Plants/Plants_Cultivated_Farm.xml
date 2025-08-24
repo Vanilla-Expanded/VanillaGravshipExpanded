@@ -2,7 +2,7 @@
 <Defs>
 
   <ThingDef ParentName="PlantBase">
-    <defName>VGSE_OxyalgaePlant</defName>
+    <defName>VGE_OxyalgaePlant</defName>
     <label>oxyalgae plant</label>
     <description>A fast-growing aquatic plant cultivated in hydroponics and used to generate oxygen when connected to a life support system. Rots quickly when harvested, making immediate processing essential.</description>
     <statBases>
@@ -24,7 +24,7 @@
       <dieIfLeafless>true</dieIfLeafless>
       <maxMeshCount>4</maxMeshCount>
       <harvestTag>Standard</harvestTag>
-      <harvestedThingDef>VGSE_Oxyalgae</harvestedThingDef>
+      <harvestedThingDef>VGE_Oxyalgae</harvestedThingDef>
       <harvestYield>6</harvestYield>
       <sowTags>
         <li>Hydroponic</li>

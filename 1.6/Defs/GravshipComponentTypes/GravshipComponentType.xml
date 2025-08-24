@@ -2,13 +2,13 @@
 <Defs>
 
   <GravshipComponentTypeDef>
-    <defName>VGSE_OxygenGenerator</defName>
+    <defName>VGE_OxygenGenerator</defName>
     <label>oxygen generator</label>
     <requiredForLaunch>false</requiredForLaunch>
   </GravshipComponentTypeDef>
 
   <GravshipComponentTypeDef>
-    <defName>VGSE_Heatsink</defName>
+    <defName>VGE_Heatsink</defName>
     <label>heatsink</label>
     <requiredForLaunch>false</requiredForLaunch>
   </GravshipComponentTypeDef>

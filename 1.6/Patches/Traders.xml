@@ -7,7 +7,7 @@
     <value>
       <!-- Oxygen canisters can only be purchased (item's tradeability) -->
       <li Class="StockGenerator_SingleDef">
-        <thingDef>VGSE_OxygenCanister</thingDef>
+        <thingDef>VGE_OxygenCanister</thingDef>
         <countRange>100~300</countRange>
       </li>
     </value>
@@ -19,7 +19,7 @@
     <xpath>Defs/TraderKindDef[defName="Orbital_BulkGoods"]/stockGenerators</xpath>
     <value>
       <li Class="StockGenerator_SingleDef">
-        <thingDef>VGSE_Astrofuel</thingDef>
+        <thingDef>VGE_Astrofuel</thingDef>
         <countRange>100~300</countRange>
       </li>
     </value>
@@ -30,7 +30,7 @@
     <xpath>Defs/TraderKindDef[defName="Orbital_PirateMerchant"]/stockGenerators</xpath>
     <value>
       <li Class="StockGenerator_SingleDef">
-        <thingDef>VGSE_Astrofuel</thingDef>
+        <thingDef>VGE_Astrofuel</thingDef>
         <countRange>25~100</countRange>
       </li>
     </value>
@@ -40,7 +40,7 @@
   <Operation Class="PatchOperationAdd">
     <xpath>Defs/TraderKindDef/stockGenerators[li[(@Class="StockGenerator_SingleDef" or @Class="StockGenerator_BuySingleDef") and thingDef="Chemfuel"]]</xpath>
     <value>
-      <li Class="StockGenerator_BuySingleDef"><thingDef>VGSE_Astrofuel</thingDef></li>
+      <li Class="StockGenerator_BuySingleDef"><thingDef>VGE_Astrofuel</thingDef></li>
     </value>
   </Operation>
 

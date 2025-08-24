@@ -57,7 +57,7 @@
                 <heatPushedPerSecond>21</heatPushedPerSecond>
             </li>
             <li Class="CompProperties_GravshipFacility">
-                <componentTypeDef>VGSE_Heatsink</componentTypeDef>
+                <componentTypeDef>VGE_Heatsink</componentTypeDef>
                 <requiresLOS>false</requiresLOS>
                 <maxSimultaneous>10</maxSimultaneous>
                 <maxDistance>500</maxDistance>
@@ -103,7 +103,7 @@
                 <heatPushedPerSecond>21</heatPushedPerSecond>
             </li>
             <li Class="CompProperties_GravshipFacility">
-                <componentTypeDef>VGSE_Heatsink</componentTypeDef>
+                <componentTypeDef>VGE_Heatsink</componentTypeDef>
                 <requiresLOS>false</requiresLOS>
                 <maxSimultaneous>6</maxSimultaneous>
                 <maxDistance>500</maxDistance>
@@ -144,7 +144,7 @@
                 <heatPushedPerSecond>21</heatPushedPerSecond>
             </li>
             <li Class="CompProperties_GravshipFacility">
-                <componentTypeDef>VGSE_Heatsink</componentTypeDef>
+                <componentTypeDef>VGE_Heatsink</componentTypeDef>
                 <requiresLOS>false</requiresLOS>
                 <maxSimultaneous>2</maxSimultaneous>
                 <maxDistance>500</maxDistance>

@@ -300,7 +300,7 @@
             <Steel>400</Steel>
             <GravlitePanel>60</GravlitePanel>
             <ComponentIndustrial>10</ComponentIndustrial>
-            <VGSE_Astrofuel>60</VGSE_Astrofuel>
+            <VGE_Astrofuel>60</VGE_Astrofuel>
         </costList>
         <constructionSkillPrerequisite>10</constructionSkillPrerequisite>
         <building>
@@ -314,7 +314,7 @@
                 <fuelGizmoLabel>Astrofuel</fuelGizmoLabel>
                 <fuelFilter>
                     <thingDefs>
-                        <li>VGSE_Astrofuel</li>
+                        <li>VGE_Astrofuel</li>
                     </thingDefs>
                 </fuelFilter>
                 <fuelCapacity>60</fuelCapacity>

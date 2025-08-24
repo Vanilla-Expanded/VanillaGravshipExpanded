@@ -2,7 +2,7 @@
 <Defs>
 
   <ThingDef ParentName="ResourceBase">
-    <defName>VGSE_OxygenCanister</defName>
+    <defName>VGE_OxygenCanister</defName>
     <label>oxygen canister</label>
     <description>A life-sustaining gas. Used to pressurize rooms, supply breathable air, or fuel specialized equipment and survival gear. Volatile when damaged.</description>
     <tickerType>Normal</tickerType>
@@ -39,7 +39,7 @@
   </ThingDef>
 
   <ThingDef ParentName="ResourceBase">
-    <defName>VGSE_Astrofuel</defName>
+    <defName>VGE_Astrofuel</defName>
     <label>astrofuel</label>
     <description>A high-energy synthetic fuel. Used to power gravship thrusters and boosters, or to generate electricity in specialized systems. Extremely combustible, it burns violently even in low-oxygen environments.</description>
     <possessionCount>20</possessionCount>

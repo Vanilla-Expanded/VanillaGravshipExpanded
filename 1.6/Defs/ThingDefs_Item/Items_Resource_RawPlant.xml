@@ -2,7 +2,7 @@
 <Defs>
 
   <ThingDef ParentName="RoughPlantBase">
-    <defName>VGSE_Oxyalgae</defName>
+    <defName>VGE_Oxyalgae</defName>
     <label>oxyalgae</label>
     <description>A dense mat of harvested aquatic algae, cultivated for use in life support systems. Oxyalgae provides steady oxygen generation but spoils quickly if not processed.</description>
     <stackLimit>200</stackLimit>

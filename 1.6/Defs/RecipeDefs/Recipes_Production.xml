@@ -29,7 +29,7 @@
       </thingDefs>
     </fixedIngredientFilter>
     <products>
-      <VGSE_Astrofuel>35</VGSE_Astrofuel>
+      <VGE_Astrofuel>35</VGE_Astrofuel>
     </products>
     <researchPrerequisites>
       <li>BasicGravtech</li>

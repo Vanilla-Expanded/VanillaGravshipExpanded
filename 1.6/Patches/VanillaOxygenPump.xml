@@ -7,7 +7,7 @@
 		<value>
       <li Class="VanillaGravshipExpanded.CompProperties_ResourceTrader_OxygenPusher">
         <!-- CompProperties_ResourceTrader props. -->
-        <pipeNet>VGSE_OxygenNet</pipeNet>
+        <pipeNet>VGE_OxygenNet</pipeNet>
         <consumptionPerTick>0.4</consumptionPerTick>
         <visualOnlyConsumption>true</visualOnlyConsumption>
         <!-- Custom CompProperties_ResourceTrader_OxygenPusher props. -->
@@ -103,34 +103,34 @@
       <xpath>Defs/ThingDef[defName="OxygenPump"]/building</xpath>
       <value>
         <relatedBuildCommands>
-          <li>VGSE_IndustrialOxygenPump</li>
-          <li>VGSE_OxygenPipe</li>
-          <li>VGSE_OxygenValve</li>
-          <li>VGSE_SmallOxygenTank</li>
-          <li>VGSE_LargeOxygenTank</li>
-          <li>VGSE_OxygenCanisterFiller</li>
-          <li>VGSE_OxygenCanisterEmptier</li>
-          <li>VGSE_OxygenHarvester</li>
-          <li>VGSE_LifeSupportSystem</li>
+          <li>VGE_IndustrialOxygenPump</li>
+          <li>VGE_OxygenPipe</li>
+          <li>VGE_OxygenValve</li>
+          <li>VGE_SmallOxygenTank</li>
+          <li>VGE_LargeOxygenTank</li>
+          <li>VGE_OxygenCanisterFiller</li>
+          <li>VGE_OxygenCanisterEmptier</li>
+          <li>VGE_OxygenHarvester</li>
+          <li>VGE_LifeSupportSystem</li>
           <!-- In case something makes those craftable. -->
-          <li>VGSE_OxygenReclaimer</li>
+          <li>VGE_OxygenReclaimer</li>
         </relatedBuildCommands>
       </value>
     </nomatch>
     <match Class="PatchOperationReplace">
       <xpath>Defs/ThingDef[defName="OxygenPump"]/building/relatedBuildCommands</xpath>
       <value>
-        <li>VGSE_IndustrialOxygenPump</li>
-        <li>VGSE_OxygenPipe</li>
-        <li>VGSE_OxygenValve</li>
-        <li>VGSE_SmallOxygenTank</li>
-        <li>VGSE_LargeOxygenTank</li>
-        <li>VGSE_OxygenCanisterFiller</li>
-        <li>VGSE_OxygenCanisterEmptier</li>
-        <li>VGSE_OxygenHarvester</li>
-        <li>VGSE_LifeSupportSystem</li>
+        <li>VGE_IndustrialOxygenPump</li>
+        <li>VGE_OxygenPipe</li>
+        <li>VGE_OxygenValve</li>
+        <li>VGE_SmallOxygenTank</li>
+        <li>VGE_LargeOxygenTank</li>
+        <li>VGE_OxygenCanisterFiller</li>
+        <li>VGE_OxygenCanisterEmptier</li>
+        <li>VGE_OxygenHarvester</li>
+        <li>VGE_LifeSupportSystem</li>
         <!-- In case something makes those craftable. -->
-        <li>VGSE_OxygenReclaimer</li>
+        <li>VGE_OxygenReclaimer</li>
       </value>
     </match>
   </Operation>

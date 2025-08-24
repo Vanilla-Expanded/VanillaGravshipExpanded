@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
 
-  <VGSE_ExtractOxygen>Extract 10 oxygen canisters</VGSE_ExtractOxygen>
-  <VGSE_ExtractOxygenDesc>Extract 10 oxygen canisters from the tank. A pawn will come to extract it.</VGSE_ExtractOxygenDesc>
+  <VGE_ExtractOxygen>Extract 10 oxygen canisters</VGE_ExtractOxygen>
+  <VGE_ExtractOxygenDesc>Extract 10 oxygen canisters from the tank. A pawn will come to extract it.</VGE_ExtractOxygenDesc>
 
   <VSGE_OxygenValve>Switches oxygen flow on/off.</VSGE_OxygenValve>
   <VSGE_OxygenValveDesc>Switches oxygen flow on/off. A pawn will come open/close the valve.</VSGE_OxygenValveDesc>
 
-  <VGSE_DisabledNoAtmosphere>Can’t harvest oxygen: No atmosphere.</VGSE_DisabledNoAtmosphere>
+  <VGE_DisabledNoAtmosphere>Can’t harvest oxygen: No atmosphere.</VGE_DisabledNoAtmosphere>
 
-  <VGSE_ExtractAstrofuel>Extract 150 astrofuel</VGSE_ExtractAstrofuel>
-  <VGSE_ExtractAstrofuelDesc>Extract 150 astrofuel from the tank. A pawn will come to extract it.</VGSE_ExtractAstrofuelDesc>
+  <VGE_ExtractAstrofuel>Extract 150 astrofuel</VGE_ExtractAstrofuel>
+  <VGE_ExtractAstrofuelDesc>Extract 150 astrofuel from the tank. A pawn will come to extract it.</VGE_ExtractAstrofuelDesc>
 
   <VSGE_AstrofuelValve>Switches astrofuel flow on/off.</VSGE_AstrofuelValve>
   <VSGE_AstrofuelValveDesc>Switches astrofuel flow on/off. A pawn will come open/close the valve.</VSGE_AstrofuelValveDesc>

@@ -2,7 +2,7 @@
 <Defs>
 
   <PipeSystem.PipeNetDef>
-    <defName>VGSE_AstrofuelNet</defName>
+    <defName>VGE_AstrofuelNet</defName>
     <resource>
       <name>Astrofuel</name>
       <unit>l</unit>
@@ -10,10 +10,10 @@
       <offTexPath>Things/Items/Resource/Astrofuel</offTexPath>
     </resource>
     <pipeDefs>
-      <li>VGSE_AstrofuelPipe</li>
+      <li>VGE_AstrofuelPipe</li>
     </pipeDefs>
     <noLinkedGraphicDefs>
-      <li>VGSE_AstrofuelValve</li>
+      <li>VGE_AstrofuelValve</li>
     </noLinkedGraphicDefs>
     <designator>
       <deconstructIconPath>Things/PipeNetworks/Astrofuel/AstrofuelPipes_Deconstruct</deconstructIconPath>
@@ -24,14 +24,14 @@
     </overlayOptions>
     <linkToRefuelables>
       <li>
-        <thing>VGSE_Astrofuel</thing>
+        <thing>VGE_Astrofuel</thing>
         <ratio>1</ratio>
       </li>
     </linkToRefuelables>
   </PipeSystem.PipeNetDef>
 
   <ThingDef ParentName="BuildingBase">
-    <defName>VGSE_AstrofuelPipe</defName>
+    <defName>VGE_AstrofuelPipe</defName>
     <label>astrofuel pipe</label>
     <description>A large pipe for transporting high-grade astrofuel around. Can be placed under walls and other buildings.</description>
     <thingClass>PipeSystem.Building_Pipe</thingClass>
@@ -78,7 +78,7 @@
     </costList>
     <comps>
       <li Class="PipeSystem.CompProperties_Resource">
-        <pipeNet>VGSE_AstrofuelNet</pipeNet>
+        <pipeNet>VGE_AstrofuelNet</pipeNet>
       </li>
     </comps>
     <placeWorkers>
@@ -98,7 +98,7 @@
   </ThingDef>
 
   <ThingDef ParentName="BuildingBase">
-    <defName>VGSE_AstrofuelValve</defName>
+    <defName>VGE_AstrofuelValve</defName>
     <label>astrofuel valve</label>
     <description>Switches astrofuel flow on and off.</description>
     <thingClass>PipeSystem.Building_PipeValve</thingClass>
@@ -130,7 +130,7 @@
     </costList>
     <comps>
       <li Class="PipeSystem.CompProperties_PipeValve">
-        <pipeNet>VGSE_AstrofuelNet</pipeNet>
+        <pipeNet>VGE_AstrofuelNet</pipeNet>
         <alwaysLinkToPipes>true</alwaysLinkToPipes>
       </li>
       <li Class="CompProperties_Flickable">
@@ -151,7 +151,7 @@
   </ThingDef>
 
   <ThingDef ParentName="FuelTankBase">
-    <defName>VGSE_GiantAstrofuelTank</defName>
+    <defName>VGE_GiantAstrofuelTank</defName>
     <label>giant astrofuel tank</label>
     <description>A monumental astrofuel storage tank that supplies fuel for thrusters on a gravship. Can only be constructed on gravhulks.</description>
     <drawerType>MapMeshAndRealTime</drawerType>
@@ -192,7 +192,7 @@
         <maxDistance>500</maxDistance>
       </li>
       <li Class="PipeSystem.CompProperties_ResourceStorage">
-        <pipeNet>VGSE_AstrofuelNet</pipeNet>
+        <pipeNet>VGE_AstrofuelNet</pipeNet>
         <storageCapacity>1800</storageCapacity>
         <barSize>(1.3, 0.25)</barSize>
         <margin>0.1</margin>
@@ -201,14 +201,14 @@
         <extractOptions>
           <!-- TODO: Add actual icon -->
           <texPath>UI/Overlays/Overlay_Oxygen</texPath>
-          <labelKey>VGSE_ExtractAstrofuel</labelKey>
-          <descKey>VGSE_ExtractAstrofuelDesc</descKey>
+          <labelKey>VGE_ExtractAstrofuel</labelKey>
+          <descKey>VGE_ExtractAstrofuelDesc</descKey>
           <extractAmount>150</extractAmount>
-          <thing>VGSE_Astrofuel</thing>
+          <thing>VGE_Astrofuel</thing>
           <ratio>1</ratio>
         </extractOptions>
         <refillOptions>
-          <thing>VGSE_Astrofuel</thing>
+          <thing>VGE_Astrofuel</thing>
         </refillOptions>
       </li>
       <li Class="PipeSystem.CompProperties_ExplosiveContent">
@@ -236,7 +236,7 @@
   </ThingDef>
 
   <ThingDef ParentName="GravshipComponentBase">
-    <defName>VGSE_AstrofuelTap</defName>
+    <defName>VGE_AstrofuelTap</defName>
     <label>astrofuel tap</label>
     <description>A hopper-like storage device meant to hold dispensed astrofuel for use later.</description>
     <thingClass>Building_Storage</thingClass>
@@ -276,7 +276,7 @@
         <filter>
           <disallowNotEverStorable>true</disallowNotEverStorable>
           <thingDefs>
-            <li>VGSE_Astrofuel</li>
+            <li>VGE_Astrofuel</li>
           </thingDefs>
         </filter>
       </fixedStorageSettings>
@@ -285,7 +285,7 @@
         <filter>
           <disallowNotEverStorable>true</disallowNotEverStorable>
           <thingDefs>
-            <li>VGSE_Astrofuel</li>
+            <li>VGE_Astrofuel</li>
           </thingDefs>
         </filter>
       </defaultStorageSettings>
@@ -300,8 +300,8 @@
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <comps>
       <li Class="PipeSystem.CompProperties_ConvertResourceToThing">
-        <pipeNet>VGSE_AstrofuelNet</pipeNet>
-        <thing>VGSE_Astrofuel</thing>
+        <pipeNet>VGE_AstrofuelNet</pipeNet>
+        <thing>VGE_Astrofuel</thing>
       </li>
     </comps>
     <researchPrerequisites>
@@ -310,7 +310,7 @@
   </ThingDef>
 
   <ThingDef ParentName="GravshipComponentBase">
-    <defName>VGSE_AstrofuelDrain</defName>
+    <defName>VGE_AstrofuelDrain</defName>
     <label>astrofuel drain</label>
     <description>A hopper-like storage structure meant to input astrofuel into the network, filling up connected tanks.</description>
     <thingClass>Building_Storage</thingClass>
@@ -350,7 +350,7 @@
         <filter>
           <disallowNotEverStorable>true</disallowNotEverStorable>
           <thingDefs>
-            <li>VGSE_Astrofuel</li>
+            <li>VGE_Astrofuel</li>
           </thingDefs>
         </filter>
       </fixedStorageSettings>
@@ -359,7 +359,7 @@
         <filter>
           <disallowNotEverStorable>true</disallowNotEverStorable>
           <thingDefs>
-            <li>VGSE_Astrofuel</li>
+            <li>VGE_Astrofuel</li>
           </thingDefs>
         </filter>
       </defaultStorageSettings>
@@ -374,8 +374,8 @@
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <comps>
       <li Class="PipeSystem.CompProperties_ConvertThingToResource">
-        <pipeNet>VGSE_AstrofuelNet</pipeNet>
-        <thing>VGSE_Astrofuel</thing>
+        <pipeNet>VGE_AstrofuelNet</pipeNet>
+        <thing>VGE_Astrofuel</thing>
       </li>
     </comps>
     <researchPrerequisites>
@@ -384,7 +384,7 @@
   </ThingDef>
 
   <ThingDef ParentName="GravshipComponentBase">
-    <defName>VGSE_AstrofuelGenerator</defName>
+    <defName>VGE_AstrofuelGenerator</defName>
     <label>astrofuel generator</label>
     <description>Produces power by consuming astrofuel. Much more efficient than chemfuel generators.</description>
     <minifiedDef IsNull="True"/>
@@ -429,7 +429,7 @@
         <fuelCapacity>30.0</fuelCapacity>
         <fuelFilter>
           <thingDefs>
-            <li>VGSE_Astrofuel</li>
+            <li>VGE_Astrofuel</li>
           </thingDefs>
         </fuelFilter>
         <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
@@ -467,7 +467,7 @@
   </ThingDef>
 
   <ThingDef ParentName="GravshipComponentBase">
-    <defName>VGSE_IndustrialAstrofuelGenerator</defName>
+    <defName>VGE_IndustrialAstrofuelGenerator</defName>
     <label>industrial astrofuel generator</label>
     <description>Produces a large amount of power by consuming astrofuel. Much more efficient than chemfuel generators.</description>
     <minifiedDef IsNull="True"/>
@@ -512,7 +512,7 @@
         <fuelCapacity>60.0</fuelCapacity>
         <fuelFilter>
           <thingDefs>
-            <li>VGSE_Astrofuel</li>
+            <li>VGE_Astrofuel</li>
           </thingDefs>
         </fuelFilter>
         <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
@@ -551,7 +551,7 @@
   </ThingDef>
 
   <ThingDef ParentName="GravshipComponentBase">
-    <defName>VGSE_AstrofuelSynthesizer</defName>
+    <defName>VGE_AstrofuelSynthesizer</defName>
     <label>astrofuel synthesizer</label>
     <description>A specialized structure that refines chemfuel into high-grade astrofuel. It must be connected to the astrofuel pipe network and linked to at least one astrofuel tank to operate. Once connected, it automatically converts inserted chemfuel into astrofuel for use in engines and systems.</description>
     <minifiedDef IsNull="True"/>
@@ -605,7 +605,7 @@
         <compClass>VanillaGravshipExpanded.CompResourceTrader_AstrofuelSynthesizer</compClass>
         <producerLowPowerWhenStorageFull>true</producerLowPowerWhenStorageFull>
         <soundAmbientReceivingResource>Recipe_Cremate</soundAmbientReceivingResource>
-        <pipeNet>VGSE_AstrofuelNet</pipeNet>
+        <pipeNet>VGE_AstrofuelNet</pipeNet>
         <!-- 0.(6) per 100 ticks, or 0.00(6) per tick, or 1 per 150 ticks, or 400 per day. -->
         <consumptionPerTick>-0.66666666666666666666666666666667</consumptionPerTick>
       </li>
@@ -616,7 +616,7 @@
       </li>
       <li Class="CompProperties_AffectedByFacilities">
         <linkableFacilities>
-          <li>VGSE_Astropurifier</li>
+          <li>VGE_Astropurifier</li>
         </linkableFacilities>
       </li>
     </comps>
@@ -632,7 +632,7 @@
   </ThingDef>
 
   <ThingDef ParentName="GravshipComponentBase">
-    <defName>VGSE_Astropurifier</defName>
+    <defName>VGE_Astropurifier</defName>
     <label>astropurifier</label>
     <description>A gravtech unit that enhances the precision and stability of astrofuel refinement. When placed next to an astrofuel synthesizer, it enables perfect 1:1 conversion from chemfuel to astrofuel, though the process takes twice as long.</description>
     <graphicData>
