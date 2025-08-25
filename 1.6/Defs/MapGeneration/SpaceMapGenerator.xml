@@ -188,4 +188,99 @@
 			</mineableCounts>
 		</genStep>
 	</GenStepDef>
+	
+	<MapGeneratorDef ParentName="SpaceMapGenerator">
+		<defName>VGE_DenseAsteroid</defName>
+		<label>dense asteroid</label>
+		<genSteps>
+			<li>VGE_DenseAsteroid</li>
+			<li>AsteroidBasicTransportPods</li>
+			<li>AncientMiningCharge_Asteroid</li>
+			<li>AncientExplosivesCrate_Asteroid</li>
+			<li>AncientDrillPlatform_Asteroid</li>
+			<li>AncientTuneller_Asteroid</li>
+			<li>MechShipChunk_Asteroid</li>
+			<li>RockChunks</li>
+		</genSteps>
+	</MapGeneratorDef>
+	<GenStepDef>
+		<defName>VGE_DenseAsteroid</defName>
+		<order>200</order>
+		<genStep Class="VanillaGravshipExpanded.GenStep_DenseAsteroid">
+			<numChunks>35~40</numChunks>
+			<ruinsChance>0.75</ruinsChance>
+			<archeanTreeChance>0.5</archeanTreeChance>
+			<mineableCounts>
+				<MineableGold>22~30</MineableGold>
+				<MineableSilver>70~90</MineableSilver>
+				<MineableSteel>100~140</MineableSteel>
+				<MineableUranium>25~40</MineableUranium>
+				<MineablePlasteel>25~30</MineablePlasteel>
+				<MineableComponentsIndustrial>75~95</MineableComponentsIndustrial>
+				<MineableJade>35~60</MineableJade>
+			</mineableCounts>
+		</genStep>
+	</GenStepDef>
+	<MapGeneratorDef ParentName="SpaceMapGenerator">
+		<defName>VGE_SmallAsteroid</defName>
+		<label>small asteroid</label>
+		<genSteps>
+			<li>VGE_SmallAsteroid</li>
+			<li>AsteroidBasicTransportPods</li>		
+			<li>MechShipChunk_Asteroid</li>
+			<li>RockChunks</li>
+		</genSteps>
+	</MapGeneratorDef>
+	<GenStepDef>
+		<defName>VGE_SmallAsteroid</defName>
+		<order>200</order>
+		<genStep Class="VanillaGravshipExpanded.GenStep_SmallAsteroid">
+			<numChunks>3~6</numChunks>
+			<ruinsChance>0.4</ruinsChance>
+			<archeanTreeChance>0.15</archeanTreeChance>
+			<mineableCounts>
+				<MineableGold>14~22</MineableGold>
+				<MineableSilver>50~70</MineableSilver>
+				<MineableSteel>80~110</MineableSteel>
+				<MineableUranium>15~25</MineableUranium>
+				<MineablePlasteel>12~15</MineablePlasteel>
+				<MineableComponentsIndustrial>65~85</MineableComponentsIndustrial>
+				<MineableJade>20~35</MineableJade>
+			</mineableCounts>
+		</genStep>
+	</GenStepDef>
+	
+	<MapGeneratorDef ParentName="SpaceMapGenerator">
+		<defName>VGE_AsteroidWithRuins</defName>
+		<label>asteroid with ruins</label>
+		<genSteps>
+			<li>VGE_AsteroidWithRuins</li>
+			<li>Opportunity_AbandonedPlatform</li>
+			<li>AsteroidBasicTransportPods</li>
+			<li>AncientMiningCharge_Asteroid</li>
+			<li>AncientExplosivesCrate_Asteroid</li>
+			<li>AncientDrillPlatform_Asteroid</li>
+			<li>AncientTuneller_Asteroid</li>
+			<li>MechShipChunk_Asteroid</li>
+			<li>RockChunks</li>
+		</genSteps>
+	</MapGeneratorDef>
+	<GenStepDef>
+		<defName>VGE_AsteroidWithRuins</defName>
+		<order>200</order>
+		<genStep Class="VanillaGravshipExpanded.GenStep_AsteroidWithRuins">
+			<numChunks>5~8</numChunks>
+			<ruinsChance>0.5</ruinsChance>
+			<archeanTreeChance>0.25</archeanTreeChance>
+			<mineableCounts>
+				<MineableGold>14~22</MineableGold>
+				<MineableSilver>50~70</MineableSilver>
+				<MineableSteel>80~110</MineableSteel>
+				<MineableUranium>15~25</MineableUranium>
+				<MineablePlasteel>12~15</MineablePlasteel>
+				<MineableComponentsIndustrial>65~85</MineableComponentsIndustrial>
+				<MineableJade>20~35</MineableJade>
+			</mineableCounts>
+		</genStep>
+	</GenStepDef>
 </Defs>
