@@ -138,13 +138,18 @@ namespace VanillaGravshipExpanded
             ModuleBase chasmNoise = new DistFromPoint((float)map.Size.x * 0.4f);
             chasmNoise = new Scale(1.3, 1.0, 1.0, chasmNoise);
             chasmNoise = new Rotate(0.0, Rand.Range(0f, 360f), 0.0, chasmNoise);
-            chasmNoise = new Translate(-map.Center.x, 0.0, -map.Center.z, chasmNoise);
-           
-           
+            chasmNoise = new Translate(-map.Center.x, 0.0, -map.Center.z, chasmNoise);         
             chasmNoise = MapNoiseUtility.AddDisplacementNoise(chasmNoise, 0.015f, 40f);
 
+            ModuleBase chasmNoise2 = new DistFromPoint((float)map.Size.x * 0.4f);
+            chasmNoise2 = new Scale(1.3, 1.0, 1.0, chasmNoise);
+            chasmNoise2 = new Rotate(0.0, Rand.Range(0f, 360f), 0.0, chasmNoise);
+            chasmNoise2 = new Translate(-map.Center.x, 0.0, -map.Center.z, chasmNoise);
+            chasmNoise2 = MapNoiseUtility.AddDisplacementNoise(chasmNoise, 0.015f, 40f);
+
             ModuleBase shatteredAsteroid = new Min(input, chasmNoise);
-           
+            shatteredAsteroid = new Min(shatteredAsteroid, chasmNoise2);
+
             NoiseDebugUI.StoreNoiseRender(shatteredAsteroid, "shattered asteroid");
 
             return shatteredAsteroid;
