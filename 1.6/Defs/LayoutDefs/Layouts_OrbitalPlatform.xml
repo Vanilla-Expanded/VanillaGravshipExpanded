@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+ 
+
+  <StructureLayoutDef ParentName="OrbitalAncientPlatformBase" Name="AbandonedPlatformBase">
+    <defName>VGE_DerelictStation</defName>
+    <corridorDef>AncientOrbitalCorridorDefense</corridorDef>
+    <wallAttachments>
+      <LifeSupportUnit>
+        <countRange>0~0</countRange>
+      </LifeSupportUnit>
+    </wallAttachments>
+    <roomDefs>
+      <!-- Special -->
+      <AncientCryptosleepRoom_Hostile_Deserted>
+        <countRange>1~2</countRange>
+      </AncientCryptosleepRoom_Hostile_Deserted>
+      <RecRoom_Deserted>
+        <countRange>1~1</countRange>
+      </RecRoom_Deserted>
+      <OrbitalNursery_Deserted MayRequire="Ludeon.RimWorld.Biotech">
+        <countRange>1~1</countRange>
+      </OrbitalNursery_Deserted>
+      <OrbitalStoreroom_Loot>
+        <countRange>1~1</countRange>
+      </OrbitalStoreroom_Loot>
+
+      <!-- Decorative -->
+      <OrbitalTransportRoom>1</OrbitalTransportRoom>
+      <VGE_OrbitalHydroponics>1</VGE_OrbitalHydroponics>
+      <OrbitalDiningRoom>1</OrbitalDiningRoom>
+      <OrbitalBarracks_Deserted>1</OrbitalBarracks_Deserted>
+      <NarrowHalls>1</NarrowHalls>
+
+   
+    </roomDefs>
+    <parts>
+      <Breached>0.75</Breached>
+      <Gore>0.75</Gore>
+    </parts>
+  </StructureLayoutDef>
+
+ 
+  
+</Defs>

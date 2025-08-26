@@ -91,4 +91,11 @@
 		<expandingIconTexture>UI/MapIcons/AsteroidWithRuins</expandingIconTexture>
 		<mapGenerator>VGE_AsteroidWithRuins</mapGenerator>
 	</WorldObjectDef>
+	<WorldObjectDef ParentName="GeneratedAsteroid">
+		<defName>VGE_DerelictStation</defName>
+		<label>derelict station</label>
+		<description>A derelict orbital station, long since abandoned and stripped of anything valuable. Only its skeletal frame drifts silently through space, a reminder of what once was.n\nThis location can be reached using transport pods, shuttles, or a gravship.</description>
+		<expandingIconTexture>UI/MapIcons/OrbitalRuins</expandingIconTexture>
+		<mapGenerator>VGE_DerelictStation</mapGenerator>
+	</WorldObjectDef>
 </Defs>

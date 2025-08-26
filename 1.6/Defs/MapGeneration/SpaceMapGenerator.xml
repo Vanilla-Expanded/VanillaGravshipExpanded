@@ -188,7 +188,6 @@
 			</mineableCounts>
 		</genStep>
 	</GenStepDef>
-	
 	<MapGeneratorDef ParentName="SpaceMapGenerator">
 		<defName>VGE_DenseAsteroid</defName>
 		<label>dense asteroid</label>
@@ -226,7 +225,7 @@
 		<label>small asteroid</label>
 		<genSteps>
 			<li>VGE_SmallAsteroid</li>
-			<li>AsteroidBasicTransportPods</li>		
+			<li>AsteroidBasicTransportPods</li>
 			<li>MechShipChunk_Asteroid</li>
 			<li>RockChunks</li>
 		</genSteps>
@@ -249,13 +248,12 @@
 			</mineableCounts>
 		</genStep>
 	</GenStepDef>
-	
 	<MapGeneratorDef ParentName="SpaceMapGenerator">
 		<defName>VGE_AsteroidWithRuins</defName>
 		<label>asteroid with ruins</label>
 		<genSteps>
 			<li>VGE_AsteroidWithRuins</li>
-			<li>Opportunity_AbandonedPlatform</li>
+			<li>VGE_DerelictStation</li>
 			<li>AsteroidBasicTransportPods</li>
 			<li>AncientMiningCharge_Asteroid</li>
 			<li>AncientExplosivesCrate_Asteroid</li>
@@ -283,4 +281,28 @@
 			</mineableCounts>
 		</genStep>
 	</GenStepDef>
+	<MapGeneratorDef ParentName="SpaceMapGenerator">
+		<defName>VGE_DerelictStation</defName>
+		<label>derelict station</label>
+		<genSteps>
+			<li>VGE_DerelictStation</li>
+		</genSteps>
+	</MapGeneratorDef>
+	<GenStepDef>
+    <defName>VGE_DerelictStation</defName>
+ 
+    <order>200</order>
+    <genStep Class="GenStep_OrbitalPlatform">
+      <factionDef>AncientsHostile</factionDef>
+      <platformTerrain>OrbitalPlatform</platformTerrain>
+      <layoutDef>VGE_DerelictStation</layoutDef>
+      <orbitalDebrisDef>Manmade</orbitalDebrisDef>
+      <temperature>20</temperature>
+      <spawnSentryDrones>false</spawnSentryDrones>
+      <exteriorPrefabs>
+        <CrashedShuttle>0~1</CrashedShuttle>
+        <BaricadeTurret>2~5</BaricadeTurret>
+      </exteriorPrefabs>
+    </genStep>
+  </GenStepDef>
 </Defs>

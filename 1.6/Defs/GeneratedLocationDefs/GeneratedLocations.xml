@@ -144,4 +144,12 @@
 			<li>MineableJade</li>
 		</preciousResources>
 	</GeneratedLocationDef>
+	<GeneratedLocationDef>
+		<defName>VGE_DerelictStation</defName>
+		<worldObjectDef>VGE_DerelictStation</worldObjectDef>
+		<layerDefs>
+			<li>Orbit</li>
+		</layerDefs>
+		
+	</GeneratedLocationDef>
 </Defs>
