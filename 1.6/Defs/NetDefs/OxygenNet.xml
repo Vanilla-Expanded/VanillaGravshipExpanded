@@ -559,6 +559,8 @@
       <li Class="PipeSystem.CompProperties_ResourceTrader">
         <resourceOffOverlay>false</resourceOffOverlay>
         <producerLowPowerWhenStorageFull>true</producerLowPowerWhenStorageFull>
+        <lowPowerWhenRefuelableEmpty>true</lowPowerWhenRefuelableEmpty>
+        <handleCompRefuelableTicking>true</handleCompRefuelableTicking>
         <soundAmbientReceivingResource>WaterMill_Ambience</soundAmbientReceivingResource>
         <pipeNet>VGE_OxygenNet</pipeNet>
         <!-- 0.1(3) oxygen per 100 ticks, or 1 per 750 ticks, or 80 per day. -->
@@ -570,6 +572,7 @@
         <fuelCapacity>400</fuelCapacity>
         <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
         <initialConfigurableTargetFuelLevel>400</initialConfigurableTargetFuelLevel>
+        <externalTicking>true</externalTicking>
         <!-- 1 per 750 ticks, or 80 per day. -->
         <fuelConsumptionRate>80</fuelConsumptionRate>
         <fuelFilter>

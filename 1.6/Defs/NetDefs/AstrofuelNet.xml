@@ -594,6 +594,7 @@
         <fuelCapacity>300</fuelCapacity>
         <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
         <initialConfigurableTargetFuelLevel>300</initialConfigurableTargetFuelLevel>
+        <externalTicking>true</externalTicking>
         <fuelFilter>
           <thingDefs>
             <li>Chemfuel</li>
@@ -605,6 +606,8 @@
       <li Class="PipeSystem.CompProperties_ResourceTrader">
         <compClass>VanillaGravshipExpanded.CompResourceTrader_AstrofuelSynthesizer</compClass>
         <producerLowPowerWhenStorageFull>true</producerLowPowerWhenStorageFull>
+        <lowPowerWhenRefuelableEmpty>true</lowPowerWhenRefuelableEmpty>
+        <handleCompRefuelableTicking>true</handleCompRefuelableTicking>
         <soundAmbientReceivingResource>Recipe_Cremate</soundAmbientReceivingResource>
         <pipeNet>VGE_AstrofuelNet</pipeNet>
         <!-- 0.(6) per 100 ticks, or 0.00(6) per tick, or 1 per 150 ticks, or 400 per day. -->
