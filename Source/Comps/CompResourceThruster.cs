@@ -1,4 +1,5 @@
-﻿using PipeSystem;
+﻿using System.Text;
+using PipeSystem;
 using Verse;
 
 namespace VanillaGravshipExpanded;
@@ -28,5 +29,16 @@ public class CompResourceThruster : CompResource
         base.PostDeSpawn(map, mode);
 
         pipeNetOverlayDrawer.TogglePulsing(parent, Props.outOfFuelOverlay, false);
+    }
+
+    public override string CompInspectStringExtra()
+    {
+        var builder = new StringBuilder();
+
+        if (!HasFuel)
+            builder.Append("VGE_DisabledNoFuel".Translate());
+
+        builder.AppendInNewLine(base.CompInspectStringExtra());
+        return builder.ToString();
     }
 }
