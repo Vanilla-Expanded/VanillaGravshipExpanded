@@ -3,6 +3,7 @@
 
   <PipeSystem.PipeNetDef>
     <defName>VGE_AstrofuelNet</defName>
+    <pipeNetClass>VanillaGravshipExpanded.AstrofuelPipeNet</pipeNetClass>
     <resource>
       <name>Astrofuel</name>
       <unit>l</unit>
@@ -683,6 +684,79 @@
     <tradeTags>
       <li>GravshipUpgrade</li>
     </tradeTags>
+  </ThingDef>
+
+  <ThingDef ParentName="ThrusterBase">
+    <defName>VGE_GiantThruster</defName>
+    <label>giant thruster</label>
+    <description>A massive, reinforced astrofuel thruster built with advanced alloys and ultra-dense vacstone plating. It massively increases the range and maximum size of the gravship. Thrusters require an unobstructed area free of large buildings and gravship substructure.\n\nRequires vacstone blocks, which can be obtained from orbital asteroids.\n\nA gravship can support up to four giant thrusters.</description>
+    <graphicData>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <texPath>Things/Structures/Thrusters/GiantAstrofuelThruster</texPath>
+      <drawSize>(4.15, 4.15)</drawSize>
+      <shadowData>
+        <volume>2.8, 0.75, 2.8</volume>
+      </shadowData>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>800</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <Beauty>-10</Beauty>
+      <WorkToBuild>18000</WorkToBuild>
+      <Mass>45</Mass>
+    </statBases>
+    <size>(3, 3)</size>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <costList>
+      <Steel>300</Steel>
+      <BlocksVacstone>100</BlocksVacstone>
+      <ComponentSpacer>6</ComponentSpacer>
+    </costList>
+    <researchPrerequisites>
+      <li>AdvancedGravtech</li>
+    </researchPrerequisites>
+    <comps>
+      <li Class="CompProperties_GravshipThruster">
+        <statOffsets>
+          <GravshipRange>20</GravshipRange>
+          <VGE_SubstructureSupportMultiplier>0.1</VGE_SubstructureSupportMultiplier>
+        </statOffsets>
+        <componentTypeDef>Thruster</componentTypeDef>
+        <exclusionAreaSize>(3, 0, 9)</exclusionAreaSize>
+        <exclusionAreaOffset>(-1, 0, -10)</exclusionAreaOffset>
+        <directionInfluence>40</directionInfluence>
+        <flameSize>4.0</flameSize>
+        <flameOffsetsPerDirection>
+          <li>(0, 0, 1.5)</li>
+          <li>(0, 0, 1.0)</li>
+          <li>(0, 0, 1.0)</li>
+          <li>(0, 0, 1.0)</li>
+        </flameOffsetsPerDirection>
+        <flameShaderType>MoteGlow</flameShaderType>
+        <flameShaderParameters>
+          <_MainTex>/Things/Mote/LargeThruster_Burn</_MainTex>
+        </flameShaderParameters>
+        <requiresLOS>false</requiresLOS>
+        <maxSimultaneous>4</maxSimultaneous>
+        <maxDistance>500</maxDistance>
+        <exhaustSettings>
+          <exhaustFleckDef>GravshipThrusterExhaust</exhaustFleckDef>
+          <emissionsPerSecond>40.0</emissionsPerSecond>
+          <spawnRadiusRange>0.0~0.5</spawnRadiusRange>
+          <velocity>(0.0,0.0,-20.0)</velocity>
+          <velocityRotationRange>-10.0~10.0</velocityRotationRange>
+          <velocityMultiplierRange>0.8~1.2</velocityMultiplierRange>
+          <rotationOverTimeRange>-180.0~180.0</rotationOverTimeRange>
+          <scaleRange>5.0~7.5</scaleRange>
+        </exhaustSettings>
+      </li>
+      <li Class="CompProperties_Breakdownable" />
+      <li Class="VanillaGravshipExpanded.CompProperties_ResourceThruster">
+        <pipeNet>VGE_AstrofuelNet</pipeNet>
+        <outOfFuelOverlayPath>UI/Overlays/NoAstrofuel</outOfFuelOverlayPath>
+      </li>
+    </comps>
+    <uiOrder>2206</uiOrder>
   </ThingDef>
 
 </Defs>

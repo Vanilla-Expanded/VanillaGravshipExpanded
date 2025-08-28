@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
-	<!-- Make vanilla grav engine link with our facilities. -->
-	<Operation Class="PatchOperationAdd">
-		<xpath>Defs/ThingDef[defName="GravEngine"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
-		<value>
-	     <li>VGE_OxygenReclaimer</li>
-	     <li>VGE_SmallHeatsink</li>
-	     <li>VGE_LargeHeatsink</li>
-	     <li>VGE_GravheatAbsorber</li>
-			<li>VGE_GravFieldAmplifier</li>
-	   </value>
-	</Operation>
+  <!-- Make vanilla grav engine link with our facilities. -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="GravEngine"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+    <value>
+      <li>VGE_OxygenReclaimer</li>
+      <li>VGE_SmallHeatsink</li>
+      <li>VGE_LargeHeatsink</li>
+      <li>VGE_GravheatAbsorber</li>
+      <li>VGE_GravFieldAmplifier</li>
+      <li>VGE_GiantThruster</li>
+    </value>
+  </Operation>
 
 </Patch>

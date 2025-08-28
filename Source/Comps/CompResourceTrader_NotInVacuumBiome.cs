@@ -14,7 +14,7 @@ public class CompResourceTrader_NotInVacuumBiome : CompResourceTrader
 
         pipeNetOverlayDrawer = parent.Map.GetComponent<PipeNetOverlayDrawer>();
 
-        if (OxygenPipeNet.noAtmosphere)
+        if (OxygenPipeNet.noAtmosphere && Props.lowOxygenEnvironmentOverlay != null)
             pipeNetOverlayDrawer.TogglePulsing(parent, Props.lowOxygenEnvironmentOverlay, true);
     }
 

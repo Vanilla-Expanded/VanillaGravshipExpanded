@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Make SubstructureSupport stat affected by SubstructureSupportMultiplier -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/StatDef[defName="SubstructureSupport"]/statFactors</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/StatDef[defName="SubstructureSupport"]</xpath>
+      <value>
+        <statFactors>
+          <li>VGE_SubstructureSupportMultiplier</li>
+        </statFactors>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/StatDef[defName="SubstructureSupport"]/statFactors</xpath>
+      <value>
+        <li>VGE_SubstructureSupportMultiplier</li>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>
