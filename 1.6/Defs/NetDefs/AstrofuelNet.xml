@@ -136,8 +136,8 @@
       </li>
       <li Class="CompProperties_Flickable">
         <commandTexture>Things/Items/Resource/Astrofuel</commandTexture>
-        <commandLabelKey>VSGE_AstrofuelValve</commandLabelKey>
-        <commandDescKey>VSGE_AstrofuelValveDesc</commandDescKey>
+        <commandLabelKey>VGE_AstrofuelValve</commandLabelKey>
+        <commandDescKey>VGE_AstrofuelValveDesc</commandDescKey>
       </li>
     </comps>
     <rotatable>false</rotatable>

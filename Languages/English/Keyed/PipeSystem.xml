@@ -8,11 +8,12 @@
   <VSGE_OxygenValveDesc>Switches oxygen flow on/off. A pawn will come open/close the valve.</VSGE_OxygenValveDesc>
 
   <VGE_DisabledNoAtmosphere>Can’t harvest oxygen: No atmosphere.</VGE_DisabledNoAtmosphere>
+  <VGE_DisabledNoFuel>Requires a connection to the astrofuel network and astrofuel in the tank to work.</VGE_DisabledNoFuel>
 
   <VGE_ExtractAstrofuel>Extract 150 astrofuel</VGE_ExtractAstrofuel>
   <VGE_ExtractAstrofuelDesc>Extract 150 astrofuel from the tank. A pawn will come to extract it.</VGE_ExtractAstrofuelDesc>
 
-  <VSGE_AstrofuelValve>Switches astrofuel flow on/off.</VSGE_AstrofuelValve>
-  <VSGE_AstrofuelValveDesc>Switches astrofuel flow on/off. A pawn will come open/close the valve.</VSGE_AstrofuelValveDesc>
+  <VGE_AstrofuelValve>Switches astrofuel flow on/off.</VGE_AstrofuelValve>
+  <VGE_AstrofuelValveDesc>Switches astrofuel flow on/off. A pawn will come open/close the valve.</VGE_AstrofuelValveDesc>
 
 </LanguageData>
