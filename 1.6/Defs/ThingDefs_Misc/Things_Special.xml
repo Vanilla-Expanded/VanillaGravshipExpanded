@@ -11,7 +11,7 @@
     <forceDebugSpawnable>true</forceDebugSpawnable>
     <graphicData>
       <texPath>Effects/Astrofire</texPath>
-      <graphicClass>Graphic_Flicker</graphicClass>
+      <graphicClass>VanillaGravshipExpanded.Graphic_AstrofireFlicker</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
     </graphicData> 
     <altitudeLayer>PawnState</altitudeLayer>

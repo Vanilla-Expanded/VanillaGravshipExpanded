@@ -65,10 +65,11 @@
     <comps>
       <li Class="CompProperties_Explosive">
         <explosiveRadius>1.1</explosiveRadius>
-        <explosiveDamageType>Flame</explosiveDamageType>
+        <explosiveDamageType>VGE_AstrofireDamage</explosiveDamageType>
         <explosiveExpandPerStackcount>0.037</explosiveExpandPerStackcount>
         <startWickOnDamageTaken>
           <li>Flame</li>
+		  <li>VGE_AstrofireDamage</li>
         </startWickOnDamageTaken>
         <startWickHitPointsPercent>0.333</startWickHitPointsPercent>
         <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>

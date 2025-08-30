@@ -64,7 +64,7 @@
         <explosiveMaxRadius>5.725</explosiveMaxRadius>
         <radiusRequiredForExplosion>1.1</radiusRequiredForExplosion>
         <!-- Vanilla options below -->
-        <explosiveDamageType>Thump</explosiveDamageType>
+        <explosiveDamageType>VGE_AstrofireDamage</explosiveDamageType>
         <damageAmountBase>14</damageAmountBase>
         <destroyThingOnExplosionSize>2</destroyThingOnExplosionSize>
         <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
@@ -153,7 +153,7 @@
         <explosiveMaxRadius>14.975</explosiveMaxRadius>
         <radiusRequiredForExplosion>1.1</radiusRequiredForExplosion>
         <!-- Vanilla options below -->
-        <explosiveDamageType>Thump</explosiveDamageType>
+        <explosiveDamageType>VGE_AstrofireDamage</explosiveDamageType>
         <damageAmountBase>14</damageAmountBase>
         <destroyThingOnExplosionSize>2</destroyThingOnExplosionSize>
         <startWickHitPointsPercent>0.2</startWickHitPointsPercent>

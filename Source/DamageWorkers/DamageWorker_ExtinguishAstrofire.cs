@@ -25,6 +25,7 @@ namespace VanillaGravshipExpanded
                 fire.fireSize -= dinfo.Amount * 0.01f;
                 if (fire.fireSize < 0.1f)
                 {
+                   
                     fire.Destroy();
                 }
             }

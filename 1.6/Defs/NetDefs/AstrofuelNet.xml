@@ -216,7 +216,7 @@
         <explosiveMinRadius>1.1</explosiveMinRadius>
         <explosiveMaxRadius>34.4</explosiveMaxRadius>
         <!-- Vanilla options below -->
-        <explosiveDamageType>Thump</explosiveDamageType>
+        <explosiveDamageType>VGE_AstrofireDamage</explosiveDamageType>
         <damageAmountBase>14</damageAmountBase>
         <destroyThingOnExplosionSize>2</destroyThingOnExplosionSize>
         <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
@@ -450,7 +450,7 @@
       <li Class="CompProperties_Explosive">
         <explosiveRadius>0</explosiveRadius>
         <explosiveExpandPerFuel>0.95</explosiveExpandPerFuel>
-        <explosiveDamageType>Flame</explosiveDamageType>
+        <explosiveDamageType>VGE_AstrofireDamage</explosiveDamageType>
         <destroyThingOnExplosionSize>2</destroyThingOnExplosionSize>
         <startWickHitPointsPercent>0.333</startWickHitPointsPercent>
         <preExplosionSpawnThingDef>VGE_Filth_Astrofuel</preExplosionSpawnThingDef>
@@ -533,7 +533,7 @@
       <li Class="CompProperties_Explosive">
         <explosiveRadius>0</explosiveRadius>
         <explosiveExpandPerFuel>0.95</explosiveExpandPerFuel>
-        <explosiveDamageType>Flame</explosiveDamageType>
+        <explosiveDamageType>VGE_AstrofireDamage</explosiveDamageType>
         <destroyThingOnExplosionSize>2</destroyThingOnExplosionSize>
         <startWickHitPointsPercent>0.333</startWickHitPointsPercent>
         <preExplosionSpawnThingDef>VGE_Filth_Astrofuel</preExplosionSpawnThingDef>

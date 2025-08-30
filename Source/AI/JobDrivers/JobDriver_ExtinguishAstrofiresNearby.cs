@@ -133,16 +133,7 @@ namespace VanillaGravshipExpanded
             }
             else
             {
-
-                if (targetFire.TicksSinceSpawn == 0)
-                {
-                    return false;
-                }
-                targetFire.TakeDamage(new DamageInfo(VGEDefOf.VGE_ExtinguishAstrofire, 16f, 0f, -1f, pawn));
-                pawn.Drawer.Notify_MeleeAttackOn(targetFire);
-                return true;
-
-
+                return pawn.natives.BeatFireVerb.TryStartCastOn(targetFire);
             }
 
         }
