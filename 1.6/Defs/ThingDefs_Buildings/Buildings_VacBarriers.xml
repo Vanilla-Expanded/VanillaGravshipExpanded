@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef Name="VGE_VacBarrierBase" ParentName="DoorBase" Abstract="True">
+    <description>An ultrasonic barrier that prevents depressurization in space. The field compresses air molecules near the threshold, preventing gases from escaping while allowing people to freely travel through it. A vac barrier will do nothing to prevent intruders.\n\nMust be powered to prevent depressurization.</description>
+    <thingClass>VanillaGravshipExpanded.Building_VacBarrier_Recolorable</thingClass>
+    <statBases>
+      <Flammability>0</Flammability>
+    </statBases>
+    <rotatable>true</rotatable>
+    <graphicData>
+      <shaderType>TransparentPostLight</shaderType>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <stuffCategories Inherit="False"/>
+    <useStuffTerrainAffordance>false</useStuffTerrainAffordance>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <useBlueprintGraphicAsGhost>true</useBlueprintGraphicAsGhost>
+    <designationCategory>Odyssey</designationCategory>
+    <building>
+      <isAirtight>true</isAirtight>
+      <isSupportDoor>true</isSupportDoor>
+      <blueprintClass>Blueprint_Door</blueprintClass>
+    </building>
+    <designatorDropdown>VGE_VacBarriers</designatorDropdown>
+    <researchPrerequisites>
+      <li>OrbitalTech</li>
+    </researchPrerequisites>
+    <comps>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <designationHotKey>Misc1</designationHotKey>
+    <uiOrder>2015</uiOrder>
+    <colorGenerator Class="ColorGenerator_Single">
+      <color>(146,76,237)</color>
+    </colorGenerator>
+  </ThingDef>
+
+  <ThingDef ParentName="VGE_VacBarrierBase">
+    <defName>VGE_VacBarrierDouble</defName>
+    <label>vac barrier (2x1)</label>
+    <statBases>
+      <WorkToBuild>3200</WorkToBuild>
+      <MaxHitPoints>150</MaxHitPoints>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Structures/VacBarriers/VacBarrier2x1_Barrier</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2.75,2.25)</drawSize>
+    </graphicData>
+    <size>(2,1)</size>
+    <uiIconPath>Things/Structures/VacBarriers/VacBarrier2x1_MenuIcon_south</uiIconPath>
+    <costList>
+      <Steel>60</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+      <GravlitePanel>3</GravlitePanel>
+    </costList>
+    <building>
+      <doorTopGraphic>
+        <texPath>Things/Structures/VacBarriers/VacBarrier2x1_Top</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <drawSize>(2.75,2.25)</drawSize>
+      </doorTopGraphic>
+      <blueprintGraphicData>
+        <texPath>Things/Structures/VacBarriers/VacBarrier2x1_MenuIcon</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <shaderType>EdgeDetect</shaderType>
+        <drawSize>(2.75,2.25)</drawSize>
+      </blueprintGraphicData>
+    </building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>75</basePowerConsumption>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="VGE_VacBarrierBase">
+    <defName>VGE_VacBarrierTriple</defName>
+    <label>vac barrier (3x1)</label>
+    <statBases>
+      <WorkToBuild>4200</WorkToBuild>
+      <MaxHitPoints>200</MaxHitPoints>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Structures/VacBarriers/VacBarrier3x1_Barrier</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(4.0,3.0)</drawSize>
+    </graphicData>
+    <size>(3,1)</size>
+    <uiIconPath>Things/Structures/VacBarriers/VacBarrier3x1_MenuIcon_south</uiIconPath>
+    <costList>
+      <Steel>80</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+      <GravlitePanel>4</GravlitePanel>
+    </costList>
+    <building>
+      <doorTopGraphic>
+        <texPath>Things/Structures/VacBarriers/VacBarrier3x1_Top</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <drawSize>(4.0,3.0)</drawSize>
+      </doorTopGraphic>
+      <blueprintGraphicData>
+        <texPath>Things/Structures/VacBarriers/VacBarrier3x1_MenuIcon</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <shaderType>EdgeDetect</shaderType>
+        <drawSize>(4.0,3.0)</drawSize>
+      </blueprintGraphicData>
+    </building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>90</basePowerConsumption>
+      </li>
+    </comps>
+  </ThingDef>
+
+
+  <ThingDef ParentName="VGE_VacBarrierBase">
+    <defName>VGE_VacBarrierQuintuple</defName>
+    <label>vac barrier (5x1)</label>
+    <statBases>
+      <WorkToBuild>6000</WorkToBuild>
+      <MaxHitPoints>300</MaxHitPoints>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Structures/VacBarriers/VacBarrier5x1_Barrier</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(6.37,4.5)</drawSize>
+    </graphicData>
+    <size>(5,1)</size>
+    <uiIconPath>Things/Structures/VacBarriers/VacBarrier5x1_MenuIcon_south</uiIconPath>
+    <costList>
+      <Steel>120</Steel>
+      <ComponentIndustrial>6</ComponentIndustrial>
+      <GravlitePanel>6</GravlitePanel>
+    </costList>
+    <building>
+      <doorTopGraphic>
+        <texPath>Things/Structures/VacBarriers/VacBarrier5x1_Top</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <drawSize>(6.37,4.5)</drawSize>
+      </doorTopGraphic>
+      <blueprintGraphicData>
+        <texPath>Things/Structures/VacBarriers/VacBarrier5x1_MenuIcon</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <shaderType>EdgeDetect</shaderType>
+        <drawSize>(6.37,4.5)</drawSize>
+      </blueprintGraphicData>
+    </building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>120</basePowerConsumption>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

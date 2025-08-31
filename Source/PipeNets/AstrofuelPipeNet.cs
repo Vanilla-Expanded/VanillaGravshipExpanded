@@ -40,7 +40,7 @@ public class AstrofuelPipeNet : PipeNet
 
         var hadFuelLastTick = HasFuel;
         HasFuel = Stored > 0.9999999999f;
-        if (thrustersDirty || HasFuel != hadFuelLastTick)
+        if (HasFuel != hadFuelLastTick || thrustersDirty)
         {
             for (var i = 0; i < thrusters.Count; i++)
             {
