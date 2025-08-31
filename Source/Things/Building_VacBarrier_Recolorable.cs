@@ -1,16 +1,18 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace VanillaGravshipExpanded;
 
 public class Building_VacBarrier_Recolorable : Building_VacBarrier
 {
     private const Widgets.ColorComponents EditableRgb = Widgets.ColorComponents.Red | Widgets.ColorComponents.Green | Widgets.ColorComponents.Blue;
+
     private static readonly List<Building_VacBarrier_Recolorable> TmpExtraBarriers = new(64);
     private static int LastBarrierGizmoUpdateFrameCount = 0;
+    private static Color? ColorClipboard;
 
     public Color barrierColor;
 
@@ -80,6 +82,9 @@ public class Building_VacBarrier_Recolorable : Building_VacBarrier
             }
         }
 
+        if (color != null)
+            color = color.Value with { a = byte.MaxValue };
+
         yield return new Command_ColorIcon
         {
             defaultLabel = "GlowerChangeColor".Translate(),
@@ -88,6 +93,50 @@ public class Building_VacBarrier_Recolorable : Building_VacBarrier
             color = color,
             action = () => Find.WindowStack.Add(new Dialog_VacBarrierColorPicker(this, extraBarriers, EditableRgb, EditableRgb)),
         };
+
+        yield return new Command_ColorIcon
+        {
+            defaultLabel = "CommandCopyColorLabel".Translate(),
+            defaultDesc = "CommandCopyColorDesc".Translate(),
+            icon = ContentFinder<Texture2D>.Get("UI/Commands/CopyColor"),
+            color = barrierColor with { a = byte.MaxValue },
+            hotKey = KeyBindingDefOf.Misc4,
+            action = () =>
+            {
+                ColorClipboard = barrierColor;
+                Messages.Message("ColorCopiedSuccessfully".Translate(), MessageTypeDefOf.PositiveEvent, false);
+            }
+        };
+
+        var pasteGizmo = new Command_ColorIcon
+        {
+            defaultLabel = "CommandPasteColorLabel".Translate(),
+            defaultDesc = "CommandPasteColorDesc".Translate(),
+            icon = ContentFinder<Texture2D>.Get("UI/Commands/PasteColor"),
+            color = ColorClipboard,
+            hotKey = KeyBindingDefOf.Misc5,
+            action = () =>
+            {
+                SoundDefOf.Tick_High.PlayOneShotOnCamera();
+                if (ColorClipboard != null)
+                {
+                    foreach (var barrier in extraBarriers)
+                    {
+                        barrier.barrierColor = ColorClipboard.Value;
+                        barrier.Notify_ColorChanged();
+                    }
+                    Messages.Message("ColorPastedSuccessfully".Translate(), MessageTypeDefOf.PositiveEvent, false);
+                }
+                else
+                    Messages.Message("ClipboardInvalidColor".Translate(), MessageTypeDefOf.RejectInput, false);
+            },
+        };
+        if (ColorClipboard == null)
+            pasteGizmo.Disable("ClipboardInvalidColor".Translate());
+
+        // TODO: Add a "set as default" gizmo/feature
+
+        yield return pasteGizmo;
     }
 
     private static List<Building_VacBarrier_Recolorable> ExtraSelectedBarriers()
