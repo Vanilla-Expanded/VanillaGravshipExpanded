@@ -24,7 +24,7 @@
 	<ResearchProjectDef>
 		<defName>VGE_CompactWorkspaces</defName>
 		<label>compact workspaces</label>
-		<description>todo.</description>
+		<description>Unlock smaller variants of workbenches designed for gravships. Compact enough to fit into tight quarters without sacrificing essential functions.</description>
 		<baseCost>2000</baseCost>
 		<techLevel>Spacer</techLevel>
 		<prerequisites>
@@ -36,7 +36,7 @@
 	<ResearchProjectDef>
 		<defName>VGE_OxygenNetwork</defName>
 		<label>oxygen network</label>
-		<description>todo.</description>
+		<description>Harvest and store oxygen for use on gravships. Unlocks construction of vacsuits and other survival gear needed to operate in vacuum.</description>
 		<baseCost>500</baseCost>
 		<techLevel>Spacer</techLevel>
 		<prerequisites>
@@ -48,7 +48,7 @@
 	<ResearchProjectDef>
 		<defName>VGE_AstrofuelRefining</defName>
 		<label>astrofuel refining</label>
-		<description>todo.</description>
+		<description>Construct astrofuel synthesizers that automatically convert chemfuel into astrofuel for gravship use.</description>
 		<baseCost>500</baseCost>
 		<techLevel>Spacer</techLevel>
 		<prerequisites>
@@ -91,6 +91,21 @@
 			<li>GravshipBasics</li>
 		</prerequisites>
 		<researchViewX>15</researchViewX>
+		<researchViewY>4.5</researchViewY>
+	</ResearchProjectDef>
+	<ResearchProjectDef>
+		<defName>VGE_AdvancedGravtech</defName>
+		<label>advanced gravtech</label>
+		<description>Unlock gravhulks, massive gravships capable of supporting entire colonies. Also allows crafting of gravlite panels, essential ultratech material for advanced gravship construction.</description>
+		<baseCost>1500</baseCost>
+		<techLevel>Spacer</techLevel>
+		<prerequisites>
+			<li>VGE_GravshipWeaponry</li>
+			<li>VGE_CompactWorkspaces</li>
+			<li>VGE_HeatDissipation</li>
+			<li>VGE_AstrofuelRefining</li>
+		</prerequisites>
+		<researchViewX>16</researchViewX>
 		<researchViewY>4.5</researchViewY>
 	</ResearchProjectDef>
 </Defs>

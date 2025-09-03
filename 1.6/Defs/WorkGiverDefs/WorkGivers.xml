@@ -128,4 +128,17 @@
 		<forceFleck>FeedbackExtinguish</forceFleck>
 		<directOrderable>true</directOrderable>
 	</WorkGiverDef>
+	<WorkGiverDef>
+		<defName>VGE_MaintainGrav</defName>
+		<label>maintain gravship structure</label>
+		<giverClass>VanillaGravshipExpanded.WorkGiver_MaintainGrav</giverClass>
+		<workType>Construction</workType>
+		<verb>maintain</verb>
+		<gerund>maintaining</gerund>
+		<priorityInType>300</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<prioritizeSustains>true</prioritizeSustains>
+	</WorkGiverDef>
 </Defs>

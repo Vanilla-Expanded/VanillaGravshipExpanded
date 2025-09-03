@@ -13,6 +13,7 @@ namespace VanillaGravshipExpanded
         public static TerrainDef VGE_GravshipSubscaffold, VGE_DamagedSubstructure, VGE_AsteroidIce;
         public static OrbitalDebrisDef VGE_IceAsteroid, VGE_AsteroidCluster, VGE_MixedDebris;
         public static DamageDef VGE_ExtinguishAstrofire, VGE_AstrofireDamage;
-        public static JobDef VGE_BeatAstrofire, VGE_ExtinguishAstrofiresNearby, VGE_ExtinguishSelfAstrofire;
+        public static JobDef VGE_BeatAstrofire, VGE_ExtinguishAstrofiresNearby, VGE_ExtinguishSelfAstrofire, VGE_MaintainGrav;
+        public static FleckDef VGE_MaintenanceSmoke;
     }
 }

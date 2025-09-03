@@ -11,4 +11,19 @@
 		<solidTime>0</solidTime>
 		<fadeOutTime>0.2</fadeOutTime>
 	</FleckDef>
+	<FleckDef ParentName="FleckBase_Thrown">
+		<defName>VGE_MaintenanceSmoke</defName>
+		<graphicData>
+			<texPath>Things/Mote/Smoke</texPath>
+			<renderInstanced>true</renderInstanced>
+			<color>(0.15,0.15,0.16,0.3)</color>
+			<drawSize>(1.5, 1.5)</drawSize>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<fadeInTime>0.5</fadeInTime>
+		<solidTime>0.5</solidTime>
+		<fadeOutTime>16.2</fadeOutTime>
+		<growthRate>0.04</growthRate>
+		<acceleration>(0.05, 0.0, 0.0)</acceleration>
+	</FleckDef>
 </Defs>

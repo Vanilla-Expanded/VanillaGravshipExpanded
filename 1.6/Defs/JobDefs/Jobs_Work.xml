@@ -21,4 +21,10 @@
 		<neverShowWeapon>true</neverShowWeapon>
 		<casualInterruptible>false</casualInterruptible>
 	</JobDef>
+	<JobDef>
+		<defName>VGE_MaintainGrav</defName>
+		<driverClass>VanillaGravshipExpanded.JobDriver_MaintainGrav</driverClass>
+		<reportString>maintaining TargetA.</reportString>
+		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+	</JobDef>
 </Defs>

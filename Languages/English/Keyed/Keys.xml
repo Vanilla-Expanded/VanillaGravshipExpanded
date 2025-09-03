@@ -24,6 +24,11 @@
     <VGE_CrashLandingWarning>Landing on this location will be considered a crash and will damage the gravship.</VGE_CrashLandingWarning>
 
     <VGE_SoildIceAsteroid>Solid ice with traces of {RESOURCE_label}</VGE_SoildIceAsteroid>
+	
+	<VGE_Maintenance>Part maintenance: {0}</VGE_Maintenance>
+	<VGE_Maintain>Maintain part</VGE_Maintain>
+	<VGE_Alert_LowMaintenance>Gravship maintenance low</VGE_Alert_LowMaintenance>
+	<VGE_Alert_LowMaintenance_Desc>Some gravship components have low maintenance. This can result in negative launch outcomes and eventual break downs. Consider assigning a colonist to maintain them. Gravship components with low maintenance:\n\n {0}</VGE_Alert_LowMaintenance_Desc>
 
     <!-- Mod options -->
 
