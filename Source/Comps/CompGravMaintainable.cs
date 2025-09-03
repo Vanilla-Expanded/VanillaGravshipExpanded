@@ -81,7 +81,7 @@ namespace VanillaGravshipExpanded
 
             if (maintenance > 0)
             {
-                maintenance -= (1f / 1800);
+                maintenance -= (1f / 1800) * this.parent.GetStatValue(VGEDefOf.VGE_MaintenanceSensitivity);
 
 
             }

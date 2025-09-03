@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <StatDef>
+        <defName>VGE_GravshipTargeting</defName>
+        <label>gravship targeting</label>
+        <description>How well this person operates the targeting terminal and how accurate their shots with gravship weaponry will be.</description>
+        <category>PawnCombat</category>
+        <defaultBaseValue>1</defaultBaseValue>
+        <minValue>0.01</minValue>
+        <toStringStyle>PercentZero</toStringStyle>
+        <neverDisabled>true</neverDisabled>
+        <statFactors>
+            <li>ShootingAccuracyPawn</li>
+        </statFactors>
+        <skillNeedFactors>
+            <li Class="RimWorld.SkillNeed_BaseBonus">
+                <skill>Shooting</skill>
+                <baseValue>0.0</baseValue>
+                <bonusPerLevel>0.025</bonusPerLevel>
+            </li>
+            <li Class="RimWorld.SkillNeed_BaseBonus">
+                <skill>Intellectual</skill>
+                <baseValue>0.0</baseValue>
+                <bonusPerLevel>0.025</bonusPerLevel>
+            </li>
+        </skillNeedFactors>
+        <capacityFactors>
+            <li>
+                <capacity>Consciousness</capacity>
+                <weight>1</weight>
+            </li>
+            <li>
+                <capacity>Sight</capacity>
+                <weight>1</weight>
+            </li>
+            <li>
+                <capacity>Manipulation</capacity>
+                <weight>0.5</weight>
+            </li>
+        </capacityFactors>
+    </StatDef>
+	
+	<StatDef>
+        <defName>VGE_GravshipMaintenance</defName>
+        <label>gravship maintenance</label>
+        <description>How well this person can maintain gravship components.</description>
+        <category>PawnWork</category>
+        <defaultBaseValue>1</defaultBaseValue>
+        <minValue>0.01</minValue>
+        <toStringStyle>PercentZero</toStringStyle>
+        <neverDisabled>true</neverDisabled>
+       
+        <skillNeedFactors>
+            <li Class="RimWorld.SkillNeed_BaseBonus">
+                <skill>Construction</skill>
+                <baseValue>0.3</baseValue>
+                <bonusPerLevel>0.0875</bonusPerLevel>
+            </li>
+            
+        </skillNeedFactors>
+        <capacityFactors>
+            <li>
+                <capacity>Consciousness</capacity>
+                <weight>1</weight>
+            </li>
+            <li>
+                <capacity>Sight</capacity>
+                <weight>1</weight>
+				<max>0.5</max>
+            </li>
+            <li>
+                <capacity>Manipulation</capacity>
+                <weight>1</weight>
+            </li>
+        </capacityFactors>
+    </StatDef>
+
+
+</Defs>

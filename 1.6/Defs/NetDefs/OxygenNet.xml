@@ -175,6 +175,7 @@
 			<WorkToBuild>2250</WorkToBuild>
 			<Mass>25</Mass>
 			<Flammability>0.6</Flammability>
+			<VGE_MaintenanceSensitivity>1</VGE_MaintenanceSensitivity>
 		</statBases>
 		<size>(2,2)</size>
 		<costList>

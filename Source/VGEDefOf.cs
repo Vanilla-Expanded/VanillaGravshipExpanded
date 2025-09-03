@@ -6,7 +6,7 @@ namespace VanillaGravshipExpanded
     [DefOf]
     public static class VGEDefOf
     {
-        public static StatDef VGE_GravshipTargeting, VGE_AccuracyGlobal;
+        public static StatDef VGE_GravshipTargeting, VGE_AccuracyGlobal, VGE_MaintenanceSensitivity, VGE_GravshipMaintenance;
         public static WorldObjectDef VGE_ArtilleryProjectile;
         public static SoundDef VGE_GravshipTarget_Acquired;
         public static ThingDef Gun_MiniTurret, VGE_PointDefenseTurret, VGE_GaussSmoke, VGE_SealantGoop, VGE_Filth_DamagedSubstructure, VGE_Astrofire, VGE_AstrofireSpark;
