@@ -98,7 +98,7 @@
     <fillPercent>0.4</fillPercent>
     <designationHotKey>Misc2</designationHotKey>
     <building>
-      <bed_showSleeperBody>true</bed_showSleeperBody>
+      <bed_showSleeperBody>false</bed_showSleeperBody>
       <bed_humanlike>true</bed_humanlike>
     </building>
     <uiIconPath>Things/Structures/GravshipFurniture/GravBunkBed/GravBunkBed_MenuIcon</uiIconPath>
@@ -121,6 +121,34 @@
           </li>
         </bedTopGraphicDatas>
         <pawnCount>2</pawnCount>
+        <pawnOffsets>
+          <North>
+            <li>(0.000,0.000,0.284)</li>
+            <li>(0.000,0.000,0.935)</li>
+          </North>
+          <South>
+            <li>(0.000,0.000,0.000)</li>
+            <li>(0.000,0.000,0.307)</li>
+          </South>
+          <East>
+            <li>(0.000,0.000,0.195)</li>
+            <li>(0.000,0.000,-0.455)</li>
+          </East>
+          <West>
+            <li>(-0.231,0.000,0.000)</li>
+            <li>(-0.209,0.000,0.733)</li>
+          </West>
+        </pawnOffsets>
+        <labelOffsets>
+          <Vertical>
+            <li>(0.000,0.000,-0.635)</li>
+            <li>(0.000,0.000,0.150)</li>
+          </Vertical>
+          <Horizontal>
+            <li>(0.000,0.000,0.464)</li>
+            <li>(0.000,0.000,-0.321)</li>
+          </Horizontal>
+        </labelOffsets>
       </li>
     </comps>
   </ThingDef>

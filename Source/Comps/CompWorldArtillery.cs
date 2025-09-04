@@ -1,4 +1,4 @@
-﻿using RimWorld;
+using RimWorld;
 using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
@@ -22,7 +22,7 @@ namespace VanillaGravshipExpanded
     {
         public int worldMapAttackRange;
         public ArtilleryFiringMode firingMode;
-        
+
         public CompProperties_WorldArtillery()
         {
             compClass = typeof(CompWorldArtillery);
@@ -34,11 +34,27 @@ namespace VanillaGravshipExpanded
     {
         public GlobalTargetInfo worldTarget;
         public IntVec3 targetCell;
+        private PlanetTile cachedClosest;
+        private PlanetTile cachedOrigin;
+        private PlanetLayer cachedLayer;
         private static readonly Texture2D WorldTargetIcon = ContentFinder<Texture2D>.Get("UI/Gizmos/GravshipArtilleryForceTargetWorld");
 
+        public static readonly Material AttackRadiusMat = MaterialPool.MatFrom(GenDraw.OneSidedLineTexPath, ShaderDatabase.WorldOverlayTransparent, ColorLibrary.Red, 3590);
+
+        public static readonly Material AttackRadiusMatHighVis = MaterialPool.MatFrom(GenDraw.OneSidedLineOpaqueTexPath, ShaderDatabase.WorldOverlayAdditiveTwoSided, ColorLibrary.Red, 3590);
+
         private Building_GravshipTurret Turret => parent as Building_GravshipTurret;
-        
+
         public CompProperties_WorldArtillery Props => props as CompProperties_WorldArtillery;
+
+        public static Material GetAttackRadiusMat(PlanetTile tile)
+        {
+            if (!tile.LayerDef.isSpace)
+            {
+                return AttackRadiusMat;
+            }
+            return AttackRadiusMatHighVis;
+        }
 
         private float GetTargetingMultiplier(float targetingStat)
         {
@@ -62,7 +78,7 @@ namespace VanillaGravshipExpanded
         public float GetHitChance(GlobalTargetInfo target, Pawn shooter)
         {
             var launcher = parent as Building_TurretGun;
-            var distance = Find.WorldGrid.ApproxDistanceInTiles(launcher.Map.Tile, target.Tile);
+            var distance = ArtilleryUtility.GetDistanceDistance(launcher.Map.Tile, target.Tile);
             var hitFactor = HitFactorFromShooter(launcher, distance);
             var targetingStat = shooter?.GetStatValue(VGEDefOf.VGE_GravshipTargeting) ?? 1f;
             var targetingMultiplier = GetTargetingMultiplier(targetingStat);
@@ -74,9 +90,8 @@ namespace VanillaGravshipExpanded
         {
             var launcher = parent as Building_TurretGun;
             var verb = launcher.AttackVerb;
-
             var baseMissRadius = verb.verbProps.ForcedMissRadius;
-            var distance = Find.WorldGrid.ApproxDistanceInTiles(launcher.Map.Tile, target.Tile);
+            var distance = ArtilleryUtility.GetDistanceDistance(launcher.Map.Tile, target.Tile);
             var worldMultiplier = 1.0f;
             if (distance > 49)
             {
@@ -125,8 +140,16 @@ namespace VanillaGravshipExpanded
             yield return worldTargetGizmo;
         }
 
+        private void ResetCachedTile()
+        {
+            cachedClosest = PlanetTile.Invalid;
+            cachedOrigin = PlanetTile.Invalid;
+            cachedLayer = null;
+        }
+
         private void StartWorldTargeting()
         {
+            ResetCachedTile();
             CameraJumper.TryJump(CameraJumper.GetWorldTarget(parent));
             Find.WorldSelector.ClearSelection();
             Find.WorldTargeter.BeginTargeting(
@@ -174,12 +197,26 @@ namespace VanillaGravshipExpanded
                 WorldTargetIcon,
                 true, onUpdate: delegate
                 {
-                    GenDraw.DrawWorldRadiusRing(parent.Map.Tile, Props.worldMapAttackRange);
+                    PlanetTile tile = parent.Map.Tile;
+                    PlanetTile planetTile;
+                    if (cachedLayer != Find.WorldSelector.SelectedLayer || cachedOrigin != tile)
+                    {
+                        cachedLayer = Find.WorldSelector.SelectedLayer;
+                        cachedOrigin = tile;
+                        planetTile = cachedClosest = Find.WorldSelector.SelectedLayer.GetClosestTile_NewTemp(tile);
+                    }
+                    else
+                    {
+                        planetTile = cachedClosest;
+                    }
+                    int maxAttackDistance = Mathf.FloorToInt((float)Props.worldMapAttackRange / PlanetLayer.Selected.Def.rangeDistanceFactor);
+                    GenDraw.DrawWorldRadiusRing(planetTile, maxAttackDistance);
                 },
                 null,
                 delegate (GlobalTargetInfo t)
                 {
-                    if (Find.WorldGrid.ApproxDistanceInTiles(parent.Map.Tile, t.Tile) > Props.worldMapAttackRange)
+                    var distance = ArtilleryUtility.GetDistanceDistance(parent.Map.Tile, t.Tile);
+                    if (distance > Props.worldMapAttackRange)
                     {
                         return false;
                     }
@@ -212,7 +249,7 @@ namespace VanillaGravshipExpanded
 
         public LocalTargetInfo FindEdgeCell(Map map, GlobalTargetInfo worldTarget)
         {
-            float angle = Find.WorldGrid.GetHeadingFromTo(map.Tile, worldTarget.Tile);
+            float angle = ArtilleryUtility.GetAngle(map.Tile, worldTarget.Tile);
             var edgeCells = new CellRect(0, 0, map.Size.x, map.Size.z).EdgeCells;
             var parentPos = parent.TrueCenter();
             IntVec3 targetCell = edgeCells.MinBy(c => Mathf.Abs(angle - (c.ToVector3() - parentPos).AngleFlat()));

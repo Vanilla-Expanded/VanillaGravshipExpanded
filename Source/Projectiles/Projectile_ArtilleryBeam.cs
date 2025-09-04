@@ -51,7 +51,7 @@ namespace VanillaGravshipExpanded
             Vector3 offsetA = (ExactPosition - origin.CenterVector3).Yto0().normalized * def.projectile.beamStartOffset;
             if (launcher.Map != this.Map)
             {
-                float angle = Find.WorldGrid.GetHeadingFromTo(launcher.Map.Tile, this.Map.Tile);
+                float angle = ArtilleryUtility.GetAngle(launcher.Map.Tile, this.Map.Tile);
                 offsetA -= new Vector3(2, 0, 2).RotatedBy(angle);
             }
             if (def.projectile.beamMoteDef != null)
