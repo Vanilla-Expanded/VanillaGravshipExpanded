@@ -4,18 +4,36 @@ using Verse;
 
 namespace VanillaGravshipExpanded
 {
-    public class SectionLayer_ScaffoldMask : SectionLayer
+    [HotSwappable]
+    public class SectionLayer_ScaffoldMask : SectionLayer_ScaffoldBase
     {
-        private static readonly int RenderLayer = LayerMask.NameToLayer("GravshipMask");
-        public override bool Visible => DebugViewSettings.drawTerrain;
         public SectionLayer_ScaffoldMask(Section section) : base(section)
         {
-            relevantChangeTypes = MapMeshFlagDefOf.Terrain;
         }
 
-        public override void Regenerate()
+        protected override Material GetScaffoldingMaterial()
         {
-            GravshipHelper.RegenerateScaffoldLayer(this, GravshipHelper.MaskOverlayMaterial, AltitudeLayer.TerrainScatter, RenderLayer);
+            return GravshipHelper.MaskOverlayMaterial;
+        }
+        
+        protected override Material GetEdgeMaterial(CachedMaterial cachedMaterial, Rot4 rotation)
+        {
+            return GravshipHelper.MaskOverlayMaterial;
+        }
+        
+        protected override Material GetCornerMaterial(CachedMaterial cachedMaterial)
+        {
+            return GravshipHelper.MaskOverlayMaterial;
+        }
+        
+        protected override Material GetGravshipMaskMaterial(Material originalMaterial)
+        {
+            return GravshipHelper.MaskOverlayMaterial;
+        }
+        
+        protected override AltitudeLayer GetAltitudeLayer()
+        {
+            return AltitudeLayer.TerrainScatter;
         }
     }
 }
