@@ -1,4 +1,6 @@
-﻿using RimWorld;
+﻿using System.Collections.Generic;
+using System.Text;
+using RimWorld;
 using Verse;
 
 namespace VanillaGravshipExpanded;
@@ -10,9 +12,8 @@ public class StatPart_OxygenPack : StatPart
         if (req.Thing is not Pawn pawn || val >= 1f)
             return;
 
-        var apparel = GetRelevantApparel(pawn, val);
-        if (apparel != null)
-            val += 1f;
+        if (GetFirstActiveRelevantApparel(pawn, val) != null)
+            val = 1000000f; // The value is clamped to 0~1 range.
     }
 
     public override string ExplanationPart(StatRequest req)
@@ -20,25 +21,42 @@ public class StatPart_OxygenPack : StatPart
         if (req.Thing is not Pawn pawn)
             return null;
 
-        var apparel = GetRelevantApparel(pawn, StatDefOf.VacuumResistance.Worker.GetValueUnfinalized(req, false));
-        if (apparel == null)
-            return null;
+        var builder = new StringBuilder();
 
-        return "".Translate();
+        var resistance = StatDefOf.VacuumResistance.Worker.GetValueUnfinalized(req, false);
+
+        foreach (var apparel in GetAllRelevantApparel(pawn))
+        {
+            if (apparel.RemainingCharges > 0 && apparel.Props.minResistanceToActivate <= resistance)
+                builder.AppendLine($"{apparel.parent.LabelCap}: {"min".Translate().CapitalizeFirst()} 100%");
+            else
+                builder.AppendLine($"{apparel.parent.LabelCap}: {"VGE_OxygenPackInactive".Translate().CapitalizeFirst()}");
+        }
+
+        return builder.ToString();
     }
 
-    private static CompApparelOxygenProvider GetRelevantApparel(Pawn pawn, float baseVacuumResistance)
+    private static CompApparelOxygenProvider GetFirstActiveRelevantApparel(Pawn pawn, float baseVacuumResistance)
+    {
+        foreach (var apparel in GetAllRelevantApparel(pawn))
+        {
+            if (apparel.RemainingCharges > 0 && apparel.Props.minResistanceToActivate <= baseVacuumResistance)
+                return apparel;
+        }
+
+        return null;
+    }
+
+    private static IEnumerable<CompApparelOxygenProvider> GetAllRelevantApparel(Pawn pawn)
     {
         if (pawn?.apparel?.WornApparel == null)
-            return null;
+            yield break;
 
         foreach (var apparel in pawn.apparel.WornApparel)
         {
             var comp = apparel.GetComp<CompApparelOxygenProvider>();
-            if (comp is { RemainingCharges: > 0 } && comp.Props.minResistanceToActivate <= baseVacuumResistance)
-                return comp;
+            if (comp != null)
+                yield return comp;
         }
-
-        return null;
     }
 }

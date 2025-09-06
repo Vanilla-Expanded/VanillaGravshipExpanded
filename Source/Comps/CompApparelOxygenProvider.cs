@@ -81,10 +81,6 @@ public class CompApparelOxygenProvider : CompApparelReloadable, IReloadableComp
             remainingCharges--;
             useProgress -= 1;
         }
-
-        // remainingCharges -= Props.consumptionPerTick * delta;
-        // if (remainingCharges < 0)
-        //     remainingCharges = 0;
     }
 
     public new bool NeedsReload(bool allowForceReload)

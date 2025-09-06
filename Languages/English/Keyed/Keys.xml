@@ -34,6 +34,7 @@
     <VGE_SetVacuumResistanceDesc>Set the percentage of vacuum resistance required to cross through this checkpoint. Colonists without sufficient vacuum resistance will not naturally path through this checkpoint. Does not affect drafted colonists.</VGE_SetVacuumResistanceDesc>
     <VGE_VacuumResistancePercent>Vacuum resistance: {0}%</VGE_VacuumResistancePercent>
     <VGE_MinimumVacuumResistance>Minimum vacuum resistance: {0_percentage}</VGE_MinimumVacuumResistance>
+    <VGE_OxygenPackInactive>inactive</VGE_OxygenPackInactive>
 
     <!-- Mod options -->
 
