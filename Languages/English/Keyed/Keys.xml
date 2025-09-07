@@ -64,4 +64,7 @@ Please note that keeping several maps open may affect your performance.</VGE_Map
     <VGE_DiscardMap>Discard the map</VGE_DiscardMap>
     <VGE_GravdataYieldInfo>Estimated gravdata yield: {0}</VGE_GravdataYieldInfo>
     <VGE_NoGravtechProjectSelected>No gravtech research project selected. Launching will not yield any gravdata.</VGE_NoGravtechProjectSelected>
+	<VGE_StatsReport_EngineeringConsole>Engineering console present</VGE_StatsReport_EngineeringConsole>
+	<VGE_SetDesiredMaintenance>Set desired maintenance</VGE_SetDesiredMaintenance>
+	<VGE_SetDesiredMaintenanceDesc>Set the desired maintenance for all gravship components on this gravship. Colonists assigned to construction will maintain the structures if they fall below the set level.</VGE_SetDesiredMaintenanceDesc>
 </LanguageData>

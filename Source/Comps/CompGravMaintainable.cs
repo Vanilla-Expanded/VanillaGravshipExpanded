@@ -116,15 +116,26 @@ namespace VanillaGravshipExpanded
             if (DebugSettings.ShowDevGizmos)
             {
 
-                Command_Action command_Action = new Command_Action();
-                command_Action.defaultLabel = "Set maintenance to 10%";
-                command_Action.action = delegate
+                Command_Action command_Action_Debug = new Command_Action();
+                command_Action_Debug.defaultLabel = "Set maintenance to 2%";
+                command_Action_Debug.action = delegate
                 {
-                    maintenance = 0.1f;
+                    maintenance = 0.02f;
                 };
-                yield return command_Action;
+                yield return command_Action_Debug;
+
+                Command_Action command_Action_Debug2 = new Command_Action();
+                command_Action_Debug2.defaultLabel = "Reduce maintenance by 10%";
+                command_Action_Debug2.action = delegate
+                {
+                    maintenance -= 0.1f;
+                };
+                yield return command_Action_Debug2;
 
             }
+
+
+
         }
 
         public override string CompInspectStringExtra()

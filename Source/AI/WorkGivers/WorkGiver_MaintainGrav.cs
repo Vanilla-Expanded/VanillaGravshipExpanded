@@ -12,7 +12,7 @@ namespace VanillaGravshipExpanded
 
         public override IEnumerable<Thing> PotentialWorkThingsGlobal(Pawn pawn)
         {
-            return pawn.Map.GetComponent<GravMaintainables_MapComponent>().maintainables_InMap;
+            return pawn.Map?.GetComponent<GravMaintainables_MapComponent>().maintainables_InMap;
         }
 
         public override PathEndMode PathEndMode
@@ -25,7 +25,7 @@ namespace VanillaGravshipExpanded
 
         public override bool ShouldSkip(Pawn pawn, bool forced = false)
         {
-            return pawn.Map.GetComponent<GravMaintainables_MapComponent>().maintainables_InMap.Count == 0;
+            return pawn.Map?.GetComponent<GravMaintainables_MapComponent>().maintainables_InMap.Count == 0;
         }
 
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
@@ -33,6 +33,11 @@ namespace VanillaGravshipExpanded
             CompGravMaintainable comp = t.TryGetComp<CompGravMaintainable>();
 
             if (comp is null)
+            {
+                return false;
+            }
+
+            if (pawn.Map is null)
             {
                 return false;
             }
@@ -60,7 +65,7 @@ namespace VanillaGravshipExpanded
                 return false;
             }
 
-            if (comp.maintenance > 0.7f)
+            if (comp.maintenance > pawn.Map.GetComponent<GravMaintainables_MapComponent>()?.maintenanceThreshold)
             {
 
                 return false;

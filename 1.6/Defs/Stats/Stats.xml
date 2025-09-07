@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	
 	<StatDef>
 		<defName>VGE_AccuracyGlobal</defName>
 		<label>global accuracy</label>
@@ -33,5 +32,8 @@
 		<toStringStyle>PercentZero</toStringStyle>
 		<showIfUndefined>false</showIfUndefined>
 		<displayPriorityInCategory>3101</displayPriorityInCategory>
+		<parts>
+			<li Class="VanillaGravshipExpanded.StatPart_EngineeringConsole"/>
+		</parts>
 	</StatDef>
 </Defs>

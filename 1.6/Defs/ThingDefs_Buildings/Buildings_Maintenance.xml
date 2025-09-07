@@ -3,7 +3,7 @@
 	<ThingDef ParentName="BuildingBase">
 		<defName>VGE_EngineeringConsole</defName>
 		<label>engineering console</label>
-		<description>An interface used to monitor the maintenance status of all gravship components. It draws power directly from the grav engine.</description>
+		<description>An interface used to monitor the maintenance status of all gravship components. It draws power directly from the grav engine.\n\n&lt;color=#E5E54C&gt;Gameplay impact:&lt;/color&gt; Reduces maintenance sensitivity of all gravship structures on this gravship by 0.5.</description>
 		<thingClass>Building</thingClass>
 		<interactionCellIcon>DiningChair</interactionCellIcon>
 		<noRightClickDraftAttack>true</noRightClickDraftAttack>
@@ -47,6 +47,9 @@
 		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
 		<comps>
 			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
+       
+			</li>
+			<li Class="VanillaGravshipExpanded.CompProperties_EngineeringConsole">
        
 			</li>
 			<li Class="CompProperties_Breakdownable"/>
