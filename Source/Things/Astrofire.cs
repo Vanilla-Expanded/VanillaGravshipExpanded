@@ -268,7 +268,7 @@ namespace VanillaGravshipExpanded
                             }
                             if (parent == null && fireSize > 0.4f && list[i].def.category == ThingCategory.Pawn && Rand.Chance(FireUtility.ChanceToAttachFireCumulative(list[i], 150f)))
                             {
-                                TryAttachAstrofire(list[i], fireSize * 0.2f, instigator);
+                                AstrofireUtility.TryAttachAstrofire(list[i], fireSize * 0.2f, instigator);
                             }
                         }
                         if(thing is Fire)
@@ -389,7 +389,7 @@ namespace VanillaGravshipExpanded
                 intVec = base.Position + GenRadial.ManualRadialPattern[Rand.RangeInclusive(10, 20)];
                 flag = false;
             }
-            if (!intVec.InBounds(base.Map) || !Rand.Chance(ChanceToStartAstrofireIn(intVec, base.Map)))
+            if (!intVec.InBounds(base.Map) || !Rand.Chance(AstrofireUtility.ChanceToStartAstrofireIn(intVec, base.Map)))
             {
                 return;
             }
@@ -404,75 +404,11 @@ namespace VanillaGravshipExpanded
             }
             else
             {
-                TryStartAstrofireIn(intVec, base.Map, 0.1f, instigator);
+                AstrofireUtility.TryStartAstrofireIn(intVec, base.Map, 0.1f, instigator);
             }
         }
-        public static bool TryStartAstrofireIn(IntVec3 c, Map map, float fireSize, Thing instigator, SimpleCurve flammabilityChanceCurve = null)
-        {
-            if (ChanceToStartAstrofireIn(c, map, flammabilityChanceCurve) <= 0f)
-            {
-                return false;
-            }
-            Astrofire obj = (Astrofire)ThingMaker.MakeThing(VGEDefOf.VGE_Astrofire);
-            obj.fireSize = fireSize;
-            obj.instigator = instigator;
-            GenSpawn.Spawn(obj, c, map, Rot4.North);
-            return true;
-        }
-        public static float ChanceToStartAstrofireIn(IntVec3 c, Map map, SimpleCurve flammabilityChanceCurve = null)
-        {
-            List<Thing> thingList = c.GetThingList(map);
-            float num = (c.TerrainFlammableNow(map) ? c.GetTerrain(map).GetStatValueAbstract(StatDefOf.Flammability) : 0f);
-            for (int i = 0; i < thingList.Count; i++)
-            {
-                Thing thing = thingList[i];
-                if (thing is Astrofire || thing is Fire)
-                {
-                    return 0f;
-                }
-                if (thing.def.category != ThingCategory.Pawn && thingList[i].FlammableNow)
-                {
-                    num = Mathf.Max(num, thing.GetStatValue(StatDefOf.Flammability));
-                }
-            }
-            if (flammabilityChanceCurve != null)
-            {
-                num = flammabilityChanceCurve.Evaluate(num);
-            }
-            if (num > 0f)
-            {
-                Building edifice = c.GetEdifice(map);
-                if (edifice != null && edifice.def.passability == Traversability.Impassable && edifice.OccupiedRect().ContractedBy(1).Contains(c))
-                {
-                    return 0f;
-                }
-                List<Thing> thingList2 = c.GetThingList(map);
-                for (int j = 0; j < thingList2.Count; j++)
-                {
-                    if (thingList2[j].def.category == ThingCategory.Filth && !thingList2[j].def.filth.allowsFire)
-                    {
-                        return 0f;
-                    }
-                }
-            }
-            return num;
-        }
-        public static void TryAttachAstrofire(Thing t, float fireSize, Thing instigator)
-        {
-            if (t.CanEverAttachFire() && !t.HasAttachment(VGEDefOf.VGE_Astrofire))
-            {
-                Astrofire obj = (Astrofire)ThingMaker.MakeThing(VGEDefOf.VGE_Astrofire);
-                obj.fireSize = fireSize;
-                obj.instigator = instigator;
-                obj.AttachTo(t);
-                GenSpawn.Spawn(obj, t.Position, t.Map, Rot4.North);
-                Pawn pawn = t as Pawn;
-                if (pawn != null)
-                {
-                    pawn.jobs.StopAll();
-                    pawn.records.Increment(RecordDefOf.TimesOnFire);
-                }
-            }
-        }
+        
+ 
+       
     }
 }

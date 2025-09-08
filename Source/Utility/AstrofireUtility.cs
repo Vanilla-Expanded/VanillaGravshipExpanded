@@ -150,7 +150,7 @@ namespace VanillaGravshipExpanded
             for (int i = 0; i < thingList.Count; i++)
             {
                 Thing thing = thingList[i];
-                if (thing is Astrofire || thing is Fire)
+                if (thing is Astrofire)
                 {
                     return 0f;
                 }
@@ -194,6 +194,8 @@ namespace VanillaGravshipExpanded
             GenSpawn.Spawn(obj, c, map, Rot4.North);
             return true;
         }
+
+       
 
     }
 

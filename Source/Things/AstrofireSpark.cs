@@ -15,7 +15,7 @@ namespace VanillaGravshipExpanded
             {
                 instigator = fire.instigator;
             }
-            Astrofire.TryStartAstrofireIn(base.Position, map, 0.1f, instigator);
+            AstrofireUtility.TryStartAstrofireIn(base.Position, map, 0.1f, instigator);
         }
     }
 }
