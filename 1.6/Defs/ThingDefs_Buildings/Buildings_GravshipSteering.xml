@@ -62,7 +62,7 @@
     <graphicData>
       <graphicClass>Graphic_Multi</graphicClass>
       <texPath>Things/Structures/PilotConsoles/PilotBridge/PilotBridge</texPath>
-      <drawSize>(5.4, 3.6)</drawSize>
+      <drawSize>(6, 4)</drawSize>
     </graphicData>
     <statBases>
       <MaxHitPoints>300</MaxHitPoints>
@@ -112,7 +112,7 @@
     <graphicData>
       <graphicClass>Graphic_Multi</graphicClass>
       <texPath>Things/Structures/PilotConsoles/CoPilotConsole/CoPilotConsole</texPath>
-      <drawSize>(3, 2.25)</drawSize>
+      <drawSize>(4, 3)</drawSize>
     </graphicData>
     <statBases>
       <MaxHitPoints>100</MaxHitPoints>
