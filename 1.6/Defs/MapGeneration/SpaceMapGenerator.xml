@@ -304,4 +304,23 @@
 			</exteriorPrefabs>
 		</genStep>
 	</GenStepDef>
+	<MapGeneratorDef ParentName="SpaceMapGenerator">
+		<defName>VGE_CoreAsteroidMiningSite</defName>
+		<label>core asteroid</label>
+		<genSteps>
+			<li>VGE_CoreAsteroidMiningSite</li>
+			<li>AsteroidBasicTransportPods</li>
+			<li>MechShipChunk_Asteroid</li>
+			<li>RockChunks</li>
+		</genSteps>
+	</MapGeneratorDef>
+	<GenStepDef>
+		<defName>VGE_CoreAsteroidMiningSite</defName>
+		<order>200</order>
+		<genStep Class="VanillaGravshipExpanded.GenStep_CoreAsteroid">
+			<numChunks>60~100</numChunks>
+			<ruinsChance>0.5</ruinsChance>
+			<archeanTreeChance>0.25</archeanTreeChance>
+		</genStep>
+	</GenStepDef>
 </Defs>

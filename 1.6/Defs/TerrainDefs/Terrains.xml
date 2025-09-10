@@ -125,7 +125,7 @@
 		</spaceEdgeGraphicData>
 	</TerrainDef>
 	<TerrainDef ParentName="PlatformBase">
-		<defName>VGE_Compressed_Vacstone</defName>
+		<defName>VGE_Compressed_Vacstone_Floor</defName>
 		<label>compressed vacstone</label>
 		<texturePath>Things/Terrain/CompressedHewnRock/CompressedHewnRock</texturePath>
 		<spaceEdgeGraphicData Inherit="False">

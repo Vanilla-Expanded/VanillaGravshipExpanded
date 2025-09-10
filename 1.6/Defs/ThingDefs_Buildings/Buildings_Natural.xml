@@ -16,8 +16,8 @@
 			<mineableDropChance>1</mineableDropChance>
 			<mineablePreventMeteorite>true</mineablePreventMeteorite>
 			<mineablePreventNaturalRockOnSurface>true</mineablePreventNaturalRockOnSurface>
-			<naturalTerrain>VGE_Compressed_Vacstone</naturalTerrain>
-			<leaveTerrain>VGE_Compressed_Vacstone</leaveTerrain>
+			<naturalTerrain>VGE_Compressed_Vacstone_Floor</naturalTerrain>
+			<leaveTerrain>VGE_Compressed_Vacstone_Floor</leaveTerrain>
 		</building>
 	</ThingDef>
 	<ThingDef ParentName="RockBase">
