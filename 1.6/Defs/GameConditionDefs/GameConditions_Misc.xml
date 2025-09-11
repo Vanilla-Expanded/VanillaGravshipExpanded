@@ -15,7 +15,7 @@
 			<li>Orbit</li>
 		</layerWhitelist>
 	</GameConditionDef>
-	
+
 	<GameConditionDef>
 		<defName>VGE_GravitationalAnomaly</defName>
 		<conditionClass>VanillaGravshipExpanded.GameCondition_GravitationalAnomaly</conditionClass>
@@ -31,7 +31,7 @@
 			<li>Orbit</li>
 		</layerWhitelist>
 	</GameConditionDef>
-	
+
 	<GameConditionDef>
 		<defName>VGE_Comet</defName>
 		<conditionClass>VanillaGravshipExpanded.GameCondition_Comet</conditionClass>
@@ -42,7 +42,55 @@
 		<letterDef>PositiveEvent</letterDef>
 		<canBePermanent>true</canBePermanent>
 		<allowUnderground>false</allowUnderground>
-		
+
+		<layerWhitelist>
+			<li>Orbit</li>
+		</layerWhitelist>
+	</GameConditionDef>
+
+	<GameConditionDef>
+		<defName>VGE_MicrometeorStorm</defName>
+		<conditionClass>VanillaGravshipExpanded.GameCondition_MicrometeorStorm</conditionClass>
+		<label>micrometeor storm</label>
+		<description>A micrometeor storm is pelting the area with tiny, high-velocity debris. Exposed structures and people are slowly damaged by the constant bombardment.\n\nThe storm is expected to last about a day.</description>
+		<endMessage>The micrometeor storm has ended.</endMessage>
+		<letterText>A micrometeor storm is pelting the area with tiny, high-velocity debris. Exposed structures and people are slowly damaged by the constant bombardment.\n\nThe storm is expected to last about a day.</letterText>
+		<letterDef>NegativeEvent</letterDef>
+		<canBePermanent>true</canBePermanent>
+		<allowUnderground>false</allowUnderground>
+		<preventShuttleLaunch>true</preventShuttleLaunch>
+		<layerWhitelist>
+			<li>Orbit</li>
+		</layerWhitelist>
+	</GameConditionDef>
+
+	<GameConditionDef>
+		<defName>VGE_SpaceDebris</defName>
+		<conditionClass>VanillaGravshipExpanded.GameCondition_SpaceDebris</conditionClass>
+		<label>space debris</label>
+		<description>A drifting cloud of ancient wreckage has crossed our flight path. Pieces of metal and scrap hurtle past the ship. Some will miss, others might not.\n\nThe debris will pass us by in about 12 hours.</description>
+		<endMessage>The space debris has passed.</endMessage>
+		<letterText>A drifting cloud of ancient wreckage has crossed our flight path. Pieces of metal and scrap hurtle past the ship. Some will miss, others might not.\n\nThe debris will pass us by in about 12 hours.</letterText>
+		<letterDef>NegativeEvent</letterDef>
+		<canBePermanent>true</canBePermanent>
+		<allowUnderground>false</allowUnderground>
+		<preventShuttleLaunch>true</preventShuttleLaunch>
+		<layerWhitelist>
+			<li>Orbit</li>
+		</layerWhitelist>
+	</GameConditionDef>
+
+	<GameConditionDef>
+		<defName>VGE_AsteroidShower</defName>
+		<conditionClass>VanillaGravshipExpanded.GameCondition_AsteroidShower</conditionClass>
+		<label>asteroid shower</label>
+		<description>An asteroid shower has crossed into your gravship’s sector. Countless fragments of vacstone streak across the void, some slamming into the hull with explosive force. Most will burn away or miss, but not all.</description>
+		<endMessage>The asteroid shower has passed.</endMessage>
+		<letterText>An asteroid shower has crossed into your gravship’s sector. Countless fragments of vacstone streak across the void, some slamming into the hull with explosive force. Most will burn away or miss, but not all.</letterText>
+		<letterDef>NegativeEvent</letterDef>
+		<canBePermanent>true</canBePermanent>
+		<allowUnderground>false</allowUnderground>
+		<preventShuttleLaunch>true</preventShuttleLaunch>
 		<layerWhitelist>
 			<li>Orbit</li>
 		</layerWhitelist>

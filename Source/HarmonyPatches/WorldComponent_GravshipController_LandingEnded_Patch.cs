@@ -3,8 +3,6 @@ using RimWorld;
 using Verse;
 using System.Linq;
 using RimWorld.Planet;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace VanillaGravshipExpanded
 {
@@ -23,8 +21,13 @@ namespace VanillaGravshipExpanded
         private static void ApplyGravDataYield(Gravship gravship)
         {
             var launchInfo = gravship.Engine.launchInfo;
+            if (launchInfo == null)
+            {
+                Log.Error($"[Gravdata] No launch info found, skipping gravdata yield");
+                return;
+            }
             var landingTile = gravship.Engine.Tile;
-            float quality = gravship.Engine.launchInfo.quality;
+            float quality = launchInfo.quality;
 
             Log.Message($"[Gravdata] Landing at tile: {landingTile}");
             Log.Message($"[Gravdata] Quality: {quality}");

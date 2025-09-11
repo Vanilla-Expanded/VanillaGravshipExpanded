@@ -73,7 +73,7 @@ namespace VanillaGravshipExpanded
 
         private bool IsValidTarget(Thing t)
         {
-            if (t is Projectile projectile && projectile.def.projectile.explosionRadius > 0 && projectile.launcher.HostileTo(parent.Faction))
+            if (t is Projectile_Space || t is Projectile projectile && projectile.def.projectile.explosionRadius > 0 && projectile.launcher.HostileTo(parent.Faction))
             {
                 return true;
             }

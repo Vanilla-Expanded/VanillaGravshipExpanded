@@ -368,7 +368,7 @@
                 <minRange>20.0</minRange>
                 <burstShotCount>12</burstShotCount>
                 <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
-                <soundCast>JavelinLauncher_Cast</soundCast>
+                <soundCast>VGE_JavelinLauncher_Cast</soundCast>
                 <soundCastTail>GunTail_Heavy</soundCastTail>
                 <muzzleFlashScale>8</muzzleFlashScale>
                 <forcedMissRadius>12</forcedMissRadius>

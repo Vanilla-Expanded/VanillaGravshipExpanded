@@ -37,7 +37,7 @@
     </SoundDef>
 
     <SoundDef>
-        <defName>JavelinLauncher_Cast</defName>
+        <defName>VGE_JavelinLauncher_Cast</defName>
         <context>MapOnly</context>
         <eventNames />
         <subSounds>
@@ -49,6 +49,25 @@
                 </grains>
                 <volumeRange>45~55</volumeRange>
                 <pitchRange>0.95~1.05</pitchRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>VGE_MicrometeorStorm</defName>
+        <sustain>True</sustain>
+        <context>MapOnly</context>
+        <priorityMode>PrioritizeNearest</priorityMode>
+        <subSounds>
+            <li>
+                <onCamera>True</onCamera>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>MicrometeorStorm_Sustainer</clipPath>
+                    </li>
+                </grains>
+                <volumeRange>15~15</volumeRange>
+                <muteWhenPaused>true</muteWhenPaused>
             </li>
         </subSounds>
     </SoundDef>

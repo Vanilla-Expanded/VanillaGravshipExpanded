@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef Name="VGE_SpaceDebrisBase" ParentName="BaseBullet" Abstract="True">
+    <thingClass>VanillaGravshipExpanded.Projectile_Space</thingClass>
+    <graphicData>
+      <graphicClass>Graphic_Random</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bomb</damageDef>
+      <damageAmountBase>24</damageAmountBase>
+      <soundExplode>MortarBomb_Explode</soundExplode>
+      <soundAmbient>MortarRound_Ambient</soundAmbient>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="VGE_SpaceDebrisBase">
+    <defName>VGE_SmallDebris</defName>
+    <label>small debris</label>
+    <graphicData>
+      <texPath>Things/Projectiles/SpaceDebris/SpaceDebris_Small</texPath>
+      <drawSize>1</drawSize>
+    </graphicData>
+    <projectile>
+      <speed>46</speed>
+      <explosionRadius>1.9</explosionRadius>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="VGE_SpaceDebrisBase">
+    <defName>VGE_MediumDebris</defName>
+    <label>medium debris</label>
+    <graphicData>
+      <texPath>Things/Projectiles/SpaceDebris/SpaceDebris_Medium</texPath>
+      <drawSize>2</drawSize>
+    </graphicData>
+    <projectile>
+      <speed>36</speed>
+      <explosionRadius>2.9</explosionRadius>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="VGE_SpaceDebrisBase">
+    <defName>VGE_LargeDebris</defName>
+    <label>large debris</label>
+    <graphicData>
+      <texPath>Things/Projectiles/SpaceDebris/SpaceDebris_Large</texPath>
+      <drawSize>3</drawSize>
+    </graphicData>
+    <projectile>
+      <speed>26</speed>
+      <explosionRadius>4.9</explosionRadius>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef Name="VGE_AsteroidBase" ParentName="VGE_SpaceDebrisBase" Abstract="True">
+    <thingClass>VanillaGravshipExpanded.Projectile_Asteroid</thingClass>
+    <projectile>
+      <spinRate>1</spinRate>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="VGE_AsteroidBase">
+    <defName>VGE_SmallAsteroid</defName>
+    <label>small asteroid</label>
+    <graphicData>
+      <texPath>Things/Projectiles/SpaceAsteroid/SpaceAsteroid_Small</texPath>
+      <drawSize>1</drawSize>
+    </graphicData>
+    <projectile>
+      <speed>32</speed>
+      <damageAmountBase>28</damageAmountBase>
+      <explosionRadius>1.9</explosionRadius>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="VGE_AsteroidBase">
+    <defName>VGE_MediumAsteroid</defName>
+    <label>medium asteroid</label>
+    <graphicData>
+      <texPath>Things/Projectiles/SpaceAsteroid/SpaceAsteroid_Medium</texPath>
+      <drawSize>2</drawSize>
+    </graphicData>
+    <projectile>
+      <speed>24</speed>
+      <damageAmountBase>32</damageAmountBase>
+      <explosionRadius>3.2</explosionRadius>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="VGE_AsteroidBase">
+    <defName>VGE_LargeAsteroid</defName>
+    <label>large asteroid</label>
+    <graphicData>
+      <texPath>Things/Projectiles/SpaceAsteroid/SpaceAsteroid_Large</texPath>
+      <drawSize>3</drawSize>
+    </graphicData>
+    <projectile>
+      <speed>18</speed>
+      <damageAmountBase>36</damageAmountBase>
+      <explosionRadius>5.0</explosionRadius>
+    </projectile>
+  </ThingDef>
+
+</Defs>
