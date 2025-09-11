@@ -13,6 +13,7 @@
       <li>VGE_GiantThruster</li>
       <li>VGE_GunnerSubpersonaCore</li>
       <li>VGE_GravtechConsole</li>
+      <li>VGE_GravshipBlackBox</li>
       <li>VGE_GiantAstrofuelTank</li>
       <li>VGE_CopilotConsole</li>
     </value>
@@ -34,7 +35,7 @@
       <li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
 
       </li>
-      <li Class="CompProperties_Breakdownable"/>
+      <li Class="CompProperties_Breakdownable" />
     </value>
   </Operation>
 

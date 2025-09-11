@@ -3,6 +3,7 @@ using RimWorld;
 using Verse;
 using System.Linq;
 using RimWorld.Planet;
+using UnityEngine;
 
 namespace VanillaGravshipExpanded
 {
@@ -40,22 +41,41 @@ namespace VanillaGravshipExpanded
             Log.Message($"[Gravdata] Distance travelled: {distanceTravelled} - from {launchSourceTile} to {landingTile}");
 
             var gravdataYield = GravdataUtility.CalculateGravdataYield(distanceTravelled, quality, gravship.Engine, researcherPawn);
-
+ 
             Log.Message($"[Gravdata] Calculated gravdata yield: {gravdataYield}");
+            var blackBox = gravship.Engine.GravshipComponents.Select(comp => comp.parent).OfType<Building_GravshipBlackBox>().FirstOrDefault();
+            int remainingGravdata = gravdataYield;
+            if (blackBox != null)
+            {
+                var toAdd = blackBox.TakeGravdata(blackBox.StoredGravdata);
+                Log.Message($"[Gravdata] Fetching {toAdd} gravdata from black box");
+                remainingGravdata += toAdd;
+            }
             if (World_ExposeData_Patch.currentGravtechProject != null)
             {
-                Log.Message($"[Gravdata] Adding {gravdataYield} to project: {World_ExposeData_Patch.currentGravtechProject.defName}");
-                Find.ResearchManager.AddProgress(World_ExposeData_Patch.currentGravtechProject, gravdataYield);
+                Log.Message($"[Gravdata] Adding {remainingGravdata} to project: {World_ExposeData_Patch.currentGravtechProject.defName}");
+                float progressNeeded = World_ExposeData_Patch.currentGravtechProject.CostApparent - Find.ResearchManager.GetProgress(World_ExposeData_Patch.currentGravtechProject);
+                int progressToAdd = Mathf.Min(remainingGravdata, (int)progressNeeded);
+                
+                Find.ResearchManager.AddProgress(World_ExposeData_Patch.currentGravtechProject, progressToAdd);
+                remainingGravdata -= progressToAdd;
+                
                 if (World_ExposeData_Patch.currentGravtechProject.IsFinished)
                 {
                     Log.Message($"[Gravdata] Project completed: {World_ExposeData_Patch.currentGravtechProject.defName}");
                     World_ExposeData_Patch.currentGravtechProject = null;
                 }
             }
-            else
+            if (blackBox != null && remainingGravdata > 0)
             {
-                Log.Message($"[Gravdata] No current project selected, gravdata lost");
+                Log.Message($"[Gravdata] Storing {remainingGravdata} gravdata in black box");
+                blackBox.AddGravdata(remainingGravdata);
             }
+            else if (remainingGravdata > 0)
+            {
+                Log.Message($"[Gravdata] No black box, {remainingGravdata} gravdata lost");
+            }
+            
             LaunchInfo_ExposeData_Patch.gravtechResearcherPawns.Remove(launchInfo);
             LaunchInfo_ExposeData_Patch.launchSourceTiles.Remove(launchInfo);
         }

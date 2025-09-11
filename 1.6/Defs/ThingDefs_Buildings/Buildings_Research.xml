@@ -29,6 +29,7 @@
 			<li Class="CompProperties_GravshipFacility">
 				<maxSimultaneous>1</maxSimultaneous>
 				<maxDistance>200</maxDistance>
+				<requiresLOS>false</requiresLOS>
 			</li>
 			<li Class="VanillaGravshipExpanded.CompProperties_GravdataYield">
 				<multiplier>5</multiplier>
@@ -50,5 +51,52 @@
 		<interactionCellOffset>(0, 0,-1)</interactionCellOffset>
 		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
 		<uiOrder>2101</uiOrder>
+	</ThingDef>
+
+	<ThingDef ParentName="GravshipComponentBase">
+		<defName>VGE_GravshipBlackBox</defName>
+		<label>gravship black box</label>
+		<description>An indestructible advanced recorder integrated into the gravship’s systems. It greatly increases gravdata yield, captures any overflow that would normally be wasted, and allows stored gravdata to be converted directly into research points. A gravship can support only one black box.</description>
+		<thingClass>VanillaGravshipExpanded.Building_GravshipBlackBox</thingClass>
+		<graphicData>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<texPath>Things/Structures/GravshipBlackBox/GravshipBlackBox</texPath>
+			<drawSize>(2,1)</drawSize>
+		</graphicData>
+		<costList>
+			<GravlitePanel>80</GravlitePanel>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<ComponentSpacer>8</ComponentSpacer>
+		</costList>
+		<useHitPoints>false</useHitPoints>
+		<statBases>
+			<WorkToBuild>5000</WorkToBuild>
+			<Flammability>0</Flammability>
+			<Beauty>-10</Beauty>
+			<Mass>15</Mass>
+		</statBases>
+		<pathCost>20</pathCost>
+		<size>(2,1)</size>
+		<passability>PassThroughOnly</passability>
+		<rotatable>true</rotatable>
+		<fillPercent>0.4</fillPercent>
+		<canOverlapZones>false</canOverlapZones>
+		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+		<comps>
+			<li Class="CompProperties_GravshipFacility">
+				<requiresLOS>false</requiresLOS>
+				<maxSimultaneous>1</maxSimultaneous>
+				<maxDistance>500</maxDistance>
+			</li>
+			<li Class="VanillaGravshipExpanded.CompProperties_GravdataYield">
+				<multiplier>2.0</multiplier>
+			</li>
+			<li Class="CompProperties_Breakdownable" />
+		</comps>
+		<tradeTags>
+			<li>GravshipUpgrade</li>
+		</tradeTags>
+		<designationCategory>Odyssey</designationCategory>
+		<uiOrder>2102</uiOrder>
 	</ThingDef>
 </Defs>
