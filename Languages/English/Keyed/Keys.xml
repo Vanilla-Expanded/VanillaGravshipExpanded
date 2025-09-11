@@ -23,13 +23,6 @@
     <VGE_ConfirmCrashLanding>Landing on this location will be considered a crash. Any highlighted structures underneath the gravship will damage any structures on the gravship in corresponding locations.\n\nThe substructure may also become damaged and will need replacing before the next launch.\n\nSome indestructible objects underneath may completely destroy the substructure and any objects on it.\n\nConsider picking a different landing zone.</VGE_ConfirmCrashLanding>
     <VGE_CrashLandingWarning>Landing on this location will be considered a crash and will damage the gravship.</VGE_CrashLandingWarning>
 
-    <VGE_SoildIceAsteroid>Solid ice with traces of {RESOURCE_label}</VGE_SoildIceAsteroid>
-
-    <VGE_Maintenance>Part maintenance: {0}</VGE_Maintenance>
-    <VGE_Maintain>Maintain part</VGE_Maintain>
-    <VGE_Alert_LowMaintenance>Gravship maintenance low</VGE_Alert_LowMaintenance>
-    <VGE_Alert_LowMaintenance_Desc>Some gravship components have low maintenance. This can result in negative launch outcomes and eventual break downs. Consider assigning a colonist to maintain them. Gravship components with low maintenance:\n\n {0}</VGE_Alert_LowMaintenance_Desc>
-
     <VGE_VacCheckpoint_SetVacuumResistance>Set desired vacuum resistance</VGE_VacCheckpoint_SetVacuumResistance>
     <VGE_VacCheckpoint_SetVacuumResistanceDesc>Set the percentage of vacuum resistance required to cross through this checkpoint. Colonists without sufficient vacuum resistance will not naturally path through this checkpoint. Does not affect drafted colonists.</VGE_VacCheckpoint_SetVacuumResistanceDesc>
     <VGE_VacCheckpoint_VacuumResistancePercent>Vacuum resistance: {0_percentage}</VGE_VacCheckpoint_VacuumResistancePercent>
@@ -39,11 +32,6 @@
     <VGE_VacCheckpoint_AllowDraftedCheckbox>Always allow drafted</VGE_VacCheckpoint_AllowDraftedCheckbox>
     <VGE_OxygenPackInactive>inactive</VGE_OxygenPackInactive>
 
-    <!-- Mod options -->
-
-    <VGE_OrbitObjectsMultiplier>Orbital objects multiplier</VGE_OrbitObjectsMultiplier>
-    <VGE_OrbitObjectsMultiplierDesc>By default the game will try to keep 3,8,12 or 20 locations in orbit (depending on globe coverage of the planet). With this slider you can apply a multiplier to this number, making your planet orbits super sparse or very cluttered!</VGE_OrbitObjectsMultiplierDesc>
-    <VGE_Reset>Reset</VGE_Reset>
     <VGE_HeatsinkHeatStored>{0} / {1} heat units</VGE_HeatsinkHeatStored>
     <VGE_AbsorbGravheat>Absorb gravheat</VGE_AbsorbGravheat>
     <VGE_AbsorbGravheatDesc>Flush any remaining structural heat from the grav engine onto this gravheat absorber, allowing for an immediate gravship launch. Gravheat absorber will enter a long cooldown period during which it can't absorb any more heat.</VGE_AbsorbGravheatDesc>
@@ -64,9 +52,33 @@ Please note that keeping several maps open may affect your performance.</VGE_Map
     <VGE_DiscardMap>Discard the map</VGE_DiscardMap>
     <VGE_GravdataYieldInfo>Estimated gravdata yield: {0}</VGE_GravdataYieldInfo>
     <VGE_NoGravtechProjectSelected>No gravtech research project selected. Launching will not yield any gravdata.</VGE_NoGravtechProjectSelected>
-    <VGE_StatsReport_EngineeringConsole>Engineering console present</VGE_StatsReport_EngineeringConsole>
-    <VGE_SetDesiredMaintenance>Set desired maintenance</VGE_SetDesiredMaintenance>
-    <VGE_SetDesiredMaintenanceDesc>Set the desired maintenance for all gravship components on this gravship. Colonists assigned to construction will maintain the structures if they fall below the set level.</VGE_SetDesiredMaintenanceDesc>
+    
     <VGE_RapidlyDeterioratingInSpace>Rapidly deteriorating due to the vacuum of space.</VGE_RapidlyDeterioratingInSpace>
     <ConfirmGravEngineLaunch>Are you sure you want to launch?\n\nYou will be given a choice to keep the current map as well as anything not on gravship substructure, but if you choose to discard it, it will be permanently lost.</ConfirmGravEngineLaunch>
+	
+	
+	<!-- Mod options -->
+
+    <VGE_OrbitObjectsMultiplier>Orbital objects multiplier</VGE_OrbitObjectsMultiplier>
+    <VGE_OrbitObjectsMultiplierDesc>By default the game will try to keep 3,8,12 or 20 locations in orbit (depending on globe coverage of the planet). With this slider you can apply a multiplier to this number, making your planet orbits super sparse or very cluttered!</VGE_OrbitObjectsMultiplierDesc>
+    <VGE_Reset>Reset</VGE_Reset>
+	
+	<!-- World objects -->
+	
+	<VGE_SoildIceAsteroid>Solid ice with traces of {RESOURCE_label}</VGE_SoildIceAsteroid>
+	
+	<!-- Map incidents -->
+	
+	<VGE_CannotLaunchGravAnomaly>Can’t launch the gravship due to a gravitational anomaly</VGE_CannotLaunchGravAnomaly>
+	
+	<!-- Maintenance -->
+	
+	<VGE_Maintenance>Part maintenance: {0}</VGE_Maintenance>
+    <VGE_Maintain>Maintain part</VGE_Maintain>
+    <VGE_Alert_LowMaintenance>Gravship maintenance low</VGE_Alert_LowMaintenance>
+    <VGE_Alert_LowMaintenance_Desc>Some gravship components have low maintenance. This can result in negative launch outcomes and eventual break downs. Consider assigning a colonist to maintain them. Gravship components with low maintenance:\n\n {0}</VGE_Alert_LowMaintenance_Desc>
+	<VGE_StatsReport_EngineeringConsole>Engineering console present</VGE_StatsReport_EngineeringConsole>
+    <VGE_SetDesiredMaintenance>Set desired maintenance</VGE_SetDesiredMaintenance>
+    <VGE_SetDesiredMaintenanceDesc>Set the desired maintenance for all gravship components on this gravship. Colonists assigned to construction will maintain the structures if they fall below the set level.</VGE_SetDesiredMaintenanceDesc>
+	
 </LanguageData>

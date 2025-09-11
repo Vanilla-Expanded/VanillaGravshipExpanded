@@ -15,4 +15,20 @@
 			<li>Orbit</li>
 		</layerWhitelist>
 	</GameConditionDef>
+	
+	<GameConditionDef>
+		<defName>VGE_GravitationalAnomaly</defName>
+		<conditionClass>VanillaGravshipExpanded.GameCondition_GravitationalAnomaly</conditionClass>
+		<label>gravitational anomaly</label>
+		<description>A powerful gravity distortion has enveloped your gravship, preventing any kind of launch until it subsides. The anomaly will remain for the next few days before naturally fading away. Until then, all gravship launch rituals are unavailable and the ship will be unable to move from this location.\n\nWhile the anomaly persists, your systems will passively collect gravdata, but only if an active gravship research project is selected.</description>
+		<endMessage>The gravitational anomaly is dissipating.</endMessage>
+		<letterText>A powerful gravity distortion has enveloped your gravship, preventing any kind of launch until it subsides. The anomaly will remain for the next few days before naturally fading away. Until then, all gravship launch rituals are unavailable and the ship will be unable to move from this location.\n\nWhile the anomaly persists, your systems will passively collect gravdata, but only if an active gravship research project is selected.</letterText>
+		<letterDef>NegativeEvent</letterDef>
+		<canBePermanent>true</canBePermanent>
+		<allowUnderground>false</allowUnderground>
+		<preventShuttleLaunch>true</preventShuttleLaunch>
+		<layerWhitelist>
+			<li>Orbit</li>
+		</layerWhitelist>
+	</GameConditionDef>
 </Defs>

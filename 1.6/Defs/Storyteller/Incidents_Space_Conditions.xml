@@ -19,4 +19,24 @@
 			<li>Orbit</li>
 		</layerWhitelist>
 	</IncidentDef>
+	
+	<IncidentDef>
+		<defName>VGE_GravitationalAnomaly</defName>
+		<label>gravitational anomaly</label>
+		<category>Misc</category>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+			<li>Map_Misc</li>
+		</targetTags>
+		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
+		<gameCondition>VGE_GravitationalAnomaly</gameCondition>
+		<letterLabel>Gravitational anomaly</letterLabel>
+		<letterDef>NegativeEvent</letterDef>
+		<baseChance>1.3</baseChance>
+		<minRefireDays>15</minRefireDays>
+		<durationDays>2.5~5</durationDays>
+		<layerWhitelist>
+			<li>Orbit</li>
+		</layerWhitelist>
+	</IncidentDef>
 </Defs>
