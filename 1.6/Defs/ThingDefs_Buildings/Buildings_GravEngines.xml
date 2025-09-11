@@ -3,11 +3,11 @@
 
   <!-- For fast searching the map for minified grav engines -->
   <ThingDef ParentName="MinifiedThing">
-    <defName>MinifiedGravjumperEngine</defName>
+    <defName>VGE_MinifiedGravjumperEngine</defName>
   </ThingDef>
 
   <ThingDef ParentName="MinifiedThing">
-    <defName>MinifiedGravEngine</defName>
+    <defName>VGE_MinifiedGravhulkEngine</defName>
   </ThingDef>
 
   <ThingDef ParentName="GravshipComponentBase">
@@ -17,9 +17,9 @@
     <thingClass>Building_GravEngine</thingClass>
     <drawerType>RealtimeOnly</drawerType>
     <tickerType>Normal</tickerType>
-    <minifiedDef>MinifiedGravjumperEngine</minifiedDef>
+    <minifiedDef>VGE_MinifiedGravjumperEngine</minifiedDef>
     <graphicData>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>VanillaGravshipExpanded.Graphic_GravEngineSingle</graphicClass>
       <texPath>Things/Structures/GravEngines/GravJumperEngine/GravJumperEngine</texPath>
       <drawSize>(2,2)</drawSize>
       <addTopAltitudeBias>true</addTopAltitudeBias>
@@ -33,6 +33,7 @@
       <VGE_MaintenanceSensitivity>3</VGE_MaintenanceSensitivity>
       <WorkToBuild>18900</WorkToBuild>
     </statBases>
+    <uiIconPath>Things/Structures/GravEngines/GravJumperEngine/GravJumperEngine_MenuIcon</uiIconPath>
     <size>(1,1)</size>
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>0.6</fillPercent>
@@ -108,10 +109,10 @@
     <thingClass>Building_GravEngine</thingClass>
     <drawerType>RealtimeOnly</drawerType>
     <tickerType>Normal</tickerType>
-    <minifiedDef>MinifiedGravEngine</minifiedDef>
+    <minifiedDef>VGE_MinifiedGravhulkEngine</minifiedDef>
     <graphicData>
-      <graphicClass>Graphic_Single</graphicClass>
-      <texPath>Things/Building/GravEngine/GravEngine</texPath>
+      <graphicClass>VanillaGravshipExpanded.Graphic_GravEngineSingle</graphicClass>
+      <texPath>Things/Structures/GravEngines/GravHulkEngine/GravHulkEngine</texPath>
       <drawSize>(5,5)</drawSize>
       <addTopAltitudeBias>true</addTopAltitudeBias>
     </graphicData>
@@ -124,6 +125,7 @@
       <VGE_MaintenanceSensitivity>3</VGE_MaintenanceSensitivity>
       <WorkToBuild>94000</WorkToBuild>
     </statBases>
+    <uiIconPath>Things/Structures/GravEngines/GravHulkEngine/GravHulkEngine_MenuIcon</uiIconPath>
     <size>(5,5)</size>
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>0.6</fillPercent>

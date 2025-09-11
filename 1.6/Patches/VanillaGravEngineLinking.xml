@@ -109,10 +109,15 @@
   </Operation>
 
   <!-- Change grav engine graphic -->
-  <!-- Orb and cooldown graphic are hardcoded, so we need to handle it with C# -->
   <Operation Class="PatchOperationReplace">
     <xpath>Defs/ThingDef[defName="GravEngine"]/graphicData/texPath/text()</xpath>
     <value>Things/Structures/GravEngines/GravEngine/GravEngine</value>
+  </Operation>
+
+  <!-- Orb and cooldown graphic are hardcoded, so we use a custom graphic class and some harmony patches to handle those -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravEngine"]/graphicData/graphicClass/text()</xpath>
+    <value>VanillaGravshipExpanded.Graphic_GravEngineSingle</value>
   </Operation>
 
   <!-- Give grav engine menu icon -->

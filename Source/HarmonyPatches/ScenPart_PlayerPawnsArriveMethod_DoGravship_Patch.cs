@@ -39,7 +39,7 @@ public static class ScenPart_PlayerPawnsArriveMethod_DoGravship_Patch
 
         const int expectedPatches = 1;
         if (patchCount != expectedPatches)
-            Log.Error($"Patching gravship start failed - unpexpected amount of patches. Expected patches: {expectedPatches}, actual patch amount: {patchCount}. There may be some issues.");
+            Log.Error($"Patching gravship start failed - unexpected amount of patches. Expected patches: {expectedPatches}, actual patch amount: {patchCount}. There may be some issues.");
     }
 
     private static void RefillStorageTanks(List<Thing> things)
