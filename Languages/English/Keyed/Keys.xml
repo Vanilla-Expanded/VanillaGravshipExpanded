@@ -31,6 +31,12 @@
     <VGE_VacCheckpoint_DisallowDrafted>Drafted colonists check for vacuum resistance</VGE_VacCheckpoint_DisallowDrafted>
     <VGE_VacCheckpoint_AllowDraftedCheckbox>Always allow drafted</VGE_VacCheckpoint_AllowDraftedCheckbox>
     <VGE_OxygenPackInactive>inactive</VGE_OxygenPackInactive>
+    <VGE_OxygenUnits>oxygen u³</VGE_OxygenUnits>
+    <VGE_OxygenDrainIfActive>Oxygen drain per day (if active): {0} u³</VGE_OxygenDrainIfActive>
+    <VGE_OxygenReplenishAt>Replenish oxygen at: {0} u³</VGE_OxygenReplenishAt>
+    <VGE_OxygenReplenishDisabled>Automatic replenishment of oxygen disabled.</VGE_OxygenReplenishDisabled>
+    <VGE_OxygenReplenishOnOffDesc>This determines whether {PAWN_nameDef} will automatically replenish oxygen canisters when oxygen in {PAWN_possessive} equipment is below {MIN} u³.\n\nAutomatic oxygen replenishment is currently {ONOFF}.</VGE_OxygenReplenishOnOffDesc>
+    <VGE_OxygenReplenishOnOffNoWearerDesc>This determines whether the wearer will automatically replenish oxygen canisters when oxygen in their equipment is below {MIN} u³.\n\nAutomatic oxygen replenishment is currently {ONOFF}.</VGE_OxygenReplenishOnOffNoWearerDesc>
 
     <VGE_HeatsinkHeatStored>{0} / {1} heat units</VGE_HeatsinkHeatStored>
     <VGE_AbsorbGravheat>Absorb gravheat</VGE_AbsorbGravheat>
