@@ -8,7 +8,6 @@ namespace VanillaGravshipExpanded
     [HotSwappable]
     public class Projectile_Asteroid : Projectile_Space
     {
-        private bool noLoot;
         private static readonly List<ThingDef> resourceDefs = new List<ThingDef>
         {
             ThingDefOf.Steel,
@@ -17,53 +16,29 @@ namespace VanillaGravshipExpanded
             ThingDefOf.Plasteel
         };
 
-        public override void ExposeData()
+        protected override void TryDropLoot()
         {
-            base.ExposeData();
-            Scribe_Values.Look(ref noLoot, "noLoot", false);
-        }
-
-        public override void TickInterval(int delta)
-        {
-            lifetime -= delta;
-            ticksToImpact -= delta;
-            if (!ExactPosition.InBounds(base.Map))
+            Thing vacstone = ThingMaker.MakeThing(ThingDefOf.ChunkVacstone);
+            GenPlace.TryPlaceThing(vacstone, this.Position, this.Map, ThingPlaceMode.Near);
+            float rand = Rand.Value;
+            bool shouldDropResources = false;
+            if (this.def == VGEDefOf.VGE_MediumAsteroid && rand < 0.10f)
             {
-                noLoot = true;
+                shouldDropResources = true;
             }
-            lifetime += delta;
-            ticksToImpact += delta;
-            base.TickInterval(delta);
-        }
-
-        public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
-        {
-            if (noLoot is false && this.Map != null)
+            else if (this.def == VGEDefOf.VGE_LargeAsteroid && rand < 0.25f)
             {
-                Thing vacstone = ThingMaker.MakeThing(ThingDefOf.ChunkVacstone);
-                GenPlace.TryPlaceThing(vacstone, this.Position, this.Map, ThingPlaceMode.Near);
-                float rand = Rand.Value;
-                bool shouldDropResources = false;
-                if (this.def == VGEDefOf.VGE_MediumAsteroid && rand < 0.10f)
-                {
-                    shouldDropResources = true;
-                }
-                else if (this.def == VGEDefOf.VGE_LargeAsteroid && rand < 0.25f)
-                {
-                    shouldDropResources = true;
-                }
-
-                if (shouldDropResources)
-                {
-                    Thing resourceLoot = GetRandomResourceLoot();
-                    GenPlace.TryPlaceThing(resourceLoot, this.Position, this.Map, ThingPlaceMode.Near);
-                    resourceLoot.SetForbidden(true, false);
-                }
+                shouldDropResources = true;
             }
-            
-            base.Destroy(mode);
+
+            if (shouldDropResources)
+            {
+                Thing resourceLoot = GetRandomResourceLoot();
+                GenPlace.TryPlaceThing(resourceLoot, this.Position, this.Map, ThingPlaceMode.Near);
+                resourceLoot.SetForbidden(true, false);
+            }
         }
-        
+
         private Thing GetRandomResourceLoot()
         {
             ThingDef selectedDef = resourceDefs.RandomElement();
