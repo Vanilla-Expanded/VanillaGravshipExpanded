@@ -45,10 +45,11 @@ namespace VanillaGravshipExpanded
                 {
                     if (storedGravdata > 0 && currentProject != null)
                     {
-                        Find.ResearchManager.AddProgress(currentProject, storedGravdata);
-                        int convertedAmount = storedGravdata;
-                        storedGravdata = 0;
-                        Messages.Message("VGE_ConvertedGravdataToResearch".Translate(convertedAmount, currentProject.LabelCap), MessageTypeDefOf.TaskCompletion);
+                        float progressNeeded = currentProject.Cost - Find.ResearchManager.GetProgress(currentProject);
+                        int gravdataToConvert = Math.Min(storedGravdata, (int)Math.Ceiling(progressNeeded));
+                        Find.ResearchManager.AddProgress(currentProject, gravdataToConvert);
+                        storedGravdata -= gravdataToConvert;
+                        Messages.Message("VGE_ConvertedGravdataToResearch".Translate(gravdataToConvert, currentProject.LabelCap), MessageTypeDefOf.TaskCompletion);
                     }
                 },
                 disabled = !canConvert,

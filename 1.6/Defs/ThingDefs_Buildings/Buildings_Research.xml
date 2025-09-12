@@ -70,7 +70,6 @@
 		</costList>
 		<useHitPoints>false</useHitPoints>
 		<statBases>
-			<WorkToBuild>5000</WorkToBuild>
 			<Flammability>0</Flammability>
 			<Beauty>-10</Beauty>
 			<Mass>15</Mass>
@@ -96,7 +95,5 @@
 		<tradeTags>
 			<li>GravshipUpgrade</li>
 		</tradeTags>
-		<designationCategory>Odyssey</designationCategory>
-		<uiOrder>2102</uiOrder>
 	</ThingDef>
 </Defs>

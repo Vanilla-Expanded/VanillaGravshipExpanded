@@ -41,7 +41,7 @@ namespace VanillaGravshipExpanded
             Log.Message($"[Gravdata] Distance travelled: {distanceTravelled} - from {launchSourceTile} to {landingTile}");
 
             var gravdataYield = GravdataUtility.CalculateGravdataYield(distanceTravelled, quality, gravship.Engine, researcherPawn);
- 
+
             Log.Message($"[Gravdata] Calculated gravdata yield: {gravdataYield}");
             var blackBox = gravship.Engine.GravshipComponents.Select(comp => comp.parent).OfType<Building_GravshipBlackBox>().FirstOrDefault();
             int remainingGravdata = gravdataYield;
@@ -54,12 +54,12 @@ namespace VanillaGravshipExpanded
             if (World_ExposeData_Patch.currentGravtechProject != null)
             {
                 Log.Message($"[Gravdata] Adding {remainingGravdata} to project: {World_ExposeData_Patch.currentGravtechProject.defName}");
-                float progressNeeded = World_ExposeData_Patch.currentGravtechProject.CostApparent - Find.ResearchManager.GetProgress(World_ExposeData_Patch.currentGravtechProject);
+                float progressNeeded = World_ExposeData_Patch.currentGravtechProject.Cost - Find.ResearchManager.GetProgress(World_ExposeData_Patch.currentGravtechProject);
                 int progressToAdd = Mathf.Min(remainingGravdata, (int)progressNeeded);
-                
+
                 Find.ResearchManager.AddProgress(World_ExposeData_Patch.currentGravtechProject, progressToAdd);
                 remainingGravdata -= progressToAdd;
-                
+
                 if (World_ExposeData_Patch.currentGravtechProject.IsFinished)
                 {
                     Log.Message($"[Gravdata] Project completed: {World_ExposeData_Patch.currentGravtechProject.defName}");
@@ -75,7 +75,7 @@ namespace VanillaGravshipExpanded
             {
                 Log.Message($"[Gravdata] No black box, {remainingGravdata} gravdata lost");
             }
-            
+
             LaunchInfo_ExposeData_Patch.gravtechResearcherPawns.Remove(launchInfo);
             LaunchInfo_ExposeData_Patch.launchSourceTiles.Remove(launchInfo);
         }

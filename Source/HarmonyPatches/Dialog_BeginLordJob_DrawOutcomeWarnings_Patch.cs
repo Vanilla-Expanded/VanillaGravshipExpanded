@@ -26,7 +26,7 @@ namespace VanillaGravshipExpanded
                     var info = "VGE_LaunchHeatsinkCooldownInfo".Translate(cooldownReduction.ToStringPercent());
                     outcome.description += " " + info;
                 }
-                if (World_ExposeData_Patch.currentGravtechProject == null)
+                if (World_ExposeData_Patch.currentGravtechProject == null && engine.GravshipComponents.Any(x => x.parent is Building_GravshipBlackBox) is false)
                 {
                     var warningPart = "Warning".Translate().ToString().ToUpper();
                     var messagePart = "VGE_NoGravtechProjectSelected".Translate();
