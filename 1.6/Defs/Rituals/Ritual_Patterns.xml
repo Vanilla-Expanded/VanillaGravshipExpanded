@@ -16,7 +16,8 @@
     <ritualOutcomeEffect>VGE_GravjumperLaunch</ritualOutcomeEffect>
     <ritualObligationTargetFilter>VGE_GravjumperLaunch</ritualObligationTargetFilter>
     <iconPathOverride>UI/RitualIcons/LaunchGravjumper_Gizmo</iconPathOverride>
-    <cancelIconPathOverride>UI/RitualIcons/CancelLaunchGravjumper_Gizmo</cancelIconPathOverride>
+<!--    <cancelIconPathOverride>UI/RitualIcons/CancelLaunchGravjumper_Gizmo</cancelIconPathOverride>-->
+    <cancelIconPathOverride>UI/Commands/CancelLaunchGravship</cancelIconPathOverride>
   </RitualPatternDef>
 
   <RitualPatternDef ParentName="VGE_GravshipLaunchPattern">
@@ -25,7 +26,8 @@
     <ritualOutcomeEffect>VGE_GravhulkLaunch</ritualOutcomeEffect>
     <ritualObligationTargetFilter>VGE_GravhulkLaunch</ritualObligationTargetFilter>
     <iconPathOverride>UI/RitualIcons/LaunchGravhulk_Gizmo</iconPathOverride>
-    <cancelIconPathOverride>UI/RitualIcons/CancelLaunchGravhulk_Gizmo</cancelIconPathOverride>
+<!--    <cancelIconPathOverride>UI/RitualIcons/CancelLaunchGravhulk_Gizmo</cancelIconPathOverride>-->
+    <cancelIconPathOverride>UI/Commands/CancelLaunchGravship</cancelIconPathOverride>
   </RitualPatternDef>
 
 </Defs>

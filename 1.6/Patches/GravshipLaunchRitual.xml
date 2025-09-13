@@ -163,9 +163,9 @@
   </Operation>
 
   <!-- Replace cancel gravship ritual icon -->
-  <Operation Class="PatchOperationReplace">
-    <xpath>Defs/RitualPatternDef[defName="GravshipLaunch"]/cancelIconPathOverride/text()</xpath>
-    <value>UI/RitualIcons/CancelLaunchGravship_Gizmo</value>
-  </Operation>
+<!--  <Operation Class="PatchOperationReplace">-->
+<!--    <xpath>Defs/RitualPatternDef[defName="GravshipLaunch"]/cancelIconPathOverride/text()</xpath>-->
+<!--    <value>UI/RitualIcons/CancelLaunchGravship_Gizmo</value>-->
+<!--  </Operation>-->
 
 </Patch>
