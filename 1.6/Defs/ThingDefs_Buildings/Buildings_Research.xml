@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
 	<ThingDef ParentName="GravshipComponentBase">
 		<defName>VGE_GravtechConsole</defName>
 		<label>gravtech console</label>
@@ -21,10 +20,12 @@
 			<Flammability>0.5</Flammability>
 			<Beauty>-4</Beauty>
 			<Mass>10</Mass>
+			<VGE_MaintenanceSensitivity>2</VGE_MaintenanceSensitivity>
 		</statBases>
 		<size>(3,1)</size>
 		<passability>PassThroughOnly</passability>
 		<pathCost>50</pathCost>
+		<tickerType>Normal</tickerType>
 		<comps>
 			<li Class="CompProperties_GravshipFacility">
 				<maxSimultaneous>1</maxSimultaneous>
@@ -34,7 +35,10 @@
 			<li Class="VanillaGravshipExpanded.CompProperties_GravdataYield">
 				<multiplier>5</multiplier>
 			</li>
-			<li Class="CompProperties_Breakdownable" />
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
+
+            </li>
 		</comps>
 		<placeWorkers>
 			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
@@ -52,7 +56,6 @@
 		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
 		<uiOrder>2101</uiOrder>
 	</ThingDef>
-
 	<ThingDef ParentName="GravshipComponentBase">
 		<defName>VGE_GravshipBlackBox</defName>
 		<label>gravship black box</label>
@@ -90,7 +93,7 @@
 			<li Class="VanillaGravshipExpanded.CompProperties_GravdataYield">
 				<multiplier>2.0</multiplier>
 			</li>
-			<li Class="CompProperties_Breakdownable" />
+			<li Class="CompProperties_Breakdownable"/>
 		</comps>
 		<tradeTags>
 			<li>GravshipUpgrade</li>

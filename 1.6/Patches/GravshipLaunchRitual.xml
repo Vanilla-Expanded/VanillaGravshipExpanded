@@ -84,6 +84,16 @@
           </li>
         </facilityQualityOffsets>
       </li>
+	   <li Class="VanillaGravshipExpanded.RitualOutcomeComp_AverageMaintenance">
+        <label>Average maintenance of the gravship</label>     
+        <curve>
+          <points>
+            <li>(0, -1)</li>
+            <li>(0.5, -0.1)</li>
+            <li>(1, 0)</li>
+          </points>
+        </curve>
+      </li>
       <li Class="VanillaGravshipExpanded.RitualOutcomeComp_MannedGravshipFacilities">
         <label>manned copilot console</label>
         <roleId>copilot</roleId>

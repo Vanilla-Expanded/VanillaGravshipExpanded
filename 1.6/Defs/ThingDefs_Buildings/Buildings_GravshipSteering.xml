@@ -1,157 +1,167 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+	<GravshipComponentTypeDef>
+		<defName>VGE_CopilotControls</defName>
+		<label>copilot controls</label>
+		<requiredForLaunch>false</requiredForLaunch>
+	</GravshipComponentTypeDef>
+	<ThingDef ParentName="GravshipComponentBase">
+		<defName>VGE_PilotCockpit</defName>
+		<label>pilot cockpit</label>
+		<description>An interface that allows launching and piloting a gravjumper. It draws power directly from the grav engine.</description>
+		<graphicData>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<texPath>Things/Structures/PilotConsoles/PilotCockpit/PilotCockpit</texPath>
+			<drawSize>(2, 3)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Mass>20</Mass>
+			<Flammability>0</Flammability>
+			<Beauty>0</Beauty>
+			<WorkToBuild>2500</WorkToBuild>
+			<VGE_MaintenanceSensitivity>2</VGE_MaintenanceSensitivity>
+		</statBases>
+		<size>(1, 2)</size>
+		<rotatable>true</rotatable>
+		<fillPercent>0.4</fillPercent>
+		<passability>PassThroughOnly</passability>
+		<pathCost>14</pathCost>
+		<canOverlapZones>false</canOverlapZones>
+		<costList>
+			<Steel>70</Steel>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+		<designationCategory>Odyssey</designationCategory>
+		<hasInteractionCell>true</hasInteractionCell>
+		<interactionCellOffset>(0, 0, -1)</interactionCellOffset>
+		<researchPrerequisites>
+			<li>StandardGravtech</li>
+		</researchPrerequisites>
+		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+		<comps>
+			<li Class="CompProperties_GravshipFacility">
+				<compClass>CompPilotConsole</compClass>
+				<componentTypeDef>Controls</componentTypeDef>
+				<requiresLOS>false</requiresLOS>
+				<showMaxSimultaneous>false</showMaxSimultaneous>
+				<maxSimultaneous>1</maxSimultaneous>
+				<maxDistance>200</maxDistance>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
 
-  <GravshipComponentTypeDef>
-    <defName>VGE_CopilotControls</defName>
-    <label>copilot controls</label>
-    <requiredForLaunch>false</requiredForLaunch>
-  </GravshipComponentTypeDef>
+            </li>
+		</comps>
+		<uiOrder>2100</uiOrder>
+	</ThingDef>
+	<ThingDef ParentName="GravshipComponentBase">
+		<defName>VGE_PilotBridge</defName>
+		<label>pilot bridge</label>
+		<description>An interface that allows launching and piloting a gravhulk. It draws power directly from the gravhulk engine.</description>
+		<graphicData>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<texPath>Things/Structures/PilotConsoles/PilotBridge/PilotBridge</texPath>
+			<drawSize>(6, 4)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>70</Mass>
+			<Flammability>0</Flammability>
+			<Beauty>0</Beauty>
+			<WorkToBuild>6000</WorkToBuild>
+			<VGE_MaintenanceSensitivity>2</VGE_MaintenanceSensitivity>
+		</statBases>
+		<size>(5, 3)</size>
+		<rotatable>true</rotatable>
+		<fillPercent>0.4</fillPercent>
+		<passability>PassThroughOnly</passability>
+		<pathCost>14</pathCost>
+		<canOverlapZones>false</canOverlapZones>
+		<costList>
+			<Steel>260</Steel>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<ComponentSpacer>2</ComponentSpacer>
+		</costList>
+		<resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+		<designationCategory>Odyssey</designationCategory>
+		<hasInteractionCell>true</hasInteractionCell>
+		<interactionCellOffset>(0, 0, -2)</interactionCellOffset>
+		<researchPrerequisites>
+			<li>AdvancedGravtech</li>
+		</researchPrerequisites>
+		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+		<comps>
+			<li Class="CompProperties_GravshipFacility">
+				<compClass>CompPilotConsole</compClass>
+				<componentTypeDef>Controls</componentTypeDef>
+				<requiresLOS>false</requiresLOS>
+				<showMaxSimultaneous>false</showMaxSimultaneous>
+				<maxSimultaneous>1</maxSimultaneous>
+				<maxDistance>200</maxDistance>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
 
-  <ThingDef ParentName="GravshipComponentBase">
-    <defName>VGE_PilotCockpit</defName>
-    <label>pilot cockpit</label>
-    <description>An interface that allows launching and piloting a gravjumper. It draws power directly from the grav engine.</description>
-    <graphicData>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <texPath>Things/Structures/PilotConsoles/PilotCockpit/PilotCockpit</texPath>
-      <drawSize>(2, 3)</drawSize>
-    </graphicData>
-    <statBases>
-      <MaxHitPoints>100</MaxHitPoints>
-      <Mass>20</Mass>
-      <Flammability>0</Flammability>
-      <Beauty>0</Beauty>
-      <WorkToBuild>2500</WorkToBuild>
-    </statBases>
-    <size>(1, 2)</size>
-    <rotatable>true</rotatable>
-    <fillPercent>0.4</fillPercent>
-    <passability>PassThroughOnly</passability>
-    <pathCost>14</pathCost>
-    <canOverlapZones>false</canOverlapZones>
-    <costList>
-      <Steel>70</Steel>
-      <ComponentIndustrial>3</ComponentIndustrial>
-    </costList>
-    <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
-    <designationCategory>Odyssey</designationCategory>
-    <hasInteractionCell>true</hasInteractionCell>
-    <interactionCellOffset>(0, 0, -1)</interactionCellOffset>
-    <researchPrerequisites>
-      <li>StandardGravtech</li>
-    </researchPrerequisites>
-    <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
-    <comps>
-      <li Class="CompProperties_GravshipFacility">
-        <compClass>CompPilotConsole</compClass>
-        <componentTypeDef>Controls</componentTypeDef>
-        <requiresLOS>false</requiresLOS>
-        <showMaxSimultaneous>false</showMaxSimultaneous>
-        <maxSimultaneous>1</maxSimultaneous>
-        <maxDistance>200</maxDistance>
-      </li>
-      <li Class="CompProperties_Breakdownable" />
-    </comps>
-    <uiOrder>2100</uiOrder>
-  </ThingDef>
+            </li>
+		</comps>
+		<uiOrder>2100</uiOrder>
+	</ThingDef>
+	<ThingDef ParentName="GravshipComponentBase">
+		<defName>VGE_CopilotConsole</defName>
+		<label>copilot console</label>
+		<description>An auxiliary interface that allows a copilot to assist in launching and piloting a gravship. It draws power directly from the grav engine.</description>
+		<graphicData>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<texPath>Things/Structures/PilotConsoles/CoPilotConsole/CoPilotConsole</texPath>
+			<drawSize>(4, 3)</drawSize>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Mass>30</Mass>
+			<Flammability>0</Flammability>
+			<Beauty>0</Beauty>
+			<WorkToBuild>2000</WorkToBuild>
+			<VGE_MaintenanceSensitivity>2</VGE_MaintenanceSensitivity>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<size>(3, 1)</size>
+		<rotatable>true</rotatable>
+		<fillPercent>0.4</fillPercent>
+		<passability>PassThroughOnly</passability>
+		<pathCost>14</pathCost>
+		<canOverlapZones>false</canOverlapZones>
+		<costList>
+			<Steel>100</Steel>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+		<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+		<designationCategory>Odyssey</designationCategory>
+		<hasInteractionCell>true</hasInteractionCell>
+		<interactionCellOffset>(0, 0, -1)</interactionCellOffset>
+		<researchPrerequisites>
+			<li>AdvancedGravtech</li>
+		</researchPrerequisites>
+		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+		<comps>
+			<li Class="CompProperties_GravshipFacility">
+				<compClass>VanillaGravshipExpanded.CompCopilotConsole</compClass>
+				<componentTypeDef>VGE_CopilotControls</componentTypeDef>
+				<requiresLOS>false</requiresLOS>
+				<showMaxSimultaneous>false</showMaxSimultaneous>
+				<maxSimultaneous>1</maxSimultaneous>
+				<maxDistance>200</maxDistance>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
 
-  <ThingDef ParentName="GravshipComponentBase">
-    <defName>VGE_PilotBridge</defName>
-    <label>pilot bridge</label>
-    <description>An interface that allows launching and piloting a gravhulk. It draws power directly from the gravhulk engine.</description>
-    <graphicData>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <texPath>Things/Structures/PilotConsoles/PilotBridge/PilotBridge</texPath>
-      <drawSize>(6, 4)</drawSize>
-    </graphicData>
-    <statBases>
-      <MaxHitPoints>300</MaxHitPoints>
-      <Mass>70</Mass>
-      <Flammability>0</Flammability>
-      <Beauty>0</Beauty>
-      <WorkToBuild>6000</WorkToBuild>
-    </statBases>
-    <size>(5, 3)</size>
-    <rotatable>true</rotatable>
-    <fillPercent>0.4</fillPercent>
-    <passability>PassThroughOnly</passability>
-    <pathCost>14</pathCost>
-    <canOverlapZones>false</canOverlapZones>
-    <costList>
-      <Steel>260</Steel>
-      <ComponentIndustrial>4</ComponentIndustrial>
-      <ComponentSpacer>2</ComponentSpacer>
-    </costList>
-    <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
-    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
-    <designationCategory>Odyssey</designationCategory>
-    <hasInteractionCell>true</hasInteractionCell>
-    <interactionCellOffset>(0, 0, -2)</interactionCellOffset>
-    <researchPrerequisites>
-      <li>AdvancedGravtech</li>
-    </researchPrerequisites>
-    <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
-    <comps>
-      <li Class="CompProperties_GravshipFacility">
-        <compClass>CompPilotConsole</compClass>
-        <componentTypeDef>Controls</componentTypeDef>
-        <requiresLOS>false</requiresLOS>
-        <showMaxSimultaneous>false</showMaxSimultaneous>
-        <maxSimultaneous>1</maxSimultaneous>
-        <maxDistance>200</maxDistance>
-      </li>
-      <li Class="CompProperties_Breakdownable" />
-    </comps>
-    <uiOrder>2100</uiOrder>
-  </ThingDef>
-
-  <ThingDef ParentName="GravshipComponentBase">
-    <defName>VGE_CopilotConsole</defName>
-    <label>copilot console</label>
-    <description>An auxiliary interface that allows a copilot to assist in launching and piloting a gravship. It draws power directly from the grav engine.</description>
-    <graphicData>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <texPath>Things/Structures/PilotConsoles/CoPilotConsole/CoPilotConsole</texPath>
-      <drawSize>(4, 3)</drawSize>
-    </graphicData>
-    <statBases>
-      <MaxHitPoints>100</MaxHitPoints>
-      <Mass>30</Mass>
-      <Flammability>0</Flammability>
-      <Beauty>0</Beauty>
-      <WorkToBuild>2000</WorkToBuild>
-    </statBases>
-    <size>(3, 1)</size>
-    <rotatable>true</rotatable>
-    <fillPercent>0.4</fillPercent>
-    <passability>PassThroughOnly</passability>
-    <pathCost>14</pathCost>
-    <canOverlapZones>false</canOverlapZones>
-    <costList>
-      <Steel>100</Steel>
-      <ComponentIndustrial>3</ComponentIndustrial>
-    </costList>
-    <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
-    <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
-    <designationCategory>Odyssey</designationCategory>
-    <hasInteractionCell>true</hasInteractionCell>
-    <interactionCellOffset>(0, 0, -1)</interactionCellOffset>
-    <researchPrerequisites>
-      <li>AdvancedGravtech</li>
-    </researchPrerequisites>
-    <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
-    <comps>
-      <li Class="CompProperties_GravshipFacility">
-        <compClass>VanillaGravshipExpanded.CompCopilotConsole</compClass>
-        <componentTypeDef>VGE_CopilotControls</componentTypeDef>
-        <requiresLOS>false</requiresLOS>
-        <showMaxSimultaneous>false</showMaxSimultaneous>
-        <maxSimultaneous>1</maxSimultaneous>
-        <maxDistance>200</maxDistance>
-      </li>
-      <li Class="CompProperties_Breakdownable" />
-    </comps>
-    <uiOrder>2100</uiOrder>
-  </ThingDef>
-
+            </li>
+		</comps>
+		<uiOrder>2100</uiOrder>
+	</ThingDef>
 </Defs>

@@ -11,7 +11,7 @@ namespace VanillaGravshipExpanded
 {
     public class GravMaintainables_MapComponent : MapComponent
     {
-     
+
         public HashSet<Thing> maintainables_InMap = new HashSet<Thing>();
 
         public float maintenanceThreshold = 0.7f;
@@ -41,6 +41,18 @@ namespace VanillaGravshipExpanded
             {
                 maintainables_InMap.Remove(thing);
             }
+        }
+
+        public float AverageMaintenanceInMap()
+        {
+            float totalMaintenance = 0;
+            if (maintainables_InMap.Count > 0) {
+                foreach (Thing thing in maintainables_InMap)
+                {
+                    totalMaintenance+=thing.TryGetComp<CompGravMaintainable>().maintenance;
+                }
+                return totalMaintenance/ maintainables_InMap.Count;
+            } else return 1;         
         }
     }
 }
