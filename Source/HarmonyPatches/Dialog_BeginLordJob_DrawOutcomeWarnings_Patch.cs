@@ -20,6 +20,7 @@ namespace VanillaGravshipExpanded
                 var outcome = __instance.outcome.extraOutcomeDescriptions.First();
                 __state = outcome.description;
                 var engine = __instance.target.Thing.TryGetComp<CompPilotConsole>()?.engine;
+                var gravshipState = Dialog_BeginRitual_ShowRitualBeginWindow_Patch.state;
                 var cooldownReduction = Building_GravEngine_ConsumeFuel_Patch.GetCooldownReduction(engine);
                 if (cooldownReduction > 0f)
                 {
@@ -33,22 +34,26 @@ namespace VanillaGravshipExpanded
                     var coloredWarning = $"<color=red>{warningPart}:</color> {messagePart}";
                     outcome.description += "\n\n" + coloredWarning + "\n";
                 }
-                else if (Dialog_BeginRitual_ShowRitualBeginWindow_Patch.state != null)
+                else if (gravshipState != null)
                 {
                     Pawn researcherPawn = __instance.assignments.AssignedPawns("gravtechResearcher").FirstOrDefault();
-                    var gravshipState = Dialog_BeginRitual_ShowRitualBeginWindow_Patch.state;
                     float distanceTravelled = GravshipHelper.GetDistance(engine.Map.Tile, gravshipState.targetTile);
                     List<QualityFactor> list = __instance.PopulateQualityFactors(out var qualityRange);
                     var quality = __instance.PredictedQuality(list).min;
                     int gravdataYield = GravdataUtility.CalculateGravdataYield(distanceTravelled, quality, engine, researcherPawn);
                     var gravdataInfo = "VGE_GravdataYieldInfo".Translate(gravdataYield);
                     outcome.description += " " + gravdataInfo;
-
+                    
+                    if (GravshipUtility.TryGetPathFuelCost(engine.Map.Tile, gravshipState.targetTile, out var cost, out _))
+                    {
+                        outcome.description += "\n\n" + "VGE_LaunchHeatUnitsInfo".Translate(cost);
+                    }
+                    
+                    outcome.description += "\n\n" + "DEV: " + $"Distance: {distanceTravelled}, Quality: {quality}, Researcher: {researcherPawn?.Name}, ResearchStat: {researcherPawn?.GetStatValue(VGEDefOf.VGE_GravshipResearch)}, YieldMultiplier: {GravdataUtility.CalculateYieldMultiplier(engine)}, Cost: {cost}\n";
+                    
                     float boonChance = GravshipHelper.LaunchBoonChanceFromQuality(quality);
                     var boonInfo = "VGE_LaunchBoonChanceInfo".Translate((boonChance * 100).ToString("F1"));
                     outcome.description += "\n\n" + boonInfo;
-
-                    outcome.description += "\n\n" + "DEV: " + $"Distance: {distanceTravelled}, Quality: {quality}, Researcher: {researcherPawn?.Name}, ResearchStat: {researcherPawn?.GetStatValue(VGEDefOf.VGE_GravshipResearch)}, YieldMultiplier: {GravdataUtility.CalculateYieldMultiplier(engine)}\n";
                 }
             }
         }

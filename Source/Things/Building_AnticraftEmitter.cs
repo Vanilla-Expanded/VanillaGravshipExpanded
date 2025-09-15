@@ -1,4 +1,4 @@
-﻿using RimWorld;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,12 +12,12 @@ namespace VanillaGravshipExpanded
     {
         private bool isFiringBurst = false;
         private Mote aimChargeMote;
-        
+
         public override void Tick()
         {
             base.Tick();
 
-            bool shouldBeFiringBurst = MannedByPlayer && CurrentTarget.IsValid && Active && AttackVerb.state == VerbState.Bursting;
+            bool shouldBeFiringBurst = CanFire && CurrentTarget.IsValid && Active && AttackVerb.state == VerbState.Bursting;
 
             if (shouldBeFiringBurst != isFiringBurst)
             {
@@ -31,7 +31,7 @@ namespace VanillaGravshipExpanded
                 isFiringBurst = false;
                 UpdatePowerOutput();
             }
-            if (angleDiff <= 0.1f && MannedByPlayer && CurrentTarget.IsValid && Active && burstWarmupTicksLeft > 0)
+            if (angleDiff <= 0.1f && CanFire && CurrentTarget.IsValid && Active && burstWarmupTicksLeft > 0)
             {
                 if (aimChargeMote == null || aimChargeMote.Destroyed)
                 {

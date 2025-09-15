@@ -9,7 +9,7 @@ namespace VanillaGravshipExpanded
     {
         public static bool Prefix(Building_TurretGun __instance, ref LocalTargetInfo __result)
         {
-            if (__instance is Building_GravshipTurret)
+            if (__instance is Building_GravshipTurret and not Building_EnemyMechTurret)
             {
                 __result = LocalTargetInfo.Invalid;
                 return false;

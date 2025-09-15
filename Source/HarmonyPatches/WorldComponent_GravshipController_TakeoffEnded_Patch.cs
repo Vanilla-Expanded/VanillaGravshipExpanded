@@ -13,7 +13,7 @@ namespace VanillaGravshipExpanded
     {
         public static void Prefix(WorldComponent_GravshipController __instance)
         {
-            if (__instance.map.Parent.ShouldHaveKeepMapUI())
+            if (__instance.mapHasGravAnchor is false && __instance.map.Parent.ShouldHaveKeepMapUI())
             {
                 __instance.mapHasGravAnchor = true;
                 var map = __instance.map;

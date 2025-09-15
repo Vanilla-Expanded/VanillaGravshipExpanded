@@ -32,8 +32,8 @@ namespace VanillaGravshipExpanded
     [StaticConstructorOnStartup]
     public class CompWorldArtillery : ThingComp
     {
-        public GlobalTargetInfo worldTarget;
-        public IntVec3 targetCell;
+        public GlobalTargetInfo worldTarget = GlobalTargetInfo.Invalid;
+        public IntVec3 targetCell = IntVec3.Invalid;
         private PlanetTile cachedClosest;
         private PlanetTile cachedOrigin;
         private PlanetLayer cachedLayer;
@@ -80,7 +80,7 @@ namespace VanillaGravshipExpanded
             var launcher = parent as Building_GravshipTurret;
             var distance = GravshipHelper.GetDistance(launcher.Map.Tile, target.Tile);
             var hitFactor = HitFactorFromShooter(launcher, distance);
-            var targetingStat = launcher.linkedTerminal?.GravshipTargeting ?? 1f;
+            var targetingStat = launcher.GravshipTargeting;
             var targetingMultiplier = GetTargetingMultiplier(targetingStat);
             float hitChance = hitFactor * targetingMultiplier;
             return hitChance;
@@ -111,7 +111,7 @@ namespace VanillaGravshipExpanded
                 mapMultiplier = 3f;
             }
 
-            var targetingStat = launcher.linkedTerminal?.GravshipTargeting ?? 1f;
+            var targetingStat = launcher.GravshipTargeting;
             var forcedMiss = (baseMissRadius * worldMultiplier * mapMultiplier) / GetTargetingMultiplier(targetingStat);
             return forcedMiss;
         }
@@ -119,8 +119,8 @@ namespace VanillaGravshipExpanded
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_TargetInfo.Look(ref worldTarget, "worldTarget");
-            Scribe_Values.Look(ref targetCell, "targetCell");
+            Scribe_TargetInfo.Look(ref worldTarget, "worldTarget", GlobalTargetInfo.Invalid);
+            Scribe_Values.Look(ref targetCell, "targetCell", IntVec3.Invalid);
         }
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
@@ -129,7 +129,10 @@ namespace VanillaGravshipExpanded
             {
                 yield return gizmo;
             }
-
+            if (parent.Faction != Faction.OfPlayer)
+            {
+                yield break;
+            }
             var worldTargetGizmo = new Command_Action
             {
                 defaultLabel = "VGE_SetWorldTarget".Translate(),
@@ -138,7 +141,7 @@ namespace VanillaGravshipExpanded
                 action = delegate { StartWorldTargeting(); }
             };
 
-            if (!Turret.MannedByPlayer)
+            if (!Turret.CanFire)
             {
                 worldTargetGizmo.Disable("VGE_NeedsMannedTargetingTerminal".Translate());
             }
@@ -270,7 +273,7 @@ namespace VanillaGravshipExpanded
                 return false;
             bool sourceIsOnPlanet = sourceMap.Tile.Valid && !sourceMap.Tile.LayerDef.isSpace;
             bool targetIsOnPlanet = Find.WorldObjects.MapParentAt(target.Tile) is MapParent mapParent && mapParent.Map != null && mapParent.Map.Tile.Valid && !mapParent.Map.Tile.LayerDef.isSpace;
-            
+
             ArtilleryFiringMode requiredMode;
             if (sourceIsOnPlanet && targetIsOnPlanet)
             {

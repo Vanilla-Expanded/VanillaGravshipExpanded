@@ -39,7 +39,7 @@ namespace VanillaGravshipExpanded
 
         public static void RenderNoLinkOverlayInForLoop(OverlayDrawer overlayDrawer, KeyValuePair<Thing, OverlayTypes> pair, ref Vector3 curOffset)
         {
-            if (pair.Key is Building_GravshipTurret turret && turret.linkedTerminal == null)
+            if (pair.Key is Building_GravshipTurret turret && turret.linkedTerminal == null && turret.Faction == Faction.OfPlayer)
             {
                 turret.RenderPulsingOverlay(Building_GravshipTurret.NoLinkOverlay, MeshPool.plane08);
             }
@@ -53,7 +53,7 @@ namespace VanillaGravshipExpanded
                 {
                     foreach (var turret in map.listerThings.GetThingsOfType<Building_GravshipTurret>())
                     {
-                        if (turret.linkedTerminal == null)
+                        if (turret.linkedTerminal == null && turret.Faction == Faction.OfPlayer)
                         {
                             if (overlayDrawer.overlaysToDraw.TryGetValue(turret, out var existingOverlays))
                             {

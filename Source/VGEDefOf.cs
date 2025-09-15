@@ -25,5 +25,6 @@ namespace VanillaGravshipExpanded
         public static PipeNetDef VGE_OxygenNet;
         public static PawnKindDef Rat;
         public static ThoughtDef VGE_CrewEuphoria;
+        public static ThingDef VGE_GiantThruster, VGE_GiantAstrofuelTank, LargeChemfuelTank;
     }
 }

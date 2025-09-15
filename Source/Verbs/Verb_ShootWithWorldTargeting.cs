@@ -20,13 +20,13 @@ namespace VanillaGravshipExpanded
                 casterPawn.skills.Learn(SkillDefOf.Shooting, num * num2);
             }
         }
-        
+
         public override bool TryCastShot()
         {
             var originalWarmupTime = verbProps.warmupTime;
-            if (caster is Building_GravshipTurret building_GravshipTurret && building_GravshipTurret.MannedByPlayer)
+            if (caster is Building_GravshipTurret building_GravshipTurret && building_GravshipTurret.CanFire)
             {
-                var gravshipTargeting = building_GravshipTurret.linkedTerminal.GravshipTargeting;
+                var gravshipTargeting = building_GravshipTurret.GravshipTargeting;
                 float alpha = 1.2f;
                 float multiplier = Mathf.Clamp(Mathf.Pow(gravshipTargeting, -alpha), 0.1f, 2.0f);
                 verbProps.warmupTime *= multiplier;

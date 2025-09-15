@@ -105,4 +105,6 @@ Please note that keeping several maps open may affect your performance.</VGE_Map
     <VGE_LaunchToOrbit>Launch to orbit</VGE_LaunchToOrbit>
     <VGE_LaunchToOrbitDesc>Launch the gravship directly upwards and stabilize it in orbit. This is still considered a gravship journey and the grav engine will enter cooldown, potentially leaving you stranded in orbit.</VGE_LaunchToOrbitDesc>
     <VGE_CantLaunchAlreadyInOrbit>Can't use: already in orbit.</VGE_CantLaunchAlreadyInOrbit>
+
+    <VGE_LaunchHeatUnitsInfo>This launch will generate about {0} heat units, raising the temperature across the gravship.</VGE_LaunchHeatUnitsInfo>
 </LanguageData>

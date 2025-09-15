@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef Name="VGE_MechStructureBase" ParentName="BuildingBase" Abstract="True">
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <thingClass>Building_TurretGun</thingClass>
+        <drawHighlight>true</drawHighlight>
+        <drawHighlightOnlyForHostile>true</drawHighlightOnlyForHostile>
+        <receivesSignals>true</receivesSignals>
+        <hasTooltip>true</hasTooltip>
+        <altitudeLayer>Building</altitudeLayer>
+        <stealable>false</stealable>
+        <rotatable>false</rotatable>
+        <fillPercent>0.6</fillPercent>
+        <tickerType>Normal</tickerType>
+        <tradeability>None</tradeability>
+        <comps>
+            <li Class="CompProperties_CanBeDormant">
+                <compClass>CompMechanoid</compClass>
+            </li>
+            <li Class="CompProperties_WakeUpDormant">
+                <wakeUpSound>MechanoidsWakeUp</wakeUpSound>
+            </li>
+            <li Class="CompProperties_Stunnable">
+                <affectedDamageDefs>
+                    <li>Stun</li>
+                    <li>EMP</li>
+                </affectedDamageDefs>
+                <adaptableDamageDefs>
+                    <li>EMP</li>
+                </adaptableDamageDefs>
+            </li>
+            <li Class="VanillaGravshipExpanded.CompProperties_AssignMechFaction" />
+        </comps>
+        <building>
+            <ai_combatDangerous>true</ai_combatDangerous>
+        </building>
+        <placeWorkers>
+            <li>PlaceWorker_TurretTop</li>
+        </placeWorkers>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_MechStructureBase">
+        <defName>VGE_MassDriver</defName>
+        <label>mass driver</label>
+        <description>A triple-barrel electromagnetic artillery system built into mechanoid defense platforms. It fires dense slugs at incredible velocities, tearing through both armored gravships in orbit and ground targets with equal ease. The weapon is fully autonomous, operated by a machine brain that requires no crew. Commonly seen on orbital bombardment platforms.</description>
+        <uiIconPath>Things/Structures/Artillery/MechanoidMassDriver_MenuIcon</uiIconPath>
+        <thingClass>VanillaGravshipExpanded.Building_EnemyMechTurret</thingClass>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Structures/Artillery/MechanoidOrbitalArtillery_Base_Normal</texPath>
+            <drawSize>(5,5)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>1400</MaxHitPoints>
+            <Flammability>0</Flammability>
+            <Beauty>-40</Beauty>
+        </statBases>
+        <size>(5,5)</size>
+        <passability>Impassable</passability>
+        <building>
+            <turretGunDef>VGE_Gun_MassDriver</turretGunDef>
+            <turretBurstCooldownTime>60</turretBurstCooldownTime>
+            <turretTopDrawSize>7</turretTopDrawSize>
+            <playTargetAcquiredSound>false</playTargetAcquiredSound>
+            <combatPower>150</combatPower>
+        </building>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.TurretExtension_RotationSpeed">
+                <rotationSpeed>15</rotationSpeed>
+            </li>
+            <li Class="VanillaGravshipExpanded.TurretExtension_Barrels">
+                <barrels>
+                    <li>(0.5, 0, 3)</li>
+                    <li>(0, 0, 3)</li>
+                    <li>(-0.5, 0, 3)</li>
+                </barrels>
+            </li>
+        </modExtensions>
+        <comps>
+            <li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
+                <worldMapAttackRange>36</worldMapAttackRange>
+                <firingMode>PlanetToSpace, SpaceToSpace, SpaceToPlanet</firingMode>
+            </li>
+        </comps>
+        <killedLeavings>
+            <GravlitePanel>30</GravlitePanel>
+            <ChunkSlagSteel>5</ChunkSlagSteel>
+        </killedLeavings>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>VGE_Gun_MassDriver</defName>
+        <label>mass driver</label>
+        <description>A triple-barrel electromagnetic artillery system.</description>
+        <graphicData>
+            <texPath>Things/Structures/Artillery/MechanoidMassDriver_TurretTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <verbs>
+            <li>
+                <verbClass>VanillaGravshipExpanded.Verb_ShootWithSmoke</verbClass>
+                <defaultProjectile>VGE_Bullet_MassDriver</defaultProjectile>
+                <warmupTime>8.33</warmupTime>
+                <range>500</range>
+                <minRange>26.0</minRange>
+                <burstShotCount>3</burstShotCount>
+                <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>14</muzzleFlashScale>
+                <forcedMissRadius>9</forcedMissRadius>
+                <requireLineOfSight>false</requireLineOfSight>
+                <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+                <isMortar>true</isMortar>
+                <soundCast>VGE_GravshipHowitzer</soundCast>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+            </li>
+        </verbs>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.TurretExtension_SubstructureDamage">
+                <substructureDamageRadius>1.9</substructureDamageRadius>
+            </li>
+        </modExtensions>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>VGE_Bullet_MassDriver</defName>
+        <label>mass driver shot</label>
+        <graphicData>
+            <texPath>Things/Projectiles/GaussShot_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
+        <thingClass>VanillaGravshipExpanded.Projectile_Artillery</thingClass>
+        <projectile>
+            <damageDef>Bomb</damageDef>
+            <damageAmountBase>50</damageAmountBase>
+            <armorPenetrationBase>0.15</armorPenetrationBase>
+            <speed>135</speed>
+            <explosionRadius>4.9</explosionRadius>
+            <flyOverhead>true</flyOverhead>
+            <stoppingPower>2.5</stoppingPower>
+            <soundImpact>BulletImpact_Metal</soundImpact>
+            <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+            <soundExplode>MortarBomb_Explode</soundExplode>
+            <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+            <soundAmbient>MortarRound_Ambient</soundAmbient>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_MechStructureBase">
+        <defName>VGE_HeavyChargeAnnihilator</defName>
+        <label>heavy charge annihilator</label>
+        <description>A heavy pulse-charged weapon, designed for sustained suppressive fire in defense of mechanoid orbital platforms. Its upgraded capacitors and cooling systems allow it to unleash longer, more devastating bursts than standard charge blasters, saturating entire areas with surprisingly accurate shots.</description>
+        <uiIconPath>Things/Structures/Artillery/HeavyChargeAnnihilator_MenuIcon</uiIconPath>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Structures/Artillery/MechanoidOrbitalArtillery_Base_Small</texPath>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>500</MaxHitPoints>
+            <Flammability>0</Flammability>
+            <Beauty>-20</Beauty>
+        </statBases>
+        <size>(3,3)</size>
+        <passability>PassThroughOnly</passability>
+        <pathCost>30</pathCost>
+        <building>
+            <turretGunDef>VGE_Gun_HeavyChargeAnnihilator</turretGunDef>
+            <turretBurstCooldownTime>20</turretBurstCooldownTime>
+            <turretTopDrawSize>5</turretTopDrawSize>
+            <combatPower>150</combatPower>
+        </building>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>VGE_Gun_HeavyChargeAnnihilator</defName>
+        <label>heavy charge annihilator</label>
+        <description>A heavy pulse-charged weapon for mechanoid defense.</description>
+        <graphicData>
+            <texPath>Things/Structures/Artillery/HeavyChargeAnnihilator_TurretTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <AccuracyTouch>0.24</AccuracyTouch>
+            <AccuracyShort>0.32</AccuracyShort>
+            <AccuracyMedium>0.40</AccuracyMedium>
+            <AccuracyLong>0.34</AccuracyLong>
+        </statBases>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <defaultProjectile>Bullet_ChargeBlasterHeavy</defaultProjectile>
+                <warmupTime>60</warmupTime>
+                <range>36</range>
+                <burstShotCount>36</burstShotCount>
+                <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                <soundCast>Shot_ChargeBlaster</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>12</muzzleFlashScale>
+                <requireLineOfSight>false</requireLineOfSight>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+            </li>
+        </verbs>
+    </ThingDef>
+
+</Defs>

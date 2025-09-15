@@ -23,9 +23,11 @@ namespace VanillaGravshipExpanded
         private static readonly Texture2D UnlinkIcon = ContentFinder<Texture2D>.Get("UI/Gizmos/UnlinkWithTerminal");
         private static readonly Texture2D SelectIcon = ContentFinder<Texture2D>.Get("UI/Gizmos/SelectLinkedTerminal");
         public static readonly Material NoLinkOverlay = MaterialPool.MatFrom("UI/Overlays/NoLinkedTargetingTerminal");
-        public bool MannedByPlayer => linkedTerminal?.MannedByPlayer ?? false;
+        public virtual bool CanFire => linkedTerminal?.MannedByPlayer ?? false;
 
         public Pawn ManningPawn => linkedTerminal?.MannableComp?.ManningPawn;
+        
+        public virtual float GravshipTargeting => linkedTerminal?.GravshipTargeting ?? 0f;
 
         public Vector3 CastSource
         {
@@ -93,7 +95,7 @@ namespace VanillaGravshipExpanded
 
             if (rotationSpeed > 0)
             {
-                if (MannedByPlayer && CurrentTarget.IsValid && Active && AttackVerb.Available())
+                if (CanFire && CurrentTarget.IsValid && Active && AttackVerb.Available())
                 {
                     var targetAngle = (CurrentTarget.Cell.ToVector3Shifted() - DrawPos).AngleFlat();
                     if (targetAngle < 0)
@@ -155,7 +157,7 @@ namespace VanillaGravshipExpanded
         public override string GetInspectString()
         {
             string text = base.GetInspectString();
-            if (linkedTerminal == null)
+            if (Faction == Faction.OfPlayer && linkedTerminal == null)
             {
                 if (!text.NullOrEmpty())
                 {
@@ -214,7 +216,7 @@ namespace VanillaGravshipExpanded
                 if (gizmo is Command_VerbTarget command && command.defaultLabel == "CommandSetForceAttackTarget".Translate())
                 {
                     command.icon = ForceTargetIcon;
-                    if (!MannedByPlayer)
+                    if (!CanFire)
                     {
                         command.Disable("VGE_NeedsMannedTargetingTerminal".Translate());
                     }
@@ -224,6 +226,11 @@ namespace VanillaGravshipExpanded
                     command2.icon = HoldFireIcon;
                 }
                 yield return gizmo;
+            }
+            
+            if (Faction != Faction.OfPlayer)
+            {
+                yield break;
             }
 
             if (linkedTerminal == null)
