@@ -9,13 +9,13 @@ namespace VanillaGravshipExpanded
     public class Projectile_Artillery : Projectile_Explosive
     {
         public PlanetTile targetTile = PlanetTile.Invalid;
-        public IntVec3 targetCell;
+        public LocalTargetInfo target;
         public float missRadius;
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_Values.Look(ref targetTile, "targetTile", PlanetTile.Invalid);
-            Scribe_Values.Look(ref targetCell, "targetCell");
+            Scribe_TargetInfo.Look(ref target, "target");
             Scribe_Values.Look(ref missRadius, "missRadius");
         }
 
@@ -27,9 +27,12 @@ namespace VanillaGravshipExpanded
             {
                 lifetime -= delta;
                 ticksToImpact -= delta;
-                if (!ExactPosition.InBounds(base.Map))
+                var pos = ExactPosition.ToIntVec3();
+                if (!pos.InBounds(base.Map) || pos.OnEdge(base.Map))
                 {
                     SpawnWorldProjectile();
+                    Destroy();
+                    return;
                 }
                 lifetime += delta;
                 ticksToImpact += delta;
@@ -46,7 +49,7 @@ namespace VanillaGravshipExpanded
                 worldProjectile.SetFaction(this.Faction);
                 worldProjectile.startTile = this.Map.Tile;
                 worldProjectile.targetTile = targetTile;
-                worldProjectile.targetCell = targetCell;
+                worldProjectile.targetCell = target.Cell;
                 worldProjectile.missRadius = missRadius;
                 worldProjectile.projectileDef = this.def;
                 worldProjectile.launcher = this.launcher;
@@ -62,7 +65,7 @@ namespace VanillaGravshipExpanded
             {
                 var edgeCell = comp.FindEdgeCell(launcher.Map, comp.worldTarget);
                 this.targetTile = comp.worldTarget.Tile;
-                this.targetCell = comp.targetCell;
+                this.target = comp.target;
                 float newMiss = comp.FinalForcedMissRadius(comp.worldTarget);
                 this.missRadius = newMiss;
                 intendedTarget = edgeCell;

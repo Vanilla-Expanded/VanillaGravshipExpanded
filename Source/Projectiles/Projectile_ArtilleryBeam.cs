@@ -11,12 +11,12 @@ namespace VanillaGravshipExpanded
     public class Projectile_ArtilleryBeam : Bullet
     {
         public PlanetTile targetTile = PlanetTile.Invalid;
-        public IntVec3 targetCell;
+        public LocalTargetInfo target;
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_Values.Look(ref targetTile, "targetTile", PlanetTile.Invalid);
-            Scribe_Values.Look(ref targetCell, "targetCell");
+            Scribe_TargetInfo.Look(ref target, "target");
         }
 
         public override Vector3 ExactPosition => destination + Vector3.up * def.Altitude;
@@ -28,7 +28,7 @@ namespace VanillaGravshipExpanded
             {
                 var edgeCell = comp.FindEdgeCell(launcher.Map, comp.worldTarget);
                 this.targetTile = comp.worldTarget.Tile;
-                this.targetCell = comp.targetCell;
+                this.target = comp.target;
                 intendedTarget = edgeCell;
                 base.Launch(launcher, origin, edgeCell, intendedTarget, hitFlags, preventFriendlyFire, equipment, targetCoverDef);
                 SpawnWorldProjectile();
@@ -65,8 +65,9 @@ namespace VanillaGravshipExpanded
             Map targetMap = Find.Maps.Find(m => m.Tile == targetTile);
             var comp = launcher.TryGetComp<CompWorldArtillery>();
             var turret = launcher as Building_GravshipTurret;
-            var hitChance = comp.GetHitChance(new GlobalTargetInfo(targetCell, targetMap));
-            ArtilleryUtility.SpawnArtilleryProjectile(targetTile, Tile, def, launcher, targetCell, 0f, hitChance);
+            var globalTarget = target.HasThing ? new GlobalTargetInfo(target.Thing) : new GlobalTargetInfo(target.Cell, targetMap);
+            var hitChance = comp.GetHitChance(globalTarget);
+            ArtilleryUtility.SpawnArtilleryProjectile(targetTile, Tile, def, launcher, globalTarget.Cell, 0f, hitChance);
         }
     }
 }

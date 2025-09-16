@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using RimWorld.Planet;
 using UnityEngine;
 using Verse;
@@ -8,13 +9,23 @@ namespace VanillaGravshipExpanded
     [HotSwappable]
     public static class ArtilleryUtility
     {
-        public static IntVec3 FindSpawnCell(Map map, PlanetTile targetTile, PlanetTile startTile)
+        public static IntVec3 FindSpawnCell(Map map, PlanetTile targetTile, PlanetTile startTile, IntVec3 targetCell)
         {
             float angle = GetAngle(targetTile, startTile);
-            var edgeCells = new CellRect(0, 0, map.Size.x, map.Size.z).EdgeCells;
-            var centerPos = map.Center.ToVector3();
-            IntVec3 result = edgeCells.MinBy(c => Mathf.Abs(angle - (c.ToVector3() - centerPos).AngleFlat()));
-            return result;
+            Vector3 centerPos = targetCell.ToVector3();
+            Vector3 direction = Vector3Utility.FromAngleFlat(angle - 90);
+            Vector3 current = centerPos;
+            IntVec3 result = targetCell;
+            while (true)
+            {
+                current += direction;
+                IntVec3 currentCell = current.ToIntVec3();
+                if (!currentCell.InBounds(map))
+                {
+                    return result;
+                }
+                result = currentCell;
+            }
         }
 
         public static float GetAngle(PlanetTile targetTile, PlanetTile startTile)
@@ -28,7 +39,7 @@ namespace VanillaGravshipExpanded
         public static void SpawnArtilleryProjectile(PlanetTile targetTile, PlanetTile startTile, ThingDef projectileDef, Thing launcher, IntVec3 targetCell, float missRadius, float hitChance = 1.0f)
         {
             var map = Find.Maps.Find(m => m.Tile == targetTile);
-            var spawnCell = FindSpawnCell(map, targetTile, startTile);
+            var spawnCell = FindSpawnCell(map, targetTile, startTile, targetCell);
             IntVec3 finalTargetCell;
             if (missRadius > 0f)
             {

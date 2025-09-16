@@ -98,7 +98,7 @@ namespace VanillaGravshipExpanded
                         connections.Clear();
                         return 0;
                     }
-                    Log.Message($"[VGE] Path from {from.Layer} to {to.Layer} with cost {cost} connections: {connections.Select(c => c.origin + " -> " + c.target + " (" + c.fuelCost + ")").ToStringSafeEnumerable()}");
+                    //Log.Message($"[VGE] Path from {from.Layer} to {to.Layer} with cost {cost} connections: {connections.Select(c => c.origin + " -> " + c.target + " (" + c.fuelCost + ")").ToStringSafeEnumerable()}");
                     cachedOriginLayer = to.Layer;
                     cachedDestLayer = from.Layer;
                     connections.Clear();
@@ -106,7 +106,7 @@ namespace VanillaGravshipExpanded
                 from = to.Layer.GetClosestTile_NewTemp(from);
             }
             cachedDistance = (int)(Find.WorldGrid.TraversalDistanceBetween(from, to) * to.LayerDef.rangeDistanceFactor);
-            Log.Message($"[VGE] Distance from {from} to {to} is {cachedDistance} with range distance factor {to.LayerDef.rangeDistanceFactor}");
+            //Log.Message($"[VGE] Distance from {from} to {to} is {cachedDistance} with range distance factor {to.LayerDef.rangeDistanceFactor}");
             return cachedDistance;
         }
 

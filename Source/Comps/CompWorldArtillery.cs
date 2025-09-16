@@ -33,7 +33,7 @@ namespace VanillaGravshipExpanded
     public class CompWorldArtillery : ThingComp
     {
         public GlobalTargetInfo worldTarget = GlobalTargetInfo.Invalid;
-        public IntVec3 targetCell = IntVec3.Invalid;
+        public LocalTargetInfo target = LocalTargetInfo.Invalid;
         private PlanetTile cachedClosest;
         private PlanetTile cachedOrigin;
         private PlanetLayer cachedLayer;
@@ -120,7 +120,7 @@ namespace VanillaGravshipExpanded
         {
             base.PostExposeData();
             Scribe_TargetInfo.Look(ref worldTarget, "worldTarget", GlobalTargetInfo.Invalid);
-            Scribe_Values.Look(ref targetCell, "targetCell", IntVec3.Invalid);
+            Scribe_TargetInfo.Look(ref target, "target", LocalTargetInfo.Invalid);
         }
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
@@ -176,10 +176,8 @@ namespace VanillaGravshipExpanded
                         var turret = parent as Building_TurretGun;
                         Find.Targeter.BeginTargeting(targetingParameters, delegate (LocalTargetInfo target)
                         {
-                            var cell = FindEdgeCell(turret.Map, globalTarget);
-                            turret.OrderAttack(cell);
-                            this.worldTarget = globalTarget;
-                            this.targetCell = target.Cell;
+                            Log.Message("Target: " + target);
+                            StartAttack(globalTarget, target, turret);
                             Current.Game.CurrentMap = turret.Map;
                             Find.CameraDriver.JumpToCurrentMapLoc(turret.Position);
                         }, highlightAction: delegate (LocalTargetInfo x)
@@ -236,6 +234,24 @@ namespace VanillaGravshipExpanded
                 },
                 null
             );
+        }
+
+        public void StartAttack(GlobalTargetInfo globalTarget, LocalTargetInfo target, Building_TurretGun turret)
+        {
+            var cell = FindEdgeCell(turret.Map, globalTarget);
+            turret.OrderAttack(cell);
+            this.worldTarget = globalTarget;
+            this.target = target;
+        }
+
+        public override void CompTickInterval(int delta)
+        {
+            base.CompTickInterval(delta);
+            if (target.IsValid && target.ThingDestroyed)
+            {
+                var parent = this.parent as Building_TurretGun;
+                parent.ResetForcedTarget();
+            }
         }
 
         private void DrawTargetHighlightField(LocalTargetInfo target, GlobalTargetInfo worldTarget)
@@ -301,7 +317,7 @@ namespace VanillaGravshipExpanded
         public void Reset()
         {
             worldTarget = GlobalTargetInfo.Invalid;
-            targetCell = IntVec3.Invalid;
+            target = LocalTargetInfo.Invalid;
         }
     }
 }

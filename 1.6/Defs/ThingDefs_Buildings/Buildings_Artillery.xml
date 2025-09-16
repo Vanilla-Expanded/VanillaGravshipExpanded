@@ -107,6 +107,7 @@
             <turretGunDef>VGE_Gun_GaussHowitzer</turretGunDef>
             <turretBurstCooldownTime>30</turretBurstCooldownTime>
             <turretTopDrawSize>7</turretTopDrawSize>
+            <turretBurstWarmupTime>4</turretBurstWarmupTime>
         </building>
         <comps>
             <li Class="CompProperties_Refuelable">
@@ -150,7 +151,6 @@
             <li>
                 <verbClass>VanillaGravshipExpanded.Verb_ShootWithSmoke</verbClass>
                 <defaultProjectile>VGE_Bullet_GaussHowitzer</defaultProjectile>
-                <warmupTime>240</warmupTime>
                 <range>500</range>
                 <minRange>26.0</minRange>
                 <burstShotCount>3</burstShotCount>
@@ -313,6 +313,7 @@
             <turretGunDef>VGE_Gun_JavelinLauncher</turretGunDef>
             <turretBurstCooldownTime>40</turretBurstCooldownTime>
             <turretTopDrawSize>6</turretTopDrawSize>
+            <turretBurstWarmupTime>5</turretBurstWarmupTime>
         </building>
         <comps>
             <li Class="CompProperties_Refuelable">
@@ -363,7 +364,6 @@
             <li>
                 <verbClass>VanillaGravshipExpanded.Verb_ShootWithWorldTargeting</verbClass>
                 <defaultProjectile>VGE_Rocket_JavelinRocket</defaultProjectile>
-                <warmupTime>300</warmupTime>
                 <range>99999</range>
                 <minRange>20.0</minRange>
                 <burstShotCount>12</burstShotCount>
@@ -445,6 +445,7 @@
             <turretGunDef>VGE_Gun_AnticraftEmitter</turretGunDef>
             <turretBurstCooldownTime>20</turretBurstCooldownTime>
             <turretTopDrawSize>6</turretTopDrawSize>
+            <turretBurstWarmupTime>6</turretBurstWarmupTime>
         </building>
         <comps>
             <li Class="CompProperties_Power">
@@ -481,7 +482,6 @@
             <li>
                 <verbClass>VanillaGravshipExpanded.Verb_ShootWithWorldTargeting</verbClass>
                 <defaultProjectile>VGE_Bullet_AnticraftEmitter</defaultProjectile>
-                <warmupTime>600</warmupTime>
                 <range>99999</range>
                 <minRange>20.0</minRange>
                 <forcedMissRadius>0</forcedMissRadius>

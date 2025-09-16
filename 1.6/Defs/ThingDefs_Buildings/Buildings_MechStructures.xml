@@ -64,6 +64,7 @@
             <turretTopDrawSize>7</turretTopDrawSize>
             <playTargetAcquiredSound>false</playTargetAcquiredSound>
             <combatPower>150</combatPower>
+            <turretBurstWarmupTime>8.33</turretBurstWarmupTime>
         </building>
         <modExtensions>
             <li Class="VanillaGravshipExpanded.TurretExtension_RotationSpeed">
@@ -101,7 +102,6 @@
             <li>
                 <verbClass>VanillaGravshipExpanded.Verb_ShootWithSmoke</verbClass>
                 <defaultProjectile>VGE_Bullet_MassDriver</defaultProjectile>
-                <warmupTime>8.33</warmupTime>
                 <range>500</range>
                 <minRange>26.0</minRange>
                 <burstShotCount>3</burstShotCount>
