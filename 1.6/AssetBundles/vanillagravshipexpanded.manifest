@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2794460337
+CRC: 492226397
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6f5e95654451c1e718ae6c3698c41ce4
+    Hash: 3581a82e4f0ccc7f50dfb3f42e66d027
   TypeTreeHash:
     serializedVersion: 2
     Hash: 7859cd501ea75098bcf7e53f1b477c26
@@ -17,11 +17,14 @@ Assets:
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Natural/CompressedAsteroidEdge/BorderInside/AsteroidBorderOutside_Edge.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Natural/CompressedAsteroidEdge/CompressedAsteroidEdge_Single.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Terrain/AncientOrbitalPlatform/AncientOrbitalPlatformEdge_Single.psd
+- Assets/Data/vanillaexpanded.gravship/Textures/Things/Filth/DamagedSubstructureFilth/DamagedSubstructureFilthC.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Terrain/AncientOrbitalPlatform/BorderInside/AncientOrbitalPlatformBorderInside_OShape.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Terrain/Substructure/Subscaffolding/SubstructureBorder_UShape.psd
+- Assets/Data/vanillaexpanded.gravship/Textures/Things/Filth/DamagedSubstructureFilth/DamagedSubstructureFilthE.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Terrain/Substructure/Subscaffolding/SubstructureBorder_OShape.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Natural/CompressedAsteroidEdge/Loop/CompressedAsteroidEdge_Loop1.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Terrain/Substructure/Subscaffolding/SubstructureBorder_CornerInner.psd
+- Assets/Data/vanillaexpanded.gravship/Textures/Things/Filth/DamagedSubstructureFilth/DamagedSubstructureFilthA.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Natural/CompressedAsteroidEdge/CompressedAsteroidEdge_Left.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Terrain/AncientOrbitalPlatform/BorderInside/AncientOrbitalPlatformInside_UShape.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Natural/CompressedAsteroidEdge/BorderInside/AsteroidBorderOutside_3Sides.psd
@@ -36,11 +39,13 @@ Assets:
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Terrain/AncientOrbitalPlatform/AncientOrbitalPlatformEdge_Right.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Terrain/AncientOrbitalPlatform/Loop/AncientOrbitalPlatformEdge_Loop5.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Terrain/AncientOrbitalPlatform/Loop/AncientOrbitalPlatformEdge_Loop1.psd
+- Assets/Data/vanillaexpanded.gravship/Textures/Things/Filth/DamagedSubstructureFilth/DamagedSubstructureFilthB.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Terrain/Substructure/Subscaffolding/SubstructureBorder_Flat.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Natural/CompressedAsteroidEdge/Loop/CompressedAsteroidEdge_Loop2.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Terrain/AncientOrbitalPlatform/BorderInside/AncientOrbitalPlatformInside_CornerInner.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Natural/CompressedAsteroidEdge/Loop/CompressedAsteroidEdge_Loop4.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Terrain/Substructure/Subscaffolding/SubstructureBorder_CornerOuter.psd
+- Assets/Data/vanillaexpanded.gravship/Textures/Things/Filth/DamagedSubstructureFilth/DamagedSubstructureFilthD.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Natural/CompressedAsteroidEdge/Loop/CompressedAsteroidEdge_Loop3.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Natural/CompressedAsteroidEdge/BorderInside/AsteroidBorderOutside_4Sides.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Natural/CompressedAsteroidEdge/BorderInside/AsteroidBorderOutside_Cap.psd
