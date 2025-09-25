@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+	<ThingDef Name="VGE_DamagedBuildingBase" Abstract="true" ParentName="BuildingBase">
+		<thingClass>Building</thingClass>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<selectable>true</selectable>
+		<fillPercent>0.6</fillPercent>
+		<rotatable>true</rotatable>
+		<pathCost>20</pathCost>
+		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+			<deconstructible>false</deconstructible>
+			<alwaysShowRelatedBuildCommands>false</alwaysShowRelatedBuildCommands>
+		</building>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VQEA_DestroyedSmallOxygenTank</defName>
+		<label>destroyed small oxygen tank</label>
+		<description>This tank once supplied oxygen to the gravship, but it’s now broken and useless. Some steel can still be salvaged from it.</description>
+		<size>(2,2)</size>
+		<costList>
+			<Steel>50</Steel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedOxygenTank</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VQEA_DestroyedSmallAstrofuelTank</defName>
+		<label>destroyed small astrofuel tank</label>
+		<description>This tank once stored astrofuel for thrusters, but it has been destroyed. Its frame still holds recoverable materials.</description>
+		<size>(2,2)</size>
+		<costList>
+			<Steel>120</Steel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedAstrofuelTank</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VQEA_DestroyedGravExtender</defName>
+		<label>destroyed grav field extender</label>
+		<description>This device once expanded a gravship’s build area, but it is now shattered. Some valuable parts can still be reclaimed.</description>
+		<size>(1,1)</size>
+		<costList>
+			<Steel>80</Steel>
+			<Gravcore>2</Gravcore>
+			<GravlitePanel>30</GravlitePanel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<rotatable>false</rotatable>
+		<fillPercent>0.4</fillPercent>
+		<pathCost>14</pathCost>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedGravFieldExtender</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VQEA_DestroyedSmallThruster</defName>
+		<label>destroyed small thruster</label>
+		<description>This thruster once powered the gravship, but it is now wrecked beyond use. Scraps of metal and components can still be taken.</description>
+		<size>(1,2)</size>
+		<passability>Impassable</passability>
+		<fillPercent>1</fillPercent>
+		<costList>
+			<Steel>90</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<MaxHitPoints>125</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<Beauty>-10</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedSmallAstrofuelThruster</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(1,2)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VQEA_DestroyedLargeThruster</defName>
+		<label>destroyed large thruster</label>
+		<description>This powerful thruster once pushed gravships across space, but now it lies broken. Even ruined, it holds some useful salvage.</description>
+		<size>(2,2)</size>
+		<passability>Impassable</passability>
+		<fillPercent>1</fillPercent>
+		<costList>
+			<Steel>130</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<BlocksVacstone>20</BlocksVacstone>
+		</costList>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<Beauty>-10</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedLateralThruster</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VQEA_DestroyedSmallHeatsink</defName>
+		<label>destroyed small heatsink</label>
+		<description>This heatsink once cooled the gravship’s systems, but it has burned out. Some steel can still be recovered from the wreck.</description>
+		<size>(2,2)</size>
+		<costList>
+			<Steel>60</Steel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<Beauty>-2</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedHeatsink</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,3)</drawSize>
+		</graphicData>
+	</ThingDef>
+</Defs>
