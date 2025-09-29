@@ -45,6 +45,8 @@
     <VGE_NoCooldownToAbsorb>No cooldown to absorb</VGE_NoCooldownToAbsorb>
     <VGE_GravheatAbsorberCoolingDown>Gravheat absorber is cooling down. Available in: {0}</VGE_GravheatAbsorberCoolingDown>
     <VGE_LaunchHeatsinkCooldownInfo>The heatsinks will reduce the launch cooldown time by {0}.</VGE_LaunchHeatsinkCooldownInfo>
+    <VGE_LaunchHeatUnitsInfo>This launch will generate about {0} heat units, raising the temperature across the gravship.</VGE_LaunchHeatUnitsInfo>
+
     <VGE_DesignatorRemoveSubstructure>Remove substructure</VGE_DesignatorRemoveSubstructure>
     <VGE_DesignatorRemoveSubstructureDesc>Remove substructure from the gravship.</VGE_DesignatorRemoveSubstructureDesc>
 
@@ -106,5 +108,10 @@ Please note that keeping several maps open may affect your performance.</VGE_Map
     <VGE_LaunchToOrbitDesc>Launch the gravship directly upwards and stabilize it in orbit. This is still considered a gravship journey and the grav engine will enter cooldown, potentially leaving you stranded in orbit.</VGE_LaunchToOrbitDesc>
     <VGE_CantLaunchAlreadyInOrbit>Can't use: already in orbit.</VGE_CantLaunchAlreadyInOrbit>
 
-    <VGE_LaunchHeatUnitsInfo>This launch will generate about {0} heat units, raising the temperature across the gravship.</VGE_LaunchHeatUnitsInfo>
+    <VGE_MechanoidPodGestation>{0} pod gestation completes in: {1}.</VGE_MechanoidPodGestation>
+    <VGE_MechanoidPodsLeft>Remaining mechanoid pods to complete: {0}.</VGE_MechanoidPodsLeft>
+    <VGE_RemainingShieldTime>Remaining shield time: {0}</VGE_RemainingShieldTime>
+    <VGE_CooldownRemaining>Cooldown remaining: {0}</VGE_CooldownRemaining>
+    <VGE_ResourceProcessorInfo>{0} {1} production completes in: {2}\nRemaining production processes to complete: {3}</VGE_ResourceProcessorInfo>
+
 </LanguageData>

@@ -12,7 +12,7 @@ namespace VanillaGravshipExpanded
     [HarmonyPatch(typeof(SectionLayer_SubstructureProps), "Regenerate")]
     public static class SectionLayer_SubstructureProps_Regenerate_Patch
     {
-        private static readonly CachedMaterial CustomBottom = new CachedMaterial("Things/Terrain/Substructure/SubscaffoldingProps_Loops", ShaderDatabase.Transparent);
+        private static readonly CachedMaterial CustomBottom = new CachedMaterial("Things/Terrain/Substructure/Subscaffolding/SubscaffoldingProps_Loops", ShaderDatabase.Transparent);
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var finalizeMeshMethod = AccessTools.Method(typeof(MapDrawLayer), nameof(MapDrawLayer.FinalizeMesh));
@@ -42,6 +42,22 @@ namespace VanillaGravshipExpanded
             {
                 TerrainDef foundationDef = terrainGrid.FoundationAt(item);
                 if (foundationDef == VGEDefOf.VGE_GravshipSubscaffold)
+                {
+                    SectionLayer_SubstructureProps_ShouldDrawPropsOn_Patch.doVanilla = true;
+                    if (instance.ShouldDrawPropsOn(item, terrainGrid, out var edgeEdgeDirections, out var cornerDirections))
+                    {
+                        instance.DrawEdges(item, edgeEdgeDirections, altitude);
+                        instance.DrawCorners(item, cornerDirections, edgeEdgeDirections, altitude);
+                        SectionLayer_GravshipHull.ShouldDrawCornerPiece(item + IntVec3.South, map, terrainGrid, out var cornerType, out var _);
+                        bool flag = cornerType == SectionLayer_GravshipHull.CornerType.Corner_NW || cornerType == SectionLayer_GravshipHull.CornerType.Diagonal_NW || cornerType == SectionLayer_GravshipHull.CornerType.Corner_NE || cornerType == SectionLayer_GravshipHull.CornerType.Diagonal_NE;
+                        if (edgeEdgeDirections.HasFlag(EdgeDirections.South) && !flag)
+                        {
+                            instance.AddQuad(subMesh, item + IntVec3.South, altitude, Rot4.North, SectionLayer_GravshipMask.IsValidSubstructure(item));
+                        }
+                    }
+                    SectionLayer_SubstructureProps_ShouldDrawPropsOn_Patch.doVanilla = false;
+                }
+                else if (foundationDef == VGEDefOf.VGE_MechanoidSubstructure)
                 {
                     SectionLayer_SubstructureProps_ShouldDrawPropsOn_Patch.doVanilla = true;
                     if (instance.ShouldDrawPropsOn(item, terrainGrid, out var edgeEdgeDirections, out var cornerDirections))

@@ -35,7 +35,7 @@ namespace VanillaGravshipExpanded
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look(ref nextSpawnTick, "nextSpawnTick", 0);
+            Scribe_Values.Look(ref nextSpawnTick, "nextSpawnTick");
         }
 
         protected abstract int GetNextSpawnInterval();

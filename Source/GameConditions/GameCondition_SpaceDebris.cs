@@ -26,8 +26,8 @@ namespace VanillaGravshipExpanded
         {
             return CurrentPhase switch
             {
-                EventPhase.Buildup or EventPhase.FadeOut => Rand.Range(200, 500),
-                EventPhase.Peak => Rand.Range(60, 150),
+                EventPhase.Buildup or EventPhase.FadeOut => Rand.RangeInclusive(200, 500),
+                EventPhase.Peak => Rand.RangeInclusive(60, 150),
                 _ => 999,
             };
         }
@@ -40,7 +40,7 @@ namespace VanillaGravshipExpanded
                 return;
             }
             float finalAngle = this.baseAngle + Rand.Range(-5f, 5f);
-            
+
             Quaternion rotation = Quaternion.AngleAxis(finalAngle, Vector3.up);
             Vector3 direction = rotation * Vector3.forward;
 
@@ -54,7 +54,7 @@ namespace VanillaGravshipExpanded
         private ThingDef GetRandomDebrisType()
         {
             var options = new List<Pair<ThingDef, float>>();
-            
+
             switch (CurrentPhase)
             {
                 case EventPhase.Buildup:
@@ -62,18 +62,18 @@ namespace VanillaGravshipExpanded
                     options.Add(new Pair<ThingDef, float>(VGEDefOf.VGE_SmallDebris, 0.8f));
                     options.Add(new Pair<ThingDef, float>(VGEDefOf.VGE_MediumDebris, 0.2f));
                     break;
-                    
+
                 case EventPhase.Peak:
                     options.Add(new Pair<ThingDef, float>(VGEDefOf.VGE_SmallDebris, 0.25f));
                     options.Add(new Pair<ThingDef, float>(VGEDefOf.VGE_MediumDebris, 0.35f));
                     options.Add(new Pair<ThingDef, float>(VGEDefOf.VGE_LargeDebris, 0.40f));
                     break;
-                        
+
                 default:
                     options.Add(new Pair<ThingDef, float>(VGEDefOf.VGE_SmallDebris, 1.0f));
                     break;
             }
-            
+
             return options.RandomElementByWeight(pair => pair.Second).First;
         }
 

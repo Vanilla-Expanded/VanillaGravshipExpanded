@@ -25,7 +25,7 @@ namespace VanillaGravshipExpanded
                 .ToList();
             var selectedPipe = astrofuelPipes.RandomElement();
             var map = gravship.Engine.Map;
-            int puddleCount = Rand.Range(3, 5);
+            int puddleCount = Rand.RangeInclusive(3, 5);
             for (int i = 0; i < puddleCount; i++)
             {
                 var spawnCell = selectedPipe.Position + GenRadial.RadialPattern[Rand.RangeInclusive(1, 8)];
@@ -37,7 +37,7 @@ namespace VanillaGravshipExpanded
             }
             int damageAmount = (int)(selectedPipe.MaxHitPoints * 0.5f);
             selectedPipe.TakeDamage(new DamageInfo(VGEDefOf.VGE_AstrofireDamage, damageAmount));
-            int fireCount = Rand.Range(2, 3);
+            int fireCount = Rand.RangeInclusive(2, 3);
             for (int i = 0; i < fireCount; i++)
             {
                 var spawnCell = selectedPipe.Position + GenRadial.RadialPattern[Rand.RangeInclusive(1, 8)];

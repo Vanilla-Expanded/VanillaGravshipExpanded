@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace VanillaGravshipExpanded;
@@ -15,7 +16,7 @@ public class CompPowerPlantGravEngine : CompPowerPlant
             var count = gravEngine.ValidSubstructure.Count;
             var max = gravEngine.GetStatValue(StatDefOf.SubstructureSupport, cacheStaleAfterTicks: GenTicks.TickLongInterval);
 
-            return base.DesiredPowerOutput * (1 - (count / max));
+            return Mathf.Max(base.DesiredPowerOutput * (1 - (count / max)), 0f);
         }
     }
 }

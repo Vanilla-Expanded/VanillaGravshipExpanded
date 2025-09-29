@@ -689,7 +689,7 @@
 		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
 		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
 	</ThingDef>
-	<!-- TODO: Make uncraftable -->
+
 	<ThingDef ParentName="GravshipComponentBase">
 		<defName>VGE_OxygenReclaimer</defName>
 		<label>oxygen reclaimer</label>
@@ -752,10 +752,6 @@
        <fleckEmissionRate>1</fleckEmissionRate>
 			</li>
 		</comps>
-		<designationCategory>Odyssey</designationCategory>
-		<researchPrerequisites>
-			<li>BiofuelRefining</li>
-		</researchPrerequisites>
 		<tradeTags>
 			<li>GravshipUpgrade</li>
 		</tradeTags>

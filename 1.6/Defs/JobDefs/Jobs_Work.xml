@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<JobDef>
 		<defName>VGE_BeatAstrofire</defName>
@@ -25,6 +25,12 @@
 		<defName>VGE_MaintainGrav</defName>
 		<driverClass>VanillaGravshipExpanded.JobDriver_MaintainGrav</driverClass>
 		<reportString>maintaining TargetA.</reportString>
+		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+	</JobDef>
+	<JobDef>
+		<defName>VGE_CollectGravdata</defName>
+		<driverClass>VanillaGravshipExpanded.JobDriver_CollectGravdata</driverClass>
+		<reportString>collecting gravdata.</reportString>
 		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
 	</JobDef>
 </Defs>

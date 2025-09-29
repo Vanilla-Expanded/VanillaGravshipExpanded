@@ -42,19 +42,19 @@ namespace VanillaGravshipExpanded
         private Thing GetRandomResourceLoot()
         {
             ThingDef selectedDef = resourceDefs.RandomElement();
-            
+
             int count;
             if (selectedDef == ThingDefOf.Steel || selectedDef == ThingDefOf.Uranium)
             {
-                count = Rand.Range(5, 15);
+                count = Rand.RangeInclusive(5, 15);
             }
             else if (selectedDef == ThingDefOf.Gold)
             {
-                count = Rand.Range(10, 30);
+                count = Rand.RangeInclusive(10, 30);
             }
             else
             {
-                count = Rand.Range(1, 5);
+                count = Rand.RangeInclusive(1, 5);
             }
 
             Thing newLoot = ThingMaker.MakeThing(selectedDef);

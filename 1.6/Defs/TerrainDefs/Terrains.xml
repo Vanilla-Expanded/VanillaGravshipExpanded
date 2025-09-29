@@ -1,5 +1,5 @@
 <Defs>
-	<TerrainDef ParentName="NaturalTerrainBase">
+	<TerrainDef>
 		<defName>VGE_DamagedSubstructure</defName>
 		<label>damaged gravship substructure</label>
 		<description>A warped and twisted section of gravship substructure. Once a solid truss with decking, it has been bent out of shape by heavy stress or impact. The grav engine’s levitation field still grips it, but its integrity is compromised: any further damage will cause this piece of substructure to collapse completely.</description>
@@ -13,7 +13,11 @@
 		<preventCraters>true</preventCraters>
 		<affordances>
 			<li>Substructure</li>
+			<li>Walkable</li>
 		</affordances>
+		<filthAcceptanceMask>
+			<li>Unnatural</li>
+		</filthAcceptanceMask>
 		<statBases>
 			<Flammability>0</Flammability>
 			<CleaningTimeFactor>0.9</CleaningTimeFactor>
@@ -84,7 +88,6 @@
 			<Beauty>0</Beauty>
 			<MarketValue>6</MarketValue>
 			<FilthMultiplier>0</FilthMultiplier>
-			<Mass>0.5</Mass>
 		</statBases>
 		<costList>
 			<GravlitePanel>1</GravlitePanel>
@@ -145,5 +148,33 @@
 				<li>Things/Natural/CompressedAsteroidEdge/Loop/CompressedAsteroidEdge_Loop5</li>
 			</LoopTexPaths>
 		</spaceEdgeGraphicData>
+	</TerrainDef>
+	<TerrainDef ParentName="PlatformBase">
+		<defName>VGE_MechanoidSubstructure</defName>
+		<label>mechanoid substructure</label>
+		<description>A mechanoid-made lightweight truss structure with flooring on top that forms the deck of a swarmship. Only things on top of this substructure can be lifted by the grav engine's levitation field. This floor must be constructed within range of a grav engine.</description>
+		<texturePath>Things/Terrain/MechanoidSubstructure/MechanoidSubstructure</texturePath>
+		<edgeType>Hard</edgeType>
+		<renderPrecedence>399</renderPrecedence>
+		<isPaintable>false</isPaintable>
+		<isFoundation>true</isFoundation>
+		<preventCraters>true</preventCraters>
+		<statBases>
+			<Flammability>0</Flammability>
+			<CleaningTimeFactor>0.9</CleaningTimeFactor>
+			<Beauty>0</Beauty>
+			<MarketValue>14</MarketValue>
+			<FilthMultiplier>1</FilthMultiplier>
+		</statBases>
+		<layerable>true</layerable>
+		<affordances>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
+			<li>Walkable</li>
+		</affordances>
+		<tags>
+			<li>Substructure</li>
+		</tags>
 	</TerrainDef>
 </Defs>

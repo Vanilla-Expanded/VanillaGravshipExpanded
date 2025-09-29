@@ -15,7 +15,7 @@ namespace VanillaGravshipExpanded
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look(ref storedGravdata, "storedGravdata", 0);
+            Scribe_Values.Look(ref storedGravdata, "storedGravdata");
         }
 
         public override string GetInspectString()

@@ -248,7 +248,7 @@
                 <showFuelGizmo>true</showFuelGizmo>
                 <initialFuelPercent>1</initialFuelPercent>
             </li>
-            <li Class="VanillaGravshipExpanded.CompProperties_ProjectileInterceptor">
+            <li Class="VanillaGravshipExpanded.CompProperties_PointDefence">
                 <interceptionRadius>14.9</interceptionRadius>
             </li>
         </comps>

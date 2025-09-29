@@ -30,7 +30,7 @@ namespace VanillaGravshipExpanded
                 (20f, SpawnInsectoidBreach),
                 (5f, SpawnEmptyPod)
             };
-            
+
             outcomes.RandomElementByWeight(x => x.weight).action();
         }
 
@@ -43,7 +43,7 @@ namespace VanillaGravshipExpanded
             {
                 stackCount = 1;
             }
- 
+
             Thing resource = ThingMaker.MakeThing(resourceType);
             resource.stackCount = stackCount;
             GenPlace.TryPlaceThing(resource, this.parent.Position, this.parent.Map, ThingPlaceMode.Near);
@@ -88,7 +88,7 @@ namespace VanillaGravshipExpanded
                 canGeneratePawnRelations: false,
                 mustBeCapableOfViolence: true
             );
- 
+
             Pawn pawn = PawnGenerator.GeneratePawn(request);
             GenPlace.TryPlaceThing(pawn, this.parent.Position, this.parent.Map, ThingPlaceMode.Near);
         }
@@ -99,10 +99,10 @@ namespace VanillaGravshipExpanded
             SpawnInsect(PawnKindDefOf.Spelopede);
             for (int i = 0; i < 2; i++)
             {
-                SpawnInsect(PawnKindDefOf.Megascarab); 
+                SpawnInsect(PawnKindDefOf.Megascarab);
             }
         }
-        
+
         private void SpawnInsect(PawnKindDef pawnKind)
         {
             Pawn pawn = PawnGenerator.GeneratePawn(pawnKind);
@@ -118,13 +118,13 @@ namespace VanillaGravshipExpanded
         {
             if (pawn.health == null || pawn.health.hediffSet == null)
                 return;
-            int injuryCount = Rand.Range(1, 4);
+            int injuryCount = Rand.RangeInclusive(1, 4);
             for (int i = 0; i < injuryCount; i++)
             {
                 BodyPartRecord part = pawn.health.hediffSet.GetRandomNotMissingPart(DamageDefOf.Cut);
                 if (part != null)
                 {
-                    int damage = Rand.Range(5, 15);
+                    int damage = Rand.RangeInclusive(5, 15);
                     DamageInfo damageInfo = new DamageInfo(DamageDefOf.Cut, damage, 999f, -1f, null, part);
                     pawn.TakeDamage(damageInfo);
                 }

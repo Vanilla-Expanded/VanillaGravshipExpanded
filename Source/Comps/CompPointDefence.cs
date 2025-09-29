@@ -7,22 +7,22 @@ using Verse.Sound;
 
 namespace VanillaGravshipExpanded
 {
-    public class CompProperties_ProjectileInterceptor : CompProperties
+    public class CompProperties_PointDefence : CompProperties
     {
         public float interceptionRadius;
 
-        public CompProperties_ProjectileInterceptor()
+        public CompProperties_PointDefence()
         {
-            compClass = typeof(CompProjectileInterceptor);
+            compClass = typeof(CompPointDefence);
         }
     }
     
     [HotSwappable]
-    public class CompProjectileInterceptor : ThingComp
+    public class CompPointDefence : ThingComp
     {
         private CompRefuelable refuelableComp;
         private int ticksUntilNextShot;
-        public CompProperties_ProjectileInterceptor Props => (CompProperties_ProjectileInterceptor)props;
+        public CompProperties_PointDefence Props => (CompProperties_PointDefence)props;
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {

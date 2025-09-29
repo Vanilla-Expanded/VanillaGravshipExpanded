@@ -128,12 +128,13 @@ namespace VanillaGravshipExpanded
             var potentialTargets = new List<Thing>();
             foreach (IAttackTarget target in map.attackTargetsCache.GetPotentialTargetsFor(this))
             {
-                Log.Message("Target: " + target.Thing);
                 if (innerValidator(target))
                 {
                     potentialTargets.Add(target.Thing);
                 }
             }
+            potentialTargets.AddRange(map.listerBuildings.allBuildingsColonist.Where(x => GetTargetPriority(x) < 10));
+            potentialTargets = potentialTargets.Distinct().ToList();
             potentialTargets.SortBy(t => GetTargetPriority(t));
             foreach (Thing target in potentialTargets)
             {

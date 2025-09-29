@@ -141,4 +141,16 @@
 		</requiredCapacities>
 		<prioritizeSustains>true</prioritizeSustains>
 	</WorkGiverDef>
+	<WorkGiverDef>
+		<defName>VGE_CollectGravdata</defName>
+		<label>collect gravdata</label>
+	<giverClass>VanillaGravshipExpanded.WorkGiver_CollectGravdata</giverClass>
+		<workType>Research</workType>
+		<verb>collect</verb>
+	<gerund>collecting</gerund>
+		<priorityInType>150</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+	</requiredCapacities>
+	</WorkGiverDef>
 </Defs>

@@ -1,19 +1,30 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
     <ThingDef Name="VGE_MechStructureBase" ParentName="BuildingBase" Abstract="True">
+        <altitudeLayer>Building</altitudeLayer>
+        <tradeability>None</tradeability>
+        <building>
+            <ai_combatDangerous>true</ai_combatDangerous>
+            <claimable>false</claimable>
+            <deconstructible>false</deconstructible>
+            <repairable>false</repairable>
+        </building>
+        <comps>
+            <li Class="VanillaGravshipExpanded.CompProperties_AssignMechFaction" />
+        </comps>
+    </ThingDef>
+
+    <ThingDef Name="VGE_MechTurretBase" ParentName="VGE_MechStructureBase" Abstract="True">
         <drawerType>MapMeshAndRealTime</drawerType>
         <thingClass>Building_TurretGun</thingClass>
         <drawHighlight>true</drawHighlight>
         <drawHighlightOnlyForHostile>true</drawHighlightOnlyForHostile>
         <receivesSignals>true</receivesSignals>
         <hasTooltip>true</hasTooltip>
-        <altitudeLayer>Building</altitudeLayer>
         <stealable>false</stealable>
         <rotatable>false</rotatable>
         <fillPercent>0.6</fillPercent>
         <tickerType>Normal</tickerType>
-        <tradeability>None</tradeability>
         <comps>
             <li Class="CompProperties_CanBeDormant">
                 <compClass>CompMechanoid</compClass>
@@ -30,20 +41,13 @@
                     <li>EMP</li>
                 </adaptableDamageDefs>
             </li>
-            <li Class="VanillaGravshipExpanded.CompProperties_AssignMechFaction" />
         </comps>
-        <building>
-            <ai_combatDangerous>true</ai_combatDangerous>
-            <claimable>false</claimable>
-            <deconstructible>false</deconstructible>
-            <repairable>false</repairable>
-        </building>
         <placeWorkers>
             <li>PlaceWorker_TurretTop</li>
         </placeWorkers>
     </ThingDef>
 
-    <ThingDef ParentName="VGE_MechStructureBase">
+    <ThingDef ParentName="VGE_MechTurretBase">
         <defName>VGE_MassDriver</defName>
         <label>mass driver</label>
         <description>A triple-barrel electromagnetic artillery system built into mechanoid defense platforms. It fires dense slugs at incredible velocities, tearing through both armored gravships in orbit and ground targets with equal ease. The weapon is fully autonomous, operated by a machine brain that requires no crew. Commonly seen on orbital bombardment platforms.</description>
@@ -153,7 +157,7 @@
         </projectile>
     </ThingDef>
 
-    <ThingDef ParentName="VGE_MechStructureBase">
+    <ThingDef ParentName="VGE_MechTurretBase">
         <defName>VGE_HeavyChargeAnnihilator</defName>
         <label>heavy charge annihilator</label>
         <description>A heavy pulse-charged weapon, designed for sustained suppressive fire in defense of mechanoid orbital platforms. Its upgraded capacitors and cooling systems allow it to unleash longer, more devastating bursts than standard charge blasters, saturating entire areas with surprisingly accurate shots.</description>
@@ -211,5 +215,238 @@
             </li>
         </verbs>
     </ThingDef>
+    <ThingDef ParentName="VGE_MechStructureBase">
+        <defName>VGE_MechanoidGravEngine</defName>
+        <label>mechanoid grav engine</label>
+        <description>The cold, artificial heart of a mechanoid orbital platform. Unlike human-built grav engines, these are constructed by the mechanoid core itself, optimized for ruthless efficiency and unending operation. They generate immense lift and stabilization fields that allow entire platforms to remain suspended in orbit, forming the backbone of mechanoid dominance in space. While largely incompatible with human systems and not usable for gravship construction, they can be destroyed to yield a gravcore, a rare and valuable prize for any who dare to challenge them.</description>
+        <thingClass>VanillaGravshipExpanded.Building_MechanoidGravEngine</thingClass>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <rotatable>false</rotatable>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Structures/MechanoidStructures/MechanoidGravEngine/MechanoidGravEgnine</texPath>
+            <drawSize>(3,3)</drawSize>
+            <addTopAltitudeBias>true</addTopAltitudeBias>
+        </graphicData>
+        <uiIconPath>Things/Structures/MechanoidStructures/MechanoidGravEngine/MechanoidGravEngine_MenuIcon</uiIconPath>
+        <statBases>
+            <MaxHitPoints>1000</MaxHitPoints>
+            <Beauty>0</Beauty>
+            <Flammability>0</Flammability>
+        </statBases>
+        <size>(3,3)</size>
+        <passability>PassThroughOnly</passability>
+        <pathCost>20</pathCost>
+        <fillPercent>0.6</fillPercent>
+        <killedLeavings>
+            <Gravcore>1</Gravcore>
+            <GravlitePanel>30</GravlitePanel>
+            <ComponentSpacer>2</ComponentSpacer>
+            <Plasteel>20</Plasteel>
+        </killedLeavings>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>8</glowRadius>
+                <glowColor>(255, 40, 40, 0)</glowColor>
+            </li>
+        </comps>
+        <building>
+            <ai_combatDangerous>false</ai_combatDangerous>
+        </building>
+        <placeWorkers />
+    </ThingDef>
+    <ThingDef ParentName="VGE_MechStructureBase">
+        <defName>VGE_LargeMechanoidThruster</defName>
+        <label>large mechanoid thruster</label>
+        <description>A massive astrofuel thruster built by the mechanoid core to propel their orbital platforms. Its construction mirrors human design but is reinforced with mechanical precision and efficiency, lined with thick vacstone plating that shrugs off extreme heat and stress. These thrusters allow mechanoid platforms to maneuver and maintain position in orbit. While unusable for human gravships, destroying one will yield a small supply of precious vacstone blocks.</description>
+        <graphicData>
+            <texPath>Things/Structures/MechanoidStructures/MechanoidLateralThruster/MechanoidLateralThruster</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(3, 4)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>600</MaxHitPoints>
+            <Beauty>-10</Beauty>
+            <Flammability>0</Flammability>
+        </statBases>
+        <size>(2,2)</size>
+        <rotatable>true</rotatable>
+        <passability>PassThroughOnly</passability>
+        <pathCost>20</pathCost>
+        <fillPercent>0.4</fillPercent>
+        <killedLeavings>
+            <Steel>40</Steel>
+            <BlocksVacstone>30</BlocksVacstone>
+            <ComponentSpacer>1</ComponentSpacer>
+        </killedLeavings>
+        <building>
+            <ai_combatDangerous>false</ai_combatDangerous>
+        </building>
+    </ThingDef>
+    <ThingDef ParentName="VGE_MechStructureBase">
+        <defName>VGE_MechanoidResourceProcessor</defName>
+        <label>resource processor</label>
+        <description>A machine-built structure that sustains mechanoid platforms by breaking down cosmic debris and wreckage into usable resources. It operates at regular intervals, steadily producing metals and fuels needed to keep their orbiting strongholds supplied.</description>
+        <thingClass>VanillaGravshipExpanded.Building_MechanoidResourceProcessor</thingClass>
+        <tickerType>Normal</tickerType>
+        <graphicData>
+            <texPath>Things/Structures/MechanoidStructures/MechanoidResourceProcessor</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>500</MaxHitPoints>
+            <Beauty>-10</Beauty>
+            <Flammability>0</Flammability>
+        </statBases>
+        <size>(3,3)</size>
+        <rotatable>false</rotatable>
+        <passability>PassThroughOnly</passability>
+        <pathCost>20</pathCost>
+        <fillPercent>0.4</fillPercent>
+        <killedLeavings>
+            <Steel>60</Steel>
+            <ComponentSpacer>2</ComponentSpacer>
+        </killedLeavings>
+        <building>
+            <ai_combatDangerous>false</ai_combatDangerous>
+        </building>
+    </ThingDef>
+    <ThingDef ParentName="VGE_MechStructureBase">
+        <defName>VGE_MechanoidPodLauncher</defName>
+        <label>mechanoid pod launcher</label>
+        <description>A mechanized launch bay that periodically fires drop pods packed with mechanoids. These pods strike distant targets or nearby ships, allowing the platform to project its forces far beyond its hull.</description>
+        <tickerType>Normal</tickerType>
+        <graphicData>
+            <texPath>Things/Structures/MechanoidStructures/MechanoidPodLauncher</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>500</MaxHitPoints>
+            <Beauty>-10</Beauty>
+            <Flammability>0</Flammability>
+        </statBases>
+        <size>(3,3)</size>
+        <rotatable>false</rotatable>
+        <passability>PassThroughOnly</passability>
+        <pathCost>20</pathCost>
+        <fillPercent>0.4</fillPercent>
+        <killedLeavings>
+            <Steel>80</Steel>
+            <ComponentSpacer>3</ComponentSpacer>
+        </killedLeavings>
+        <comps>
+            <li Class="VanillaGravshipExpanded.CompProperties_MechanoidPodLauncher">
+                <compClass>VanillaGravshipExpanded.CompMechanoidPodLauncher</compClass>
+                <spawnInterval>60000</spawnInterval>
+                <spawnCount>4</spawnCount>
+                <pawnKinds>
+                    <li>Mech_Scyther</li>
+                    <li>Mech_Lancer</li>
+                    <li>Mech_CentipedeGunner</li>
+                    <li>Mech_CentipedeBurner</li>
+                </pawnKinds>
+            </li>
+        </comps>
+        <building>
+            <ai_combatDangerous>false</ai_combatDangerous>
+        </building>
+        <dropPodFaller>DropPodIncomingMechanoidSoft</dropPodFaller>
+        <dropPodActive>ActiveDropPodMechanoid</dropPodActive>
+    </ThingDef>
+    <ThingDef ParentName="VGE_MechStructureBase">
+        <defName>VGE_MechanoidTempShield</defName>
+        <label>mechanoid temp shield</label>
+        <description>A compact defense unit that projects a localized shield around itself. The barrier activates only for a short time before collapsing, after which the device must cool down before it can deploy again.</description>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <drawOffscreen>true</drawOffscreen>
+        <tickerType>Normal</tickerType>
+        <graphicData>
+            <texPath>Things/Structures/MechanoidStructures/MechanoidTempShield</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1,1)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <Beauty>-4</Beauty>
+            <Flammability>0</Flammability>
+        </statBases>
+        <size>(1,1)</size>
+        <rotatable>false</rotatable>
+        <passability>PassThroughOnly</passability>
+        <pathCost>20</pathCost>
+        <fillPercent>0.4</fillPercent>
+        <killedLeavings>
+            <GravlitePanel>15</GravlitePanel>
+            <ComponentSpacer>2</ComponentSpacer>
+        </killedLeavings>
+        <specialDisplayRadius>24.9</specialDisplayRadius>
+        <comps>
+            <li Class="VanillaGravshipExpanded.CompProperties_MechanoidTempShield">
+                <activeDuration>5000</activeDuration>
+                <radius>24.9</radius>
+                <interceptGroundProjectiles>true</interceptGroundProjectiles>
+                <interceptAirProjectiles>true</interceptAirProjectiles>
+                <color>(0.4, 0.4, 0.4)</color>
+                <reactivateEffect>BulletShieldGenerator_Reactivate</reactivateEffect>
+                <activeSound>BulletShield_Ambience</activeSound>
+                <hitPoints>500</hitPoints>
+                <hitPointsRestoreInstantlyAfterCharge>true</hitPointsRestoreInstantlyAfterCharge>
+                <startWithMaxHitPoints>false</startWithMaxHitPoints>
+                <chargeDurationTicks>10000</chargeDurationTicks>
+                <minIdleAlpha>0.2</minIdleAlpha>
+                <drawWithNoSelection>True</drawWithNoSelection>
+                <alwaysShowHitpointsGizmo>true</alwaysShowHitpointsGizmo>
+            </li>
+        </comps>
+        <building>
+            <ai_combatDangerous>false</ai_combatDangerous>
+        </building>
+    </ThingDef>
 
+    <ThingDef ParentName="VGE_MechStructureBase">
+        <defName>VGE_MechanoidAstrofuelNode</defName>
+        <label>astrofuel node</label>
+        <description>A compact fuel reservoir integrated into mechanoid platforms. It stores refined astrofuel for their systems, but when damaged it is highly unstable and prone to violent explosions.</description>
+        <tickerType>Normal</tickerType>
+        <graphicData>
+            <texPath>Things/Structures/MechanoidStructures/MechanoidAstrofuelNode</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>150</MaxHitPoints>
+            <Beauty>-10</Beauty>
+            <Flammability>0</Flammability>
+            <WorkToBuild>1000</WorkToBuild>
+        </statBases>
+        <size>(2,2)</size>
+        <rotatable>false</rotatable>
+        <passability>PassThroughOnly</passability>
+        <pathCost>20</pathCost>
+        <fillPercent>0.4</fillPercent>
+        <costList>
+            <Steel>30</Steel>
+            <VGE_Astrofuel>45</VGE_Astrofuel>
+        </costList>
+        <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+        <building>
+            <ai_combatDangerous>false</ai_combatDangerous>
+            <claimable>false</claimable>
+            <deconstructible>true</deconstructible>
+        </building>
+        <constructionSkillPrerequisite>0</constructionSkillPrerequisite>
+        <researchPrerequisites Inherit="False" />
+        <comps>
+            <li Class="CompProperties_Explosive">
+                <explosiveRadius>8.9</explosiveRadius>
+                <explosiveDamageType>VGE_AstrofireDamage</explosiveDamageType>
+                <destroyThingOnExplosionSize>2</destroyThingOnExplosionSize>
+                <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+                <preExplosionSpawnThingDef>VGE_Filth_Astrofuel</preExplosionSpawnThingDef>
+                <wickTicks>70~150</wickTicks>
+            </li>
+        </comps>
+    </ThingDef>
 </Defs>
