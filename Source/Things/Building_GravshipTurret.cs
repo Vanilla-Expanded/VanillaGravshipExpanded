@@ -2,6 +2,7 @@ using RimWorld;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using VEF.Maps;
 using Verse;
 using Verse.Sound;
 
@@ -17,12 +18,12 @@ namespace VanillaGravshipExpanded
         private int barrelIndex = -1;
         private List<Vector3> barrels;
         public Building_TargetingTerminal linkedTerminal;
+        private CustomOverlayDrawer overlayDrawer;
         private static readonly Texture2D ForceTargetIcon = ContentFinder<Texture2D>.Get("UI/Gizmos/GravshipArtilleryForceTarget");
         private static readonly Texture2D HoldFireIcon = ContentFinder<Texture2D>.Get("UI/Gizmos/GravshipArtilleryHoldFire");
         private static readonly Texture2D LinkIcon = ContentFinder<Texture2D>.Get("UI/Gizmos/LinkWithTerminal");
         private static readonly Texture2D UnlinkIcon = ContentFinder<Texture2D>.Get("UI/Gizmos/UnlinkWithTerminal");
         private static readonly Texture2D SelectIcon = ContentFinder<Texture2D>.Get("UI/Gizmos/SelectLinkedTerminal");
-        public static readonly Material NoLinkOverlay = MaterialPool.MatFrom("UI/Overlays/NoLinkedTargetingTerminal");
         public virtual bool CanFire => linkedTerminal?.MannedByPlayer ?? false;
 
         public Pawn ManningPawn => linkedTerminal?.MannableComp?.ManningPawn;
@@ -82,6 +83,16 @@ namespace VanillaGravshipExpanded
             {
                 barrels = barrelExt.barrels;
             }
+
+            overlayDrawer = map.GetComponent<CustomOverlayDrawer>();
+            overlayDrawer.Enable(this, VGEDefOf.VGE_NoLinkOverlay);
+        }
+
+        public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
+        {
+            base.DeSpawn(mode);
+
+            overlayDrawer = null;
         }
 
         protected float angleDiff;
@@ -133,27 +144,6 @@ namespace VanillaGravshipExpanded
             Scribe_Values.Look(ref curAngle, "curAngle");
         }
 
-
-        public void RenderPulsingOverlay(Material mat, Mesh mesh, bool incrementOffset = true)
-        {
-            Vector3 drawPos = this.TrueCenter();
-            drawPos.y = this.DrawPos.y + 0.1f;
-            drawPos += this.Map.overlayDrawer.curOffset;
-            if (def.building != null && def.building.isAttachment)
-            {
-                drawPos += (Rotation.AsVector2 * 0.5f).ToVector3();
-            }
-            drawPos.y = Mathf.Min(drawPos.y, Find.Camera.transform.position.y - 0.1f);
-            if (incrementOffset)
-            {
-                this.Map.overlayDrawer.curOffset.x += this.Map.overlayDrawer.StackOffsetFor(this);
-            }
-            float num = ((float)Math.Sin((Time.realtimeSinceStartup + 397f * (float)(thingIDNumber % 571)) * 4f) + 1f) * 0.5f;
-            num = 0.3f + num * 0.7f;
-            Material material = FadedMaterialPool.FadedVersionOf(mat, num);
-            Graphics.DrawMesh(mesh, Matrix4x4.TRS(drawPos, Quaternion.identity, Vector3.one), material, 0);
-        }
-
         public override string GetInspectString()
         {
             string text = base.GetInspectString();
@@ -174,6 +164,7 @@ namespace VanillaGravshipExpanded
             linkedTerminal = terminal;
             terminal.linkedTurret = this;
             SoundDefOf.Tick_High.PlayOneShotOnCamera();
+            overlayDrawer?.Disable(this, VGEDefOf.VGE_NoLinkOverlay);
         }
 
         public void Unlink()
@@ -184,6 +175,7 @@ namespace VanillaGravshipExpanded
             }
             linkedTerminal = null;
             SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+            overlayDrawer?.Enable(this, VGEDefOf.VGE_NoLinkOverlay);
         }
 
         private void SelectLinkedTerminal()

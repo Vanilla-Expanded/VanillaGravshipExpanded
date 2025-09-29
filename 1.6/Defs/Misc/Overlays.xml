@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <VEF.Maps.CustomOverlayDef>
+    <defName>VGE_NoLinkOverlay</defName>
+    <overlayPath>UI/Overlays/NoLinkedTargetingTerminal</overlayPath>
+  </VEF.Maps.CustomOverlayDef>
+
+</Defs>
