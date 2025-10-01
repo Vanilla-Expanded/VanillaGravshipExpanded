@@ -4,7 +4,7 @@ using RimWorld;
 namespace VanillaGravshipExpanded;
 
 [HarmonyPatch(typeof(Building_GravEngine), nameof(Building_GravEngine.FuelPerTile), MethodType.Getter)]
-public static class Building_GravEngine_FuelSavingsPercent_Patch
+public static class Building_GravEngine_FuelPerTile_Patch
 {
     private static void Postfix(ref float __result)
     {
