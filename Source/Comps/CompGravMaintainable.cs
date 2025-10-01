@@ -54,22 +54,25 @@ namespace VanillaGravshipExpanded
             base.PostDestroy(mode, previousMap);
         }
 
-        public override void CompTick()
+        public override void CompTickInterval(int delta)
         {
-            if (this.parent.IsHashIntervalTick(2000))
+            if (this.parent.IsHashIntervalTick(GenTicks.TickLongInterval, delta))
             {
                 CompTickLong();
             }
+        }
+
+        public override void CompTick()
+        {
             if (maintenance < Props.minMaintenanceForAlert)
             {
-
                 EmissionTick(parent.Map.flecks);
             }
         }
 
         public override void CompTickRare()
         {
-            if (this.parent.IsHashIntervalTick(8))
+            if (this.parent.IsHashIntervalTick(GenTicks.TickLongInterval, GenTicks.TickRareInterval))
             {
                 CompTickLong();
             }
