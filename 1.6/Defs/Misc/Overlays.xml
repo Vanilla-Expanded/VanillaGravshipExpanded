@@ -2,7 +2,13 @@
 <Defs>
 
   <VEF.Graphics.CustomOverlayDef>
-    <defName>VGE_NoLinkOverlay</defName>
+    <defName>VGE_NoLinkedTerminalOverlay</defName>
+    <overlayPath>UI/Overlays/NoLinkedTargetingTerminal</overlayPath>
+  </VEF.Graphics.CustomOverlayDef>
+
+  <VEF.Graphics.CustomOverlayDef>
+    <defName>VGE_MultipleGravEnginesOverlay</defName>
+    <!-- TODO: Change to actual overlay -->
     <overlayPath>UI/Overlays/NoLinkedTargetingTerminal</overlayPath>
   </VEF.Graphics.CustomOverlayDef>
 

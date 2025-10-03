@@ -85,7 +85,7 @@ namespace VanillaGravshipExpanded
             }
 
             overlayDrawer = map.GetComponent<CustomOverlayDrawer>();
-            overlayDrawer.Enable(this, VGEDefOf.VGE_NoLinkOverlay);
+            overlayDrawer.Enable(this, VGEDefOf.VGE_NoLinkedTerminalOverlay);
         }
 
         public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
@@ -164,7 +164,7 @@ namespace VanillaGravshipExpanded
             linkedTerminal = terminal;
             terminal.linkedTurret = this;
             SoundDefOf.Tick_High.PlayOneShotOnCamera();
-            overlayDrawer?.Disable(this, VGEDefOf.VGE_NoLinkOverlay);
+            overlayDrawer?.Disable(this, VGEDefOf.VGE_NoLinkedTerminalOverlay);
         }
 
         public void Unlink()
@@ -175,7 +175,7 @@ namespace VanillaGravshipExpanded
             }
             linkedTerminal = null;
             SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-            overlayDrawer?.Enable(this, VGEDefOf.VGE_NoLinkOverlay);
+            overlayDrawer?.Enable(this, VGEDefOf.VGE_NoLinkedTerminalOverlay);
         }
 
         private void SelectLinkedTerminal()

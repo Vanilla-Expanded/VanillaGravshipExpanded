@@ -20,23 +20,28 @@
     </value>
   </Operation>
 
-  <!-- Make grav engine affected by constant gravship bonuses (bonuses from connected, but potentially inactive facilities). -->
+  <!-- Give comps to grav engine -->
   <Operation Class="PatchOperationAdd">
     <xpath>Defs/ThingDef[defName="GravEngine"]/comps</xpath>
     <value>
+      <!-- Make grav engine affected by constant gravship bonuses (bonuses from connected, but potentially inactive facilities). -->
       <li>
         <compClass>VanillaGravshipExpanded.CompAffectedByConstantGravshipFacilityBonus</compClass>
       </li>
-    </value>
-  </Operation>
-
-  <Operation Class="PatchOperationAdd">
-    <xpath>Defs/ThingDef[defName="GravEngine"]/comps</xpath>
-    <value>
       <li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
 
       </li>
       <li Class="CompProperties_Breakdownable" />
+      <!-- Make grav engine a power plant -->
+      <li Class="CompProperties_Power">
+        <compClass>VanillaGravshipExpanded.CompPowerPlantGravEngine</compClass>
+        <basePowerConsumption>-4800</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <!-- Add extra handling for situation of multiple grav engines -->
+      <li>
+        <compClass>VanillaGravshipExpanded.CompMultipleGravEnginesHandler</compClass>
+      </li>
     </value>
   </Operation>
 
@@ -45,18 +50,6 @@
     <value>
       <VGE_MaintenanceSensitivity>3</VGE_MaintenanceSensitivity>
       <WorkToBuild>65400</WorkToBuild>
-    </value>
-  </Operation>
-
-  <!-- Make grav engine a power plant -->
-  <Operation Class="PatchOperationAdd">
-    <xpath>Defs/ThingDef[defName="GravEngine"]/comps</xpath>
-    <value>
-      <li Class="CompProperties_Power">
-        <compClass>VanillaGravshipExpanded.CompPowerPlantGravEngine</compClass>
-        <basePowerConsumption>-4800</basePowerConsumption>
-        <transmitsPower>true</transmitsPower>
-      </li>
     </value>
   </Operation>
 
@@ -153,6 +146,21 @@
       <value>
         <li>VanillaGravshipExpanded.PlaceWorker_OnlySingleGravEngine</li>
       </value>
+    </match>
+  </Operation>
+
+  <!-- We give grav engine a comp that wants to be notified about the map being removed, so mark the def as such. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="GravEngine"]/notifyMapRemoved</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravEngine"]</xpath>
+      <value>
+        <notifyMapRemoved>true</notifyMapRemoved>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravEngine"]/notifyMapRemoved/text()</xpath>
+      <value>true</value>
     </match>
   </Operation>
 

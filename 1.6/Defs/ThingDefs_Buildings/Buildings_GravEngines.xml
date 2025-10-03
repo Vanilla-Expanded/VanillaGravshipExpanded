@@ -104,10 +104,14 @@
         <basePowerConsumption>-2400</basePowerConsumption>
         <transmitsPower>true</transmitsPower>
       </li>
+      <li>
+        <compClass>VanillaGravshipExpanded.CompMultipleGravEnginesHandler</compClass>
+      </li>
     </comps>
     <placeWorkers>
       <li>VanillaGravshipExpanded.PlaceWorker_OnlySingleGravEngine</li>
     </placeWorkers>
+    <notifyMapRemoved>true</notifyMapRemoved>
   </ThingDef>
 
   <ThingDef ParentName="GravshipComponentBase">
@@ -205,10 +209,14 @@
         <basePowerConsumption>-7200</basePowerConsumption>
         <transmitsPower>true</transmitsPower>
       </li>
+      <li>
+        <compClass>VanillaGravshipExpanded.CompMultipleGravEnginesHandler</compClass>
+      </li>
     </comps>
     <placeWorkers>
       <li>VanillaGravshipExpanded.PlaceWorker_OnlySingleGravEngine</li>
     </placeWorkers>
+    <notifyMapRemoved>true</notifyMapRemoved>
   </ThingDef>
 
 </Defs>

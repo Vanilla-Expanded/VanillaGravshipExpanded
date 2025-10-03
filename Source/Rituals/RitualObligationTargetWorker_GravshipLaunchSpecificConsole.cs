@@ -33,6 +33,13 @@ public class RitualObligationTargetWorker_GravshipLaunchSpecificConsole : Ritual
         if (!target.HasThing || !def.thingDefs.Contains(target.Thing.def))
             return false;
 
+        if (CompMultipleGravEnginesHandler.MultipleGravEnginesPresent)
+            return "VGE_MultipleGravEnginesPresent".Translate().CapitalizeFirst();
+        if (Find.CurrentGravship != null)
+            return "VGE_GravshipCurrentlyActive".Translate().CapitalizeFirst();
+        if (Find.Maps.Any(x => x.lordManager.lords.Any(lord => lord.LordJob is LordJob_Ritual { ritual: Precept_GravshipLaunch })))
+            return "VGE_GravshipLaunchCurrentlyActive".Translate().CapitalizeFirst();
+
         return base.CanUseTargetInternal(target, obligation);
     }
 

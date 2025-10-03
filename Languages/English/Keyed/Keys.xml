@@ -63,11 +63,21 @@ Please note that keeping several maps open may affect your performance.</VGE_Map
     <VGE_RapidlyDeterioratingInSpace>Rapidly deteriorating due to the vacuum of space.</VGE_RapidlyDeterioratingInSpace>
     <ConfirmGravEngineLaunch>Are you sure you want to launch?\n\nYou will be given a choice to keep the current map as well as anything not on gravship substructure, but if you choose to discard it, it will be permanently lost.</ConfirmGravEngineLaunch>
 
+    <!-- Messages related to multiple gravships -->
     <VGE_BuildSingleGravEngineOnly>You can't build {0} if you already have another grav engine.</VGE_BuildSingleGravEngineOnly>
     <VGE_BuildSingleGravEngineBuildBlueprintOnly>You can't build {0} if you already have another grav engine under construction.</VGE_BuildSingleGravEngineBuildBlueprintOnly>
     <VGE_InstallSingleGravEngineOnMap>You can't install {0} if there's another grav engine present nearby.</VGE_InstallSingleGravEngineOnMap>
     <VGE_InstallSingleGravEngineBuildBlueprintOnly>You can't install {0} if you already have another grav engine under construction nearby.</VGE_InstallSingleGravEngineBuildBlueprintOnly>
     <VGE_InstallSingleGravEngineInstallBlueprintOnly>You can't install {0} if there's another grav engine blueprint nearby.</VGE_InstallSingleGravEngineInstallBlueprintOnly>
+    <!-- For example: "Grav engine disabled: Multiple grav engines present" -->
+    <VGE_GravEngineDisabled>Grav engine disabled:</VGE_GravEngineDisabled>
+    <!-- Disabled message for gravship launch ritual when there's multiple gravship engines present. Should hopefully never happen. -->
+    <!-- Also used for grav engines tooltip when there's another one present. -->
+    <VGE_MultipleGravEnginesPresent>multiple grav engines present</VGE_MultipleGravEnginesPresent>
+    <!-- Disabled message for gravship launch ritual when there's a gravship currently travellingo on the world. Should hopefully never happen. -->
+    <VGE_GravshipCurrentlyActive>another gravship is currently active</VGE_GravshipCurrentlyActive>
+    <!-- Disabled message for gravship launch ritual when there's another gravship launch ritual active. Should hopefully never happen. -->
+    <VGE_GravshipLaunchCurrentlyActive>another gravship is currently preparing to launch</VGE_GravshipLaunchCurrentlyActive>
 
 
     <!-- Mod options -->
