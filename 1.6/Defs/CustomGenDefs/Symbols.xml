@@ -1,72 +1,72 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  <KCSG.SymbolDef>
-    <defName>VQEA_DestroyedSmallThruster</defName>
-    <thing>VQEA_DestroyedSmallThruster</thing>
-    <rotation>East</rotation>
-  </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>VQEA_DestroyedSmallThruster</defName>
+        <thing>VQEA_DestroyedSmallThruster</thing>
+        <rotation>East</rotation>
+    </KCSG.SymbolDef>
 
-  <KCSG.SymbolDef>
-    <defName>VGE_AstrofuelPipe</defName>
-    <thing>VGE_AstrofuelPipe</thing>
-  </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>VGE_AstrofuelPipe</defName>
+        <thing>VGE_AstrofuelPipe</thing>
+    </KCSG.SymbolDef>
 
-  <KCSG.SymbolDef>
-    <defName>VQEA_DestroyedLargeThruster</defName>
-    <thing>VQEA_DestroyedLargeThruster</thing>
-    <rotation>East</rotation>
-  </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>VQEA_DestroyedLargeThruster</defName>
+        <thing>VQEA_DestroyedLargeThruster</thing>
+        <rotation>East</rotation>
+    </KCSG.SymbolDef>
 
-  <KCSG.SymbolDef>
-    <defName>VQEA_DestroyedSmallAstrofuelTank</defName>
-    <thing>VQEA_DestroyedSmallAstrofuelTank</thing>
-  </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>VQEA_DestroyedSmallAstrofuelTank</defName>
+        <thing>VQEA_DestroyedSmallAstrofuelTank</thing>
+    </KCSG.SymbolDef>
 
-  <KCSG.SymbolDef>
-    <defName>VGE_Astrofuel</defName>
-    <thing>VGE_Astrofuel</thing>
-  </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>VGE_Astrofuel</defName>
+        <thing>VGE_Astrofuel</thing>
+    </KCSG.SymbolDef>
 
-  <KCSG.SymbolDef>
-    <defName>VGE_AstrofuelTap</defName>
-    <thing>VGE_AstrofuelTap</thing>
-  </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>VGE_AstrofuelTap</defName>
+        <thing>VGE_AstrofuelTap</thing>
+    </KCSG.SymbolDef>
 
-  <KCSG.SymbolDef>
-    <defName>VQEA_DestroyedSmallHeatsink</defName>
-    <thing>VQEA_DestroyedSmallHeatsink</thing>
-    <rotation>East</rotation>
-  </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>VQEA_DestroyedSmallHeatsink</defName>
+        <thing>VQEA_DestroyedSmallHeatsink</thing>
+        <rotation>East</rotation>
+    </KCSG.SymbolDef>
 
-  <KCSG.SymbolDef>
-    <defName>VGE_GravjumperEngine</defName>
-    <thing>VGE_GravjumperEngine</thing>
-  </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>VGE_GravjumperEngine</defName>
+        <thing>VGE_GravjumperEngine</thing>
+    </KCSG.SymbolDef>
 
-  <KCSG.SymbolDef>
-    <defName>VQEA_DestroyedGravExtender</defName>
-    <thing>VQEA_DestroyedGravExtender</thing>
-  </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>VQEA_DestroyedGravExtender</defName>
+        <thing>VQEA_DestroyedGravExtender</thing>
+    </KCSG.SymbolDef>
 
-  <KCSG.SymbolDef>
-    <defName>VGE_PilotCockpit</defName>
-    <thing>VGE_PilotCockpit</thing>
-    <rotation>East</rotation>
-  </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>VGE_PilotCockpit</defName>
+        <thing>VGE_PilotCockpit</thing>
+        <rotation>East</rotation>
+    </KCSG.SymbolDef>
 
-  <KCSG.SymbolDef>
-    <defName>VQEA_DestroyedSmallOxygenTank</defName>
-    <thing>VQEA_DestroyedSmallOxygenTank</thing>
-  </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>VQEA_DestroyedSmallOxygenTank</defName>
+        <thing>VQEA_DestroyedSmallOxygenTank</thing>
+    </KCSG.SymbolDef>
 
-  <KCSG.SymbolDef>
-    <defName>VGE_AstrofuelDrain</defName>
-    <thing>VGE_AstrofuelDrain</thing>
-  </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>VGE_AstrofuelDrain</defName>
+        <thing>VGE_AstrofuelDrain</thing>
+    </KCSG.SymbolDef>
 
-  <KCSG.SymbolDef>
-    <defName>ChemfuelTank_Fuel65</defName>
-    <thing>ChemfuelTank</thing>
-    <fuel>65</fuel>
-  </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>ChemfuelTank_Fuel26</defName>
+        <thing>ChemfuelTank</thing>
+        <fuelPercent>0.26</fuelPercent>
+    </KCSG.SymbolDef>
 </Defs>
