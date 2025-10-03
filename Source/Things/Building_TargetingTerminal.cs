@@ -1,6 +1,7 @@
 using RimWorld;
 using System.Collections.Generic;
 using UnityEngine;
+using VEF.Graphics;
 using Verse;
 using Verse.Sound;
 
@@ -16,11 +17,11 @@ namespace VanillaGravshipExpanded
         public virtual float GravshipTargeting => MannableComp?.ManningPawn?.GetStatValue(VGEDefOf.VGE_GravshipTargeting) ?? 0f;
 
         private CompMannable mannableComp;
+        private CustomOverlayDrawer overlayDrawer;
 
         private static readonly Texture2D LinkIcon = ContentFinder<Texture2D>.Get("UI/Gizmos/LinkWithTurret");
         private static readonly Texture2D UnlinkIcon = ContentFinder<Texture2D>.Get("UI/Gizmos/UnlinkWithTurret");
         private static readonly Texture2D SelectIcon = ContentFinder<Texture2D>.Get("UI/Gizmos/SelectLinkedTurret");
-        private static readonly Material NoLinkOverlay = MaterialPool.MatFrom("UI/Overlays/NoLinkedTurret_Overlay");
 
         public CompMannable MannableComp
         {
@@ -40,6 +41,14 @@ namespace VanillaGravshipExpanded
             Scribe_References.Look(ref linkedTurret, "linkedTurret");
         }
 
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        {
+            base.SpawnSetup(map, respawningAfterLoad);
+
+            overlayDrawer = map.GetComponent<CustomOverlayDrawer>();
+            overlayDrawer.Enable(this, VGEDefOf.VGE_NoLinkedTurretOverlay);
+        }
+
         public override void Tick()
         {
             base.Tick();
@@ -56,14 +65,6 @@ namespace VanillaGravshipExpanded
             if (linkedTurret != null)
             {
                 GenDraw.DrawLineBetween(this.TrueCenter(), linkedTurret.TrueCenter(), SimpleColor.White);
-            }
-        }
-        public override void DrawAt(Vector3 drawLoc, bool flip = false)
-        {
-            base.DrawAt(drawLoc, flip);
-            if (linkedTurret is null)
-            {
-                this.Map.overlayDrawer.RenderPulsingOverlay(this, NoLinkOverlay, 3);
             }
         }
 
@@ -128,6 +129,7 @@ namespace VanillaGravshipExpanded
             linkedTurret = turret;
             turret.LinkTo(this);
             SoundDefOf.Tick_High.PlayOneShotOnCamera();
+            overlayDrawer?.Disable(this, VGEDefOf.VGE_NoLinkedTurretOverlay);
         }
 
         public void Unlink()
@@ -135,6 +137,7 @@ namespace VanillaGravshipExpanded
             linkedTurret?.Unlink();
             linkedTurret = null;
             SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+            overlayDrawer?.Enable(this, VGEDefOf.VGE_NoLinkedTurretOverlay);
         }
 
         private void SelectLinkedTurret()

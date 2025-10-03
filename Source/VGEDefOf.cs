@@ -29,6 +29,6 @@ namespace VanillaGravshipExpanded
         public static ThingDef VGE_GiantThruster, VGE_GiantAstrofuelTank, LargeChemfuelTank;
         public static ThingDef VGE_Astrofuel;
         public static ThingDef DropPodLeavingMechanoid;
-        public static CustomOverlayDef VGE_NoLinkedTerminalOverlay, VGE_MultipleGravEnginesOverlay;
+        public static CustomOverlayDef VGE_NoLinkedTerminalOverlay, VGE_NoLinkedTurretOverlay, VGE_MultipleGravEnginesOverlay;
     }
 }
