@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 1894292068
+CRC: 1213097489
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f2187a566b75c88e8271ff7dcce4a9ed
+    Hash: d180b9de323ca98c8c28225d284237d8
   TypeTreeHash:
     serializedVersion: 2
     Hash: 2612ac43db082a73502ee80f2eceb73f
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: f2187a566b75c88e8271ff7dcce4a9ed
+    Hash: d180b9de323ca98c8c28225d284237d8
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -48,6 +48,8 @@ Assets:
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Terrain/AncientOrbitalPlatform/AncientOrbitalPlatformEdge_Left.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Natural/CompressedAsteroidEdge/CompressedAsteroidEdge_Right.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Terrain/AncientOrbitalPlatform/Loop/AncientOrbitalPlatformEdge_Loop1.psd
+- Assets/Data/vanillaexpanded.gravship/Textures/Things/Terrain/Substructure/MechanoidSubstructure/MechanoidSubstructureProps_Loops.psd
+- Assets/Data/vanillaexpanded.gravship/Textures/Things/Terrain/Substructure/MechanoidSubstructure/MechanoidSubstructureProps_Right.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Terrain/Substructure/Subscaffolding/SubscaffoldingProps_Right.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Natural/CompressedAsteroidEdge/Loop/CompressedAsteroidEdge_Loop2.psd
 - Assets/Data/vanillaexpanded.gravship/Textures/Things/Terrain/AncientOrbitalPlatform/Loop/AncientOrbitalPlatformEdge_Loop5.psd
