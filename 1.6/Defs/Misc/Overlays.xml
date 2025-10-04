@@ -16,4 +16,19 @@
     <overlayPath>UI/Overlays/TooManyGravEngines_Overlay</overlayPath>
   </VEF.Graphics.CustomOverlayDef>
 
+  <VEF.Graphics.CustomOverlayDef>
+    <defName>VGE_NoLinkedGrajumper</defName>
+    <overlayPath>UI/Overlays/MissingGravjumperEngine</overlayPath>
+  </VEF.Graphics.CustomOverlayDef>
+
+  <VEF.Graphics.CustomOverlayDef>
+    <defName>VGE_NoLinkedGravship</defName>
+    <overlayPath>UI/Overlays/MissingGravshipEngine</overlayPath>
+  </VEF.Graphics.CustomOverlayDef>
+
+  <VEF.Graphics.CustomOverlayDef>
+    <defName>VGE_NoLinkedGravhulk</defName>
+    <overlayPath>UI/Overlays/MissingGravhulkEngine</overlayPath>
+  </VEF.Graphics.CustomOverlayDef>
+
 </Defs>

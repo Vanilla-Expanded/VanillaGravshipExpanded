@@ -54,6 +54,9 @@
 			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
 
             </li>
+      <li Class="VanillaGravshipExpanded.CompProperties_DisconnectedFacilityOverlay">
+        <overlayDef>VGE_NoLinkedGrajumper</overlayDef>
+      </li>
 		</comps>
 		<uiOrder>2100</uiOrder>
 	</ThingDef>
@@ -108,6 +111,9 @@
 			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
 
             </li>
+      <li Class="VanillaGravshipExpanded.CompProperties_DisconnectedFacilityOverlay">
+        <overlayDef>VGE_NoLinkedGravhulk</overlayDef>
+      </li>
 		</comps>
 		<uiOrder>2100</uiOrder>
 	</ThingDef>

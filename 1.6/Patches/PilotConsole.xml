@@ -39,6 +39,9 @@
 			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
        
 			</li>
+      <li Class="VanillaGravshipExpanded.CompProperties_DisconnectedFacilityOverlay">
+        <overlayDef>VGE_NoLinkedGravhulk</overlayDef>
+      </li>
 		</value>
 	</Operation>
 </Patch>
