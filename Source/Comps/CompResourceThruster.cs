@@ -1,12 +1,13 @@
 ﻿using System.Text;
 using PipeSystem;
+using VEF.Graphics;
 using Verse;
 
 namespace VanillaGravshipExpanded;
 
 public class CompResourceThruster : CompResource
 {
-    public PipeNetOverlayDrawer pipeNetOverlayDrawer;
+    public CustomOverlayDrawer overlayDrawer;
 
     public new CompProperties_ResourceThruster Props => (CompProperties_ResourceThruster)props;
 
@@ -18,17 +19,10 @@ public class CompResourceThruster : CompResource
     {
         base.PostSpawnSetup(respawningAfterLoad);
 
-        pipeNetOverlayDrawer = parent.Map.GetComponent<PipeNetOverlayDrawer>();
+        overlayDrawer = parent.Map.GetComponent<CustomOverlayDrawer>();
 
         if (!HasFuel)
-            pipeNetOverlayDrawer.TogglePulsing(parent, Props.outOfFuelOverlay, true);
-    }
-
-    public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
-    {
-        base.PostDeSpawn(map, mode);
-
-        pipeNetOverlayDrawer.TogglePulsing(parent, Props.outOfFuelOverlay, false);
+            overlayDrawer.Enable(parent, Props.outOfFuelOverlay);
     }
 
     public override string CompInspectStringExtra()

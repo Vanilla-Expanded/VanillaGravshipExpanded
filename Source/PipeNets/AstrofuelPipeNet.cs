@@ -45,7 +45,10 @@ public class AstrofuelPipeNet : PipeNet
             for (var i = 0; i < thrusters.Count; i++)
             {
                 var thruster = thrusters[i];
-                thruster.pipeNetOverlayDrawer.TogglePulsing(thruster.parent, thruster.Props.outOfFuelOverlay, !HasFuel);
+                if (HasFuel)
+                    thruster.overlayDrawer.Disable(thruster.parent, thruster.Props.outOfFuelOverlay);
+                else
+                    thruster.overlayDrawer.Enable(thruster.parent, thruster.Props.outOfFuelOverlay);
             }
         }
     }

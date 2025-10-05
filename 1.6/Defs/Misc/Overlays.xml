@@ -31,4 +31,9 @@
     <overlayPath>UI/Overlays/MissingGravhulkEngine</overlayPath>
   </VEF.Graphics.CustomOverlayDef>
 
+  <VEF.Graphics.CustomOverlayDef>
+    <defName>VGE_NoAstrofuel</defName>
+    <overlayPath>UI/Overlays/NoAstrofuel</overlayPath>
+  </VEF.Graphics.CustomOverlayDef>
+
 </Defs>

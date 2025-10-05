@@ -769,7 +769,7 @@
       <li Class="CompProperties_Breakdownable" />
       <li Class="VanillaGravshipExpanded.CompProperties_ResourceThruster">
         <pipeNet>VGE_AstrofuelNet</pipeNet>
-        <outOfFuelOverlayPath>UI/Overlays/NoAstrofuel</outOfFuelOverlayPath>
+        <outOfFuelOverlay>VGE_NoAstrofuel</outOfFuelOverlay>
       </li>
 	   <li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
        <fleckEmissionRate>1</fleckEmissionRate>
