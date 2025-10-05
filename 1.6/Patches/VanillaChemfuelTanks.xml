@@ -47,8 +47,7 @@
         <centerOffset>(0, 0, 0)</centerOffset>
         <barHorizontal>true</barHorizontal>
         <extractOptions>
-          <!-- TODO: Add actual icon -->
-          <texPath>UI/Overlays/Overlay_Oxygen</texPath>
+          <texPath>UI/Gizmos/ExtractAstrofuel_Gizmo</texPath>
           <labelKey>VGE_ExtractAstrofuel</labelKey>
           <descKey>VGE_ExtractAstrofuelDesc</descKey>
           <extractAmount>150</extractAmount>
@@ -147,8 +146,7 @@
         <centerOffset>(0, 0, 0)</centerOffset>
         <barHorizontal>true</barHorizontal>
         <extractOptions>
-          <!-- TODO: Add actual icon -->
-          <texPath>UI/Overlays/Overlay_Oxygen</texPath>
+          <texPath>UI/Gizmos/ExtractAstrofuel_Gizmo</texPath>
           <labelKey>VGE_ExtractAstrofuel</labelKey>
           <descKey>VGE_ExtractAstrofuelDesc</descKey>
           <extractAmount>150</extractAmount>
