@@ -164,6 +164,15 @@
               </li>
             </customPositions>
           </li>
+          <li>
+            <roleId>gravtechEngineer</roleId>
+            <dutyDef>ArriveToCell</dutyDef>
+            <customPositions>
+              <li Class="VanillaGravshipExpanded.RitualPosition_EngineeringConsole">
+                <faceThing>true</faceThing>
+              </li>
+            </customPositions>
+          </li>
         </roleBehaviors>
       </li>
     </stages>

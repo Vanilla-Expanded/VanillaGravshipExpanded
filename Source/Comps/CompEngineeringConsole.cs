@@ -8,9 +8,9 @@ using Verse.AI;
 
 namespace VanillaGravshipExpanded
 {
-    public class CompEngineeringConsole : ThingComp
+    public class CompEngineeringConsole : CompGravshipFacility
     {
-        public CompProperties_EngineeringConsole Props => props as CompProperties_EngineeringConsole;
+        public new CompProperties_EngineeringConsole Props => props as CompProperties_EngineeringConsole;
 
      
 

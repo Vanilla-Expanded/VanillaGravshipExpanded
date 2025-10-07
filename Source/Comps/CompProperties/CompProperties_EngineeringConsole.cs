@@ -8,7 +8,7 @@ using Verse;
 
 namespace VanillaGravshipExpanded
 {
-    public class CompProperties_EngineeringConsole : CompProperties
+    public class CompProperties_EngineeringConsole : CompProperties_GravshipFacility
     {    
 
         public CompProperties_EngineeringConsole()

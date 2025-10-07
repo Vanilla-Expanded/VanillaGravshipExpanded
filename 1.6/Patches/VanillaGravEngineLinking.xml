@@ -17,6 +17,8 @@
       <li>VGE_GravshipBlackBox</li>
       <li>VGE_GiantAstrofuelTank</li>
       <li>VGE_CopilotConsole</li>
+      <li>VGE_EngineeringConsole</li>
+      <li>VGE_MaintenanceHub</li>
     </value>
   </Operation>
 

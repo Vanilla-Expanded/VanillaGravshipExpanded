@@ -28,6 +28,7 @@
 		<tickerType>Normal</tickerType>
 		<comps>
 			<li Class="CompProperties_GravshipFacility">
+        <compClass>VanillaGravshipExpanded.CompGravtechConsole</compClass>
 				<maxSimultaneous>1</maxSimultaneous>
 				<maxDistance>200</maxDistance>
 				<requiresLOS>false</requiresLOS>

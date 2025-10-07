@@ -50,7 +50,9 @@
        
 			</li>
 			<li Class="VanillaGravshipExpanded.CompProperties_EngineeringConsole">
-       
+        <maxSimultaneous>1</maxSimultaneous>
+        <maxDistance>200</maxDistance>
+        <requiresLOS>false</requiresLOS>
 			</li>
 			<li Class="CompProperties_Breakdownable"/>
 		</comps>
