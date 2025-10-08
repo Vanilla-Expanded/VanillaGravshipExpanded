@@ -513,7 +513,7 @@
 	</ThingDef>
 	<ThingDef ParentName="GravshipComponentBase">
 		<defName>VGE_LifeSupportSystem</defName>
-		<label>life support system</label>
+		<label>algae oxygenator</label>
 		<description>A vital device that processes harvested oxyalgae into breathable oxygen. Converts biomass into gas and pumps it into the oxygen network to supply pressurized rooms and equipment.</description>
 		<minifiedDef IsNull="True"/>
 		<thingCategories IsNull="True"/>

@@ -4,7 +4,7 @@
   <ThingDef ParentName="PlantBase">
     <defName>VGE_OxyalgaePlant</defName>
     <label>oxyalgae plant</label>
-    <description>A fast-growing aquatic plant cultivated in hydroponics and used to generate oxygen when connected to a life support system. Rots quickly when harvested, making immediate processing essential.</description>
+    <description>A fast-growing aquatic plant cultivated in hydroponics and used to generate oxygen when converted in algae oxygenator. Rots quickly when harvested, making immediate processing essential.</description>
     <statBases>
       <MaxHitPoints>85</MaxHitPoints>
       <Flammability>0.75</Flammability>
