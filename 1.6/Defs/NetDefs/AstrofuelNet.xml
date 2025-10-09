@@ -154,7 +154,7 @@
   <ThingDef ParentName="FuelTankBase">
     <defName>VGE_GiantAstrofuelTank</defName>
     <label>giant astrofuel tank</label>
-    <description>A monumental astrofuel storage tank that supplies fuel for thrusters on a gravship. Can only be constructed on gravhulks.</description>
+    <description>A monumental astrofuel storage tank that supplies fuel for thrusters on a gravship.</description>
     <drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>
       <texPath>Things/PipeNetworks/Astrofuel/GiantAstrofuelTank</texPath>
