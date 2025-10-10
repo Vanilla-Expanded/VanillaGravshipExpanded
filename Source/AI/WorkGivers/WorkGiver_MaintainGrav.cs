@@ -65,7 +65,7 @@ namespace VanillaGravshipExpanded
                 return false;
             }
 
-            if (comp.maintenance > pawn.Map.GetComponent<GravMaintainables_MapComponent>()?.maintenanceThreshold)
+            if (comp.maintenance > MaintenanceThreshold_WorldComponent.Instance?.maintenanceThreshold)
             {
 
                 return false;

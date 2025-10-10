@@ -14,16 +14,13 @@ namespace VanillaGravshipExpanded
 
         public HashSet<Thing> maintainables_InMap = new HashSet<Thing>();
 
-        public float maintenanceThreshold = 0.7f;
+      
 
         public GravMaintainables_MapComponent(Map map) : base(map)
         {
         }
 
-        public override void ExposeData()
-        {
-            Scribe_Values.Look(ref this.maintenanceThreshold, "maintenanceThreshold", 0.7f, false);
-        }
+       
 
 
 

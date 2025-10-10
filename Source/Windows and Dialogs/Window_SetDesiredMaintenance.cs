@@ -27,7 +27,7 @@ namespace VanillaGravshipExpanded
             draggable = false;
             resizeable = false;
             preventCameraMotion = false;
-            comp = building.Map.GetComponent<GravMaintainables_MapComponent>();
+           
         }
 
 
@@ -44,13 +44,13 @@ namespace VanillaGravshipExpanded
             Widgets.Label(IntroLabel, "VGE_SetDesiredMaintenance".Translate().CapitalizeFirst());
             Text.Font = GameFont.Small;
             var IntroLabel2 = new Rect(0, 40, 450, 72f);
-            Widgets.Label(IntroLabel2, "VGE_SetDesiredMaintenanceDesc".Translate()+ ": "+ comp.maintenanceThreshold.ToStringPercent());
+            Widgets.Label(IntroLabel2, "VGE_SetDesiredMaintenanceDesc".Translate()+ ": "+ MaintenanceThreshold_WorldComponent.Instance.maintenanceThreshold.ToStringPercent());
             if (Widgets.ButtonImage(new Rect(outRect.xMax - 18f - 4f, 2f, 18f, 18f), TexButton.CloseXSmall))
             {
                 Close();
             }
             var SliderContainer1 = new Rect(0, 120, 450, 32f);
-            SettingsHelper.HorizontalSliderLabeled(SliderContainer1, ref comp.maintenanceThreshold, new FloatRange(0, 1), "0%", "100%");
+            SettingsHelper.HorizontalSliderLabeled(SliderContainer1, ref MaintenanceThreshold_WorldComponent.Instance.maintenanceThreshold, new FloatRange(0, 1), "0%", "100%");
 
         }
     }
