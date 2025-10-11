@@ -140,5 +140,9 @@ Please note that keeping several maps open may affect your performance.</VGE_Map
     <!-- Chemfuel to astrofuel replacements -->
     <VGE_StoredAstrofuel>stored astrofuel</VGE_StoredAstrofuel>
     <VGE_AstrofuelPerTile>{0} astrofuel per tile</VGE_AstrofuelPerTile>
+	
+	<!-- Astrofire alert -->
+	<VGE_AstrofireInHomeArea>Astrofire!</VGE_AstrofireInHomeArea>
+    <VGE_AstrofireInHomeAreaDesc>There is an astrofire in the home area.</VGE_AstrofireInHomeAreaDesc>
 
 </LanguageData>
