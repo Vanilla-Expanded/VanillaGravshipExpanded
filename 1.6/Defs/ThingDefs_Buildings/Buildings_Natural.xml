@@ -38,13 +38,13 @@
 			<isResourceRock>true</isResourceRock>
 			<mineableThing>Steel</mineableThing>
 			<mineableYield>80</mineableYield>
-			<mineableScatterCommonality>0.02</mineableScatterCommonality>
+			<mineableScatterCommonality>0</mineableScatterCommonality>
 			<mineableScatterLumpSizeRange>
 				<min>75</min>
 				<max>120</max>
 			</mineableScatterLumpSizeRange>
 			<veinMineable>true</veinMineable>
-			<mineablePreventNaturalRockOnSurface>true</mineablePreventNaturalRockOnSurface>
+			<mineablePreventMeteorite>true</mineablePreventMeteorite>
 		</building>
 	</ThingDef>
 	<ThingDef ParentName="RockBase">
@@ -65,13 +65,13 @@
 			<isResourceRock>true</isResourceRock>
 			<mineableThing>Silver</mineableThing>
 			<mineableYield>80</mineableYield>
-			<mineableScatterCommonality>0.01</mineableScatterCommonality>
+			<mineableScatterCommonality>0</mineableScatterCommonality>
 			<mineableScatterLumpSizeRange>
 				<min>24</min>
 				<max>48</max>
 			</mineableScatterLumpSizeRange>
 			<veinMineable>true</veinMineable>
-			<mineablePreventNaturalRockOnSurface>true</mineablePreventNaturalRockOnSurface>
+			<mineablePreventMeteorite>true</mineablePreventMeteorite>
 		</building>
 	</ThingDef>
 	<ThingDef ParentName="RockBase">
@@ -92,13 +92,13 @@
 			<isResourceRock>true</isResourceRock>
 			<mineableThing>Gold</mineableThing>
 			<mineableYield>80</mineableYield>
-			<mineableScatterCommonality>0.008</mineableScatterCommonality>
+			<mineableScatterCommonality>0</mineableScatterCommonality>
 			<mineableScatterLumpSizeRange>
 				<min>8</min>
 				<max>20</max>
 			</mineableScatterLumpSizeRange>
 			<veinMineable>true</veinMineable>
-			<mineablePreventNaturalRockOnSurface>true</mineablePreventNaturalRockOnSurface>
+			<mineablePreventMeteorite>true</mineablePreventMeteorite>
 		</building>
 	</ThingDef>
 	<ThingDef ParentName="RockBase">
@@ -119,13 +119,13 @@
 			<isResourceRock>true</isResourceRock>
 			<mineableThing>Uranium</mineableThing>
 			<mineableYield>80</mineableYield>
-			<mineableScatterCommonality>0.01</mineableScatterCommonality>
+			<mineableScatterCommonality>0</mineableScatterCommonality>
 			<mineableScatterLumpSizeRange>
 				<min>18</min>
 				<max>36</max>
 			</mineableScatterLumpSizeRange>
 			<veinMineable>true</veinMineable>
-			<mineablePreventNaturalRockOnSurface>true</mineablePreventNaturalRockOnSurface>
+			<mineablePreventMeteorite>true</mineablePreventMeteorite>
 		</building>
 	</ThingDef>
 	<ThingDef ParentName="RockBase">
@@ -146,13 +146,13 @@
 			<isResourceRock>true</isResourceRock>
 			<mineableThing>Plasteel</mineableThing>
 			<mineableYield>80</mineableYield>
-			<mineableScatterCommonality>0.006</mineableScatterCommonality>
+			<mineableScatterCommonality>0</mineableScatterCommonality>
 			<mineableScatterLumpSizeRange>
 				<min>10</min>
 				<max>20</max>
 			</mineableScatterLumpSizeRange>
 			<veinMineable>true</veinMineable>
-			<mineablePreventNaturalRockOnSurface>true</mineablePreventNaturalRockOnSurface>
+			<mineablePreventMeteorite>true</mineablePreventMeteorite>
 		</building>
 	</ThingDef>
 	<ThingDef ParentName="RockBase">
@@ -173,13 +173,13 @@
 			<isResourceRock>true</isResourceRock>
 			<mineableThing>Jade</mineableThing>
 			<mineableYield>80</mineableYield>
-			<mineableScatterCommonality>0.01</mineableScatterCommonality>
+			<mineableScatterCommonality>0</mineableScatterCommonality>
 			<mineableScatterLumpSizeRange>
 				<min>8</min>
 				<max>18</max>
 			</mineableScatterLumpSizeRange>
 			<veinMineable>true</veinMineable>
-			<mineablePreventNaturalRockOnSurface>true</mineablePreventNaturalRockOnSurface>
+			<mineablePreventMeteorite>true</mineablePreventMeteorite>
 		</building>
 	</ThingDef>
 </Defs>
