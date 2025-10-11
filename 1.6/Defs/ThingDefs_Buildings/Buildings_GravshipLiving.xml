@@ -1,665 +1,652 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
-  <ThingDef Name="VGE_GravshipLivingBuildingBase" ParentName="BuildingBase" Abstract="True">
-    <researchPrerequisites>
-      <li>VGE_GravshipLiving</li>
-    </researchPrerequisites>
-    <techLevel>Spacer</techLevel>
-    <altitudeLayer>Building</altitudeLayer>
-    <designationCategory>Odyssey</designationCategory>
-  </ThingDef>
-
-  <ThingDef Name="VGE_GravshipLivingWallMountedBase" ParentName="VGE_GravshipLivingBuildingBase" Abstract="True">
-    <minifiedDef>MinifiedThing</minifiedDef>
-    <thingCategories>
-      <li>BuildingsMisc</li>
-    </thingCategories>
-    <graphicData>
-      <drawOffsetNorth>(0,0,0.9)</drawOffsetNorth>
-      <drawOffsetSouth>(0,0,-0.75)</drawOffsetSouth>
-      <drawOffsetWest>(-0.85,0,0)</drawOffsetWest>
-      <drawOffsetEast>(0.85,0,0)</drawOffsetEast>
-      <damageData>
-        <enabled>false</enabled>
-      </damageData>
-    </graphicData>
-    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
-    <altitudeLayer>BuildingOnTop</altitudeLayer>
-    <passability>Standable</passability>
-    <terrainAffordanceNeeded IsNull="True" />
-    <pathCost>0</pathCost>
-    <building>
-      <isEdifice>false</isEdifice>
-      <isAttachment>true</isAttachment>
-    </building>
-    <placeWorkers>
-      <li>Placeworker_AttachedToWall</li>
-    </placeWorkers>
-  </ThingDef>
-
-  <ThingDef Name="VGE_GravshipLivingBedBase" ParentName="BedWithQualityBase" Abstract="True">
-    <researchPrerequisites>
-      <li>VGE_GravshipLiving</li>
-    </researchPrerequisites>
-    <techLevel>Spacer</techLevel>
-    <leaveResourcesWhenKilled>True</leaveResourcesWhenKilled>
-    <size>(1,2)</size>
-    <designationCategory>Odyssey</designationCategory>
-    <building>
-      <paintable>true</paintable>
-    </building>
-  </ThingDef>
-
-  <ThingDef Name="VGE_GravshipLivingFurnitureBase" ParentName="ArtableFurnitureBase" Abstract="True">
-    <researchPrerequisites>
-      <li>VGE_GravshipLiving</li>
-    </researchPrerequisites>
-    <techLevel>Spacer</techLevel>
-    <designationCategory>Odyssey</designationCategory>
-    <building>
-      <paintable>true</paintable>
-    </building>
-  </ThingDef>
-
-  <ThingDef ParentName="VGE_GravshipLivingBedBase">
-    <defName>VGE_CrewBunkBed</defName>
-    <label>crew bunk bed</label>
-    <description>A compact double-tiered bed designed for gravship use. Maximizes limited space by allowing two crew members to rest in the footprint of one bed.</description>
-    <drawerType>RealtimeOnly</drawerType>
-    <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
-    <graphicData>
-      <texPath>Things/Structures/GravshipFurniture/GravBunkBed/GravBunkBed_Bottom</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <shaderType>CutoutComplex</shaderType>
-      <drawSize>(4,4)</drawSize>
-      <damageData>
-        <rect>(0,0.05,2,1.95)</rect>
-      </damageData>
-    </graphicData>
-    <statBases>
-      <MaxHitPoints>200</MaxHitPoints>
-      <Beauty>1</Beauty>
-      <WorkToBuild>1600</WorkToBuild>
-      <Mass>50</Mass>
-      <BedRestEffectiveness>1</BedRestEffectiveness>
-      <Comfort>0.80</Comfort>
-      <SurgerySuccessChanceFactor>0.8</SurgerySuccessChanceFactor>
-      <ImmunityGainSpeedFactor>1.09</ImmunityGainSpeedFactor>
-    </statBases>
-    <stuffCategories>
-      <li>Metallic</li>
-    </stuffCategories>
-    <costStuffCount>60</costStuffCount>
-    <costList>
-      <GravlitePanel>10</GravlitePanel>
-    </costList>
-    <pathCost>42</pathCost>
-    <fillPercent>0.4</fillPercent>
-    <designationHotKey>Misc2</designationHotKey>
-    <building>
-      <bed_showSleeperBody>false</bed_showSleeperBody>
-      <bed_humanlike>true</bed_humanlike>
-    </building>
-    <uiIconPath>Things/Structures/GravshipFurniture/GravBunkBed/GravBunkBed_MenuIcon</uiIconPath>
-    <comps>
-      <li Class="CompProperties_AffectedByFacilities">
-        <linkableFacilities>
-          <li>VGE_CrewLockers</li>
-        </linkableFacilities>
-      </li>
-      <li Class="BunkBeds.CompProperties_BunkBed">
-        <bedTopGraphicDatas>
-          <li>
-            <texPath>Things/Structures/GravshipFurniture/GravBunkBed/GravBunkBed_Top</texPath>
-            <graphicClass>Graphic_Multi</graphicClass>
-            <shaderType>CutoutComplex</shaderType>
-            <drawSize>(4,4)</drawSize>
-            <damageData>
-              <rect>(0,0.05,2,1.95)</rect>
-            </damageData>
-          </li>
-        </bedTopGraphicDatas>
-        <pawnCount>2</pawnCount>
-        <pawnOffsets>
-          <North>
-            <li>(0.000,0.000,0.284)</li>
-            <li>(0.000,0.000,0.935)</li>
-          </North>
-          <South>
-            <li>(0.000,0.000,0.000)</li>
-            <li>(0.000,0.000,0.307)</li>
-          </South>
-          <East>
-            <li>(0.000,0.000,0.195)</li>
-            <li>(0.000,0.000,-0.455)</li>
-          </East>
-          <West>
-            <li>(-0.231,0.000,0.000)</li>
-            <li>(-0.209,0.000,0.733)</li>
-          </West>
-        </pawnOffsets>
-        <labelOffsets>
-          <Vertical>
-            <li>(0.000,0.000,-0.635)</li>
-            <li>(0.000,0.000,0.150)</li>
-          </Vertical>
-          <Horizontal>
-            <li>(0.000,0.000,0.464)</li>
-            <li>(0.000,0.000,-0.321)</li>
-          </Horizontal>
-        </labelOffsets>
-      </li>
-    </comps>
-  </ThingDef>
-
-  <ThingDef ParentName="VGE_GravshipLivingBedBase">
-    <defName>VGE_MedbayBed</defName>
-    <label>medbay bed</label>
-    <description>A specialized gravship bed equipped with an integrated vitals monitor. Designed for medbays, it improves medical outcomes over normal beds. It draws power directly from the grav engine.</description>
-    <graphicData>
-      <texPath>Things/Structures/GravshipFurniture/GravMedBayBed/GravMedBayBed</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <shaderType>CutoutComplex</shaderType>
-      <drawSize>(4,4)</drawSize>
-    </graphicData>
-    <castEdgeShadows>True</castEdgeShadows>
-    <statBases>
-      <MaxHitPoints>200</MaxHitPoints>
-      <WorkToBuild>3400</WorkToBuild>
-      <Mass>35</Mass>
-      <Flammability>1.0</Flammability>
-      <BedRestEffectiveness>1</BedRestEffectiveness>
-      <Comfort>0.8</Comfort>
-      <ImmunityGainSpeedFactor>1.15</ImmunityGainSpeedFactor>
-      <MedicalTendQualityOffset>0.07</MedicalTendQualityOffset>
-      <SurgerySuccessChanceFactor>1.2</SurgerySuccessChanceFactor>
-      <BirthRitualQualityOffset MayRequire="Ludeon.RimWorld.Biotech">5</BirthRitualQualityOffset>
-    </statBases>
-    <stuffCategories>
-      <li>Metallic</li>
-    </stuffCategories>
-    <costStuffCount>60</costStuffCount>
-    <costList>
-      <GravlitePanel>20</GravlitePanel>
-      <ComponentIndustrial>5</ComponentIndustrial>
-    </costList>
-    <building>
-      <bed_showSleeperBody>False</bed_showSleeperBody>
-      <bed_healPerDay>10</bed_healPerDay>
-      <bed_defaultMedical>true</bed_defaultMedical>
-      <buildingSizeCategory>Small</buildingSizeCategory>
-    </building>
-    <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
-    <fillPercent>0.4</fillPercent>
-    <pathCost>42</pathCost>
-    <staticSunShadowHeight>0.17</staticSunShadowHeight>
-    <designationHotKey>Misc5</designationHotKey>
-    <constructionSkillPrerequisite>9</constructionSkillPrerequisite>
-    <uiIconScale>0.90</uiIconScale>
-    <comps>
-      <li Class="CompProperties_AffectedByFacilities">
-        <linkableFacilities>
-          <li>VGE_CrewLockers</li>
-        </linkableFacilities>
-      </li>
-    </comps>
-  </ThingDef>
-
-  <ThingDef ParentName="VGE_GravshipLivingFurnitureBase">
-    <defName>VGE_CrewLockers</defName>
-    <label>crew lockers</label>
-    <description>A set of compact lockers designed for gravship crew quarters. Provides a small comfort bonus to all nearby bunk beds. Placing more than one locker near the same bed has no effect.</description>
-    <graphicData>
-      <texPath>Things/Structures/GravshipFurniture/GravLocker/GravLocker</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(2,2)</drawSize>
-      <damageData>
-        <cornerTL>Damage/Corner</cornerTL>
-        <cornerTR>Damage/Corner</cornerTR>
-        <cornerBL>Damage/Corner</cornerBL>
-        <cornerBR>Damage/Corner</cornerBR>
-      </damageData>
-    </graphicData>
-    <passability>PassThroughOnly</passability>
-    <fillPercent>0.4</fillPercent>
-    <castEdgeShadows>true</castEdgeShadows>
-    <pathCost>42</pathCost>
-    <stuffCategories>
-      <li>Metallic</li>
-    </stuffCategories>
-    <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
-    <defaultPlacingRot>South</defaultPlacingRot>
-    <costStuffCount>50</costStuffCount>
-    <statBases>
-      <MaxHitPoints>120</MaxHitPoints>
-      <Mass>15</Mass>
-      <WorkToBuild>2000</WorkToBuild>
-      <Flammability>1.0</Flammability>
-      <Beauty>5</Beauty>
-    </statBases>
-    <size>(1,1)</size>
-    <designationHotKey>Misc12</designationHotKey>
-    <staticSunShadowHeight>0.5</staticSunShadowHeight>
-    <surfaceType>Item</surfaceType>
-    <canOverlapZones>false</canOverlapZones>
-    <placeWorkers>
-      <li>PlaceWorker_ShowFacilitiesConnections</li>
-    </placeWorkers>
-    <comps>
-      <li Class="CompProperties_Facility">
-        <statOffsets>
-          <Comfort>0.10</Comfort>
-        </statOffsets>
-        <maxSimultaneous>1</maxSimultaneous>
-        <maxDistance>6</maxDistance>
-      </li>
-    </comps>
-  </ThingDef>
-
-  <ThingDef ParentName="StorageShelfBase">
-    <defName>VGE_GravshipShelf</defName>
-    <label>gravship shelf</label>
-    <description>A reinforced storage shelf designed for use aboard gravships. Items stored in this will not affect room beauty and they won't deteriorate, even if outside.</description>
-    <researchPrerequisites>
-      <li>VGE_GravshipLiving</li>
-    </researchPrerequisites>
-    <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
-    <graphicData>
-      <texPath>Things/Structures/GravshipFurniture/GravShelf/GravShelf</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(3,2)</drawSize>
-    </graphicData>
-    <stuffCategories>
-      <li>Metallic</li>
-    </stuffCategories>
-    <costStuffCount>20</costStuffCount>
-    <costList>
-      <GravlitePanel>5</GravlitePanel>
-    </costList>
-    <pathCost>50</pathCost>
-    <fillPercent>0.4</fillPercent>
-    <statBases>
-      <MaxHitPoints>200</MaxHitPoints>
-      <Mass>12</Mass>
-      <WorkToBuild>1000</WorkToBuild>
-      <StyleDominance MayRequire="Ludeon.RimWorld.Ideology">5</StyleDominance>
-      <Beauty>0.5</Beauty>
-    </statBases>
-    <size>(2,1)</size>
-    <designationHotKey>Misc12</designationHotKey>
-    <designationCategory>Odyssey</designationCategory>
-    <building>
-      <relatedBuildCommands>
-        <li>ShelfSmall</li>
-      </relatedBuildCommands>
-      <maxItemsInCell>6</maxItemsInCell>
-    </building>
-    <techLevel>Spacer</techLevel>
-  </ThingDef>
-
-  <ThingDef ParentName="VGE_GravshipLivingWallMountedBase">
-    <defName>VGE_WallFirefoamPopper</defName>
-    <label>wall firefoam popper</label>
-    <description>A wall-mounted variant of the firefoam popper. When it detects fire, it bursts and sprays fire-retardant foam in a circular area around itself. Can also be triggered manually.</description>
-    <thingClass>Building_FirefoamPopper</thingClass>
-    <graphicData>
-      <texPath>Things/Structures/GravshipFurniture/WallMountedFirefoamPopper/WallMountedFirefoamPopper</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <shadowData>
-        <volume>(0.25, 0.35, 0.25)</volume>
-        <offset>(0,0,-0.1)</offset>
-      </shadowData>
-      <damageData>
-        <enabled>false</enabled>
-      </damageData>
-    </graphicData>
-    <tickerType>Normal</tickerType>
-    <statBases>
-      <MaxHitPoints>50</MaxHitPoints>
-      <WorkToBuild>1500</WorkToBuild>
-      <Mass>10</Mass>
-      <Flammability>1.0</Flammability>
-      <Beauty>-4</Beauty>
-    </statBases>
-    <fillPercent>0.2</fillPercent>
-    <building>
-      <isEdifice>false</isEdifice>
-    </building>
-    <costList>
-      <Steel>75</Steel>
-      <ComponentIndustrial>1</ComponentIndustrial>
-    </costList>
-    <specialDisplayRadius>9.9</specialDisplayRadius>
-    <pathCost>30</pathCost>
-    <passability>Standable</passability>
-    <rotatable>true</rotatable>
-    <designationHotKey>Misc7</designationHotKey>
-    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
-    <comps>
-      <li Class="CompProperties_Explosive">
-        <explosiveRadius>9.9</explosiveRadius>
-        <explosiveDamageType>Extinguish</explosiveDamageType>
-        <startWickHitPointsPercent>-1</startWickHitPointsPercent>
-        <startWickOnDamageTaken>
-          <li>Flame</li>
-        </startWickOnDamageTaken>
-        <postExplosionSpawnThingDef>Filth_FireFoam</postExplosionSpawnThingDef>
-        <postExplosionSpawnChance>1</postExplosionSpawnChance>
-        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
-        <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
-        <explosionEffect>ExtinguisherExplosion</explosionEffect>
-        <explosionSound>Explosion_FirefoamPopper</explosionSound>
-      </li>
-      <li Class="CompProperties_Usable">
-        <useJob>TriggerObject</useJob>
-        <useLabel>Trigger {0_label}</useLabel>
-      </li>
-      <li Class="CompProperties_UseEffect">
-        <compClass>CompUseEffect_StartWick</compClass>
-      </li>
-      <li Class="CompProperties_ProximityFuse">
-        <target>Fire</target>
-        <radius>3</radius>
-      </li>
-    </comps>
-  </ThingDef>
-
-  <ThingDef ParentName="VGE_GravshipLivingBuildingBase">
-    <defName>VGE_CommsTerminal</defName>
-    <label>comms terminal</label>
-    <description>A compact version of a comms console that allows radio contact with other factions and orbital traders. It draws power directly from the grav engine.</description>
-    <thingClass>Building_CommsConsole</thingClass>
-    <graphicData>
-      <texPath>Things/Structures/GravshipFurniture/GravCommsModule/GravshipCommsModule</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(4,2)</drawSize>
-      <damageData>
-        <rect>(0,0,3,1.8)</rect>
-        <cornerBL>Damage/Corner</cornerBL>
-        <cornerBR>Damage/Corner</cornerBR>
-      </damageData>
-      <shadowData>
-        <volume>(3,0.5,2)</volume>
-      </shadowData>
-    </graphicData>
-    <passability>PassThroughOnly</passability>
-    <pathCost>50</pathCost>
-    <blockWind>true</blockWind>
-    <castEdgeShadows>false</castEdgeShadows>
-    <fillPercent>0.5</fillPercent>
-    <canOverlapZones>false</canOverlapZones>
-    <statBases>
-      <MaxHitPoints>150</MaxHitPoints>
-      <WorkToBuild>2600</WorkToBuild>
-      <Flammability>0.6</Flammability>
-      <Mass>60</Mass>
-    </statBases>
-    <size>(3,1)</size>
-    <building>
-      <destroySound>BuildingDestroyed_Metal_Big</destroySound>
-    </building>
-    <costList>
-      <Steel>60</Steel>
-      <GravlitePanel>20</GravlitePanel>
-      <ComponentIndustrial>4</ComponentIndustrial>
-    </costList>
-    <defaultPlacingRot>South</defaultPlacingRot>
-    <interactionCellOffset>(0,0,1)</interactionCellOffset>
-    <hasInteractionCell>true</hasInteractionCell>
-    <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
-    <designationHotKey>Misc3</designationHotKey>
-    <placeWorkers>
-      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
-    </placeWorkers>
-    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
-    <uiIconScale>0.90</uiIconScale>
-    <comps>
-      <li Class="CompProperties_Power">
-        <compClass>CompPowerTrader</compClass>
-        <shortCircuitInRain>true</shortCircuitInRain>
-        <basePowerConsumption>200</basePowerConsumption>
-      </li>
-      <li Class="CompProperties_Flickable" />
-      <li Class="CompProperties_Breakdownable" />
-      <li Class="CompProperties_Usable" MayRequire="Ludeon.RimWorld.Biotech">
-        <useJob>TriggerObject</useJob>
-        <useLabel>Summon diabolus threat</useLabel>
-        <useDuration>900</useDuration>
-        <floatMenuOptionPriority>SummonThreat</floatMenuOptionPriority>
-        <floatMenuFactionIcon>Mechanoid</floatMenuFactionIcon>
-        <ignoreOtherReservations>true</ignoreOtherReservations>
-      </li>
-      <li Class="CompProperties_Useable_CallBossgroup" MayRequire="Ludeon.RimWorld.Biotech">
-        <bossgroupDef>Diabolus</bossgroupDef>
-        <spawnLetterLabelKey>LetterLabelCommsConsoleSpawned</spawnLetterLabelKey>
-        <spawnLetterTextKey>LetterCommsConsoleSpawned</spawnLetterTextKey>
-        <effecterDef>CommsConsoleBossgroupSummoned</effecterDef>
-        <delayTicks>120</delayTicks>
-      </li>
-    </comps>
-  </ThingDef>
-
-  <ThingDef ParentName="VGE_GravshipLivingWallMountedBase">
-    <defName>VGE_WallOrbitalTradeBeacon</defName>
-    <label>wall orbital trade beacon</label>
-    <description>A wall-mounted version of an orbital trade beacon, required for orbital trading. You can only sell goods to orbital traders if they're near an orbital trade beacon. Can be placed indoors.</description>
-    <thingClass>Building_OrbitalTradeBeacon</thingClass>
-    <graphicData>
-      <texPath>Things/Structures/GravshipFurniture/WallMountedOrbitalTraderBeacon/WallMountedOrbitalTradeBeacon</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(1,1)</drawSize>
-      <drawOffsetSouth>(0,0,-0.7)</drawOffsetSouth>
-    </graphicData>
-    <statBases>
-      <MaxHitPoints>75</MaxHitPoints>
-      <WorkToBuild>800</WorkToBuild>
-      <Flammability>0.5</Flammability>
-      <Mass>5</Mass>
-    </statBases>
-    <drawerType>MapMeshAndRealTime</drawerType>
-    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
-    <fillPercent>0.15</fillPercent>
-    <building>
-      <isEdifice>false</isEdifice>
-      <destroySound>BuildingDestroyed_Metal_Small</destroySound>
-    </building>
-    <costList>
-      <Steel>40</Steel>
-      <ComponentIndustrial>1</ComponentIndustrial>
-    </costList>
-    <pathCost>14</pathCost>
-    <rotatable>true</rotatable>
-    <placeWorkers>
-      <li>PlaceWorker_ShowTradeBeaconRadius</li>
-    </placeWorkers>
-    <designationHotKey>Misc2</designationHotKey>
-    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
-    <comps>
-      <li Class="CompProperties_Power">
-        <compClass>CompPowerTrader</compClass>
-        <basePowerConsumption>40</basePowerConsumption>
-      </li>
-      <li Class="CompProperties_Flickable" />
-      <li Class="CompProperties_Breakdownable" />
-    </comps>
-  </ThingDef>
-
-  <ThingDef ParentName="FurnitureWithQualityBase">
-    <defName>VGE_FauxPlant</defName>
-    <label>faux plant</label>
-    <description>An artificial plant in a sturdy metal pot. It requires no light, water, or air, making it perfect for adding beauty to even the most inhospitable gravship environments.</description>
-    <researchPrerequisites>
-      <li>VGE_GravshipLiving</li>
-    </researchPrerequisites>
-    <designationCategory>Odyssey</designationCategory>
-    <graphicData>
-      <texPath>Things/Structures/GravshipFurniture/FauxPlant</texPath>
-      <graphicClass>Graphic_Random</graphicClass>
-      <drawSize>2</drawSize>
-      <shadowData>
-        <volume>(0.55, 0.35, 0.3)</volume>
-        <offset>(0, 0, -0.28)</offset>
-      </shadowData>
-      <damageData>
-        <rect>(0.2,0.2,0.6,0.6)</rect>
-      </damageData>
-    </graphicData>
-    <altitudeLayer>Building</altitudeLayer>
-    <passability>PassThroughOnly</passability>
-    <fillPercent>0.20</fillPercent>
-    <statBases>
-      <MaxHitPoints>75</MaxHitPoints>
-      <WorkToBuild>500</WorkToBuild>
-      <Mass>2</Mass>
-      <Flammability>1.0</Flammability>
-      <Beauty>15</Beauty>
-    </statBases>
-    <costList>
-      <Steel>20</Steel>
-    </costList>
-    <designationHotKey>Misc9</designationHotKey>
-    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
-    <building>
-      <paintable>true</paintable>
-    </building>
-    <rotatable>false</rotatable>
-    <uiIconOffset>(0, -0.05)</uiIconOffset>
-    <techLevel>Spacer</techLevel>
-  </ThingDef>
-
-  <ThingDef ParentName="VGE_GravshipLivingBuildingBase">
-    <defName>VGE_SealantPopper</defName>
-    <label>sealant popper</label>
-    <description>When it detects vacuum levels above 25%, this safety device pops and releases a fast-expanding sealant goo. The substance quickly solidifies, sealing gaps and breaches to restore pressure in the room. Can also be triggered manually.</description>
-    <thingClass>VanillaGravshipExpanded.Building_SealantPopper</thingClass>
-    <graphicData>
-      <texPath>Things/Structures/GravshipFurniture/SealantPopper/SealantPopper</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <shadowData>
-        <volume>(0.25, 0.35, 0.25)</volume>
-        <offset>(0,0,-0.1)</offset>
-      </shadowData>
-      <damageData>
-        <rect>(0.2,0.2,0.6,0.6)</rect>
-      </damageData>
-    </graphicData>
-    <tickerType>Normal</tickerType>
-    <minifiedDef>MinifiedThing</minifiedDef>
-    <thingCategories>
-      <li>BuildingsMisc</li>
-    </thingCategories>
-    <statBases>
-      <MaxHitPoints>50</MaxHitPoints>
-      <WorkToBuild>1500</WorkToBuild>
-      <Mass>10</Mass>
-      <Flammability>1.0</Flammability>
-      <Beauty>-8</Beauty>
-    </statBases>
-    <fillPercent>0.30</fillPercent>
-    <costList>
-      <Steel>55</Steel>
-      <ComponentIndustrial>1</ComponentIndustrial>
-    </costList>
-    <specialDisplayRadius>7</specialDisplayRadius>
-    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
-    <pathCost>30</pathCost>
-    <passability>PassThroughOnly</passability>
-    <rotatable>false</rotatable>
-    <designationHotKey>Misc7</designationHotKey>
-    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
-    <comps>
-      <li Class="CompProperties_Explosive">
-        <explosiveRadius>7</explosiveRadius>
-        <explosiveDamageType>VGE_SealantPopper</explosiveDamageType>
-        <startWickHitPointsPercent>-1</startWickHitPointsPercent>
-        <startWickOnDamageTaken>
-          <li>Flame</li>
-        </startWickOnDamageTaken>
-        <applyDamageToExplosionCellsNeighbors>false</applyDamageToExplosionCellsNeighbors>
-        <explosionEffect>ExtinguisherExplosion</explosionEffect>
-        <explosionSound>Explosion_FirefoamPopper</explosionSound>
-      </li>
-      <li Class="CompProperties_Usable">
-        <useJob>TriggerObject</useJob>
-        <useLabel>Trigger {0_label}</useLabel>
-      </li>
-      <li Class="CompProperties_UseEffect">
-        <compClass>CompUseEffect_StartWick</compClass>
-      </li>
-      <li Class="VanillaGravshipExpanded.CompProperties_SealantPopper">
-        <vacuumThreshold>0.25</vacuumThreshold>
-        <checkIntervalTicks>60</checkIntervalTicks>
-      </li>
-    </comps>
-  </ThingDef>
-
-  <ThingDef>
-    <defName>VGE_SealantGoop</defName>
-    <label>sealant goop</label>
-    <description>A hardened mass of rapidly-expanding polymer foam. Produced by a sealant popper, it forms an airtight plug that seals breaches in gravship rooms exposed to vacuum. While effective at restoring pressure, it is brittle and easy to destroy.</description>
-    <thingClass>Mineable</thingClass>
-    <category>Building</category>
-    <selectable>true</selectable>
-    <drawerType>MapMeshOnly</drawerType>
-    <altitudeLayer>Building</altitudeLayer>
-    <graphicData>
-      <texPath>Things/Structures/GravshipFurniture/SealantGoop/SealantGoop_Atlas</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <linkType>CornerFiller</linkType>
-      <linkFlags Inherit="false">
-        <li>Wall</li>
-        <li>Rock</li>
-      </linkFlags>
-      <damageData>
-        <cornerTL>Damage/Corner</cornerTL>
-        <cornerTR>Damage/Corner</cornerTR>
-        <cornerBL>Damage/Corner</cornerBL>
-        <cornerBR>Damage/Corner</cornerBR>
-        <edgeTop>Damage/Edge</edgeTop>
-        <edgeBot>Damage/Edge</edgeBot>
-        <edgeLeft>Damage/Edge</edgeLeft>
-        <edgeRight>Damage/Edge</edgeRight>
-      </damageData>
-      <shadowData>
-        <volume>(0.3, 0.3, 0.3)</volume>
-      </shadowData>
-    </graphicData>
-    <uiIconPath>Things/Structures/GravshipFurniture/SealantGoop/SealantGoop_MenuIcon</uiIconPath>
-    <altitudeLayer>Building</altitudeLayer>
-    <passability>Impassable</passability>
-    <fillPercent>1.0</fillPercent>
-    <holdsRoof>true</holdsRoof>
-    <blockLight>true</blockLight>
-    <statBases>
-      <MaxHitPoints>20</MaxHitPoints>
-      <Flammability>1.0</Flammability>
-      <Beauty>-3</Beauty>
-    </statBases>
-    <building>
-      <deconstructible>false</deconstructible>
-      <isTargetable>true</isTargetable>
-      <isInert>true</isInert>
-      <claimable>false</claimable>
-      <repairable>false</repairable>
-      <isAirtight>true</isAirtight>
-      <destroyShakeAmount>0</destroyShakeAmount>
-      <canBuildNonEdificesUnder>false</canBuildNonEdificesUnder>
-    </building>
-    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
-    <pathCost>42</pathCost>
-    <rotatable>false</rotatable>
-    <mineable>true</mineable>
-    <damageMultipliers>
-      <li>
-        <damageDef>Bomb</damageDef>
-        <multiplier>2</multiplier>
-      </li>
-      <li>
-        <damageDef>Thump</damageDef>
-        <multiplier>2</multiplier>
-      </li>
-    </damageMultipliers>
-  </ThingDef>
-
+	<ThingDef Name="VGE_GravshipLivingBuildingBase" ParentName="BuildingBase" Abstract="True">
+		<researchPrerequisites>
+			<li>VGE_GravshipLiving</li>
+		</researchPrerequisites>
+		<techLevel>Spacer</techLevel>
+		<altitudeLayer>Building</altitudeLayer>
+		<designationCategory>Odyssey</designationCategory>
+	</ThingDef>
+	<ThingDef Name="VGE_GravshipLivingWallMountedBase" ParentName="VGE_GravshipLivingBuildingBase" Abstract="True">
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsMisc</li>
+		</thingCategories>
+		<graphicData>
+			<drawOffsetNorth>(0,0,0.9)</drawOffsetNorth>
+			<drawOffsetSouth>(0,0,-0.75)</drawOffsetSouth>
+			<drawOffsetWest>(-0.85,0,0)</drawOffsetWest>
+			<drawOffsetEast>(0.85,0,0)</drawOffsetEast>
+			<damageData>
+				<enabled>false</enabled>
+			</damageData>
+		</graphicData>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<passability>Standable</passability>
+		<terrainAffordanceNeeded IsNull="True"/>
+		<pathCost>0</pathCost>
+		<building>
+			<isEdifice>false</isEdifice>
+			<isAttachment>true</isAttachment>
+		</building>
+		<placeWorkers>
+			<li>Placeworker_AttachedToWall</li>
+		</placeWorkers>
+	</ThingDef>
+	<ThingDef Name="VGE_GravshipLivingBedBase" ParentName="BedWithQualityBase" Abstract="True">
+		<researchPrerequisites>
+			<li>VGE_GravshipLiving</li>
+		</researchPrerequisites>
+		<techLevel>Spacer</techLevel>
+		<leaveResourcesWhenKilled>True</leaveResourcesWhenKilled>
+		<size>(1,2)</size>
+		<designationCategory>Odyssey</designationCategory>
+		<building>
+			<paintable>true</paintable>
+		</building>
+	</ThingDef>
+	<ThingDef Name="VGE_GravshipLivingFurnitureBase" ParentName="ArtableFurnitureBase" Abstract="True">
+		<researchPrerequisites>
+			<li>VGE_GravshipLiving</li>
+		</researchPrerequisites>
+		<techLevel>Spacer</techLevel>
+		<designationCategory>Odyssey</designationCategory>
+		<building>
+			<paintable>true</paintable>
+		</building>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipLivingBedBase">
+		<defName>VGE_CrewBunkBed</defName>
+		<label>crew bunk bed</label>
+		<description>A compact double-tiered bed designed for gravship use. Maximizes limited space by allowing two crew members to rest in the footprint of one bed.</description>
+		<drawerType>RealtimeOnly</drawerType>
+		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+		<graphicData>
+			<texPath>Things/Structures/GravshipFurniture/GravBunkBed/GravBunkBed_Bottom</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(4,4)</drawSize>
+			<damageData>
+				<rect>(0,0.05,2,1.95)</rect>
+			</damageData>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<Beauty>1</Beauty>
+			<WorkToBuild>1600</WorkToBuild>
+			<Mass>50</Mass>
+			<BedRestEffectiveness>1</BedRestEffectiveness>
+			<Comfort>0.80</Comfort>
+			<SurgerySuccessChanceFactor>0.8</SurgerySuccessChanceFactor>
+			<ImmunityGainSpeedFactor>1.09</ImmunityGainSpeedFactor>
+		</statBases>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>60</costStuffCount>
+		<costList>
+			<GravlitePanel>10</GravlitePanel>
+		</costList>
+		<pathCost>42</pathCost>
+		<fillPercent>0.4</fillPercent>
+		<designationHotKey>Misc2</designationHotKey>
+		<building>
+			<bed_showSleeperBody>false</bed_showSleeperBody>
+			<bed_humanlike>true</bed_humanlike>
+		</building>
+		<uiIconPath>Things/Structures/GravshipFurniture/GravBunkBed/GravBunkBed_MenuIcon</uiIconPath>
+		<comps>
+			<li Class="CompProperties_AffectedByFacilities">
+				<linkableFacilities>
+					<li>VGE_CrewLockers</li>
+				</linkableFacilities>
+			</li>
+			<li Class="BunkBeds.CompProperties_BunkBed">
+				<bedTopGraphicDatas>
+					<li>
+						<texPath>Things/Structures/GravshipFurniture/GravBunkBed/GravBunkBed_Top</texPath>
+						<graphicClass>Graphic_Multi</graphicClass>
+						<shaderType>CutoutComplex</shaderType>
+						<drawSize>(4,4)</drawSize>
+						<damageData>
+							<rect>(0,0.05,2,1.95)</rect>
+						</damageData>
+					</li>
+				</bedTopGraphicDatas>
+				<pawnCount>2</pawnCount>
+				<pawnOffsets>
+					<North>
+						<li>(0.000,0.000,0.284)</li>
+						<li>(0.000,0.000,0.935)</li>
+					</North>
+					<South>
+						<li>(0.000,0.000,0.000)</li>
+						<li>(0.000,0.000,0.307)</li>
+					</South>
+					<East>
+						<li>(0.000,0.000,0.195)</li>
+						<li>(0.000,0.000,-0.455)</li>
+					</East>
+					<West>
+						<li>(-0.231,0.000,0.000)</li>
+						<li>(-0.209,0.000,0.733)</li>
+					</West>
+				</pawnOffsets>
+				<labelOffsets>
+					<Vertical>
+						<li>(0.000,0.000,-0.635)</li>
+						<li>(0.000,0.000,0.150)</li>
+					</Vertical>
+					<Horizontal>
+						<li>(0.000,0.000,0.464)</li>
+						<li>(0.000,0.000,-0.321)</li>
+					</Horizontal>
+				</labelOffsets>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipLivingBedBase">
+		<defName>VGE_MedbayBed</defName>
+		<label>medbay bed</label>
+		<description>A specialized gravship bed equipped with an integrated vitals monitor. Designed for medbays, it improves medical outcomes over normal beds. It draws power directly from the grav engine.</description>
+		<graphicData>
+			<texPath>Things/Structures/GravshipFurniture/GravMedBayBed/GravMedBayBed</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(4,4)</drawSize>
+		</graphicData>
+		<castEdgeShadows>True</castEdgeShadows>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToBuild>3400</WorkToBuild>
+			<Mass>35</Mass>
+			<Flammability>1.0</Flammability>
+			<BedRestEffectiveness>1</BedRestEffectiveness>
+			<Comfort>0.8</Comfort>
+			<ImmunityGainSpeedFactor>1.15</ImmunityGainSpeedFactor>
+			<MedicalTendQualityOffset>0.07</MedicalTendQualityOffset>
+			<SurgerySuccessChanceFactor>1.2</SurgerySuccessChanceFactor>
+			<BirthRitualQualityOffset MayRequire="Ludeon.RimWorld.Biotech">5</BirthRitualQualityOffset>
+		</statBases>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>60</costStuffCount>
+		<costList>
+			<GravlitePanel>20</GravlitePanel>
+			<ComponentIndustrial>5</ComponentIndustrial>
+		</costList>
+		<building>
+			<bed_showSleeperBody>False</bed_showSleeperBody>
+			<bed_healPerDay>10</bed_healPerDay>
+			<bed_defaultMedical>true</bed_defaultMedical>
+			<buildingSizeCategory>Small</buildingSizeCategory>
+		</building>
+		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+		<fillPercent>0.4</fillPercent>
+		<pathCost>42</pathCost>
+		<staticSunShadowHeight>0.17</staticSunShadowHeight>
+		<designationHotKey>Misc5</designationHotKey>
+		<constructionSkillPrerequisite>9</constructionSkillPrerequisite>
+		<uiIconScale>0.90</uiIconScale>
+		<comps>
+			<li Class="CompProperties_AffectedByFacilities">
+				<linkableFacilities>
+					<li>VGE_CrewLockers</li>
+				</linkableFacilities>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipLivingFurnitureBase">
+		<defName>VGE_CrewLockers</defName>
+		<label>crew lockers</label>
+		<description>A set of compact lockers designed for gravship crew quarters. Provides a small comfort bonus to all nearby bunk beds. Placing more than one locker near the same bed has no effect.</description>
+		<graphicData>
+			<texPath>Things/Structures/GravshipFurniture/GravLocker/GravLocker</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.4</fillPercent>
+		<castEdgeShadows>true</castEdgeShadows>
+		<pathCost>42</pathCost>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+		<defaultPlacingRot>South</defaultPlacingRot>
+		<costStuffCount>50</costStuffCount>
+		<statBases>
+			<MaxHitPoints>120</MaxHitPoints>
+			<Mass>15</Mass>
+			<WorkToBuild>2000</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Beauty>5</Beauty>
+		</statBases>
+		<size>(1,1)</size>
+		<designationHotKey>Misc12</designationHotKey>
+		<staticSunShadowHeight>0.5</staticSunShadowHeight>
+		<surfaceType>Item</surfaceType>
+		<canOverlapZones>false</canOverlapZones>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+		</placeWorkers>
+		<comps>
+			<li Class="CompProperties_Facility">
+				<statOffsets>
+					<Comfort>0.10</Comfort>
+				</statOffsets>
+				<maxSimultaneous>1</maxSimultaneous>
+				<maxDistance>6</maxDistance>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="StorageShelfBase">
+		<defName>VGE_GravshipShelf</defName>
+		<label>gravship shelf</label>
+		<description>A reinforced storage shelf designed for use aboard gravships. Items stored in this will not affect room beauty and they won't deteriorate, even if outside.</description>
+		<researchPrerequisites>
+			<li>VGE_GravshipLiving</li>
+		</researchPrerequisites>
+		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+		<graphicData>
+			<texPath>Things/Structures/GravshipFurniture/GravShelf/GravShelf</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,2)</drawSize>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>20</costStuffCount>
+		<costList>
+			<GravlitePanel>5</GravlitePanel>
+		</costList>
+		<pathCost>50</pathCost>
+		<fillPercent>0.4</fillPercent>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<Mass>12</Mass>
+			<WorkToBuild>1000</WorkToBuild>
+			<StyleDominance MayRequire="Ludeon.RimWorld.Ideology">5</StyleDominance>
+			<Beauty>0.5</Beauty>
+		</statBases>
+		<size>(2,1)</size>
+		<designationHotKey>Misc12</designationHotKey>
+		<designationCategory>Odyssey</designationCategory>
+		<building>
+			<relatedBuildCommands>
+				<li>ShelfSmall</li>
+			</relatedBuildCommands>
+			<maxItemsInCell>6</maxItemsInCell>
+		</building>
+		<techLevel>Spacer</techLevel>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipLivingWallMountedBase">
+		<defName>VGE_WallFirefoamPopper</defName>
+		<label>wall firefoam popper</label>
+		<description>A wall-mounted variant of the firefoam popper. When it detects fire, it bursts and sprays fire-retardant foam in a circular area around itself. Can also be triggered manually.</description>
+		<thingClass>Building_FirefoamPopper</thingClass>
+		<graphicData>
+			<texPath>Things/Structures/GravshipFurniture/WallMountedFirefoamPopper/WallMountedFirefoamPopper</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shadowData>
+				<volume>(0.25, 0.35, 0.25)</volume>
+				<offset>(0,0,-0.1)</offset>
+			</shadowData>
+			<damageData>
+				<enabled>false</enabled>
+			</damageData>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<WorkToBuild>1500</WorkToBuild>
+			<Mass>10</Mass>
+			<Flammability>1.0</Flammability>
+			<Beauty>-4</Beauty>
+		</statBases>
+		<fillPercent>0.2</fillPercent>
+		<building>
+			<isEdifice>false</isEdifice>
+		</building>
+		<costList>
+			<Steel>75</Steel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+		</costList>
+		<specialDisplayRadius>9.9</specialDisplayRadius>
+		<pathCost>30</pathCost>
+		<passability>Standable</passability>
+		<rotatable>true</rotatable>
+		<designationHotKey>Misc7</designationHotKey>
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>9.9</explosiveRadius>
+				<explosiveDamageType>Extinguish</explosiveDamageType>
+				<startWickHitPointsPercent>-1</startWickHitPointsPercent>
+				<startWickOnDamageTaken>
+					<li>Flame</li>
+				</startWickOnDamageTaken>
+				<postExplosionSpawnThingDef>Filth_FireFoam</postExplosionSpawnThingDef>
+				<postExplosionSpawnChance>1</postExplosionSpawnChance>
+				<postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+				<explosionEffect>ExtinguisherExplosion</explosionEffect>
+				<explosionSound>Explosion_FirefoamPopper</explosionSound>
+			</li>
+			<li Class="CompProperties_Usable">
+				<useJob>TriggerObject</useJob>
+				<useLabel>Trigger {0_label}</useLabel>
+			</li>
+			<li Class="CompProperties_UseEffect">
+				<compClass>CompUseEffect_StartWick</compClass>
+			</li>
+			<li Class="CompProperties_ProximityFuse">
+				<target>Fire</target>
+				<radius>3</radius>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipLivingBuildingBase">
+		<defName>VGE_CommsTerminal</defName>
+		<label>comms terminal</label>
+		<description>A compact version of a comms console that allows radio contact with other factions and orbital traders. It draws power directly from the grav engine.</description>
+		<thingClass>Building_CommsConsole</thingClass>
+		<graphicData>
+			<texPath>Things/Structures/GravshipFurniture/GravCommsModule/GravshipCommsModule</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(4,2)</drawSize>
+			<damageData>
+				<rect>(0,0,3,1.8)</rect>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+			<shadowData>
+				<volume>(3,0.5,2)</volume>
+			</shadowData>
+		</graphicData>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<blockWind>true</blockWind>
+		<castEdgeShadows>false</castEdgeShadows>
+		<fillPercent>0.5</fillPercent>
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<WorkToBuild>2600</WorkToBuild>
+			<Flammability>0.6</Flammability>
+			<Mass>60</Mass>
+		</statBases>
+		<size>(3,1)</size>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Big</destroySound>
+		</building>
+		<costList>
+			<Steel>60</Steel>
+			<GravlitePanel>20</GravlitePanel>
+			<ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<defaultPlacingRot>South</defaultPlacingRot>
+		<interactionCellOffset>(0,0,1)</interactionCellOffset>
+		<hasInteractionCell>true</hasInteractionCell>
+		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+		<designationHotKey>Misc3</designationHotKey>
+		<placeWorkers>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+		<uiIconScale>0.90</uiIconScale>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<shortCircuitInRain>true</shortCircuitInRain>
+				<basePowerConsumption>200</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Usable" MayRequire="Ludeon.RimWorld.Biotech">
+				<useJob>TriggerObject</useJob>
+				<useLabel>Summon diabolus threat</useLabel>
+				<useDuration>900</useDuration>
+				<floatMenuOptionPriority>SummonThreat</floatMenuOptionPriority>
+				<floatMenuFactionIcon>Mechanoid</floatMenuFactionIcon>
+				<ignoreOtherReservations>true</ignoreOtherReservations>
+			</li>
+			<li Class="CompProperties_Useable_CallBossgroup" MayRequire="Ludeon.RimWorld.Biotech">
+				<bossgroupDef>Diabolus</bossgroupDef>
+				<spawnLetterLabelKey>LetterLabelCommsConsoleSpawned</spawnLetterLabelKey>
+				<spawnLetterTextKey>LetterCommsConsoleSpawned</spawnLetterTextKey>
+				<effecterDef>CommsConsoleBossgroupSummoned</effecterDef>
+				<delayTicks>120</delayTicks>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipLivingWallMountedBase">
+		<defName>VGE_WallOrbitalTradeBeacon</defName>
+		<label>wall orbital trade beacon</label>
+		<description>A wall-mounted version of an orbital trade beacon, required for orbital trading. You can only sell goods to orbital traders if they're near an orbital trade beacon. Can be placed indoors.</description>
+		<thingClass>Building_OrbitalTradeBeacon</thingClass>
+		<graphicData>
+			<texPath>Things/Structures/GravshipFurniture/WallMountedOrbitalTraderBeacon/WallMountedOrbitalTradeBeacon</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(1,1)</drawSize>
+			<drawOffsetSouth>(0,0,-0.7)</drawOffsetSouth>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<WorkToBuild>800</WorkToBuild>
+			<Flammability>0.5</Flammability>
+			<Mass>5</Mass>
+		</statBases>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+		<fillPercent>0.15</fillPercent>
+		<building>
+			<isEdifice>false</isEdifice>
+			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+		</building>
+		<costList>
+			<Steel>40</Steel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+		</costList>
+		<pathCost>14</pathCost>
+		<rotatable>true</rotatable>
+		<placeWorkers>
+			<li>PlaceWorker_ShowTradeBeaconRadius</li>
+		</placeWorkers>
+		<designationHotKey>Misc2</designationHotKey>
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>40</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="FurnitureWithQualityBase">
+		<defName>VGE_FauxPlant</defName>
+		<label>faux plant</label>
+		<description>An artificial plant in a sturdy metal pot. It requires no light, water, or air, making it perfect for adding beauty to even the most inhospitable gravship environments.</description>
+		<researchPrerequisites>
+			<li>VGE_GravshipLiving</li>
+		</researchPrerequisites>
+		<designationCategory>Odyssey</designationCategory>
+		<graphicData>
+			<texPath>Things/Structures/GravshipFurniture/FauxPlant</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<drawSize>2</drawSize>
+			<shadowData>
+				<volume>(0.55, 0.35, 0.3)</volume>
+				<offset>(0, 0, -0.28)</offset>
+			</shadowData>
+			<damageData>
+				<rect>(0.2,0.2,0.6,0.6)</rect>
+			</damageData>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.20</fillPercent>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<WorkToBuild>500</WorkToBuild>
+			<Mass>2</Mass>
+			<Flammability>1.0</Flammability>
+			<Beauty>15</Beauty>
+		</statBases>
+		<costList>
+			<Steel>20</Steel>
+		</costList>
+		<designationHotKey>Misc9</designationHotKey>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<building>
+			<paintable>true</paintable>
+		</building>
+		<rotatable>false</rotatable>
+		<uiIconOffset>(0, -0.05)</uiIconOffset>
+		<techLevel>Spacer</techLevel>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipLivingBuildingBase">
+		<defName>VGE_SealantPopper</defName>
+		<label>sealant popper</label>
+		<description>When it detects vacuum levels above 25%, this safety device pops and releases a fast-expanding sealant goo. The substance quickly solidifies, sealing gaps and breaches to restore pressure in the room. Can also be triggered manually.</description>
+		<thingClass>VanillaGravshipExpanded.Building_SealantPopper</thingClass>
+		<graphicData>
+			<texPath>Things/Structures/GravshipFurniture/SealantPopper/SealantPopper</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shadowData>
+				<volume>(0.25, 0.35, 0.25)</volume>
+				<offset>(0,0,-0.1)</offset>
+			</shadowData>
+			<damageData>
+				<rect>(0.2,0.2,0.6,0.6)</rect>
+			</damageData>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsMisc</li>
+		</thingCategories>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<WorkToBuild>1500</WorkToBuild>
+			<Mass>10</Mass>
+			<Flammability>1.0</Flammability>
+			<Beauty>-8</Beauty>
+		</statBases>
+		<fillPercent>0.30</fillPercent>
+		<costList>
+			<Steel>55</Steel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+		</costList>
+		<specialDisplayRadius>7</specialDisplayRadius>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<pathCost>30</pathCost>
+		<passability>PassThroughOnly</passability>
+		<rotatable>false</rotatable>
+		<designationHotKey>Misc7</designationHotKey>
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>7</explosiveRadius>
+				<explosiveDamageType>VGE_SealantPopper</explosiveDamageType>
+				<startWickHitPointsPercent>-1</startWickHitPointsPercent>
+				<startWickOnDamageTaken>
+					<li>Flame</li>
+				</startWickOnDamageTaken>
+				<applyDamageToExplosionCellsNeighbors>false</applyDamageToExplosionCellsNeighbors>
+				<explosionEffect>ExtinguisherExplosion</explosionEffect>
+				<explosionSound>Explosion_FirefoamPopper</explosionSound>
+			</li>
+			<li Class="CompProperties_Usable">
+				<useJob>TriggerObject</useJob>
+				<useLabel>Trigger {0_label}</useLabel>
+			</li>
+			<li Class="CompProperties_UseEffect">
+				<compClass>CompUseEffect_StartWick</compClass>
+			</li>
+			<li Class="VanillaGravshipExpanded.CompProperties_SealantPopper">
+				<vacuumThreshold>0.25</vacuumThreshold>
+				<checkIntervalTicks>60</checkIntervalTicks>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef>
+		<defName>VGE_SealantGoop</defName>
+		<label>sealant goop</label>
+		<description>A hardened mass of rapidly-expanding polymer foam. Produced by a sealant popper, it forms an airtight plug that seals breaches in gravship rooms exposed to vacuum. While effective at restoring pressure, it is brittle and easy to destroy.</description>
+		<thingClass>Mineable</thingClass>
+		<category>Building</category>
+		<selectable>true</selectable>
+		<drawerType>MapMeshOnly</drawerType>
+		<altitudeLayer>Building</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Structures/GravshipFurniture/SealantGoop/SealantGoop_Atlas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<linkType>CornerFiller</linkType>
+			<linkFlags Inherit="false">
+				<li>Wall</li>
+				<li>Rock</li>
+			</linkFlags>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+				<edgeTop>Damage/Edge</edgeTop>
+				<edgeBot>Damage/Edge</edgeBot>
+				<edgeLeft>Damage/Edge</edgeLeft>
+				<edgeRight>Damage/Edge</edgeRight>
+			</damageData>
+			<shadowData>
+				<volume>(0.3, 0.3, 0.3)</volume>
+			</shadowData>
+		</graphicData>
+		<uiIconPath>Things/Structures/GravshipFurniture/SealantGoop/SealantGoop_MenuIcon</uiIconPath>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<fillPercent>1.0</fillPercent>
+		<holdsRoof>true</holdsRoof>
+		<blockLight>true</blockLight>
+		<statBases>
+			<MaxHitPoints>20</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<Beauty>-3</Beauty>
+		</statBases>
+		<building>
+			<deconstructible>false</deconstructible>
+			<isTargetable>true</isTargetable>
+			<isInert>true</isInert>
+			<claimable>false</claimable>
+			<repairable>false</repairable>
+			<isAirtight>true</isAirtight>
+			<destroyShakeAmount>0</destroyShakeAmount>
+			<canBuildNonEdificesUnder>false</canBuildNonEdificesUnder>
+			<mineablePreventMeteorite>true</mineablePreventMeteorite>
+			<mineablePreventNaturalRockOnSurface>true</mineablePreventNaturalRockOnSurface>
+		</building>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<pathCost>42</pathCost>
+		<rotatable>false</rotatable>
+		<mineable>true</mineable>
+		<damageMultipliers>
+			<li>
+				<damageDef>Bomb</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+			<li>
+				<damageDef>Thump</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+		</damageMultipliers>
+	</ThingDef>
 </Defs>

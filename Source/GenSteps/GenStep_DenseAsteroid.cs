@@ -21,7 +21,7 @@ namespace VanillaGravshipExpanded
                 GenerateAsteroidElevation(map, parms);
                 GenerateCaveElevation(map, parms);
                 SpawnAsteroidInternal(map);
-                SpawnOres(map, parms);
+                SpawnOresInternal(map, parms);
                 if (Rand.Chance(ruinsChance))
                 {
                     GenerateRuins(map, parms);
@@ -32,6 +32,32 @@ namespace VanillaGravshipExpanded
                 }
                 map.OrbitalDebris = OrbitalDebrisDefOf.Asteroid;
             }
+        }
+
+        private void SpawnOresInternal(Map map, GenStepParams parms)
+        {
+            ThingDef thingDef = ((SpaceMapParent)map.ParentHolder).preciousResource ?? mineableCounts.RandomElement().mineable;
+            int num = 0;
+            for (int i = 0; i < mineableCounts.Count; i++)
+            {
+                if (mineableCounts[i].mineable == thingDef)
+                {
+                    num = mineableCounts[i].countRange.RandomInRange;
+                    break;
+                }
+            }
+            if (num == 0)
+            {
+                Debug.LogError("No count found for resource " + thingDef);
+                return;
+            }
+            int randomInRange = numChunks.RandomInRange;
+            int forcedLumpSize = num / randomInRange;
+            GenStep_ScatterLumpsMineable genStep_ScatterLumpsMineable = new GenStep_ScatterLumpsMineable();
+            genStep_ScatterLumpsMineable.count = randomInRange;
+            genStep_ScatterLumpsMineable.forcedDefToScatter = thingDef;
+            genStep_ScatterLumpsMineable.forcedLumpSize = forcedLumpSize;
+            genStep_ScatterLumpsMineable.Generate(map, parms);
         }
 
         private static void SpawnAsteroidInternal(Map map)
