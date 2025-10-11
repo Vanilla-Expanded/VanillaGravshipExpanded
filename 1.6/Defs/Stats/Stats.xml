@@ -34,10 +34,8 @@
 		<displayPriorityInCategory>3101</displayPriorityInCategory>
 		<parts>
 
-			<li Class="VanillaGravshipExpanded.StatPart_EngineeringConsole" />
-			<li Class="VanillaGravshipExpanded.StatPart_ToxicDustCloud" />
-
-			<li Class="VanillaGravshipExpanded.StatPart_MaintenanceHub"/>
+      <li Class="VanillaGravshipExpanded.StatPart_ToxicDustCloud" />
+      <li Class="VanillaGravshipExpanded.StatPart_LinkedGlobalMaintenanceSensitivity" />
 
 		</parts>
 	</StatDef>
@@ -53,5 +51,15 @@
 		<showIfUndefined>false</showIfUndefined>
 		<displayPriorityInCategory>3101</displayPriorityInCategory>
 	</StatDef>
+  <StatDef>
+    <defName>VGE_GlobalMaintenanceSensitivity</defName>
+    <label>global maintenance sensitivity</label>
+    <description>An offset to the maintenance sensitivity of the grav engine and all its linked facilities.</description>
+    <category>Building</category>
+    <defaultBaseValue>0</defaultBaseValue>
+    <toStringStyle>PercentZero</toStringStyle>
+    <showIfUndefined>false</showIfUndefined>
+    <displayPriorityInCategory>3101</displayPriorityInCategory>
+  </StatDef>
 
 </Defs>

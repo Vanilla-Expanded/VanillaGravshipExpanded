@@ -50,6 +50,9 @@
        
 			</li>
 			<li Class="VanillaGravshipExpanded.CompProperties_EngineeringConsole">
+        <statOffsets>
+          <VGE_GlobalMaintenanceSensitivity>-0.5</VGE_GlobalMaintenanceSensitivity>
+        </statOffsets>
         <maxSimultaneous>1</maxSimultaneous>
         <maxDistance>200</maxDistance>
         <requiresLOS>false</requiresLOS>

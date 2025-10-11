@@ -51,6 +51,7 @@
     <xpath>Defs/ThingDef[defName="GravEngine"]/statBases</xpath>
     <value>
       <VGE_MaintenanceSensitivity>3</VGE_MaintenanceSensitivity>
+      <VGE_GlobalMaintenanceSensitivity>0</VGE_GlobalMaintenanceSensitivity>
       <WorkToBuild>65400</WorkToBuild>
     </value>
   </Operation>

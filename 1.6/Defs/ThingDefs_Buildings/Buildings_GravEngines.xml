@@ -31,6 +31,7 @@
       <SubstructureSupport>100</SubstructureSupport>
       <MarketValue>1800</MarketValue>
       <VGE_MaintenanceSensitivity>3</VGE_MaintenanceSensitivity>
+      <VGE_GlobalMaintenanceSensitivity>0</VGE_GlobalMaintenanceSensitivity>
       <WorkToBuild>18900</WorkToBuild>
     </statBases>
     <uiIconPath>Things/Structures/GravEngines/GravJumperEngine/GravJumperEngine_MenuIcon</uiIconPath>
@@ -140,6 +141,7 @@
       <SubstructureSupport>500</SubstructureSupport>
       <MarketValue>12500</MarketValue>
       <VGE_MaintenanceSensitivity>3</VGE_MaintenanceSensitivity>
+      <VGE_GlobalMaintenanceSensitivity>0</VGE_GlobalMaintenanceSensitivity>
       <WorkToBuild>94000</WorkToBuild>
     </statBases>
     <uiIconPath>Things/Structures/GravEngines/GravHulkEngine/GravHulkEngine_MenuIcon</uiIconPath>

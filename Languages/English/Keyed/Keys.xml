@@ -107,8 +107,7 @@ Please note that keeping several maps open may affect your performance.</VGE_Map
     <VGE_Maintain>Maintain part</VGE_Maintain>
     <VGE_Alert_LowMaintenance>Gravship maintenance low</VGE_Alert_LowMaintenance>
     <VGE_Alert_LowMaintenance_Desc>Some gravship components have low maintenance. This can result in negative launch outcomes and eventual break downs. Consider assigning a colonist to maintain them. Gravship components with low maintenance:\n\n {0}</VGE_Alert_LowMaintenance_Desc>
-    <VGE_StatsReport_EngineeringConsole>Engineering console present</VGE_StatsReport_EngineeringConsole>
-    <VGE_StatsReport_MaintenanceHubs>Maintenance hubs present</VGE_StatsReport_MaintenanceHubs>
+    <VGE_StatsReport_GravEngineGlobalMaintenanceSensitivity>Global maintenance sensitivity</VGE_StatsReport_GravEngineGlobalMaintenanceSensitivity>
 
     <VGE_SetDesiredMaintenance>Set desired maintenance</VGE_SetDesiredMaintenance>
     <VGE_SetDesiredMaintenanceDesc>Set the desired maintenance for all gravship components on this gravship. Colonists assigned to construction will maintain the structures if they fall below the set level.</VGE_SetDesiredMaintenanceDesc>

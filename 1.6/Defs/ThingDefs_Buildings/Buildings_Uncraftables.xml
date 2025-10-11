@@ -72,6 +72,9 @@
 		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
 		<comps>
 			<li Class="CompProperties_GravshipFacility">
+        <statOffsets>
+          <VGE_GlobalMaintenanceSensitivity>-0.25</VGE_GlobalMaintenanceSensitivity>
+        </statOffsets>
 				<requiresLOS>false</requiresLOS>
 				<maxSimultaneous>2</maxSimultaneous>
 				<maxDistance>500</maxDistance>
