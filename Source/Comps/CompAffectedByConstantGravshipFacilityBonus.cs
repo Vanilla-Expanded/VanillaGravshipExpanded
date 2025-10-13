@@ -28,6 +28,9 @@ public class CompAffectedByConstantGravshipFacilityBonus : ThingComp
 
     public override float GetStatOffset(StatDef stat)
     {
+        if (facilities == null)
+            return 0f;
+
         var val = 0f;
 
         for (var i = 0; i < facilities.linkedFacilities.Count; i++)
