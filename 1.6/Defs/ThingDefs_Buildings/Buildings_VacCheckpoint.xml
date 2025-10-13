@@ -23,7 +23,10 @@
     <rotatable>false</rotatable>
     <useHitPoints>False</useHitPoints>
     <scatterableOnMapGen>false</scatterableOnMapGen>
+    <blockWind>false</blockWind>
     <holdsRoof>false</holdsRoof>
+    <staticSunShadowHeight>0.0</staticSunShadowHeight>
+    <blockLight>false</blockLight>
     <fillPercent>0</fillPercent>
     <size>(1,1)</size>
     <stuffCategories Inherit="False"/>
@@ -43,10 +46,10 @@
       <ai_chillDestination>false</ai_chillDestination>
       <wakeDormantPawnsOnConstruction>false</wakeDormantPawnsOnConstruction>
       <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
-<!--      <isEdifice>false</isEdifice>-->
+      <canPlaceOverWall>false</canPlaceOverWall>
     </building>
-<!--    <designationHotKey>Misc10</designationHotKey>-->
-<!--    <drawPlaceWorkersWhileSelected>True</drawPlaceWorkersWhileSelected>-->
+    <replaceTags IsNull="True" />
+    <placeWorkers IsNull="True" />
   </ThingDef>
 
 </Defs>
