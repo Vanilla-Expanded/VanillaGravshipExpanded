@@ -17,9 +17,8 @@ namespace VanillaGravshipExpanded
 
         public float maintenanceThreshold = 0.7f;
 
-        public MaintenanceThreshold_WorldComponent(World world) : base(world)
-        {
-        }
+        public MaintenanceThreshold_WorldComponent(World world) : base(world) => Instance = this;
+        
 
         public override void ExposeData()
         {

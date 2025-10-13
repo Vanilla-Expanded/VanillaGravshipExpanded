@@ -176,26 +176,7 @@ namespace VanillaGravshipExpanded
             return "VGE_Maintenance".Translate(maintenance.ToStringPercent("F2"));
         }
 
-        public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
-        {
-
-            if (!selPawn.RaceProps.ToolUser || !selPawn.CanReserveAndReach(parent, PathEndMode.InteractionCell, Danger.Deadly))
-            {
-                yield break;
-            }
-            if (!selPawn.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation))
-            {
-
-                yield break;
-            }
-            FloatMenuOption floatMenuOption = FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("VGE_Maintain".Translate(), delegate
-            {
-                Job job = JobMaker.MakeJob(VGEDefOf.VGE_MaintainGrav, parent);
-                selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
-            }), selPawn, parent);
-
-            yield return floatMenuOption;
-        }
+       
 
         private void EmissionTick(IFleckCreator fleckDestination)
         {
