@@ -51,6 +51,9 @@
       <relatedTerrain>
         <li>Substructure</li>
       </relatedTerrain>
+      <forcedCostLeavings>
+        <li>Gravcore</li>
+      </forcedCostLeavings>
     </building>
     <costList>
       <Gravcore>1</Gravcore>
@@ -161,6 +164,9 @@
       <relatedTerrain>
         <li>Substructure</li>
       </relatedTerrain>
+      <forcedCostLeavings>
+        <li>Gravcore</li>
+      </forcedCostLeavings>
     </building>
     <costList>
       <Gravcore>5</Gravcore>

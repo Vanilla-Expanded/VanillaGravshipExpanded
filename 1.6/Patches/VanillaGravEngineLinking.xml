@@ -186,4 +186,23 @@
     </match>
   </Operation>
 
+  <!-- Force grav engine to always drop gravcores -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="GravEngine"]/building/forcedCostLeavings</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravEngine"]/building</xpath>
+      <value>
+        <forcedCostLeavings>
+          <li>Gravcore</li>
+        </forcedCostLeavings>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravEngine"]/building/forcedCostLeavings</xpath>
+      <value>
+        <li>Gravcore</li>
+      </value>
+    </match>
+  </Operation>
+
 </Patch>
