@@ -31,6 +31,9 @@
 			<li>PlaceWorker_InSubstructureFootprint</li>
 			<li>PlaceWorker_BuildingsValidOverSubstructure</li>
 		</placeWorkers>
+		<costList>
+			<GravlitePanel>1</GravlitePanel>
+		</costList>
 	</TerrainDef>
 	<TerrainDef ParentName="NaturalTerrainBase">
 		<defName>VGE_AsteroidIce</defName>

@@ -69,7 +69,7 @@ namespace VanillaGravshipExpanded
             {
                 if (pawn.IsHashIntervalTick(tickInterval, delta) && !pawn.Position.Roofed(map) && Rand.Chance(0.5f))
                 {
-                    var bodyPart = pawn.health.hediffSet.GetNotMissingParts().Where(x => x.depth == BodyPartDepth.Outside).RandomElementWithFallback();
+                    var bodyPart = pawn.health.hediffSet.GetRandomNotMissingPart(DamageDefOf.Cut, depth: BodyPartDepth.Outside);
                     if (bodyPart != null)
                     {
                         var dinfo = new DamageInfo(DamageDefOf.Cut, 12f, 0f, -1f, null, bodyPart);

@@ -149,14 +149,22 @@
 					</West>
 				</topGraphicOffsets>
 				<labelOffsets>
-					<Vertical>
-						<li>(0.000,0.000,-0.635)</li>
-						<li>(0.000,0.000,0.150)</li>
-					</Vertical>
-					<Horizontal>
-						<li>(0.000,0.000,0.464)</li>
+					<North>
+						<li>(0.000,0.000,-0.725)</li>
+						<li>(0.000,0.000,0.000)</li>
+					</North>
+					<South>
+						<li>(0.000,0.000,-0.725)</li>
+						<li>(0.000,0.000,0.000)</li>
+					</South>
+					<East>
 						<li>(0.000,0.000,-0.321)</li>
-					</Horizontal>
+						<li>(0.000,0.000,0.397)</li>
+					</East>
+					<West>
+						<li>(0.000,0.000,-0.321)</li>
+						<li>(0.000,0.000,0.397)</li>
+					</West>
 				</labelOffsets>
 				<preventSharingThought>True</preventSharingThought>
 			</li>

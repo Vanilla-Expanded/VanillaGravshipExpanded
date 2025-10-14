@@ -20,8 +20,8 @@ namespace VanillaGravshipExpanded
             {
                 var gravship = __instance.gravship;
                 gravdataCorruptionOccurred[gravship.Engine] = false;
-                ApplyCrashlanding(gravship);
-                RegenScaffondingSections(gravship);
+                ApplyCrashlanding(gravship, __instance.map);
+                RegenScaffondingSections(gravship, __instance.map);
                 __state = (gravship, new Dictionary<LandingOutcomeDef, float>());
                 var customOutcomes = DefDatabase<LandingOutcomeDef>.AllDefsListForReading
                     .Where(x => x.Worker is LandingOutcomeWorker_GravshipBase)
@@ -153,8 +153,11 @@ namespace VanillaGravshipExpanded
 
         public static void CalculateMaintenanceLoss(Gravship gravship, int distanceTravelled, float chance)
         {
-
-
+            if (gravship.Engine.Map is null)
+            {
+                Log.Error("[VGE] gravship engine has no map, skipping maintenance loss.");
+                return;
+            }
             GravMaintainables_MapComponent comp = gravship.Engine.Map.GetComponent<GravMaintainables_MapComponent>();
 
             if (comp != null)
@@ -193,14 +196,10 @@ namespace VanillaGravshipExpanded
                     }
                 }
             }
-            
-            var landmarkSpotted = DefDatabase<LaunchBoonDef>.GetNamedSilentFail("VGE_LandmarkSpotted");
-            landmarkSpotted.Worker.ApplyBoon(gravship);
         }
 
-        private static void RegenScaffondingSections(Gravship gravship)
+        private static void RegenScaffondingSections(Gravship gravship, Map map)
         {
-            var map = gravship.Engine.Map;
             var foundations = gravship.Foundations.Keys;
             foreach (var cell in foundations)
             {
@@ -212,9 +211,8 @@ namespace VanillaGravshipExpanded
             }
         }
 
-        private static void ApplyCrashlanding(Gravship gravship)
+        private static void ApplyCrashlanding(Gravship gravship, Map map)
         {
-            var map = gravship.Engine.Map;
             foreach (var blocker in GravshipMapGenUtility.BlockingThings)
             {
                 if (blocker.def.destroyable)

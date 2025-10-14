@@ -65,6 +65,10 @@ namespace VanillaGravshipExpanded
 
         public static IEnumerable<Thing> GetBlockingThingsInCell(IntVec3 cell, Map map)
         {
+            if (cell.InBounds(map) is false)
+            {
+                yield break;
+            }
             foreach (var thing in cell.GetThingList(map))
             {
                 if (!thing.def.preventGravshipLandingOn)
