@@ -44,7 +44,23 @@ namespace VanillaGravshipExpanded
             {
                 return "GravshipBlockedByTerrain".Translate(cell.GetTerrain(map));
             }
+            if (HasIndestructibleBuilding(cell, map))
+            {
+                return "VGE_CannotLandIndestructibleObstacles".Translate();
+            }
             return true;
+        }
+
+        public static bool HasIndestructibleBuilding(IntVec3 cell, Map map)
+        {
+            foreach (Thing thing in cell.GetThingList(map))
+            {
+                if (thing.def.destroyable == false)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
     }

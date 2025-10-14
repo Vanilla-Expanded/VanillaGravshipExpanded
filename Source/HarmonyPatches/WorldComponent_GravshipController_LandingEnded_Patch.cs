@@ -16,46 +16,61 @@ namespace VanillaGravshipExpanded
         public static Dictionary<Building_GravEngine, bool> gravdataCorruptionOccurred = new Dictionary<Building_GravEngine, bool>();
         public static void Prefix(WorldComponent_GravshipController __instance, out (Gravship gravship, Dictionary<LandingOutcomeDef, float> outcomes) __state)
         {
-            var gravship = __instance.gravship;
-            gravdataCorruptionOccurred[gravship.Engine] = false;
-            ApplyCrashlanding(gravship);
-            RegenScaffondingSections(gravship);
-            gravship.engine.launchInfo.doNegativeOutcome = false;
-            __state = (gravship, new Dictionary<LandingOutcomeDef, float>());
-            var customOutcomes = DefDatabase<LandingOutcomeDef>.AllDefsListForReading
-                .Where(x => x.Worker is LandingOutcomeWorker_GravshipBase)
-                .ToList();
-
-            foreach (var outcome in customOutcomes)
+            try
             {
-                __state.outcomes[outcome] = outcome.weight;
-                var worker = outcome.Worker as LandingOutcomeWorker_GravshipBase;
-                if (worker != null && worker.CanTrigger(gravship) is false)
+                var gravship = __instance.gravship;
+                gravdataCorruptionOccurred[gravship.Engine] = false;
+                ApplyCrashlanding(gravship);
+                RegenScaffondingSections(gravship);
+                __state = (gravship, new Dictionary<LandingOutcomeDef, float>());
+                var customOutcomes = DefDatabase<LandingOutcomeDef>.AllDefsListForReading
+                    .Where(x => x.Worker is LandingOutcomeWorker_GravshipBase)
+                    .ToList();
+
+                foreach (var outcome in customOutcomes)
                 {
-                    outcome.weight = 0;
+                    __state.outcomes[outcome] = outcome.weight;
+                    var worker = outcome.Worker as LandingOutcomeWorker_GravshipBase;
+                    if (worker != null && worker.CanTrigger(gravship) is false)
+                    {
+                        outcome.weight = 0;
+                    }
                 }
+
+                // Remove cooldown if there's a grav anchor
+                if (__instance.map.listerThings.AnyThingWithDef(ThingDefOf.GravAnchor))
+                    __instance.gravship.engine.cooldownCompleteTick = GenTicks.TicksGame;
             }
-            
-            // Remove cooldown if there's a grav anchor
-            if (__instance.map.listerThings.AnyThingWithDef(ThingDefOf.GravAnchor))
-                __instance.gravship.engine.cooldownCompleteTick = GenTicks.TicksGame;
+            catch (System.Exception ex)
+            {
+                Log.Error($"[VGE] Exception in LandingEnded Prefix: {ex}");
+                __state = (null, null);
+            }
         }
 
         public static void Postfix(WorldComponent_GravshipController __instance, (Gravship gravship, Dictionary<LandingOutcomeDef, float> outcomes) __state)
         {
-            bool negateMaintenance = false;
-            int distanceTravelled = 0;
-            var gravship = __state.gravship;
-            ApplyGravDataYield(gravship, out distanceTravelled);
-            TryTriggerLaunchBoon(gravship, out negateMaintenance);
-            if (!negateMaintenance)
+            try
             {
-                CalculateMaintenanceLoss(gravship, distanceTravelled, 1);
+                bool negateMaintenance = false;
+                int distanceTravelled = 0;
+                var gravship = __state.gravship;
+                ApplyGravDataYield(gravship, out distanceTravelled);
+                TryTriggerLaunchBoon(gravship, out negateMaintenance);
+                if (!negateMaintenance)
+                {
+                    CalculateMaintenanceLoss(gravship, distanceTravelled, 1);
+                }
+                gravdataCorruptionOccurred[gravship.Engine] = false;
+                foreach (var kvp in __state.outcomes)
+                {
+                    kvp.Key.weight = kvp.Value;
+                }
+                Log.Message(__state.outcomes.Select(kvp => $"{kvp.Key.defName}: {kvp.Key.weight}").ToStringSafeEnumerable());
             }
-            gravdataCorruptionOccurred[gravship.Engine] = false;
-            foreach (var kvp in __state.outcomes)
+            catch (System.Exception ex)
             {
-                kvp.Key.weight = kvp.Value;
+                Log.Error($"[VGE] Exception in LandingEnded Postfix: {ex}");
             }
         }
 
@@ -161,29 +176,20 @@ namespace VanillaGravshipExpanded
             var launchInfo = gravship.Engine?.launchInfo;
             if (launchInfo == null)
             {
-
                 return;
             }
 
             float quality = launchInfo.quality;
             float boonChance = GravshipHelper.LaunchBoonChanceFromQuality(quality);
-            bool dev = false;
-            if (dev)
+            if (Rand.Chance(boonChance))
             {
-                DefDatabase<LaunchBoonDef>.AllDefsListForReading.Where(x => x.Worker.CanTrigger(gravship)).ToList().ForEach(x => x.Worker.ApplyBoon(gravship));
-            }
-            else
-            {
-                if (Rand.Chance(boonChance))
+                var launchBoons = DefDatabase<LaunchBoonDef>.AllDefsListForReading.Where(x => x.Worker.CanTrigger(gravship)).ToList();
+                if (launchBoons.TryRandomElementByWeight(x => x.weight, out LaunchBoonDef selectedBoon))
                 {
-                    var launchBoons = DefDatabase<LaunchBoonDef>.AllDefsListForReading.Where(x => x.Worker.CanTrigger(gravship)).ToList();
-                    if (launchBoons.TryRandomElementByWeight(x => x.weight, out LaunchBoonDef selectedBoon))
+                    selectedBoon.Worker.ApplyBoon(gravship);
+                    if (selectedBoon.negateMaintenance)
                     {
-                        selectedBoon.Worker.ApplyBoon(gravship);
-                        if (selectedBoon.negateMaintenance)
-                        {
-                            negateMaintenance = true;
-                        }
+                        negateMaintenance = true;
                     }
                 }
             }
@@ -194,13 +200,12 @@ namespace VanillaGravshipExpanded
         {
             var map = gravship.Engine.Map;
             var foundations = gravship.Foundations.Keys;
-            ulong dirtyFlags = (ulong)MapMeshFlagDefOf.Terrain;
             foreach (var cell in foundations)
             {
                 var loc = cell + gravship.Engine.Position;
                 if (loc.InBounds(map) && loc.GetTerrain(map) == VGEDefOf.VGE_GravshipSubscaffold)
                 {
-                    map.mapDrawer.MapMeshDirty(loc, dirtyFlags, regenAdjacentCells: true, regenAdjacentSections: false);
+                    map.mapDrawer.MapMeshDirty(loc, MapMeshFlagDefOf.Terrain, regenAdjacentCells: true, regenAdjacentSections: false);
                 }
             }
         }

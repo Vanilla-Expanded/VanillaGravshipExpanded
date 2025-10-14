@@ -11,6 +11,7 @@
 		<isPaintable>true</isPaintable>
 		<isFoundation>true</isFoundation>
 		<preventCraters>true</preventCraters>
+		<layerable>true</layerable>
 		<affordances>
 			<li>Substructure</li>
 			<li>Walkable</li>

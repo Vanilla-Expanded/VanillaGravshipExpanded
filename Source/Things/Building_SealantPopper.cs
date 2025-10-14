@@ -8,7 +8,7 @@ namespace VanillaGravshipExpanded
     {
         private bool autoRebuild;
 
-        private static readonly CachedTexture RebuildCommandTex = new CachedTexture("UI/Commands/RearmSealantPopper");
+        private static readonly CachedTexture RebuildCommandTex = new CachedTexture("UI/Gizmos/RearmSealantPopper");
 
         private bool CanSetAutoRebuild
         {

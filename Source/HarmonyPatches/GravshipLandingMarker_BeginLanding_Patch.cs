@@ -12,6 +12,12 @@ namespace VanillaGravshipExpanded
     {
         public static bool Prefix(GravshipLandingMarker __instance, WorldComponent_GravshipController gravshipController)
         {
+            if (__instance.GravshipCells.Select(x => x + __instance.Position).Any(c => Designator_MoveGravship_IsValidCell_Patch.HasIndestructibleBuilding(c, __instance.Map)))
+            {
+                Messages.Message("VGE_CannotLandIndestructibleObstacles".Translate(), MessageTypeDefOf.RejectInput, historical: false);
+                return false;
+            }
+
             var things = GravshipMapGenUtility.GetBlockingThings(__instance.GravshipCells.Select(x => x + __instance.Position), __instance.Map);
             if (things.Any())
             {
