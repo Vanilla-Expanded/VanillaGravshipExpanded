@@ -10,8 +10,8 @@
       <li Class="VanillaGravshipExpanded.CompProperties_ApparelOxygenProvider">
         <maxCharges>75</maxCharges>
         <percentageToAutoRefuel>0.334</percentageToAutoRefuel>
-        <ammoDef>VGE_OxygenCanister</ammoDef>
-        <ammoCountPerCharge>1</ammoCountPerCharge>
+        <fuelDef>VGE_OxygenCanister</fuelDef>
+        <fuelCountPerCharge>1</fuelCountPerCharge>
         <destroyOnEmpty>false</destroyOnEmpty>
         <chargeNoun>oxygen u³</chargeNoun>
       </li>

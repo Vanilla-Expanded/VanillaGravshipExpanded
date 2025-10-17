@@ -3,32 +3,46 @@ using RimWorld;
 using RimWorld.Utility;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace VanillaGravshipExpanded;
 
-public class CompApparelOxygenProvider : CompApparelReloadable, IReloadableComp
+public class CompApparelOxygenProvider : ThingComp, IReloadableComp
 {
     private static int LastCheckTick = -1;
     private static Pawn LastCheckPawn = null;
 
-    private float useProgress;
+    private float remainingCharges;
     public float rechargeAtCharges;
     private bool automaticRechargeEnabled = true;
+    private int replenishInTicks = -1;
     [Unsaved] private Gizmo_OxygenProvider oxygenConfigurationGizmo;
 
-    public new CompProperties_ApparelOxygenProvider Props => (CompProperties_ApparelOxygenProvider)props;
+    public CompProperties_ApparelOxygenProvider Props => (CompProperties_ApparelOxygenProvider)props;
 
-    public new string LabelRemaining => $"{RemainingChargesExact} / {MaxCharges}";
+    public int RemainingCharges => Mathf.CeilToInt(remainingCharges);
 
-    public float RemainingChargesExact => Mathf.Max(RemainingCharges - useProgress, 0);
+    public int MaxCharges => Props.maxCharges;
 
-    public float ValuePercent => Mathf.Clamp01((RemainingCharges - useProgress) / Props.maxCharges);
+    public string LabelRemaining => $"{RemainingChargesExact} / {MaxCharges}";
+
+    public float RemainingChargesExact => remainingCharges;
+
+    public float ValuePercent => Mathf.Clamp01(remainingCharges / Props.maxCharges);
+
+    public ThingDef AmmoDef => Props.fuelDef;
+
+    public Thing ReloadableThing => parent;
+
+    public int BaseReloadTicks => Props.baseRefuelTicks;
 
     public bool AutomaticRechargeEnabled
     {
         get => automaticRechargeEnabled;
         set => automaticRechargeEnabled = value;
     }
+
+    public Pawn Wearer => (ParentHolder as Pawn_ApparelTracker)?.pawn;
 
     public override void PostPostMake()
     {
@@ -40,6 +54,13 @@ public class CompApparelOxygenProvider : CompApparelReloadable, IReloadableComp
     public override void CompTickInterval(int delta)
     {
         base.CompTickInterval(delta);
+
+        if (Props.replenishAfterCooldown && RemainingCharges == 0)
+        {
+            replenishInTicks -= delta;
+            if (replenishInTicks <= 0)
+                remainingCharges = MaxCharges;
+        }
 
         // Don't run this code too often, and don't run it if we don't have enough charges.
         // Also, specifically use the wearer for ticking so each worn oxygen provider ticks at the
@@ -89,15 +110,10 @@ public class CompApparelOxygenProvider : CompApparelReloadable, IReloadableComp
         if (baseVacuumResistance >= 1)
             return;
 
-        useProgress += Props.consumptionPerTick * 60;
-        if (useProgress >= 1)
-        {
-            remainingCharges--;
-            useProgress -= 1;
-        }
+        remainingCharges -= Props.consumptionPerTick * 60;
     }
 
-    public new bool NeedsReload(bool allowForceReload)
+    public bool NeedsReload(bool allowForceReload)
     {
         // Just in case
         if (AmmoDef == null)
@@ -108,24 +124,48 @@ public class CompApparelOxygenProvider : CompApparelReloadable, IReloadableComp
         // If automatic recharge is disabled, don't allow reloading unless forced
         if (!allowForceReload && !AutomaticRechargeEnabled)
             return false;
+
         return RemainingCharges != MaxCharges && (!allowForceReload || RemainingCharges <= rechargeAtCharges);
     }
 
-    public new bool CanBeUsed(out string reason)
+    public void ReloadFrom(Thing ammo)
     {
-        reason = null;
-        return false;
-    }
+        if (!NeedsReload(true))
+            return;
 
-    public new string DisabledReason(int minNeeded, int maxNeeded) => null;
+        if (Props.fuelCountToRefill != 0)
+        {
+            if (ammo.stackCount < Props.fuelCountToRefill)
+            {
+                return;
+            }
+            ammo.SplitOff(Props.fuelCountToRefill).Destroy();
+            remainingCharges = MaxCharges;
+        }
+        else
+        {
+            if (ammo.stackCount < Props.fuelCountPerCharge)
+                return;
+
+            var num = Mathf.Clamp(ammo.stackCount / Props.fuelCountPerCharge, 0, MaxCharges - RemainingCharges);
+            ammo.SplitOff(num * Props.fuelCountPerCharge).Destroy();
+            remainingCharges += num;
+        }
+
+        Props.soundRefuel?.PlayOneShot(new TargetInfo(Wearer.Position, Wearer.Map));
+    }
 
     public override void PostExposeData()
     {
         base.PostExposeData();
 
-        Scribe_Values.Look(ref useProgress, nameof(useProgress));
+        Scribe_Values.Look(ref remainingCharges, nameof(remainingCharges), -999);
         Scribe_Values.Look(ref rechargeAtCharges, nameof(rechargeAtCharges));
         Scribe_Values.Look(ref automaticRechargeEnabled, nameof(automaticRechargeEnabled), true);
+        Scribe_Values.Look(ref replenishInTicks, nameof(replenishInTicks), -1);
+
+        if (Scribe.mode == LoadSaveMode.PostLoadInit && Mathf.Approximately(remainingCharges, -999))
+            remainingCharges = remainingCharges = MaxCharges;
     }
 
     public override IEnumerable<Gizmo> CompGetGizmosExtra()
@@ -155,11 +195,50 @@ public class CompApparelOxygenProvider : CompApparelReloadable, IReloadableComp
             defaultLabel = "DEV: Set to empty",
             action = () => remainingCharges = 0,
         };
+        yield return new Command_Action
+        {
+            defaultLabel = "DEV: Reload to full",
+            action = () => remainingCharges = MaxCharges,
+        };
     }
 
     public void SetRechargeValuePct(float val) => rechargeAtCharges = val * MaxCharges;
 
-    // All 3 methods are the same as parent method, but we call our own LabelRemaining/RemainingChargesExact which includes *fractions*.
+    public string DisabledReason(int minNeeded, int maxNeeded) => null;
+
+    public int MinAmmoNeeded(bool allowForcedReload)
+    {
+        if (!NeedsReload(allowForcedReload))
+            return 0;
+        if (Props.fuelCountToRefill != 0)
+            return Props.fuelCountToRefill;
+        return Props.fuelCountPerCharge;
+    }
+
+    public int MaxAmmoNeeded(bool allowForcedReload)
+    {
+        if (!NeedsReload(allowForcedReload))
+            return 0;
+        if (Props.fuelCountToRefill != 0)
+            return Props.fuelCountToRefill;
+        return Props.fuelCountPerCharge * (MaxCharges - RemainingCharges);
+    }
+
+    public int MaxAmmoAmount()
+    {
+        if (AmmoDef == null)
+            return 0;
+        if (Props.fuelCountToRefill == 0)
+            return Props.fuelCountPerCharge * MaxCharges;
+        return Props.fuelCountToRefill;
+    }
+
+    public bool CanBeUsed(out string reason)
+    {
+        reason = null;
+        return true;
+    }
+
     public override string CompInspectStringExtra() => "ChargesRemaining".Translate(Props.ChargeNounArgument) + ": " + LabelRemaining;
 
     public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
