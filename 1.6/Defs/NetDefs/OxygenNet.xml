@@ -95,6 +95,73 @@
 		</researchPrerequisites>
 	</ThingDef>
 	<ThingDef ParentName="BuildingBase">
+		<defName>VGE_HiddenOxygenPipe</defName>
+		<label>hidden oxygen pipe</label>
+		<description>A hidden, reinforced tube for moving oxygen around. While it’s not visible, it is much more expensive to construct.</description>
+		<thingClass>PipeSystem.Building_Pipe</thingClass>
+		<category>Building</category>
+		<tickerType>Rare</tickerType>
+		<graphicData>
+			<texPath>UI/CSG/IConduit</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<linkType>Basic</linkType>
+			<linkFlags>
+				<li>Custom7</li>
+			</linkFlags>
+			<damageData>
+				<rect>(0,0.35,1,0.3)</rect>
+			</damageData>
+		</graphicData>
+		<uiIconPath>Things/PipeNetworks/Oxygen/HiddenOxygenPipes_MenuIcon</uiIconPath>
+		<uiIconScale>0.7</uiIconScale>
+		<building>
+			<ai_chillDestination>false</ai_chillDestination>
+			<isInert>true</isInert>
+			<isEdifice>false</isEdifice>
+			<blueprintGraphicData>
+				<texPath>Things/PipeNetworks/Oxygen/OxygenPipes_Blueprint_Atlas</texPath>
+			</blueprintGraphicData>
+			<canConstructInCorner>true</canConstructInCorner>
+			<ai_neverTrashThis>true</ai_neverTrashThis>
+			<isTargetable>false</isTargetable>
+			<expandHomeArea>false</expandHomeArea>
+			<canBeDamagedByAttacks>false</canBeDamagedByAttacks>
+		</building>
+		<drawerType>MapMeshOnly</drawerType>
+		<altitudeLayer>Conduits</altitudeLayer>
+		<passability>Standable</passability>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<statBases>
+			<MaxHitPoints>80</MaxHitPoints>
+			<WorkToBuild>70</WorkToBuild>
+			<Flammability>0.7</Flammability>
+			<MarketValue>3</MarketValue>
+		</statBases>
+		<drawStyleCategory>Conduits</drawStyleCategory>
+		<costList>
+			<Steel>2</Steel>
+		</costList>
+		<comps>
+			<li Class="PipeSystem.CompProperties_Resource">
+				<pipeNet>VGE_OxygenNet</pipeNet>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PipeSystem.PlaceWorker_Pipe</li>
+		</placeWorkers>
+		<rotatable>false</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<designationCategory>Odyssey</designationCategory>
+		<constructEffect>ConstructMetal</constructEffect>
+		<clearBuildingArea>false</clearBuildingArea>
+		<researchPrerequisites>
+			<li>VGE_OxygenNetwork</li>
+		</researchPrerequisites>
+	</ThingDef>
+	<ThingDef ParentName="BuildingBase">
 		<defName>VGE_OxygenValve</defName>
 		<label>oxygen valve</label>
 		<description>Switches oxygen flow on and off.</description>
@@ -212,7 +279,7 @@
 			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
        
 			</li>
-			 <li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Breakdownable"/>
 		</comps>
 		<rotatable>true</rotatable>
 		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
@@ -270,7 +337,7 @@
 				<barHorizontal>true</barHorizontal>
 				<rotateBarWithBuilding>false</rotateBarWithBuilding>
 				<extractOptions>
-          <texPath>UI/Gizmos/ExtractOxygen_Gizmo</texPath>
+					<texPath>UI/Gizmos/ExtractOxygen_Gizmo</texPath>
 					<labelKey>VGE_ExtractOxygen</labelKey>
 					<descKey>VGE_ExtractOxygenDesc</descKey>
 					<extractAmount>10</extractAmount>
@@ -291,7 +358,7 @@
 			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
        
 			</li>
-			 <li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Breakdownable"/>
 		</comps>
 		<rotatable>true</rotatable>
 		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
@@ -592,10 +659,9 @@
 			<li>
 				<compClass>VEF.Graphics.CompDirtyMapMeshOnRefuelableChange</compClass>
 			</li>
-			 <li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
+			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
        
 			</li>
-			
 		</comps>
 		<designationCategory>Odyssey</designationCategory>
 		<researchPrerequisites>
@@ -687,7 +753,6 @@
 		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
 		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
 	</ThingDef>
-
 	<ThingDef ParentName="GravshipComponentBase">
 		<defName>VGE_OxygenReclaimer</defName>
 		<label>oxygen reclaimer</label>
@@ -746,8 +811,8 @@
 				<maxSimultaneous>4</maxSimultaneous>
 				<maxDistance>500</maxDistance>
 			</li>
-			 <li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
-       <fleckEmissionRate>1</fleckEmissionRate>
+			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
+				<fleckEmissionRate>1</fleckEmissionRate>
 			</li>
 		</comps>
 		<tradeTags>

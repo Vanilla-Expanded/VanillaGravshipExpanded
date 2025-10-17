@@ -18,7 +18,7 @@ namespace VanillaGravshipExpanded
                 List<Thing> linkedFacilitiesListForReading = affectedBy.LinkedFacilitiesListForReading;
                 for (int i = 0; i < linkedFacilitiesListForReading.Count; i++)
                 {
-                    if (linkedFacilitiesListForReading[i].def == VGEDefOf.VGE_CapacitorHarmonizer)
+                    if (linkedFacilitiesListForReading[i].def == VGEDefOf.VGE_CapacitorHarmonizer && linkedFacilitiesListForReading[i].TryGetComp<CompBreakdownable>()?.BrokenDown !=true)
                     {
                         return 1;
                     }
