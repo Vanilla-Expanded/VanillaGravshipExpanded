@@ -125,7 +125,7 @@ public class CompApparelOxygenProvider : ThingComp, IReloadableComp
         if (!allowForceReload && !AutomaticRechargeEnabled)
             return false;
 
-        return RemainingCharges != MaxCharges && (!allowForceReload || RemainingCharges <= rechargeAtCharges);
+        return RemainingCharges != MaxCharges && (allowForceReload || RemainingCharges <= rechargeAtCharges);
     }
 
     public void ReloadFrom(Thing ammo)
@@ -192,12 +192,17 @@ public class CompApparelOxygenProvider : ThingComp, IReloadableComp
 
         yield return new Command_Action
         {
-            defaultLabel = "DEV: Set to empty",
+            defaultLabel = "DEV: Set oxygen to empty",
             action = () => remainingCharges = 0,
         };
         yield return new Command_Action
         {
-            defaultLabel = "DEV: Reload to full",
+            defaultLabel = "DEV: Oxygen -20%",
+            action = () => remainingCharges = Mathf.Max(0, remainingCharges - Props.maxCharges * 0.2f)
+        };
+        yield return new Command_Action
+        {
+            defaultLabel = "DEV: Set oxygen to full",
             action = () => remainingCharges = MaxCharges,
         };
     }
