@@ -159,6 +159,7 @@
 		<clearBuildingArea>false</clearBuildingArea>
 		<researchPrerequisites>
 			<li>VGE_OxygenNetwork</li>
+			<li>StandardGravtech</li>
 		</researchPrerequisites>
 	</ThingDef>
 	<ThingDef ParentName="BuildingBase">

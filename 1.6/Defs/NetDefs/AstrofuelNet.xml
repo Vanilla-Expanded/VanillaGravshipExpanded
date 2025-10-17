@@ -159,7 +159,7 @@
 		<constructEffect>ConstructMetal</constructEffect>
 		<clearBuildingArea>false</clearBuildingArea>
 		<researchPrerequisites>
-			<li>BasicGravtech</li>
+			<li>StandardGravtech</li>
 		</researchPrerequisites>
 	</ThingDef>
 	<ThingDef ParentName="BuildingBase">
