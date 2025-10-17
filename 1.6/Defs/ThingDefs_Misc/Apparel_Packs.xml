@@ -4,7 +4,7 @@
   <ThingDef ParentName="ApparelNoQualityBase">
     <defName>VGE_Apparel_OxygenPack</defName>
     <label>oxygen pack</label>
-    <description>A utility pack containing a large supply of compressed oxygen. When worn with vacuum-sealed apparel, it provides full immunity to vacuum by supplying breathable air. The pack only consumes oxygen while in vacuum and must be periodically reloaded.</description>
+    <description>A utility pack containing a large supply of compressed oxygen. When worn with vacuum-sealed apparel, it provides full immunity to vacuum by supplying breathable air. The pack only consumes oxygen while in vacuum and must be periodically reloaded. It also dramatically reduces exposure to pollution through the lungs.</description>
     <techLevel>Industrial</techLevel>
     <comps>
       <li Class="VanillaGravshipExpanded.CompProperties_ApparelOxygenProvider">
@@ -48,6 +48,9 @@
 <!--      <Flammability>0.4</Flammability>-->
       <EquipDelay>3</EquipDelay>
     </statBases>
+    <equippedStatOffsets>
+      <ToxicEnvironmentResistance>0.8</ToxicEnvironmentResistance>
+    </equippedStatOffsets>
     <thingCategories>
       <li>ApparelUtility</li>
     </thingCategories>
