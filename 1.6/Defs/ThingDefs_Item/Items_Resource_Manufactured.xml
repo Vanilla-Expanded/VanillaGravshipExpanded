@@ -49,7 +49,7 @@
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>0.85</drawSize>
     </graphicData>
-    <stackLimit>150</stackLimit>
+    <stackLimit>75</stackLimit>
     <healthAffectsPrice>false</healthAffectsPrice>
     <intricate>true</intricate> <!-- Not returned to player when product made of this is smelted. -->
     <statBases>
