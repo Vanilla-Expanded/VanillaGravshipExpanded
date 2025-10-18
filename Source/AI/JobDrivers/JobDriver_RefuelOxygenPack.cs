@@ -29,7 +29,7 @@ public class JobDriver_RefuelOxygenPack : JobDriver
 			var target = TargetPawn;
 
 			this.FailOn(() => reloadableComp == null);
-			this.FailOn(() => ReloadableUtility.OwnerOf(reloadableComp) != pawn);
+			this.FailOn(() => ReloadableUtility.OwnerOf(reloadableComp) != target);
 			this.FailOn(() => !reloadableComp!.NeedsReload(true));
 
 			this.FailOnDestroyedOrNull(GearInd);
@@ -84,7 +84,7 @@ public class JobDriver_RefuelOxygenPack : JobDriver
         else
         {
 	        yield return Toils_Goto.GotoThing(PawnInd, PathEndMode.Touch);
-	        Toils_General.WaitWith(PawnInd, reloadable.BaseReloadTicks, true, true, true, PawnInd);
+	        yield return Toils_General.WaitWith(PawnInd, reloadable.BaseReloadTicks, true, true, true, PawnInd);
         }
 
         var reload = ToilMaker.MakeToil();

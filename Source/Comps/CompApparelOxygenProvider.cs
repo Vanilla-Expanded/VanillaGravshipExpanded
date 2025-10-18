@@ -24,9 +24,11 @@ public class CompApparelOxygenProvider : ThingComp, IReloadableComp
 
     public int MaxCharges => Props.maxCharges;
 
-    public string LabelRemaining => $"{RemainingChargesExact} / {MaxCharges}";
+    public string LabelRemaining => $"{RemainingChargesExactString} / {MaxCharges}";
 
     public float RemainingChargesExact => remainingCharges;
+
+    public string RemainingChargesExactString => $"{RemainingChargesExact:0.00}";
 
     public float ValuePercent => Mathf.Clamp01(remainingCharges / Props.maxCharges);
 
@@ -251,5 +253,5 @@ public class CompApparelOxygenProvider : ThingComp, IReloadableComp
         yield return new StatDrawEntry(StatCategoryDefOf.Apparel, "Stat_Thing_ReloadChargesRemaining_Name".Translate(Props.ChargeNounArgument), LabelRemaining, "Stat_Thing_ReloadChargesRemaining_Desc".Translate(Props.ChargeNounArgument), 2749);
     }
 
-    public override string CompTipStringExtra() => $"\n\n{"Stat_Thing_ReloadChargesRemaining_Name".Translate(Props.ChargeNounArgument).CapitalizeFirst()}: {RemainingChargesExact} / {MaxCharges}";
+    public override string CompTipStringExtra() => $"\n\n{"Stat_Thing_ReloadChargesRemaining_Name".Translate(Props.ChargeNounArgument).CapitalizeFirst()}: {RemainingChargesExactString} / {MaxCharges}";
 }

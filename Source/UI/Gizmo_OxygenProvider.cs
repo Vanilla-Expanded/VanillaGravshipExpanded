@@ -38,7 +38,7 @@ public class Gizmo_OxygenProvider(CompApparelOxygenProvider oxygenProvider) : Gi
 
     public override string GetTooltip()
     {
-        var text = $"{"VGE_OxygenUnits".Translate().CapitalizeFirst().Colorize(ColoredText.TipSectionTitleColor)}: {oxygenProvider.RemainingChargesExact} / {oxygenProvider.MaxCharges}";
+        var text = $"{"VGE_OxygenUnits".Translate().CapitalizeFirst().Colorize(ColoredText.TipSectionTitleColor)}: {oxygenProvider.RemainingChargesExactString} / {oxygenProvider.MaxCharges}";
 
         if (oxygenProvider.Wearer == null || oxygenProvider.Wearer.IsColonistPlayerControlled || oxygenProvider.Wearer.IsPrisonerOfColony)
         {

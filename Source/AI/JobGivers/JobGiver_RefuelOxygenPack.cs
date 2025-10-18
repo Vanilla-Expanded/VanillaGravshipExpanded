@@ -47,7 +47,9 @@ public class JobGiver_RefuelOxygenPack : ThinkNode_JobGiver
         return job;
     }
 
-    public static CompApparelOxygenProvider FindOxygenProvider(Pawn pawn, bool allowForceReload)
+    public static CompApparelOxygenProvider FindOxygenProvider(Pawn pawn, bool allowForceReload) => FindOxygenProviders(pawn, allowForceReload).FirstOrDefault();
+
+    public static IEnumerable<CompApparelOxygenProvider> FindOxygenProviders(Pawn pawn, bool allowForceReload)
     {
         if (pawn.apparel != null)
         {
@@ -55,10 +57,8 @@ public class JobGiver_RefuelOxygenPack : ThinkNode_JobGiver
             {
                 var comp = apparel.GetComp<CompApparelOxygenProvider>();
                 if (comp != null && comp.NeedsReload(allowForceReload))
-                    return comp;
+                    yield return comp;
             }
         }
-
-        return null;
     }
 }
