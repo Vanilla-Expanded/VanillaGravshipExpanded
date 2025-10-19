@@ -8,7 +8,7 @@ using Verse.AI;
 
 namespace VanillaGravshipExpanded;
 
-public class JobGiver_RefuelOxygenPack : ThinkNode_JobGiver
+public class JobGiver_RefillOxygenPack : ThinkNode_JobGiver
 {
     public override float GetPriority(Pawn pawn)
     {
@@ -24,21 +24,21 @@ public class JobGiver_RefuelOxygenPack : ThinkNode_JobGiver
         if (!pawn.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation))
             return null;
 
-        var reloadableComp = FindOxygenProvider(pawn, false);
-        if (reloadableComp == null)
+        var oxygenProvider = FindOxygenProvider(pawn, false);
+        if (oxygenProvider == null)
             return null;
-        if (pawn.carryTracker.AvailableStackSpace(reloadableComp.AmmoDef) < reloadableComp.MinAmmoNeeded(true))
+        if (pawn.carryTracker.AvailableStackSpace(oxygenProvider.AmmoDef) < oxygenProvider.MinAmmoNeeded(true))
             return null;
 
-        var list = ReloadableUtility.FindEnoughAmmo(pawn, pawn.Position, reloadableComp, false);
+        var list = ReloadableUtility.FindEnoughAmmo(pawn, pawn.Position, oxygenProvider, false);
         if (list.NullOrEmpty())
             return null;
 
-        return MakeReloadJob(reloadableComp, list);
+        return MakeRefillJob(oxygenProvider, list);
     }
 
     // Sadly, we can't use JobGiver_Reload as it specifically requires CompApparelReloadable or CompEquippableAbilityReloadable, which we can't use.
-    public static Job MakeReloadJob(CompApparelOxygenProvider reloadable, List<Thing> chosenAmmo)
+    public static Job MakeRefillJob(CompApparelOxygenProvider reloadable, List<Thing> chosenAmmo)
     {
         var job = JobMaker.MakeJob(VGEDefOf.VGE_ReplenishOxygenPack, reloadable.ReloadableThing, null, reloadable.Wearer);
         job.targetQueueB = chosenAmmo.Select(x => new LocalTargetInfo(x)).ToList();

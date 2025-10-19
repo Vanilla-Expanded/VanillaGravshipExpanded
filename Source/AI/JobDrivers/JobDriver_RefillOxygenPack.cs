@@ -6,7 +6,7 @@ using Verse.AI;
 
 namespace VanillaGravshipExpanded;
 
-public class JobDriver_RefuelOxygenPack : JobDriver
+public class JobDriver_RefillOxygenPack : JobDriver
 {
     private const TargetIndex GearInd = TargetIndex.A;
     private const TargetIndex FuelInd = TargetIndex.B;
@@ -25,12 +25,12 @@ public class JobDriver_RefuelOxygenPack : JobDriver
     public override IEnumerable<Toil> MakeNewToils()
     {
 			var gear = Gear;
-			var reloadableComp = gear?.TryGetComp<CompApparelOxygenProvider>();
+			var oxygenProvider = gear?.TryGetComp<CompApparelOxygenProvider>();
 			var target = TargetPawn;
 
-			this.FailOn(() => reloadableComp == null);
-			this.FailOn(() => ReloadableUtility.OwnerOf(reloadableComp) != target);
-			this.FailOn(() => !reloadableComp!.NeedsReload(true));
+			this.FailOn(() => oxygenProvider == null);
+			this.FailOn(() => ReloadableUtility.OwnerOf(oxygenProvider) != target);
+			this.FailOn(() => !oxygenProvider!.NeedsReload(true));
 
 			this.FailOnDestroyedOrNull(GearInd);
 			this.FailOnIncapable(PawnCapacityDefOf.Manipulation);
@@ -50,15 +50,15 @@ public class JobDriver_RefuelOxygenPack : JobDriver
 
 			var getNextIngredient = Toils_General.Label();
 			yield return getNextIngredient;
-			foreach (var reload in ReloadAsMuchAsPossible(reloadableComp, target))
-				yield return reload;
+			foreach (var refill in RefillAsMuchAsPossible(oxygenProvider, target))
+				yield return refill;
 
 			yield return Toils_JobTransforms.ExtractNextTargetFromQueue(FuelInd);
 			yield return Toils_Goto.GotoThing(FuelInd, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(FuelInd).FailOnSomeonePhysicallyInteracting(FuelInd);
 			yield return Toils_Haul.StartCarryThing(FuelInd, false, true).FailOnDestroyedNullOrForbidden(FuelInd);
 			yield return Toils_Jump.JumpIf(getNextIngredient, () => !Fuel.NullOrEmpty());
-			foreach (var reloadFinal in ReloadAsMuchAsPossible(reloadableComp, target))
-				yield return reloadFinal;
+			foreach (var refillFinal in RefillAsMuchAsPossible(oxygenProvider, target))
+				yield return refillFinal;
 
 			var dropFuel = ToilMaker.MakeToil();
 			dropFuel.initAction = () =>
@@ -71,27 +71,35 @@ public class JobDriver_RefuelOxygenPack : JobDriver
 			yield return dropFuel;
     }
 
-    private IEnumerable<Toil> ReloadAsMuchAsPossible(IReloadableComp reloadable, Pawn target)
+    private IEnumerable<Toil> RefillAsMuchAsPossible(CompApparelOxygenProvider oxygenProvider, Pawn target)
     {
         var done = Toils_General.Label();
 
-        yield return Toils_Jump.JumpIf(done, () => pawn.carryTracker.CarriedThing == null || pawn.carryTracker.CarriedThing.stackCount < reloadable.MinAmmoNeeded(true));
+        yield return Toils_Jump.JumpIf(done, () => pawn.carryTracker.CarriedThing == null || pawn.carryTracker.CarriedThing.stackCount < oxygenProvider.MinAmmoNeeded(true));
 
         if (target == pawn)
         {
-			yield return Toils_General.Wait(reloadable.BaseReloadTicks).WithProgressBarToilDelay(TargetIndex.A);
+			yield return Toils_General.Wait(oxygenProvider.BaseReloadTicks).WithProgressBarToilDelay(TargetIndex.A);
         }
         else
         {
 	        yield return Toils_Goto.GotoThing(PawnInd, PathEndMode.Touch);
-	        yield return Toils_General.WaitWith(PawnInd, reloadable.BaseReloadTicks, true, true, true, PawnInd);
+	        yield return Toils_General.WaitWith(PawnInd, oxygenProvider.BaseReloadTicks, true, true, true, PawnInd);
         }
 
-        var reload = ToilMaker.MakeToil();
-        reload.initAction = () => reloadable.ReloadFrom(pawn.carryTracker.CarriedThing);
-        reload.defaultCompleteMode = ToilCompleteMode.Instant;
+        var refill = ToilMaker.MakeToil();
+        refill.initAction = () => oxygenProvider.ReloadFrom(pawn.carryTracker.CarriedThing);
+        refill.defaultCompleteMode = ToilCompleteMode.Instant;
 
-        yield return reload;
+        yield return refill;
         yield return done;
     }
+
+   //  public override string GetReport()
+   //  {
+	  //   var target = TargetPawn;
+	  //   if (pawn == target)
+			// return base.GetReport();
+	  //   return "VGE_RefillOxygenOther".Translate(Gear.Named("GEAR"), target.Named("TARGET"));
+   //  }
 }

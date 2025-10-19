@@ -35,8 +35,8 @@
 	</JobDef>
   <JobDef>
     <defName>VGE_ReplenishOxygenPack</defName>
-    <driverClass>VanillaGravshipExpanded.JobDriver_RefuelOxygenPack</driverClass>
-    <reportString>refueling TargetA.</reportString>
+    <driverClass>VanillaGravshipExpanded.JobDriver_RefillOxygenPack</driverClass>
+    <reportString>refilling TargetA.</reportString>
     <suspendable>false</suspendable>
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>

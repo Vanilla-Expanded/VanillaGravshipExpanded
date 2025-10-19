@@ -36,7 +36,7 @@ public class CompApparelOxygenProvider : ThingComp, IReloadableComp
 
     public Thing ReloadableThing => parent;
 
-    public int BaseReloadTicks => Props.baseRefuelTicks;
+    public int BaseReloadTicks => Props.baseRefillTicks;
 
     public bool AutomaticRechargeEnabled
     {
@@ -50,7 +50,7 @@ public class CompApparelOxygenProvider : ThingComp, IReloadableComp
     {
         base.PostPostMake();
         remainingCharges = MaxCharges;
-        rechargeAtCharges = Mathf.Clamp(GenMath.RoundTo(MaxCharges * Props.percentageToAutoRefuel, MaxCharges / 20f), 0, MaxCharges);
+        rechargeAtCharges = Mathf.Clamp(GenMath.RoundTo(MaxCharges * Props.percentageToAutoRefill, MaxCharges / 20f), 0, MaxCharges);
     }
 
     public override void CompTickInterval(int delta)
@@ -122,7 +122,7 @@ public class CompApparelOxygenProvider : ThingComp, IReloadableComp
             return false;
         // Make sure non-player pawns attempt to reload their apparel regardless of player configuration
         if (Wearer is { Faction.IsPlayer: false })
-            return RemainingCharges <= Props.percentageToAutoRefuel * MaxCharges;
+            return RemainingCharges <= Props.percentageToAutoRefill * MaxCharges;
         // If automatic recharge is disabled, don't allow reloading unless forced
         if (!allowForceReload && !AutomaticRechargeEnabled)
             return false;
@@ -154,7 +154,7 @@ public class CompApparelOxygenProvider : ThingComp, IReloadableComp
             remainingCharges += num;
         }
 
-        Props.soundRefuel?.PlayOneShot(new TargetInfo(Wearer.Position, Wearer.Map));
+        Props.soundRefill?.PlayOneShot(new TargetInfo(Wearer.Position, Wearer.Map));
     }
 
     public override void PostExposeData()

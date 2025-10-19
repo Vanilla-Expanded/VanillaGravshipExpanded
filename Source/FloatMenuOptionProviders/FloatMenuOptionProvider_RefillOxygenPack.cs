@@ -22,7 +22,7 @@ public class FloatMenuOptionProvider_RefillOxygenPack : FloatMenuOptionProvider
 
     private static IEnumerable<FloatMenuOption> GetOptionsFor(FloatMenuContext context, Pawn targetPawn, Thing clickedThing)
     {
-        foreach (var oxygenProvider in JobGiver_RefuelOxygenPack.FindOxygenProviders(targetPawn, true))
+        foreach (var oxygenProvider in JobGiver_RefillOxygenPack.FindOxygenProviders(targetPawn, true))
         {
             if (clickedThing != null && oxygenProvider.AmmoDef != clickedThing.def)
                 continue;
@@ -40,7 +40,7 @@ public class FloatMenuOptionProvider_RefillOxygenPack : FloatMenuOptionProvider
                 yield return new FloatMenuOption($"{text}: {"VGE_RefillCannotCarryEnough".Translate(oxygenProvider.AmmoDef.Named("AMMO"))}", null);
             else
             {
-                void Reload() => context.FirstSelectedPawn.jobs.TryTakeOrderedJob(JobGiver_RefuelOxygenPack.MakeReloadJob(oxygenProvider, chosenAmmo));
+                void Reload() => context.FirstSelectedPawn.jobs.TryTakeOrderedJob(JobGiver_RefillOxygenPack.MakeRefillJob(oxygenProvider, chosenAmmo));
                 yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(text, Reload), context.FirstSelectedPawn, clickedThing ?? targetPawn);
             }
         }

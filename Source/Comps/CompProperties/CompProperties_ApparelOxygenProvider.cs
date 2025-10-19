@@ -9,16 +9,16 @@ public class CompProperties_ApparelOxygenProvider : CompProperties
     public ThingDef fuelDef;
     public int fuelCountToRefill;
     public int fuelCountPerCharge;
-    public int baseRefuelTicks = 60;
+    public int baseRefillTicks = 60;
     public int maxCharges;
-    public float percentageToAutoRefuel;
+    public float percentageToAutoRefill;
     public bool destroyOnEmpty;
     public bool replenishAfterCooldown;
 
     public float minResistanceToActivate = 0.12f;
     public float consumptionPerTick = 1f / GenTicks.TickLongInterval;
 
-    public SoundDef soundRefuel;
+    public SoundDef soundRefill;
 
     [MustTranslate]
     public string chargeNoun = "charge";
