@@ -62,7 +62,7 @@
 		</building>
 		<drawerType>MapMeshOnly</drawerType>
 		<altitudeLayer>Conduits</altitudeLayer>
-		<passability>PassThroughOnly</passability>
+		<passability>Standable</passability>
 		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
 		<resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
 		<statBases>
