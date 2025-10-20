@@ -20,6 +20,10 @@ namespace VanillaGravshipExpanded
                 var map = __instance.map;
                 Find.WindowStack.Add(new Dialog_MessageBox("VGE_MapDecisionText".Translate(), "VGE_KeepMap".Translate(), delegate
                 {
+                    if (map.Parent is Settlement settlement && settlement.Faction == Faction.OfPlayer)
+                    {
+                        return;
+                    }
                     SettleInExistingMapUtility.Settle(map);
                 }, "VGE_DiscardMap".Translate(), delegate
                 {
@@ -31,6 +35,7 @@ namespace VanillaGravshipExpanded
         public static bool ShouldHaveKeepMapUI(this MapParent mapParent)
         {
             var map = mapParent.Map;
+
             var hasAbandonComp = mapParent.GetComponent<AbandonComp>() != null;
             var shouldRemoveMap = mapParent.ShouldRemoveMapNow(out _);
             var isStartingMap = map.IsStartingMap && map.IsPlayerHome && Find.Scenario.AllParts.OfType<ScenPart_ForcedMap>().Any(x => x.mapGenerator == MapGeneratorDefOf.OrbitalRelay);

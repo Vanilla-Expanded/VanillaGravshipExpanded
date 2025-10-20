@@ -43,20 +43,21 @@ namespace VanillaGravshipExpanded
                 ticksUntilNextShot -= delta;
             }
 
-            var target = FindTarget();
-            if (target != null)
+            if (ticksUntilNextShot <= 0)
             {
-                if (ticksUntilNextShot <= 0)
+                ticksUntilNextShot = 20;
+                if (refuelableComp.HasFuel)
                 {
-                    if (refuelableComp.HasFuel)
+                    var target = FindTarget();
+                    if (target == null)
                     {
-                        VGEDefOf.Gun_MiniTurret.verbs[0].soundCast.PlayOneShot(new TargetInfo(parent.Position, parent.Map));
-                        refuelableComp.ConsumeFuel(1);
-                        FleckMaker.Static(parent.Position, parent.Map, FleckDefOf.ShotFlash, 9);
-                        TryIntercept(target);
-                        turret.Top.CurRotation = (target.DrawPos - parent.DrawPos).AngleFlat();
+                        return;
                     }
-                    ticksUntilNextShot = 20;
+                    VGEDefOf.Gun_MiniTurret.verbs[0].soundCast.PlayOneShot(new TargetInfo(parent.Position, parent.Map));
+                    refuelableComp.ConsumeFuel(1);
+                    FleckMaker.Static(parent.Position, parent.Map, FleckDefOf.ShotFlash, 9);
+                    TryIntercept(target);
+                    turret.Top.CurRotation = (target.DrawPos - parent.DrawPos).AngleFlat();
                 }
             }
         }
@@ -64,11 +65,8 @@ namespace VanillaGravshipExpanded
         private Thing FindTarget()
         {
             var allThings = parent.Map.listerThings.AllThings.Where(t =>
-                !t.Destroyed && t.DrawPos.ToIntVec3().DistanceTo(parent.Position) <= Props.interceptionRadius);
-
-            var potentialTargets = allThings.Where(t => IsValidTarget(t)).ToList();
-
-            return potentialTargets.OrderBy(t => t.DrawPos.ToIntVec3().DistanceTo(parent.Position)).FirstOrDefault();
+                IsValidTarget(t) && t.DrawPos.ToIntVec3().DistanceTo(parent.Position) <= Props.interceptionRadius);
+            return allThings.OrderBy(t => t.DrawPos.ToIntVec3().DistanceTo(parent.Position)).FirstOrDefault();
         }
 
         private bool IsValidTarget(Thing t)
