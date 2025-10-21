@@ -151,4 +151,93 @@
 			</operations>
 		</match>
 	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Factions Expanded - Pirates</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="VFEP_WarcasketHelmet_Siegebreaker"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<li>
+							<VacuumResistance>0.65</VacuumResistance>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="VFEP_Warcasket_Siegebreaker"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<li>
+							<VacuumResistance>0.22</VacuumResistance>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="VFEP_WarcasketHelmet_Guardian"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<li>
+							<VacuumResistance>0.65</VacuumResistance>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="VFEP_Warcasket_Guardian"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<li>
+							<VacuumResistance>0.22</VacuumResistance>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="VFEP_WarcasketHelmet_Controller"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<li>
+							<VacuumResistance>0.65</VacuumResistance>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="VFEP_Warcasket_Controller"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<li>
+							<VacuumResistance>0.22</VacuumResistance>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="VFEP_WarcasketHelmet_Sarcophagus"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<li>
+							<VacuumResistance>0.65</VacuumResistance>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="VFEP_Warcasket_Sarcophagus"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<li>
+							<VacuumResistance>0.22</VacuumResistance>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="VFEP_WarcasketHelmet_Brute"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<li>
+							<VacuumResistance>0.65</VacuumResistance>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="VFEP_Warcasket_Brute"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<li>
+							<VacuumResistance>0.22</VacuumResistance>
+						</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
 </Patch>

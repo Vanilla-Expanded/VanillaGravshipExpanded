@@ -18,4 +18,13 @@
 			<VGE_GravshipMaintenance>0.025</VGE_GravshipMaintenance>
 		</statOffsets>
 	</VSE.Expertise.ExpertiseDef>
+	<VSE.Expertise.ExpertiseDef>
+		<defName>VGE_GravshipTargeting</defName>
+		<label>Gravship combat</label>
+		<description>An expertise in handling the targeting terminal aboard a gravship.</description>
+		<skill>Shooting</skill>
+		<statOffsets>
+			<VGE_GravshipTargeting>0.025</VGE_GravshipTargeting>
+		</statOffsets>
+	</VSE.Expertise.ExpertiseDef>
 </Defs>
