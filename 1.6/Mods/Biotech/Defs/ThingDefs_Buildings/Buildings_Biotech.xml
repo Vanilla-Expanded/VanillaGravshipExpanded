@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="GravshipComponentBase">
+        <defName>VGE_OperatorSubpersonaCore</defName>
+        <label>operator subpersona core</label>
+        <description>A high-grade subcore specialized in gravship combat. It can link with a single gravship artillery piece and control it the same way a crewmember manning a targeting terminal can. It’s combat capabilities are subpar, but it allows for autonomous artillery batteries without the need for human operators.</description>
+        <thingClass>VanillaGravshipExpanded.Building_AutonomousTargeting</thingClass>
+        <tickerType>Normal</tickerType>
+        <graphicData>
+            <texPath>Things/Structures/Biotech/OperatorSubcore</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1, 1)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>80</MaxHitPoints>
+            <Flammability>0.7</Flammability>
+            <Beauty>0</Beauty>
+            <Mass>25</Mass>
+        </statBases>
+        <size>(1,1)</size>
+        <rotatable>false</rotatable>
+        <pathCost>20</pathCost>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.4</fillPercent>
+        <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+        <designationCategory>VGE_Combat</designationCategory>
+        <researchPrerequisites>
+            <li>VGE_GravshipWeaponry</li>
+            <li>HighMechtech</li>
+        </researchPrerequisites>
+        <costList>
+            <Steel>60</Steel>
+            <GravlitePanel>20</GravlitePanel>
+            <SubcoreHigh>1</SubcoreHigh>
+        </costList>
+        <comps>
+            <li Class="CompProperties_GravshipFacility">
+                <requiresLOS>false</requiresLOS>
+                <maxSimultaneous>1</maxSimultaneous>
+                <maxDistance>500</maxDistance>
+            </li>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>100</basePowerConsumption>
+            </li>
+        </comps>
+        <tradeTags>
+            <li>GravshipUpgrade</li>
+        </tradeTags>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.AutonomousTargetingExtension">
+                <gravshipTargeting>0.9</gravshipTargeting>
+            </li>
+        </modExtensions>
+    </ThingDef>
+
+</Defs>

@@ -4,7 +4,7 @@
 		<defName>VGE_GunnerSubpersonaCore</defName>
 		<label>gunner subpersona core</label>
 		<description>A low-grade subpersona specialized in gravship combat. It can link with a single gravship artillery piece and control it the same way a crewmember manning a targeting terminal can. It's combat capabilities are beyond that of even the best human gunner. A gravship can support up to two gunner subpersona cores.</description>
-		<thingClass>VanillaGravshipExpanded.Building_GunnerSubpersonaCore</thingClass>
+		<thingClass>VanillaGravshipExpanded.Building_AutonomousTargeting</thingClass>
 		<tickerType>Normal</tickerType>
 		<drawerType>MapMeshAndRealTime</drawerType>
 		<graphicData>
@@ -38,6 +38,11 @@
 		<tradeTags>
 			<li>GravshipUpgrade</li>
 		</tradeTags>
+		<modExtensions>
+			<li Class="VanillaGravshipExpanded.AutonomousTargetingExtension">
+				<gravshipTargeting>3.0</gravshipTargeting>
+			</li>
+		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="GravshipComponentBase">
 		<defName>VGE_MaintenanceHub</defName>

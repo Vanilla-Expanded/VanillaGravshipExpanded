@@ -89,6 +89,7 @@
           <li>VGE_GravheatAbsorber</li>
           <li>VGE_GravFieldAmplifier</li>
           <li>VGE_GunnerSubpersonaCore</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">VGE_OperatorSubpersonaCore</li>
           <li>VGE_Gravlift</li>
           <li>VGE_GravtechConsole</li>
           <li>VGE_GravshipBlackBox</li>
@@ -102,7 +103,7 @@
       <li Class="CompProperties_AmbientSound">
         <sound>GravshipEngine_Ambient</sound>
       </li>
-      <li Class="VanillaGravshipExpanded.CompProperties_HeatManager"/>
+      <li Class="VanillaGravshipExpanded.CompProperties_HeatManager" />
       <li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable" />
       <li Class="CompProperties_Breakdownable" />
       <li Class="CompProperties_Power">
@@ -202,6 +203,7 @@
           <li>VGE_GravheatAbsorber</li>
           <li>VGE_GravFieldAmplifier</li>
           <li>VGE_GunnerSubpersonaCore</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">VGE_OperatorSubpersonaCore</li>
           <li>VGE_Gravlift</li>
           <li>VGE_GravtechConsole</li>
           <li>VGE_GravshipBlackBox</li>
@@ -216,7 +218,7 @@
       <li Class="CompProperties_AmbientSound">
         <sound>GravshipEngine_Ambient</sound>
       </li>
-      <li Class="VanillaGravshipExpanded.CompProperties_HeatManager"/>
+      <li Class="VanillaGravshipExpanded.CompProperties_HeatManager" />
       <li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable" />
       <li Class="CompProperties_Breakdownable" />
       <li Class="CompProperties_Power">

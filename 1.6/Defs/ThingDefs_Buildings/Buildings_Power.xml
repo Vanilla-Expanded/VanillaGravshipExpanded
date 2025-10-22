@@ -50,9 +50,9 @@
 				</linkableFacilities>
 			</li>
 			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
-       
+
 			</li>
-			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Breakdownable" />
 		</comps>
 		<uiOrder>2300</uiOrder>
 	</ThingDef>
@@ -106,7 +106,7 @@
 				<shortCircuitInRain>true</shortCircuitInRain>
 				<transmitsPower>true</transmitsPower>
 			</li>
-			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Breakdownable" />
 			<li Class="CompProperties_Stunnable">
 				<useLargeEMPEffecter>true</useLargeEMPEffecter>
 				<affectedDamageDefs>
@@ -114,7 +114,7 @@
 				</affectedDamageDefs>
 			</li>
 			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
-       
+
 			</li>
 			<li Class="CompProperties_AffectedByFacilities">
 				<linkableFacilities>
@@ -147,9 +147,9 @@
 				<li>Sandbags</li>
 			</linkFlags>
 		</graphicData>
-		<minifiedDef/>
+		<minifiedDef />
 		<uiIconPath>Things/Structures/Power/SolarPaneling/SolarPanelling_MenuIcon</uiIconPath>
-		<thingCategories Inherit="false"/>
+		<thingCategories Inherit="false" />
 		<castEdgeShadows>false</castEdgeShadows>
 		<rotatable>false</rotatable>
 		<altitudeLayer>Building</altitudeLayer>
@@ -182,7 +182,7 @@
 				<basePowerConsumption>-200</basePowerConsumption>
 				<transmitsPower>true</transmitsPower>
 			</li>
-			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Breakdownable" />
 			<li Class="CompProperties_Stunnable">
 				<useLargeEMPEffecter>true</useLargeEMPEffecter>
 				<empChancePerTick>0.03</empChancePerTick>
@@ -194,6 +194,7 @@
 		<placeWorkers>
 			<li>VanillaGravshipExpanded.PlaceWorker_OnSubstructureOrSubscaffold</li>
 		</placeWorkers>
+		<terrainAffordanceNeeded IsNull="True" />
 		<designationCategory>Odyssey</designationCategory>
 		<uiOrder>2100</uiOrder>
 		<designationHotKey>Misc5</designationHotKey>

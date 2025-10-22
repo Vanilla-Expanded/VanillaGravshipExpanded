@@ -12,6 +12,7 @@
       <li>VGE_GravFieldAmplifier</li>
       <li>VGE_GiantThruster</li>
       <li>VGE_GunnerSubpersonaCore</li>
+      <li MayRequire="Ludeon.RimWorld.Biotech">VGE_OperatorSubpersonaCore</li>
       <li>VGE_Gravlift</li>
       <li>VGE_GravtechConsole</li>
       <li>VGE_GravshipBlackBox</li>

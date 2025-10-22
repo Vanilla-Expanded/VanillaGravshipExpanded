@@ -16,6 +16,19 @@
           </fixedParams>
         </thingSetMaker>
       </li>
+      <li MayRequire="Ludeon.RimWorld.Biotech">
+        <weight>1</weight>
+        <thingSetMaker Class="ThingSetMaker_StackCount">
+          <fixedParams>
+            <filter>
+              <thingDefs>
+                <li>VGE_OperatorSubpersonaCore</li>
+              </thingDefs>
+            </filter>
+            <countRange>1</countRange>
+          </fixedParams>
+        </thingSetMaker>
+      </li>
       <li>
         <weight>1</weight>
         <thingSetMaker Class="ThingSetMaker_StackCount">
@@ -76,6 +89,7 @@
     <value>
       <li>VGE_GravshipBlackBox</li>
       <li>VGE_GunnerSubpersonaCore</li>
+      <li MayRequire="Ludeon.RimWorld.Biotech">VGE_OperatorSubpersonaCore</li>
       <li>VGE_Gravlift</li>
       <li>VGE_Astropurifier</li>
       <li>VGE_OxygenReclaimer</li>
