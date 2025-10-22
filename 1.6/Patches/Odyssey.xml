@@ -79,13 +79,6 @@
         </value>
     </Operation>
 
-    <Operation Class="PatchOperationReplace">
-        <xpath>Defs/TerrainDef[defName="Substructure"]/designationCategory</xpath>
-        <value>
-            <designationCategory>Odyssey</designationCategory>
-        </value>
-    </Operation>
-
     <Operation Class="PatchOperationAdd">
         <xpath>Defs/DesignationCategoryDef[defName="Odyssey"]/specialDesignatorClasses</xpath>
         <value>
@@ -116,4 +109,5 @@
             </li>
         </value>
     </Operation>
+
 </Patch>

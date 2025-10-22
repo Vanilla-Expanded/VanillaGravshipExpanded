@@ -24,6 +24,7 @@
         <tickerType>Normal</tickerType>
         <stealable>false</stealable>
         <rotatable>false</rotatable>
+        <designationCategory>VGE_Combat</designationCategory>
         <comps>
             <li Class="CompProperties_Forbiddable" />
         </comps>
@@ -51,6 +52,7 @@
             <drawSize>(2,2)</drawSize>
         </graphicData>
         <passability>PassThroughOnly</passability>
+        <designationCategory>VGE_Combat</designationCategory>
         <pathCost>50</pathCost>
         <fillPercent>0.4</fillPercent>
         <statBases>
@@ -203,6 +205,7 @@
     <ThingDef ParentName="VGE_GravshipBuildingBase">
         <defName>VGE_PointDefenseTurret</defName>
         <label>point defense turret</label>
+        <designationCategory>VGE_Combat</designationCategory>
         <description>A specialized defensive turret built exclusively for gravships. It intercepts explosive projectiles and incoming drop pods within its protective radius, but cannot engage ground targets. Interception chance scales with the target’s velocity.</description>
         <thingClass>Building_TurretGun</thingClass>
         <uiIconPath>Things/Structures/Artillery/GravshipPointDefense_MenuIcon</uiIconPath>

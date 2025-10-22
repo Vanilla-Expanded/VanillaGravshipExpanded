@@ -34,7 +34,7 @@
 			<ComponentIndustrial>3</ComponentIndustrial>
 		</costList>
 		<resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
-		<designationCategory>Odyssey</designationCategory>
+		<designationCategory>VGE_Platform</designationCategory>
 		<hasInteractionCell>true</hasInteractionCell>
 		<interactionCellOffset>(0, 0, -1)</interactionCellOffset>
 		<researchPrerequisites>
@@ -91,7 +91,7 @@
 		</costList>
 		<resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
 		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
-		<designationCategory>Odyssey</designationCategory>
+		<designationCategory>VGE_Platform</designationCategory>
 		<hasInteractionCell>true</hasInteractionCell>
 		<interactionCellOffset>(0, 0, -2)</interactionCellOffset>
 		<researchPrerequisites>
@@ -147,7 +147,7 @@
 		</costList>
 		<resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
 		<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
-		<designationCategory>Odyssey</designationCategory>
+		<designationCategory>VGE_Platform</designationCategory>
 		<hasInteractionCell>true</hasInteractionCell>
 		<interactionCellOffset>(0, 0, -1)</interactionCellOffset>
 		<researchPrerequisites>

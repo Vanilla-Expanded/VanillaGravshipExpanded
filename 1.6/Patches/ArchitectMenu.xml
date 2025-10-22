@@ -1,0 +1,86 @@
+<Patch>
+
+    <!-- Odyssey category alterations -->
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/DesignationCategoryDef[defName="Odyssey"]/label</xpath>
+        <value>
+            <label>Gravship</label>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/DesignationCategoryDef[defName="Odyssey"]</xpath>
+        <value>
+            <li Class="VanillaGravshipExpanded.NestedCategoryExtension">
+                <iconTexPath>UI/SubcategoryIcons/SubcategoryIcon_Platform</iconTexPath>
+            </li>
+        </value>
+    </Operation>
+
+
+    <!-- Platform -->
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/TerrainDef[defName="Substructure"]/designationCategory</xpath>
+        <value>
+            <designationCategory>VGE_Platform</designationCategory>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="GravshipHull"]/designationCategory</xpath>
+        <value>
+            <designationCategory>VGE_Platform</designationCategory>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="GravFieldExtender"]/designationCategory</xpath>
+        <value>
+            <designationCategory>VGE_Platform</designationCategory>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="PilotConsole"]/designationCategory</xpath>
+        <value>
+            <designationCategory>VGE_Platform</designationCategory>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[@Name="ThrusterBase"]/designationCategory</xpath>
+        <value>
+            <designationCategory>VGE_Platform</designationCategory>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="GravAnchor"]/designationCategory</xpath>
+        <value>
+            <designationCategory>VGE_Platform</designationCategory>
+        </value>
+    </Operation>
+
+    <!-- Vacuum -->
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="OxygenPump"]/designationCategory</xpath>
+        <value>
+            <designationCategory>VGE_Vacuum</designationCategory>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="VacBarrier"]/designationCategory</xpath>
+        <value>
+            <designationCategory>VGE_Vacuum</designationCategory>
+        </value>
+    </Operation>
+
+
+
+    <!-- Fuel -->
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[@Name="FuelTankBase"]/designationCategory</xpath>
+        <value>
+            <designationCategory>VGE_Fuel</designationCategory>
+        </value>
+    </Operation>
+</Patch>

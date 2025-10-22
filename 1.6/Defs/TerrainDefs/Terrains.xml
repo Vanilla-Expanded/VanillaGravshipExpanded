@@ -78,7 +78,7 @@
 		<renderPrecedence>400</renderPrecedence>
 		<constructEffect>ConstructMetal</constructEffect>
 		<isPaintable>true</isPaintable>
-		<designationCategory>Odyssey</designationCategory>
+		<designationCategory>VGE_Platform</designationCategory>
 		<isFoundation>true</isFoundation>
 		<holdSnowOrSand>false</holdSnowOrSand>
 		<preventCraters>true</preventCraters>

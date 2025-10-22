@@ -38,21 +38,6 @@
     <value>VanillaGravshipExpanded.Building_VacBarrier_Recolorable</value>
   </Operation>
 
-  <!-- Add (or replace) vac barriers designator dropdown so they're categorized with all the other vac barriers. -->
-  <Operation Class="PatchOperationConditional">
-    <xpath>Defs/ThingDef[defName="VacBarrier"]/designatorDropdown</xpath>
-    <nomatch Class="PatchOperationAdd">
-      <xpath>Defs/ThingDef[defName="VacBarrier"]</xpath>
-      <value>
-        <designatorDropdown>VGE_VacBarriers</designatorDropdown>
-      </value>
-    </nomatch>
-    <match Class="PatchOperationReplace">
-      <xpath>Defs/ThingDef[defName="VacBarrier"]/designatorDropdown/text()</xpath>
-      <value>VGE_VacBarriers</value>
-    </match>
-  </Operation>
-
   <!-- Add a color generator to vanilla vac barrier so its barrier starts colored. -->
   <Operation Class="PatchOperationAdd">
     <xpath>Defs/ThingDef[defName="VacBarrier"]</xpath>

@@ -18,13 +18,12 @@
     <useStuffTerrainAffordance>false</useStuffTerrainAffordance>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <useBlueprintGraphicAsGhost>true</useBlueprintGraphicAsGhost>
-    <designationCategory>Odyssey</designationCategory>
+    <designationCategory>VGE_Vacuum</designationCategory>
     <building>
       <isAirtight>true</isAirtight>
       <isSupportDoor>true</isSupportDoor>
       <blueprintClass>Blueprint_Door</blueprintClass>
     </building>
-    <designatorDropdown>VGE_VacBarriers</designatorDropdown>
     <researchPrerequisites>
       <li>OrbitalTech</li>
     </researchPrerequisites>

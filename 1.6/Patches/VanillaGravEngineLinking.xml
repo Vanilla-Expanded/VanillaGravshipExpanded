@@ -129,7 +129,7 @@
   <Operation Class="PatchOperationAdd">
     <xpath>Defs/ThingDef[defName="GravEngine"]</xpath>
     <value>
-      <designationCategory>Odyssey</designationCategory>
+      <designationCategory>VGE_Platform</designationCategory>
     </value>
   </Operation>
 

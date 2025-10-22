@@ -18,7 +18,7 @@
 		</noLinkedGraphicDefs>
 		<designator>
 			<deconstructIconPath>Things/PipeNetworks/Oxygen/OxygenPipes_Deconstruct</deconstructIconPath>
-			<designationCategoryDef>Odyssey</designationCategoryDef>
+			<designationCategoryDef>VGE_Vacuum</designationCategoryDef>
 		</designator>
 		<overlayOptions>
 			<overlayColor>(0.79, 0.64, 0.31)</overlayColor>
@@ -87,7 +87,7 @@
 		<neverMultiSelect>true</neverMultiSelect>
 		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
 		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-		<designationCategory>Odyssey</designationCategory>
+		<designationCategory>VGE_Vacuum</designationCategory>
 		<constructEffect>ConstructMetal</constructEffect>
 		<clearBuildingArea>false</clearBuildingArea>
 		<researchPrerequisites>
@@ -154,7 +154,7 @@
 		<neverMultiSelect>true</neverMultiSelect>
 		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
 		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-		<designationCategory>Odyssey</designationCategory>
+		<designationCategory>VGE_Vacuum</designationCategory>
 		<constructEffect>ConstructMetal</constructEffect>
 		<clearBuildingArea>false</clearBuildingArea>
 		<researchPrerequisites>
@@ -208,7 +208,7 @@
 		<selectable>true</selectable>
 		<neverMultiSelect>false</neverMultiSelect>
 		<tickerType>Normal</tickerType>
-		<designationCategory>Odyssey</designationCategory>
+		<designationCategory>VGE_Vacuum</designationCategory>
 		<constructEffect>ConstructMetal</constructEffect>
 		<researchPrerequisites>
 			<li>VGE_OxygenNetwork</li>
@@ -284,7 +284,7 @@
 		</comps>
 		<rotatable>true</rotatable>
 		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
-		<designationCategory>Odyssey</designationCategory>
+		<designationCategory>VGE_Vacuum</designationCategory>
 		<staticSunShadowHeight>0.5</staticSunShadowHeight>
 		<constructEffect>ConstructMetal</constructEffect>
 		<canOverlapZones>false</canOverlapZones>
@@ -363,7 +363,7 @@
 		</comps>
 		<rotatable>true</rotatable>
 		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
-		<designationCategory>Odyssey</designationCategory>
+		<designationCategory>VGE_Vacuum</designationCategory>
 		<staticSunShadowHeight>0.6</staticSunShadowHeight>
 		<constructEffect>ConstructMetal</constructEffect>
 		<canOverlapZones>false</canOverlapZones>
@@ -431,7 +431,7 @@
 		<inspectorTabs>
 			<li>ITab_Storage</li>
 		</inspectorTabs>
-		<designationCategory>Odyssey</designationCategory>
+		<designationCategory>VGE_Vacuum</designationCategory>
 		<staticSunShadowHeight>0.2</staticSunShadowHeight>
 		<surfaceType>Item</surfaceType>
 		<canOverlapZones>false</canOverlapZones>
@@ -504,7 +504,7 @@
 		<inspectorTabs>
 			<li>ITab_Storage</li>
 		</inspectorTabs>
-		<designationCategory>Odyssey</designationCategory>
+		<designationCategory>VGE_Vacuum</designationCategory>
 		<staticSunShadowHeight>0.2</staticSunShadowHeight>
 		<surfaceType>Item</surfaceType>
 		<canOverlapZones>false</canOverlapZones>
@@ -574,7 +574,7 @@
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
 		</comps>
-		<designationCategory>Odyssey</designationCategory>
+		<designationCategory>VGE_Vacuum</designationCategory>
 		<researchPrerequisites>
 			<li>VGE_OxygenNetwork</li>
 		</researchPrerequisites>
@@ -666,7 +666,7 @@
        
 			</li>
 		</comps>
-		<designationCategory>Odyssey</designationCategory>
+		<designationCategory>VGE_Vacuum</designationCategory>
 		<researchPrerequisites>
 			<li>StandardGravtech</li>
 		</researchPrerequisites>
@@ -685,7 +685,7 @@
 			<texPath>Things/Structures/IndustrialOxygenPump/IndustrialOxygenPump</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
 		</graphicData>
-		<designationCategory>Odyssey</designationCategory>
+		<designationCategory>VGE_Vacuum</designationCategory>
 		<statBases>
 			<MarketValue>200</MarketValue>
 			<MaxHitPoints>100</MaxHitPoints>

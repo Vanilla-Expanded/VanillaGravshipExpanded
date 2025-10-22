@@ -13,7 +13,7 @@
         <altitudeLayer>Building</altitudeLayer>
         <passability>PassThroughOnly</passability>
         <tickerType>Normal</tickerType>
-        <designationCategory>Odyssey</designationCategory>
+        <designationCategory>VGE_Platform</designationCategory>
         <statBases>
             <Flammability>1.0</Flammability>
         </statBases>

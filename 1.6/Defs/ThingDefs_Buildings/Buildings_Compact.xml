@@ -75,7 +75,6 @@
 			</buildingTags>
 		</building>
 		<designationHotKey>Misc8</designationHotKey>
-		<designatorDropdown>VGE_CompactWorkspaces</designatorDropdown>
 		<placeWorkers>
 			<li>PlaceWorker_ShowFacilitiesConnections</li>
 			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
@@ -157,7 +156,6 @@
 			</relatedTerrain>
 		</building>
 		<designationHotKey>Misc8</designationHotKey>
-		<designatorDropdown>VGE_CompactWorkspaces</designatorDropdown>
 		<placeWorkers>
 			<li>PlaceWorker_ShowFacilitiesConnections</li>
 			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
@@ -240,7 +238,6 @@
 			</relatedTerrain>
 		</building>
 		<designationHotKey>Misc8</designationHotKey>
-		<designatorDropdown>VGE_CompactWorkspaces</designatorDropdown>
 		<placeWorkers>
 			<li>PlaceWorker_ShowFacilitiesConnections</li>
 			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
@@ -323,7 +320,6 @@
 			</relatedTerrain>
 		</building>
 		<designationHotKey>Misc8</designationHotKey>
-		<designatorDropdown>VGE_CompactWorkspaces</designatorDropdown>
 		<placeWorkers>
 			<li>PlaceWorker_ShowFacilitiesConnections</li>
 			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
@@ -403,7 +399,6 @@
 			</relatedTerrain>
 		</building>
 		<designationHotKey>Misc8</designationHotKey>
-		<designatorDropdown>VGE_CompactWorkspaces</designatorDropdown>
 		<placeWorkers>
 			<li>PlaceWorker_ShowFacilitiesConnections</li>
 			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
@@ -482,7 +477,6 @@
 			</relatedTerrain>
 		</building>
 		<designationHotKey>Misc8</designationHotKey>
-		<designatorDropdown>VGE_CompactWorkspaces</designatorDropdown>
 		<placeWorkers>
 			<li>PlaceWorker_ShowFacilitiesConnections</li>
 			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
@@ -562,7 +556,6 @@
 			</relatedTerrain>
 		</building>
 		<designationHotKey>Misc8</designationHotKey>
-		<designatorDropdown>VGE_CompactWorkspaces</designatorDropdown>
 		<placeWorkers>
 			<li>PlaceWorker_ShowFacilitiesConnections</li>
 			<li>PlaceWorker_PreventInteractionSpotOverlap</li>

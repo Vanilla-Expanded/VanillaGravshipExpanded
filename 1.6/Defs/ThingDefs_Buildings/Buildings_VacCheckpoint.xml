@@ -32,7 +32,7 @@
     <stuffCategories Inherit="False"/>
     <useStuffTerrainAffordance>false</useStuffTerrainAffordance>
     <terrainAffordanceNeeded IsNull="True" />
-    <designationCategory>Odyssey</designationCategory>
+    <designationCategory>VGE_Vacuum</designationCategory>
     <uiOrder>2000</uiOrder>
     <passability>Standable</passability>
     <building>

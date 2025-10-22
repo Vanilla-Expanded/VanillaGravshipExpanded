@@ -556,6 +556,7 @@
 		</graphicData>
 		<tickerType>Normal</tickerType>
 		<minifiedDef>MinifiedThing</minifiedDef>
+		<designationCategory>VGE_Vacuum</designationCategory>
 		<thingCategories>
 			<li>BuildingsMisc</li>
 		</thingCategories>

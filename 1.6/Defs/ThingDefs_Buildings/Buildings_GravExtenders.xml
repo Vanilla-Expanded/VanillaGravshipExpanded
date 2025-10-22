@@ -22,7 +22,7 @@
     <passability>PassThroughOnly</passability>
     <pathCost>14</pathCost>
     <canOverlapZones>false</canOverlapZones>
-    <designationCategory>Odyssey</designationCategory>
+    <designationCategory>VGE_Platform</designationCategory>
     <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
     <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
     <researchPrerequisites>

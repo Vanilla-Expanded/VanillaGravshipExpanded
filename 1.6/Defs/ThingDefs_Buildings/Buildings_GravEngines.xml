@@ -36,7 +36,7 @@
     </statBases>
     <uiIconPath>Things/Structures/GravEngines/GravJumperEngine/GravJumperEngine_MenuIcon</uiIconPath>
     <size>(1,1)</size>
-    <designationCategory>Odyssey</designationCategory>
+    <designationCategory>VGE_Platform</designationCategory>
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>0.6</fillPercent>
     <passability>PassThroughOnly</passability>
@@ -149,7 +149,7 @@
     </statBases>
     <uiIconPath>Things/Structures/GravEngines/GravHulkEngine/GravHulkEngine_MenuIcon</uiIconPath>
     <size>(5,5)</size>
-    <designationCategory>Odyssey</designationCategory>
+    <designationCategory>VGE_Platform</designationCategory>
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>0.6</fillPercent>
     <passability>PassThroughOnly</passability>

@@ -17,7 +17,7 @@
 		</noLinkedGraphicDefs>
 		<designator>
 			<deconstructIconPath>Things/PipeNetworks/Astrofuel/AstrofuelPipes_Deconstruct</deconstructIconPath>
-			<designationCategoryDef>Odyssey</designationCategoryDef>
+			<designationCategoryDef>VGE_Fuel</designationCategoryDef>
 		</designator>
 		<overlayOptions>
 			<overlayColor>(0.54, 0.30, 0.85)</overlayColor>
@@ -88,7 +88,7 @@
 		<neverMultiSelect>true</neverMultiSelect>
 		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
 		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-		<designationCategory>Odyssey</designationCategory>
+		<designationCategory>VGE_Fuel</designationCategory>
 		<constructEffect>ConstructMetal</constructEffect>
 		<clearBuildingArea>false</clearBuildingArea>
 		<researchPrerequisites>
@@ -155,7 +155,7 @@
 		<neverMultiSelect>true</neverMultiSelect>
 		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
 		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-		<designationCategory>Odyssey</designationCategory>
+		<designationCategory>VGE_Fuel</designationCategory>
 		<constructEffect>ConstructMetal</constructEffect>
 		<clearBuildingArea>false</clearBuildingArea>
 		<researchPrerequisites>
@@ -208,7 +208,7 @@
 		<selectable>true</selectable>
 		<neverMultiSelect>false</neverMultiSelect>
 		<tickerType>Normal</tickerType>
-		<designationCategory>Odyssey</designationCategory>
+		<designationCategory>VGE_Fuel</designationCategory>
 		<constructEffect>ConstructMetal</constructEffect>
 		<researchPrerequisites>
 			<li>BasicGravtech</li>
@@ -293,7 +293,7 @@
 			<li Class="CompProperties_Breakdownable"/>
 		</comps>
 		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
-		<designationCategory>Odyssey</designationCategory>
+		<designationCategory>VGE_Fuel</designationCategory>
 		<staticSunShadowHeight>0.2</staticSunShadowHeight>
 		<constructEffect>ConstructMetal</constructEffect>
 		<canOverlapZones>false</canOverlapZones>
@@ -363,7 +363,7 @@
 		<inspectorTabs>
 			<li>ITab_Storage</li>
 		</inspectorTabs>
-		<designationCategory>Odyssey</designationCategory>
+		<designationCategory>VGE_Fuel</designationCategory>
 		<staticSunShadowHeight>0.2</staticSunShadowHeight>
 		<surfaceType>Item</surfaceType>
 		<canOverlapZones>false</canOverlapZones>
@@ -437,7 +437,7 @@
 		<inspectorTabs>
 			<li>ITab_Storage</li>
 		</inspectorTabs>
-		<designationCategory>Odyssey</designationCategory>
+		<designationCategory>VGE_Fuel</designationCategory>
 		<staticSunShadowHeight>0.2</staticSunShadowHeight>
 		<surfaceType>Item</surfaceType>
 		<canOverlapZones>false</canOverlapZones>
@@ -526,7 +526,7 @@
 		</comps>
 		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
 		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
-		<designationCategory>Odyssey</designationCategory>
+		<designationCategory>VGE_Fuel</designationCategory>
 		<designationHotKey>Misc4</designationHotKey>
 		<constructEffect>ConstructMetal</constructEffect>
 		<researchPrerequisites>
@@ -607,7 +607,7 @@
 			</li>
 		</comps>
 		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
-		<designationCategory>Odyssey</designationCategory>
+		<designationCategory>VGE_Fuel</designationCategory>
 		<designationHotKey>Misc4</designationHotKey>
 		<constructEffect>ConstructMetal</constructEffect>
 		<researchPrerequisites>
@@ -688,7 +688,7 @@
 			</li>
 		</comps>
 		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
-		<designationCategory>Odyssey</designationCategory>
+		<designationCategory>VGE_Fuel</designationCategory>
 		<staticSunShadowHeight>0.2</staticSunShadowHeight>
 		<constructEffect>ConstructMetal</constructEffect>
 		<canOverlapZones>false</canOverlapZones>

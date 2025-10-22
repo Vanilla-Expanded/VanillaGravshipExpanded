@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <DesignationCategoryDef>
+    <defName>VGE_Platform</defName>
+    <label>Platform</label>
+    <description>Manage the gravship's essential functions.</description>
+    <order>100</order>
+    <specialDesignatorClasses>
+      <li>Designator_Cancel</li>
+      <li>Designator_Deconstruct</li>
+      <li>Designator_RemoveFoundation</li>
+      <li>VanillaGravshipExpanded.Designator_RemoveSubstructure</li>
+    </specialDesignatorClasses>
+    <modExtensions>
+      <li Class="VanillaGravshipExpanded.NestedCategoryExtension">
+        <parentCategory>Odyssey</parentCategory>
+        <iconTexPath>UI/SubcategoryIcons/SubcategoryIcon_Platform</iconTexPath>
+      </li>
+    </modExtensions>
+  </DesignationCategoryDef>
+
+  <DesignationCategoryDef>
+    <defName>VGE_Vacuum</defName>
+    <label>Vacuum</label>
+    <description>Manage the gravship's vacuum functions.</description>
+    <order>90</order>
+    <specialDesignatorClasses>
+      <li>Designator_Cancel</li>
+      <li>Designator_Deconstruct</li>
+      <li>Designator_RemoveFoundation</li>
+      <li>VanillaGravshipExpanded.Designator_RemoveSubstructure</li>
+    </specialDesignatorClasses>
+    <modExtensions>
+      <li Class="VanillaGravshipExpanded.NestedCategoryExtension">
+        <parentCategory>Odyssey</parentCategory>
+        <iconTexPath>UI/SubcategoryIcons/SubcategoryIcon_Vacuum</iconTexPath>
+      </li>
+    </modExtensions>
+  </DesignationCategoryDef>
+
+  <DesignationCategoryDef>
+    <defName>VGE_Fuel</defName>
+    <label>Fuel</label>
+    <description>Manage fuel on the gravship.</description>
+    <order>80</order>
+    <specialDesignatorClasses>
+      <li>Designator_Cancel</li>
+      <li>Designator_Deconstruct</li>
+      <li>Designator_RemoveFoundation</li>
+      <li>VanillaGravshipExpanded.Designator_RemoveSubstructure</li>
+    </specialDesignatorClasses>
+    <modExtensions>
+      <li Class="VanillaGravshipExpanded.NestedCategoryExtension">
+        <parentCategory>Odyssey</parentCategory>
+        <iconTexPath>UI/SubcategoryIcons/SubcategoryIcon_Fuel</iconTexPath>
+      </li>
+    </modExtensions>
+  </DesignationCategoryDef>
+
+  <DesignationCategoryDef>
+    <defName>VGE_Combat</defName>
+    <label>Combat</label>
+    <description>Manage weapons on the gravship.</description>
+    <order>70</order>
+    <specialDesignatorClasses>
+      <li>Designator_Cancel</li>
+      <li>Designator_Deconstruct</li>
+      <li>Designator_RemoveFoundation</li>
+      <li>VanillaGravshipExpanded.Designator_RemoveSubstructure</li>
+    </specialDesignatorClasses>
+    <modExtensions>
+      <li Class="VanillaGravshipExpanded.NestedCategoryExtension">
+        <parentCategory>Odyssey</parentCategory>
+        <iconTexPath>UI/SubcategoryIcons/SubcategoryIcon_Combat</iconTexPath>
+      </li>
+    </modExtensions>
+  </DesignationCategoryDef>
+
+</Defs>
