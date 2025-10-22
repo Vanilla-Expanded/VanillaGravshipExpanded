@@ -50,13 +50,22 @@
           <texPath>UI/Gizmos/ExtractAstrofuel_Gizmo</texPath>
           <labelKey>VGE_ExtractAstrofuel</labelKey>
           <descKey>VGE_ExtractAstrofuelDesc</descKey>
-          <extractAmount>150</extractAmount>
+          <disabledReasonKey>VGE_ExtractAstrofuelDisabled</disabledReasonKey>
+          <extractAmount>-1</extractAmount>
+          <extractExactAmount>false</extractExactAmount>
           <thing>VGE_Astrofuel</thing>
-          <ratio>1</ratio>
+          <extractTime>120</extractTime>
         </extractOptions>
         <refillOptions>
           <thing>VGE_Astrofuel</thing>
+          <refillTime>240</refillTime>
         </refillOptions>
+        <destroyOptions>
+          <li>
+            <thing>VGE_Astrofuel</thing>
+            <spawnWhenDestroyed>false</spawnWhenDestroyed>
+          </li>
+        </destroyOptions>
       </li>
       <li Class="PipeSystem.CompProperties_ExplosiveContent">
         <explosiveMinRadius>1.1</explosiveMinRadius>
@@ -149,13 +158,22 @@
           <texPath>UI/Gizmos/ExtractAstrofuel_Gizmo</texPath>
           <labelKey>VGE_ExtractAstrofuel</labelKey>
           <descKey>VGE_ExtractAstrofuelDesc</descKey>
-          <extractAmount>150</extractAmount>
+          <disabledReasonKey>VGE_ExtractAstrofuelDisabled</disabledReasonKey>
+          <extractAmount>-1</extractAmount>
+          <extractExactAmount>false</extractExactAmount>
           <thing>VGE_Astrofuel</thing>
-          <ratio>1</ratio>
+          <extractTime>120</extractTime>
         </extractOptions>
         <refillOptions>
           <thing>VGE_Astrofuel</thing>
+          <refillTime>240</refillTime>
         </refillOptions>
+        <destroyOptions>
+          <li>
+            <thing>VGE_Astrofuel</thing>
+            <spawnWhenDestroyed>false</spawnWhenDestroyed>
+          </li>
+        </destroyOptions>
       </li>
       <li Class="PipeSystem.CompProperties_ExplosiveContent">
         <explosiveMinRadius>1.1</explosiveMinRadius>

@@ -262,10 +262,18 @@
 					<texPath>UI/Gizmos/ExtractOxygen_Gizmo</texPath>
 					<labelKey>VGE_ExtractOxygen</labelKey>
 					<descKey>VGE_ExtractOxygenDesc</descKey>
+          <disabledReasonKey>VGE_ExtractOxygenDisabled</disabledReasonKey>
 					<extractAmount>10</extractAmount>
 					<thing>VGE_OxygenCanister</thing>
-					<ratio>1</ratio>
+          <extractTime>120</extractTime>
+          <extractExactAmount>false</extractExactAmount>
 				</extractOptions>
+        <destroyOptions>
+          <li>
+            <thing>VGE_OxygenCanister</thing>
+            <spawnWhenDestroyed>false</spawnWhenDestroyed>
+          </li>
+        </destroyOptions>
 			</li>
 			<li Class="PipeSystem.CompProperties_ExplosiveContent">
 				<explosiveMaxRadius>7</explosiveMaxRadius>
@@ -341,10 +349,18 @@
 					<texPath>UI/Gizmos/ExtractOxygen_Gizmo</texPath>
 					<labelKey>VGE_ExtractOxygen</labelKey>
 					<descKey>VGE_ExtractOxygenDesc</descKey>
+          <disabledReasonKey>VGE_ExtractOxygenDisabled</disabledReasonKey>
 					<extractAmount>10</extractAmount>
 					<thing>VGE_OxygenCanister</thing>
-					<ratio>1</ratio>
+          <extractTime>120</extractTime>
+          <extractExactAmount>false</extractExactAmount>
 				</extractOptions>
+        <destroyOptions>
+          <li>
+            <thing>VGE_OxygenCanister</thing>
+            <spawnWhenDestroyed>false</spawnWhenDestroyed>
+          </li>
+        </destroyOptions>
 			</li>
 			<li Class="PipeSystem.CompProperties_ExplosiveContent">
 				<explosiveMaxRadius>14</explosiveMaxRadius>
