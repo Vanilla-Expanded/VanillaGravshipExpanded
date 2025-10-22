@@ -244,7 +244,11 @@ namespace VanillaGravshipExpanded
                     currentSelection = cat;
                 }
                 string label = cat.LabelCap;
-                
+                if (cat == mainCat && filteredSubCategories.Any())
+                {
+                    label = "VGE_More".Translate();
+                }
+
                 var iconRect = new Rect(rowRect.x + 4f, rowRect.y + 8f, 20f, 20f);
                 var nestedExtension = cat.GetModExtension<NestedCategoryExtension>();
                 if (nestedExtension != null && !string.IsNullOrEmpty(nestedExtension.iconTexPath))

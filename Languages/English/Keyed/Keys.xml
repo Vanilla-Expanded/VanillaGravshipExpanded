@@ -101,6 +101,7 @@ Please note that keeping several maps open may affect your performance.</VGE_Map
     <VGE_OrbitObjectsMultiplier>Orbital objects multiplier</VGE_OrbitObjectsMultiplier>
     <VGE_OrbitObjectsMultiplierDesc>By default the game will try to keep 3,8,12 or 20 locations in orbit (depending on globe coverage of the planet). With this slider you can apply a multiplier to this number, making your planet orbits super sparse or very cluttered!</VGE_OrbitObjectsMultiplierDesc>
     <VGE_Reset>Reset</VGE_Reset>
+    <VGE_More>More</VGE_More>
 
     <!-- World objects -->
 
