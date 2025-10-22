@@ -50,6 +50,9 @@
     </building>
     <replaceTags IsNull="True" />
     <placeWorkers IsNull="True" />
+    <researchPrerequisites>
+      <li>VGE_OxygenNetwork</li>
+    </researchPrerequisites>
   </ThingDef>
 
 </Defs>
