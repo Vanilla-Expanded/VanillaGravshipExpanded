@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="MechCentipede">
+		<defName>VGE_Astropede</defName>
+		<label>astropede</label>
+		<description>Heavily armored mechanoids adapted for zero-G warfare. Astropedes drift silently through space using gravitic stabilizers, unleashing explosive kinetic barrages from their minified mass lances. Their hovering profile makes them ideal for shipboard assaults and station breaches, though their slow movement speed leaves them vulnerable to concentrated fire.</description>
+		<race>
+			<body>VGE_Astropede</body>
+			<soundMeleeHitPawn>Pawn_Melee_MechanoidSlash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_MechanoidSlash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_MechanoidSlash_Miss</soundMeleeMiss>
+		</race>
+		<statBases>
+			<BandwidthCost MayRequire="Ludeon.Rimworld.Biotech">4</BandwidthCost>
+			<MarketValue>1350</MarketValue>
+			<MoveSpeed>2.1</MoveSpeed>
+		</statBases>
+		<comps>
+			<li Class="VEF.AnimalBehaviours.CompProperties_Floating">
+
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="BaseMechanoidKind">
+		<defName>VGE_Astropede</defName>
+		<label>astropede</label>
+		<race>VGE_Astropede</race>
+		<combatPower>450</combatPower>
+		<allowInMechClusters>false</allowInMechClusters>
+		<isFighter>false</isFighter>
+		<lifeStages>
+			<li MayRequire="Ludeon.Rimworld.Biotech">
+				<bodyGraphicData>
+					<texPath>Things/Pawns/Mechanoid/Astropede/Astropede</texPath>
+					<maskPath>Things/Pawns/Mechanoid/Astropede/Allegiance_Astropede</maskPath>
+					<shaderType>CutoutWithOverlay</shaderType>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<drawSize>3</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.8, 0.4)</volume>
+					</shadowData>
+				</bodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Pawns/Mechanoid/Astropede/AncientAstropede</texPath>
+					<maskPath>Things/Pawns/Mechanoid/Astropede/Allegiance_Astropede</maskPath>
+					<shaderType>CutoutWithOverlay</shaderType>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<drawSize>3</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.8, 0.4)</volume>
+					</shadowData>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+		<weaponMoney>9999~9999</weaponMoney>
+		
+		<weaponTags>
+			<li>VGE_MassLance</li>
+		</weaponTags>
+		<techHediffsChance>1</techHediffsChance>
+		<techHediffsMoney>9999~9999</techHediffsMoney>
+	</PawnKindDef>
+</Defs>

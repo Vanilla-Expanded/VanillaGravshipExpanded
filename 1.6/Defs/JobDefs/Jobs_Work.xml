@@ -33,11 +33,11 @@
 		<reportString>collecting gravdata.</reportString>
 		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
 	</JobDef>
-  <JobDef>
-    <defName>VGE_ReplenishOxygenPack</defName>
-    <driverClass>VanillaGravshipExpanded.JobDriver_RefillOxygenPack</driverClass>
-    <reportString>refilling TargetA.</reportString>
-    <suspendable>false</suspendable>
-    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
-  </JobDef>
+	<JobDef>
+		<defName>VGE_ReplenishOxygenPack</defName>
+		<driverClass>VanillaGravshipExpanded.JobDriver_RefillOxygenPack</driverClass>
+		<reportString>refilling TargetA.</reportString>
+		<suspendable>false</suspendable>
+		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+	</JobDef>
 </Defs>

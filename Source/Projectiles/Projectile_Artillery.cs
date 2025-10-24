@@ -61,7 +61,7 @@ namespace VanillaGravshipExpanded
         {
             var comp = launcher.TryGetComp<CompWorldArtillery>();
             var turret = launcher as Building_GravshipTurret;
-            if (comp.worldTarget.IsValid && comp.worldTarget.Tile != this.Tile)
+            if (comp?.worldTarget.IsValid == true && comp.worldTarget.Tile != this.Tile)
             {
                 var edgeCell = comp.FindEdgeCell(launcher.Map, comp.worldTarget);
                 this.targetTile = comp.worldTarget.Tile;
@@ -75,7 +75,7 @@ namespace VanillaGravshipExpanded
             {
                 base.Launch(launcher, origin, usedTarget, intendedTarget, hitFlags, preventFriendlyFire, equipment, targetCoverDef);
             }
-            turret.TrySwitchBarrel();
+            turret?.TrySwitchBarrel();
         }
 
         public override void ImpactSomething()

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<RecipeDef ParentName="LightMechanoidRecipe">
+		<defName>VGE_AstronautRecipe</defName>
+		<label>gestate astronaut</label>
+		<description>Gestate an astronaut mechanoid.</description>
+		<gestationCycles>1</gestationCycles>
+		<recipeUsers>
+			<li>MechGestator</li>
+		</recipeUsers>
+		<researchPrerequisite>BasicMechtech</researchPrerequisite>
+		<ingredients Inherit="False">
+			<li>
+				<filter>
+					<thingDefs>
+						<li>GravlitePanel</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SubcoreBasic</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<products>
+			<VGE_Astronaut>1</VGE_Astronaut>
+		</products>
+		<descriptionHyperlinks>
+			<ThingDef>VGE_Astronaut</ThingDef>
+		</descriptionHyperlinks>
+	</RecipeDef>
+</Defs>

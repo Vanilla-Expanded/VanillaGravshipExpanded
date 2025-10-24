@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="LightMechanoid">
+		<defName>VGE_Hunter</defName>
+		<label>hunter</label>
+		<description>A fast, human-sized combat mechanoid designed for zero-gravity warfare. It drifts effortlessly through space, closing in on the target before unleashing devastating salvos from the twin-linked javelin launcher. While the missiles strike with lethal precision, their short range forces hunters into dangerous proximity with the enemy.</description>
+		<statBases>
+			<BandwidthCost MayRequire="Ludeon.Rimworld.Biotech">2</BandwidthCost>
+			<MarketValue>1200</MarketValue>
+			<MoveSpeed>4.7</MoveSpeed>
+			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.4</ArmorRating_Sharp>
+			<Mass>60</Mass>
+		</statBases>
+		<tools Inherit="false">
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>17</power>
+				<cooldownTime>2.6</cooldownTime>
+				<linkedBodyPartsGroup>SpikedShellAttackTool</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<comps>
+			<li Class="VEF.AnimalBehaviours.CompProperties_Floating">
+
+			</li>
+		</comps>
+		<race>
+			<lifeStageAges>
+				<li>
+					<def>MechanoidFullyFormed</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Hunter_Wounded</soundWounded>
+					<soundDeath>Pawn_Hunter_Death</soundDeath>
+					<soundCall>Pawn_Hunter_Call</soundCall>
+				</li>
+				<li>
+					<def>MechanoidFullyFormed</def>
+					<minAge>100</minAge>
+					<soundWounded>Pawn_Hunter_Wounded</soundWounded>
+					<soundDeath>Pawn_Hunter_Death</soundDeath>
+					<soundCall>Pawn_Hunter_Call</soundCall>
+				</li>
+			</lifeStageAges>
+			<body>Drone</body>
+			<baseHealthScale>0.72</baseHealthScale>
+			<baseBodySize>1</baseBodySize>
+			<soundMeleeHitPawn>Pawn_Melee_MechanoidSlash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_MechanoidSlash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_MechanoidSlash_Miss</soundMeleeMiss>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="BaseMechanoidKind">
+		<defName>VGE_Hunter</defName>
+		<label>hunter</label>
+		<race>VGE_Hunter</race>
+		<allowInMechClusters>false</allowInMechClusters>
+		<isFighter>false</isFighter>
+		<combatPower>210</combatPower>
+		<lifeStages>
+			<li MayRequire="Ludeon.Rimworld.Biotech">
+				<bodyGraphicData>
+					<texPath>Things/Pawns/Mechanoid/Hunter/Hunter</texPath>
+					<maskPath>Things/Pawns/Mechanoid/Hunter/Allegiance_Hunter</maskPath>
+					<shaderType>CutoutWithOverlay</shaderType>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Pawns/Mechanoid/Hunter/AncientHunter</texPath>
+					<maskPath>Things/Pawns/Mechanoid/Hunter/Allegiance_Hunter</maskPath>
+					<shaderType>CutoutWithOverlay</shaderType>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+		<weaponMoney>9999~9999</weaponMoney>
+		<weaponTags>
+			<li>VGE_JavelinThrower</li>
+		</weaponTags>
+		<techHediffsChance>1</techHediffsChance>
+		<techHediffsMoney>9999~9999</techHediffsMoney>
+	</PawnKindDef>
+</Defs>

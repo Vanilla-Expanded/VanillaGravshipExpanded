@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Mass Lance -->
+	<ThingDef ParentName="BaseGunWithQuality">
+		<defName>VGE_MassLance</defName>
+		<label>mass lance</label>
+		<description>A mechanoid-mounted portable mass driver artillery. It fires dense slugs at incredible velocities, capable of destroying even heavily armored gravships.</description>
+		
+		<weaponTags>
+			<li>VGE_MassLance</li>
+		</weaponTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>VGE_Bullet_MassDriver</defaultProjectile>
+				<forcedMissRadius>4.5</forcedMissRadius>
+				<warmupTime>2.08</warmupTime>
+				<range>27</range>
+				<burstShotCount>1</burstShotCount>
+				<soundCast>VGE_GravshipHowitzer</soundCast>
+				<muzzleFlashScale>2</muzzleFlashScale>
+			</li>
+		</verbs>
+		<graphicData>
+			<texPath>Things/Equipment/Weapons/MassLance</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>900</MarketValue>
+			<Mass>18</Mass>
+			<RangedWeapon_Cooldown>8.4</RangedWeapon_Cooldown>
+		</statBases>
+		<techLevel>Spacer</techLevel>
+		<relicChance>0</relicChance>
+		<destroyOnDrop>true</destroyOnDrop>
+		<generateCommonality>0.5</generateCommonality>
+		<tradeability>None</tradeability>
+		<tools>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>11.7</power>
+				<cooldownTime>2.6</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+	
+	<!-- Javelin Thrower -->
+	<ThingDef ParentName="BaseGunWithQuality">
+		<defName>VGE_JavelinThrower</defName>
+		<label>javelin thrower</label>
+		<description>A mechanoid-mounted, minified, twin-linked javelin missile launcher. It fires small missiles with deadly precision, but lacks the range of the gravship artillery.</description>
+		
+		<weaponTags>
+			<li>VGE_JavelinThrower</li>
+		</weaponTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>VGE_Rocket_JavelinRocket</defaultProjectile>
+				<forcedMissRadius>4</forcedMissRadius>
+				<warmupTime>1.7</warmupTime>
+				<range>24</range>
+				<burstShotCount>2</burstShotCount>
+				<ticksBetweenBurstShots>15</ticksBetweenBurstShots>
+				<soundCast>VGE_JavelinLauncher_Cast</soundCast>
+				<muzzleFlashScale>2</muzzleFlashScale>
+			</li>
+		</verbs>
+		<graphicData>
+			<texPath>Things/Equipment/Weapons/JavelinThrower</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			
+		</graphicData>
+		<statBases>
+			<MarketValue>430</MarketValue>
+			<Mass>6</Mass>
+			<RangedWeapon_Cooldown>2.7</RangedWeapon_Cooldown>
+		</statBases>
+		<techLevel>Spacer</techLevel>
+		<relicChance>0</relicChance>
+		<destroyOnDrop>true</destroyOnDrop>
+		<generateCommonality>0.5</generateCommonality>
+		<tradeability>None</tradeability>
+		<tools>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>11.7</power>
+				<cooldownTime>2.6</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+	
+
+</Defs>

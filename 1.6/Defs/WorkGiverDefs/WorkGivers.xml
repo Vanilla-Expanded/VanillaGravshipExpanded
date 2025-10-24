@@ -144,13 +144,13 @@
 	<WorkGiverDef>
 		<defName>VGE_CollectGravdata</defName>
 		<label>collect gravdata</label>
-	<giverClass>VanillaGravshipExpanded.WorkGiver_CollectGravdata</giverClass>
+		<giverClass>VanillaGravshipExpanded.WorkGiver_CollectGravdata</giverClass>
 		<workType>Research</workType>
 		<verb>collect</verb>
-	<gerund>collecting</gerund>
+		<gerund>collecting</gerund>
 		<priorityInType>150</priorityInType>
 		<requiredCapacities>
 			<li>Manipulation</li>
-	</requiredCapacities>
+		</requiredCapacities>
 	</WorkGiverDef>
 </Defs>
