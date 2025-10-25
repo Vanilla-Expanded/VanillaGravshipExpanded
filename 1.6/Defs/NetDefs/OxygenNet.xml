@@ -4,7 +4,7 @@
 		<defName>VGE_OxygenNet</defName>
 		<pipeNetClass>VanillaGravshipExpanded.OxygenPipeNet</pipeNetClass>
 		<resource>
-			<name>oxygen</name>
+			<name>Oxygen</name>
 			<unit>u³</unit>
 			<color>(0.79, 0.64, 0.31)</color>
 			<offTexPath>UI/Overlays/Overlay_Oxygen</offTexPath>

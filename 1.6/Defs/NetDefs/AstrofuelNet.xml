@@ -4,7 +4,7 @@
 		<defName>VGE_AstrofuelNet</defName>
 		<pipeNetClass>VanillaGravshipExpanded.AstrofuelPipeNet</pipeNetClass>
 		<resource>
-			<name>astrofuel</name>
+			<name>Astrofuel</name>
 			<unit>l</unit>
 			<color>(0.54, 0.30, 0.85)</color>
 			<offTexPath>Things/Items/Resource/Astrofuel</offTexPath>
