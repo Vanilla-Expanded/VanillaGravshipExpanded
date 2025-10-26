@@ -645,6 +645,7 @@
 		<description>A specialized structure that refines chemfuel into high-grade astrofuel. It must be connected to the astrofuel pipe network and linked to at least one astrofuel tank to operate. Once connected, it automatically converts inserted chemfuel into astrofuel for use in engines and systems.</description>
 		<minifiedDef IsNull="True"/>
 		<thingCategories IsNull="True"/>
+    <drawerType>MapMeshAndRealTime</drawerType>
 		<graphicData>
 			<texPath>Things/Structures/AstrofuelSynthesizer/AstrofuelSynthesizer</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
