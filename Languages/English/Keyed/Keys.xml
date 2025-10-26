@@ -156,7 +156,12 @@ Please note that keeping several maps open may affect your performance.</VGE_Map
     <VGE_AstrofireInHomeAreaDesc>There is an astrofire in the home area.</VGE_AstrofireInHomeAreaDesc>
 
     <VGE_RequiresSubstructureOrScaffolding>Requires substructure or scaffold to be build on.</VGE_RequiresSubstructureOrScaffolding>
-    
+
     <!-- Odyssey architect tab -->
     <VGE_NoAvailableDesignators>No available designators</VGE_NoAvailableDesignators>
+
+    <!-- Vac barrier color picker -->
+    <VGE_ColorPickerValue>brightness</VGE_ColorPickerValue>
+    <VGE_ColorPickerValueTooltip>Choose a color by setting the color brightness.\n\nBrightness refers to "value" from HSV color model - hue, saturation, and value/brightness.</VGE_ColorPickerValueTooltip>
+
 </LanguageData>
