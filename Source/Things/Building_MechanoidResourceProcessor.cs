@@ -47,7 +47,7 @@ namespace VanillaGravshipExpanded
 
         private void SetNextProduction()
         {
-            ticksToProduce = 60000;
+            ticksToProduce = 4 * GenDate.TicksPerHour;
             float value = Rand.Value;
             if (value < 0.25f)
             {

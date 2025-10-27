@@ -11,6 +11,7 @@ namespace VanillaGravshipExpanded
         public override void PostMapGenerate(Map map)
         {
             base.PostMapGenerate(map);
+            if (map.IsStartingMap is false) return;
             List<KCSG.StructureLayoutDef> destroyerLayouts = new List<KCSG.StructureLayoutDef>
             {
                 VGEDefOf.VGE_MechOrbitalDestroyer_Alpha,

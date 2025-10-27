@@ -44,5 +44,16 @@
     </projectile>
   </ThingDef>
 
- 
+   <ThingDef ParentName="EtherealThingBase">
+    <defName>VGE_LandingStructure</defName>
+    <label>landing structure</label>
+    <thingClass>VanillaGravshipExpanded.LandingStructure</thingClass>
+    <category>Ethereal</category>
+    <useHitPoints>false</useHitPoints>
+    <drawOffscreen>true</drawOffscreen>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Skyfaller</altitudeLayer>
+    <drawerType>RealtimeOnly</drawerType>
+  </ThingDef>
+
 </Defs>

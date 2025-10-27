@@ -168,4 +168,14 @@
 			<FilthMultiplier>1</FilthMultiplier>
 		</statBases>
 	</TerrainDef>
+
+	<TerrainDef>
+		<defName>VGE_FakeTerrain</defName>
+		<label>fake terrain</label>
+		<description>fake terrain</description>
+		<texturePath>Things/Terrain/MechanoidSubstructure/MechanoidSubstructure</texturePath>
+		<fertility>0</fertility>
+		<edgeType>Hard</edgeType>
+		<renderPrecedence>399</renderPrecedence>
+	</TerrainDef>
 </Defs>
