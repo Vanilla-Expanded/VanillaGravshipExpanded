@@ -67,7 +67,7 @@
 					<maskPath>Things/Pawns/Mechanoid/Hunter/Allegiance_Hunter</maskPath>
 					<shaderType>CutoutWithOverlay</shaderType>
 					<graphicClass>Graphic_Multi</graphicClass>
-					<drawSize>2</drawSize>
+					<drawSize>1.5</drawSize>
 				</bodyGraphicData>
 			</li>
 			<li>
@@ -76,13 +76,13 @@
 					<maskPath>Things/Pawns/Mechanoid/Hunter/Allegiance_Hunter</maskPath>
 					<shaderType>CutoutWithOverlay</shaderType>
 					<graphicClass>Graphic_Multi</graphicClass>
-					<drawSize>2</drawSize>
+					<drawSize>1.5</drawSize>
 				</bodyGraphicData>
 			</li>
 		</lifeStages>
 		<weaponMoney>9999~9999</weaponMoney>
 		<weaponTags>
-			<li>VGE_JavelinThrower</li>
+			<li>VGE_RocketswarmPod</li>
 		</weaponTags>
 		<techHediffsChance>1</techHediffsChance>
 		<techHediffsMoney>9999~9999</techHediffsMoney>

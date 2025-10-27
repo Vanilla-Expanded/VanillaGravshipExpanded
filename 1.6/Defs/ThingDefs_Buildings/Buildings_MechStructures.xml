@@ -105,6 +105,7 @@
         <graphicData>
             <texPath>Things/Structures/Artillery/MechanoidMassDriver_TurretTop</texPath>
             <graphicClass>Graphic_Single</graphicClass>
+            <drawOffset>(0,10,0.1)</drawOffset>
         </graphicData>
         <verbs>
             <li>
@@ -179,7 +180,7 @@
         <building>
             <turretGunDef>VGE_Gun_HeavyChargeAnnihilator</turretGunDef>
             <turretBurstCooldownTime>20</turretBurstCooldownTime>
-            <turretTopDrawSize>5</turretTopDrawSize>
+            <turretTopDrawSize>4</turretTopDrawSize>
             <combatPower>150</combatPower>
         </building>
     </ThingDef>
@@ -191,6 +192,7 @@
         <graphicData>
             <texPath>Things/Structures/Artillery/HeavyChargeAnnihilator_TurretTop</texPath>
             <graphicClass>Graphic_Single</graphicClass>
+            <drawOffset>(0,10,0.1)</drawOffset>
         </graphicData>
         <statBases>
             <AccuracyTouch>0.24</AccuracyTouch>
