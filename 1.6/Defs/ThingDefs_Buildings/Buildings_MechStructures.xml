@@ -105,7 +105,7 @@
         <graphicData>
             <texPath>Things/Structures/Artillery/MechanoidMassDriver_TurretTop</texPath>
             <graphicClass>Graphic_Single</graphicClass>
-            <drawOffset>(0,10,0.1)</drawOffset>
+            <drawOffset>(0,0,1)</drawOffset>
         </graphicData>
         <verbs>
             <li>
@@ -192,7 +192,7 @@
         <graphicData>
             <texPath>Things/Structures/Artillery/HeavyChargeAnnihilator_TurretTop</texPath>
             <graphicClass>Graphic_Single</graphicClass>
-            <drawOffset>(0,10,0.1)</drawOffset>
+            <drawOffset>(0,0,0.3)</drawOffset>
         </graphicData>
         <statBases>
             <AccuracyTouch>0.24</AccuracyTouch>
