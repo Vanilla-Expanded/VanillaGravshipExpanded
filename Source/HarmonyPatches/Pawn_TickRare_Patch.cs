@@ -7,7 +7,8 @@ namespace VanillaGravshipExpanded;
 [HarmonyPatch(typeof(Pawn), nameof(Pawn.TickRare))]
 public static class Pawn_TickRare_Patch
 {
-    private const float ChangePerInterval = (float)GenTicks.TickRareInterval / GenTicks.TicksPerRealSecond * 0.01f;
+    // 1% per second, converted to rare tick interval
+    private const float ChangePerInterval = 0.01f * GenTicks.TickRareInterval / GenTicks.TicksPerRealSecond;
 
     private static void Postfix(Pawn __instance)
     {
@@ -22,7 +23,7 @@ public static class Pawn_TickRare_Patch
             if (room is not { Vacuum: < 1f })
                 return;
 
-            var change = 100f / room.CellCount * (1f - resistance) * __instance.BodySize * (ChangePerInterval * 0.2f);
+            var change = 100f / room.CellCount * (1f - resistance) * __instance.BodySize * (ChangePerInterval * 0.02f);
             room.Vacuum = room.UnsanitizedVacuum + change;
         }
     }
