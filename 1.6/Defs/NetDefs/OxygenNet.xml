@@ -240,7 +240,7 @@
 		<fillPercent>0.6</fillPercent>
 		<tickerType>Normal</tickerType>
 		<statBases>
-			<MaxHitPoints>200</MaxHitPoints>
+			<MaxHitPoints>250</MaxHitPoints>
 			<WorkToBuild>2250</WorkToBuild>
 			<Mass>25</Mass>
 			<Flammability>0.6</Flammability>
@@ -253,7 +253,7 @@
 		<comps>
 			<li Class="PipeSystem.CompProperties_ResourceStorage">
 				<pipeNet>VGE_OxygenNet</pipeNet>
-				<storageCapacity>200</storageCapacity>
+				<storageCapacity>500</storageCapacity>
 				<barSize>(0.8, 0.15)</barSize>
 				<margin>0.1</margin>
 				<centerOffset>(0, 0, -0.5)</centerOffset>
@@ -327,7 +327,7 @@
 		<fillPercent>0.6</fillPercent>
 		<tickerType>Normal</tickerType>
 		<statBases>
-			<MaxHitPoints>300</MaxHitPoints>
+			<MaxHitPoints>400</MaxHitPoints>
 			<WorkToBuild>3500</WorkToBuild>
 			<Mass>50</Mass>
 			<Flammability>0.6</Flammability>
@@ -340,7 +340,7 @@
 		<comps>
 			<li Class="PipeSystem.CompProperties_ResourceStorage">
 				<pipeNet>VGE_OxygenNet</pipeNet>
-				<storageCapacity>500</storageCapacity>
+				<storageCapacity>1200</storageCapacity>
 				<barSize>(1.3, 0.25)</barSize>
 				<margin>0.1</margin>
 				<centerOffset>(0, 0, -0.75)</centerOffset>
