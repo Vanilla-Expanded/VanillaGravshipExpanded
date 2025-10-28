@@ -38,7 +38,7 @@ namespace VanillaGravshipExpanded
         }
 
 
-        private static void SpawnGravship(LocalTargetInfo target, KCSG.StructureLayoutDef layout)
+        public static void SpawnGravship(LocalTargetInfo target, KCSG.StructureLayoutDef layout)
         {
             var landingStructure = (LandingStructure)ThingMaker.MakeThing(VGEDefOf.VGE_LandingStructure);
             landingStructure.layoutDef = layout;
