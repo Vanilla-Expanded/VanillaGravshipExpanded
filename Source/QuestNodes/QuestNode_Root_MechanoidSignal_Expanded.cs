@@ -1,12 +1,16 @@
 ﻿
 using KTrie;
+using PipeSystem;
 using RimWorld;
 using RimWorld.Planet;
 using RimWorld.QuestGen;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
 using Verse;
+using Verse.AI.Group;
+using Verse.AI;
 using static UnityEngine.GraphicsBuffer;
+using UnityEngine;
 
 namespace VanillaGravshipExpanded
 {
@@ -14,18 +18,13 @@ namespace VanillaGravshipExpanded
     {
         private const int SkyfallerDelayTicks = 300;
 
-        private static readonly IntRange ChunkCountRange = new IntRange(4, 6);
-
-        private static readonly IntRange DeadMechCountPerChunk = new IntRange(0, 2);
-
-        private static readonly IntRange GravlitePanelCountTotal = new IntRange(350, 375);
-
+       
         public override void RunInt()
         {
             Quest quest = QuestGen.quest;
             Map map = QuestGen_Get.GetMap();
             string dropPodsSpawnedSignal = QuestGenUtility.HardcodedSignalWithQuestID("dropPodsSpawned");
-            Thing gravEngine = ThingMaker.MakeThing(ThingDefOf.GravEngine);
+            Thing gravEngine = ThingMaker.MakeThing(VGEDefOf.VGE_GravjumperEngine);
             string inSignal = QuestGenUtility.HardcodedSignalWithQuestID("gravEngine.Inspected");
             QuestUtility.AddQuestTag(gravEngine, QuestGenUtility.HardcodedTargetQuestTagWithQuestID("gravEngine"));
             quest.Delay(300, delegate
@@ -44,35 +43,30 @@ namespace VanillaGravshipExpanded
                 };               
                 quest.AddPart(questPart_SpawnThing);
 
-                
-              
-                
-                /*List<IntVec3> spots = new List<IntVec3>();
                 List<PawnKindDef> mechTypes = new List<PawnKindDef>
                 {
-                PawnKindDefOf.Mech_Pikeman,
-                PawnKindDefOf.Mech_Scyther
+                VGEDefOf.VGE_Astropede,
+                VGEDefOf.VGE_Hunter
                 };
-                int num = ChunkCountRange.RandomInRange + 1;
-                int gravlitePanelCount = GravlitePanelCountTotal.RandomInRange / (num - 1);
-                CellFinder.TryFindRandomCell(map, (IntVec3 c) => DropCellFinder.IsGoodDropSpot(c, map, allowFogged: false, canRoofPunch: false) && CanLandHere(c, map, engine: true, spots), out IntVec3 result);
-                int i = default(int);
-                for (i = 0; i < num; i++)
+                float threatPoints = StorytellerUtility.DefaultThreatPointsNow(map);
+                int chunkAmount = Mathf.Max((int)(threatPoints / 900),1);
+                for(int i=0; i<chunkAmount; i++)
                 {
-                    Skyfaller skyfaller = SkyfallerMaker.MakeSkyfaller(ThingDefOf.ShipChunkIncoming_SmallExplosion, ChunkContents(quest, gravEngine, i, mechTypes, gravlitePanelCount));
+                    Skyfaller skyfaller = SkyfallerMaker.MakeSkyfaller(ThingDefOf.ShipChunkIncoming_SmallExplosion, ChunkContents(quest, mechTypes));
                     skyfaller.contentsCanOverlap = false;
                     skyfaller.moveAside = true;
-                    QuestPart_SpawnThing questPart_SpawnThing = new QuestPart_SpawnThing
+                    QuestPart_SpawnThing questPart_SpawnThing2 = new QuestPart_SpawnThing
                     {
                         thing = skyfaller,
                         mapParentOfPawn = map.mapPawns.FreeColonistsSpawned.RandomElement(),
                         inSignal = QuestGen.slate.Get<string>("inSignal"),
-                        cell = CellFinder.RandomClosewalkCellNear(result, map, 15, (IntVec3 x) => CanLandHere(x, map, i == 0, spots)),
+                        cell = CellFinder.RandomClosewalkCellNear(spawnCell, map, 15),
                         questLookTarget = false
                     };
-                    spots.Add(questPart_SpawnThing.cell);
-                    quest.AddPart(questPart_SpawnThing);
-                }*/
+                    quest.AddPart(questPart_SpawnThing2);
+                }
+                
+
                 quest.Letter(LetterDefOf.PositiveEvent, null, null, null, null, useColonistsFromCaravanArg: false, QuestPart.SignalListenMode.OngoingOnly, Gen.YieldSingle(gravEngine), filterDeadPawnsFromLookTargets: false, "[gravEngineSpawnedLetterText]", null, "[gravEngineSpawnedLetterLabel]");
                 quest.SignalPass(null, null, dropPodsSpawnedSignal);
             });
@@ -84,7 +78,7 @@ namespace VanillaGravshipExpanded
             {
                 (Reward)new Reward_DefinedThingDef
                 {
-                    thingDef = ThingDefOf.GravEngine
+                    thingDef = VGEDefOf.VGE_GravjumperEngine
                 }
             }
             };
@@ -99,20 +93,20 @@ namespace VanillaGravshipExpanded
             foreach (IntVec3 cleanCell in cellRect.Cells)
             {
 
-                if (!cell.InBounds(map) || map.areaManager.Home[cell])
+                if (!cleanCell.InBounds(map) || map.areaManager.Home[cleanCell])
                 {
                     return false;
                 }
-                if (cell.GetEdifice(map) != null)
+                if (cleanCell.GetEdifice(map) != null)
                 {
                     return false;
                 }
-                TerrainDef terrain = cell.GetTerrain(map);
+                TerrainDef terrain = cleanCell.GetTerrain(map);
                 if (terrain.passability == Traversability.Impassable)
                 {
                     return false;
                 }
-                Thing thing2 = map.thingGrid.ThingAt(cell, ThingDefOf.SteamGeyser);
+                Thing thing2 = map.thingGrid.ThingAt(cleanCell, ThingDefOf.SteamGeyser);
                 if (thing2 != null)
                 {
                     return false;
@@ -121,38 +115,31 @@ namespace VanillaGravshipExpanded
             return true;
         }
 
-        private List<Thing> ChunkContents(Quest quest, Thing gravEngine, int index, List<PawnKindDef> mechTypes, int gravlitePanelCount)
+        private List<Thing> ChunkContents(Quest quest, List<PawnKindDef> mechTypes)
         {
             List<Thing> list = new List<Thing>();
-            if (index == 0)
-            {
-                list.Add(gravEngine);
-                return list;
-            }
+           
             list.Add(ThingMaker.MakeThing(ThingDefOf.ShipChunk_Mech));
-            int randomInRange = DeadMechCountPerChunk.RandomInRange;
-            for (int i = 0; i < randomInRange; i++)
+           
+            PawnKindDef kindDef;
+            for (int remaining = 900; remaining > 0;)
             {
-                Corpse corpse = quest.GeneratePawn(new PawnGenerationRequest(mechTypes.RandomElement(), Faction.OfMechanoids, PawnGenerationContext.NonPlayer, null, forceGenerateNewPawn: false, allowDead: false, allowDowned: false, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: true))?.Corpse;
-                if (corpse != null)
+                if (mechTypes.TryRandomElement(out kindDef))
                 {
-                    corpse.SetForbidden(value: true, warnOnFail: false);
-                    list.Add(corpse);
+                    Pawn pawn = PawnGenerator.GeneratePawn(kindDef, Faction.OfMechanoids);
+                    list.Add(pawn);
+                    remaining -= (int)kindDef.combatPower;
+
                 }
             }
-            Thing thing = ThingMaker.MakeThing(ThingDefOf.GravlitePanel);
-            thing.stackCount = gravlitePanelCount;
-            thing.SetForbidden(value: true, warnOnFail: false);
-            list.Add(thing);
+         
+          
             return list;
         }
 
         public override bool TestRunInt(Slate slate)
         {
-            if (!ModsConfig.OdysseyActive)
-            {
-                return false;
-            }
+            
             if (QuestGen_Get.GetMap() == null)
             {
                 return false;

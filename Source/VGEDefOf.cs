@@ -24,7 +24,7 @@ namespace VanillaGravshipExpanded
         public static ThingDef VGE_SmallDebris, VGE_MediumDebris, VGE_LargeDebris, VGE_SmallAsteroid, VGE_MediumAsteroid, VGE_LargeAsteroid;
         public static WeatherDef VGE_ToxicDustCloud;
         public static PipeNetDef VGE_OxygenNet;
-        public static PawnKindDef Rat, VGE_Astropede;
+        public static PawnKindDef Rat, VGE_Astropede,VGE_Hunter;
         public static ThoughtDef VGE_CrewEuphoria;
         public static ThingDef VGE_GiantThruster, VGE_GiantAstrofuelTank, LargeChemfuelTank;
         public static ThingDef VGE_Astrofuel;
