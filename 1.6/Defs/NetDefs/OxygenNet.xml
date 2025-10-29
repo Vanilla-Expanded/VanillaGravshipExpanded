@@ -767,6 +767,11 @@
 		<placeWorkers>
 			<li>VanillaGravshipExpanded.PlaceWorker_OxygenPusher</li>
 		</placeWorkers>
+    <modExtensions>
+      <li Class="VEF.Buildings.GravshipLaunchExtension">
+        <isOxygenPusher>true</isOxygenPusher>
+      </li>
+    </modExtensions>
 		<researchPrerequisites>
 			<li>VGE_OxygenNetwork</li>
 		</researchPrerequisites>

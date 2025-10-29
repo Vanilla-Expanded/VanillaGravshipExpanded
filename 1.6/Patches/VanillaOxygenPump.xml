@@ -136,4 +136,16 @@
     </match>
   </Operation>
 
+  <!-- Since vanilla oxygen pump no longer uses the vanilla oxygen pusher comp (but our pipe-net based one), -->
+  <!-- the gravship launch won't treat it as an oxygen source. Add our custom DefModExtension to it so it's -->
+  <!-- treated as one again, and won't be causing warnings about no oxygen pumps anymore during launch. -->
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="OxygenPump"]</xpath>
+    <value>
+      <li Class="VEF.Buildings.GravshipLaunchExtension">
+        <isOxygenPusher>true</isOxygenPusher>
+      </li>
+    </value>
+  </Operation>
+
 </Patch>

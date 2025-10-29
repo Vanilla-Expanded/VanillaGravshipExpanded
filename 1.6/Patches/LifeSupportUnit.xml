@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <!-- Life support unit doesn't count as a heater or oxygen pusher in Vanilla, so let's make it both in case of mods allowing players to minify it. -->
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="LifeSupportUnit"]</xpath>
+    <value>
+      <li Class="VEF.Buildings.GravshipLaunchExtension">
+        <isOxygenPusher>true</isOxygenPusher>
+        <isHeater>true</isHeater>
+      </li>
+    </value>
+  </Operation>
+
+</Patch>
