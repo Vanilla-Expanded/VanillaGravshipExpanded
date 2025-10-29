@@ -4,9 +4,9 @@
 		<defName>VGE_SpaceSolarFlare</defName>
 		<conditionClass>VanillaGravshipExpanded.GameCondition_DisableElectricityAndHeatWave</conditionClass>
 		<label>solar flare</label>
-		<description>A solar flare has begun.\n\nThe intense radiation will shut down all electrical devices.\n\nIt should pass in about a day.\n\nThe flare will quickly heat all exposed surfaces, potentially causing heatstroke and fires.</description>
+		<description>A solar flare has begun.\n\nWhile this solar flare will not disable electronic devices, it will quickly heat all exposed surfaces, potentially causing heatstroke and fires.\n\nIt should pass in about a day.</description>
 		<endMessage>The solar flare is ending.</endMessage>
-		<letterText>A solar flare has begun.\n\nThe intense radiation will shut down all electrical devices.\n\nIt should pass in about a day.\n\nThe flare will quickly heat all exposed surfaces, potentially causing heatstroke and fires.</letterText>
+		<letterText>A solar flare has begun.\n\nWhile this solar flare will not disable electronic devices, it will quickly heat all exposed surfaces, potentially causing heatstroke and fires.\n\nIt should pass in about a day.</letterText>
 		<letterDef>NegativeEvent</letterDef>
 		<canBePermanent>true</canBePermanent>
 		<allowUnderground>false</allowUnderground>
