@@ -30,16 +30,22 @@ namespace VanillaGravshipExpanded
             QuestUtility.AddQuestTag(gravEngine, QuestGenUtility.HardcodedTargetQuestTagWithQuestID("gravEngine"));
             quest.Delay(300, delegate
             {
-               
-
                 var landingStructure = (LandingStructure)ThingMaker.MakeThing(VGEDefOf.VGE_LandingStructure);
                 landingStructure.layoutDef = VGEDefOf.VGE_StartingGravjumperDamaged;
-                
                 CellFinder.TryFindRandomCell(map, (IntVec3 c) => DropCellFinder.IsGoodDropSpot(c, map, allowFogged: false, canRoofPunch: false) && CanLandHere(c, map, VGEDefOf.VGE_StartingGravjumperDamaged), out IntVec3 spawnCell);
-                if (spawnCell != IntVec3.Invalid)
+
+                QuestPart_SpawnThing questPart_SpawnThing = new QuestPart_SpawnThing
                 {
-                    GenSpawn.Spawn(landingStructure, spawnCell, Find.CurrentMap, Rot4.North);
-                }
+                    thing = landingStructure,
+                    mapParentOfPawn = map.mapPawns.FreeColonistsSpawned.RandomElement(),
+                    inSignal = QuestGen.slate.Get<string>("inSignal"),
+                    cell = spawnCell,
+                    questLookTarget = false
+                };               
+                quest.AddPart(questPart_SpawnThing);
+
+                
+              
                 
                 /*List<IntVec3> spots = new List<IntVec3>();
                 List<PawnKindDef> mechTypes = new List<PawnKindDef>
