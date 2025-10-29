@@ -1,4 +1,4 @@
-﻿
+
 using KTrie;
 using PipeSystem;
 using RimWorld;
@@ -24,14 +24,14 @@ namespace VanillaGravshipExpanded
             Quest quest = QuestGen.quest;
             Map map = QuestGen_Get.GetMap();
             string dropPodsSpawnedSignal = QuestGenUtility.HardcodedSignalWithQuestID("dropPodsSpawned");
-            Thing gravEngine = ThingMaker.MakeThing(VGEDefOf.VGE_GravjumperEngine);
             string inSignal = QuestGenUtility.HardcodedSignalWithQuestID("gravEngine.Inspected");
-            QuestUtility.AddQuestTag(gravEngine, QuestGenUtility.HardcodedTargetQuestTagWithQuestID("gravEngine"));
+            QuestUtility.AddQuestTag(map.Parent, QuestGenUtility.HardcodedTargetQuestTagWithQuestID("gravEngine"));
+            CellFinder.TryFindRandomCell(map, (IntVec3 c) => DropCellFinder.IsGoodDropSpot(c, map, allowFogged: false, canRoofPunch: false) && CanLandHere(c, map, VGEDefOf.VGE_StartingGravjumperDamaged), out IntVec3 spawnCell);
+            var target = Gen.YieldSingle(new GlobalTargetInfo(spawnCell, map));
             quest.Delay(300, delegate
             {
                 var landingStructure = (LandingStructure)ThingMaker.MakeThing(VGEDefOf.VGE_LandingStructure);
                 landingStructure.layoutDef = VGEDefOf.VGE_StartingGravjumperDamaged;
-                CellFinder.TryFindRandomCell(map, (IntVec3 c) => DropCellFinder.IsGoodDropSpot(c, map, allowFogged: false, canRoofPunch: false) && CanLandHere(c, map, VGEDefOf.VGE_StartingGravjumperDamaged), out IntVec3 spawnCell);
 
                 QuestPart_SpawnThing questPart_SpawnThing = new QuestPart_SpawnThing
                 {
@@ -60,17 +60,17 @@ namespace VanillaGravshipExpanded
                         thing = skyfaller,
                         mapParentOfPawn = map.mapPawns.FreeColonistsSpawned.RandomElement(),
                         inSignal = QuestGen.slate.Get<string>("inSignal"),
-                        cell = CellFinder.RandomClosewalkCellNear(spawnCell, map, 15),
+                        cell = CellFinder.RandomClosewalkCellNear(spawnCell, map, 30),
                         questLookTarget = false
                     };
                     quest.AddPart(questPart_SpawnThing2);
                 }
                 
 
-                quest.Letter(LetterDefOf.PositiveEvent, null, null, null, null, useColonistsFromCaravanArg: false, QuestPart.SignalListenMode.OngoingOnly, Gen.YieldSingle(gravEngine), filterDeadPawnsFromLookTargets: false, "[gravEngineSpawnedLetterText]", null, "[gravEngineSpawnedLetterLabel]");
+                quest.Letter(LetterDefOf.PositiveEvent, null, null, null, null, useColonistsFromCaravanArg: false, QuestPart.SignalListenMode.OngoingOnly, Gen.YieldSingle(target), filterDeadPawnsFromLookTargets: false, "[gravEngineSpawnedLetterText]", null, "[gravEngineSpawnedLetterLabel]");
                 quest.SignalPass(null, null, dropPodsSpawnedSignal);
             });
-            quest.LookTargets(Gen.YieldSingle(new GlobalTargetInfo(gravEngine)));
+            quest.LookTargets(target);
             QuestPart_Choice questPart_Choice = quest.RewardChoice();
             QuestPart_Choice.Choice item = new QuestPart_Choice.Choice
             {

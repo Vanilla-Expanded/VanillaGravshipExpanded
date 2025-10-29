@@ -1,4 +1,5 @@
-﻿using System.Collections;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using KCSG;
@@ -43,7 +44,13 @@ namespace VanillaGravshipExpanded
         private MaterialPropertyBlock thrusterFlameBlock;
         static LandingStructure()
         {
-            (VGEDefOf.VGE_FakeTerrain.graphic as Graphic_Single).mat = MatGravshipChromaKey;
+            var graphic = VGEDefOf.VGE_FakeTerrain.graphic as Graphic_Single;
+            var cache = GraphicDatabase.allGraphics;
+            GraphicDatabase.allGraphics = new Dictionary<GraphicRequest, Graphic>();
+            graphic = graphic.GetCopy(graphic.drawSize, graphic.Shader) as Graphic_Single;
+            graphic.mat = MatGravshipChromaKey;
+            VGEDefOf.VGE_FakeTerrain.graphic = graphic;
+            GraphicDatabase.allGraphics = cache;
         }
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
@@ -63,7 +70,6 @@ namespace VanillaGravshipExpanded
             {
                 ticksToImpact = ticksToImpactMax = 600;
                 Find.CameraDriver.shaker.DoShake(0.2f, 120);
-                Find.CameraDriver.StartCoroutine(CaptureGravshipCoroutine());
             }
         }
 
@@ -82,8 +88,10 @@ namespace VanillaGravshipExpanded
 
         }
 
+        private bool coroutineStarted;
         private IEnumerator CaptureGravshipCoroutine()
         {
+            coroutineStarted = true;
             var maxSize = Mathf.Max(layoutDef.Sizes.x, layoutDef.Sizes.z) + 3;
             CreateTempMap(new IntVec3(maxSize, 1, maxSize), Map, out var mapParent, out var tempMap);
             var originalMap = Current.Game.CurrentMap;
@@ -96,8 +104,26 @@ namespace VanillaGravshipExpanded
             mainCamera.enabled = false;
             Current.Game.CurrentMap = tempMap;
             yield return new WaitForEndOfFrame();
-            CellRect cellRect = SpawnLayout(tempMap, tempMap.Center);
+            yield return new WaitForEndOfFrame();
+            try
+            {
+                DoCapture(tempMap, mainCamera);
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Failed to capture " + layoutDef + ": " + ex.ToString());
+            }
+            Current.Game.CurrentMap = originalMap;
+            mainCamera.enabled = wasCamEnabled;
+            cameraDriver.enabled = wasCamDriverEnabled;
+            Find.WorldObjects.Remove(mapParent);
+            Find.Maps.Remove(tempMap);
+            coroutineStarted = false;
+        }
 
+        private void DoCapture(Map tempMap, Camera mainCamera)
+        {
+            CellRect cellRect = SpawnLayout(tempMap, tempMap.Center);
             Building_GravEngine engine = null;
             Building pilotConsole = null;
             foreach (var pos in cellRect)
@@ -115,6 +141,7 @@ namespace VanillaGravshipExpanded
                     else if (thing.def == ThingDefOf.GravFieldExtender)
                     {
                         gravFieldExtenderPositions.Add(thing.Position);
+
                     }
                     else if (thing is Building_GravEngine gravEngine)
                     {
@@ -128,7 +155,7 @@ namespace VanillaGravshipExpanded
             foreach (var thruster in this.thrusters)
             {
                 var comp = thruster.TryGetComp<CompGravshipThruster>();
-                if (comp != null && comp.CanBeActive)
+                if (comp != null)
                 {
                     this.launchDirection += thruster.Rotation.AsIntVec3 * comp.Props.directionInfluence;
                 }
@@ -191,12 +218,6 @@ namespace VanillaGravshipExpanded
             captureCam.targetTexture = null;
             captureCam.clearFlags = CameraClearFlags.Color;
             captureCam.backgroundColor = new Color(0, 0, 0, 0);
-
-            Current.Game.CurrentMap = originalMap;
-            mainCamera.enabled = wasCamEnabled;
-            cameraDriver.enabled = wasCamDriverEnabled;
-            Find.WorldObjects.Remove(mapParent);
-            Find.Maps.Remove(tempMap);
         }
 
         public void MapUpdate(Map map)
@@ -289,7 +310,7 @@ namespace VanillaGravshipExpanded
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Deep.Look(ref capturedTexture, "capturedTexture");
+            Scribe_Defs.Look(ref layoutDef, "layoutDef");
             Scribe_Values.Look(ref drawSize, "drawSize");
             Scribe_Values.Look(ref captureCenter, "captureCenter");
             Scribe_Values.Look(ref captureBounds, "captureBounds");
@@ -304,12 +325,22 @@ namespace VanillaGravshipExpanded
 
         public override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
-            DrawGravship(drawLoc + new Vector3(0, 0, -0.5f));
+            DrawGravship(drawLoc + new Vector3(-0.5f, 0, 0));
         }
 
         private void DrawGravship(Vector3 drawLoc)
         {
-            if (capturedTexture?.Texture == null) return;
+            if (capturedTexture?.Texture == null)
+            {
+                LongEventHandler.ExecuteWhenFinished(delegate
+                {
+                    if (coroutineStarted is false)
+                    {
+                        Find.CameraDriver.StartCoroutine(CaptureGravshipCoroutine());
+                    }
+                });
+                return;
+            }
 
             float progress = 1f - (float)ticksToImpact / (float)ticksToImpactMax;
             progress = progress.RemapClamped(0f, 0.95f, 0f, 1f);
@@ -456,7 +487,7 @@ namespace VanillaGravshipExpanded
             exhaustFleckSystem.CreateFleck(new FleckCreationData
             {
                 def = settings.ExhaustFleckDef,
-                spawnPosition = position + quaternion * settings.spawnOffset + Random.insideUnitSphere.WithY(0f).normalized * settings.spawnRadiusRange.RandomInRange,
+                spawnPosition = position + quaternion * settings.spawnOffset + UnityEngine.Random.insideUnitSphere.WithY(0f).normalized * settings.spawnRadiusRange.RandomInRange,
                 scale = settings.scaleRange.RandomInRange,
                 velocity = quaternion * Quaternion.Euler(0f, settings.velocityRotationRange.RandomInRange, 0f) * (settings.velocity * settings.velocityMultiplierRange.RandomInRange),
                 rotationRate = settings.rotationOverTimeRange.RandomInRange,
