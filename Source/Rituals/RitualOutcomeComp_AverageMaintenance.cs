@@ -14,7 +14,7 @@ public class RitualOutcomeComp_AverageMaintenance : RitualOutcomeComp_QualitySin
 
         if (ritualTarget.Map != null)
         {
-            averageMaintenance = ritualTarget.Map.GetComponent<GravMaintainables_MapComponent>()?.AverageMaintenanceInMap() ?? 1;
+            averageMaintenance = ritualTarget.Map.GetComponent<MaintenanceAndDeterioration_MapComponent>()?.AverageMaintenanceInMap() ?? 1;
         }
 
         return new QualityFactor

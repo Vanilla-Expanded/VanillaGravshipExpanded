@@ -52,7 +52,7 @@ namespace VanillaGravshipExpanded
             });
             parent.Map.flecks.HandOverSystem(system);
 
-            GravMaintainables_MapComponent mapComp = parent.Map?.GetComponent<GravMaintainables_MapComponent>();
+            MaintenanceAndDeterioration_MapComponent mapComp = parent.Map?.GetComponent<MaintenanceAndDeterioration_MapComponent>();
             if (mapComp != null)
             {
                 mapComp.AddMaintainableToMap(this.parent);
@@ -60,7 +60,7 @@ namespace VanillaGravshipExpanded
         }
         public override void PostDestroy(DestroyMode mode, Map previousMap)
         {
-            GravMaintainables_MapComponent mapComp = parent.Map?.GetComponent<GravMaintainables_MapComponent>();
+            MaintenanceAndDeterioration_MapComponent mapComp = parent.Map?.GetComponent<MaintenanceAndDeterioration_MapComponent>();
             if (mapComp != null)
             {
                 mapComp.RemoveMaintainableFromMap(this.parent);

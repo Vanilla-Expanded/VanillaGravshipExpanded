@@ -7,9 +7,8 @@ namespace VanillaGravshipExpanded
     public class StorytellerComp_ImportantQuestAfterResearch : StorytellerComp
     {
         private static int IntervalsPassed=> Find.TickManager.TicksGame / 1000;
-        public int countDownSinceElectricity = 180000; //3 days
-        public int tickCounter = 0;
-      
+        public const int countDownSinceElectricity = 180000; //3 days
+
         private StorytellerCompProperties_ImportantQuestAfterResearch Props => (StorytellerCompProperties_ImportantQuestAfterResearch)props;
 
         private bool BeenGivenQuest => Find.QuestManager.QuestsListForReading.Any((Quest q) => q.root == Props.questDef);
@@ -21,10 +20,10 @@ namespace VanillaGravshipExpanded
             }
             else
             {
-                tickCounter+=1000;
+                World_ExposeData_Patch.countDownSinceElectricityTickCounter +=1000;
             }
 
-            if (tickCounter> countDownSinceElectricity&&IntervalsPassed > Props.fireAfterDaysPassed * 60 && !BeenGivenQuest)
+            if (World_ExposeData_Patch.countDownSinceElectricityTickCounter > countDownSinceElectricity&&IntervalsPassed > Props.fireAfterDaysPassed * 60 && !BeenGivenQuest)
             {
                 IncidentDef questIncident = Props.questIncident;
                 if (questIncident.TargetAllowed(target))

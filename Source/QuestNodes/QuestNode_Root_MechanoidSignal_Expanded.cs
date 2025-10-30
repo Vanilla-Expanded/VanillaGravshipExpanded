@@ -28,7 +28,7 @@ namespace VanillaGravshipExpanded
             QuestUtility.AddQuestTag(map.Parent, QuestGenUtility.HardcodedTargetQuestTagWithQuestID("gravEngine"));
             CellFinder.TryFindRandomCell(map, (IntVec3 c) => DropCellFinder.IsGoodDropSpot(c, map, allowFogged: false, canRoofPunch: false) && CanLandHere(c, map, VGEDefOf.VGE_StartingGravjumperDamaged), out IntVec3 spawnCell);
             var target = Gen.YieldSingle(new GlobalTargetInfo(spawnCell, map));
-            quest.Delay(300, delegate
+            quest.Delay(SkyfallerDelayTicks, delegate
             {
                 var landingStructure = (LandingStructure)ThingMaker.MakeThing(VGEDefOf.VGE_LandingStructure);
                 landingStructure.layoutDef = VGEDefOf.VGE_StartingGravjumperDamaged;
@@ -43,14 +43,22 @@ namespace VanillaGravshipExpanded
                 };               
                 quest.AddPart(questPart_SpawnThing);
 
+
+                quest.Letter(LetterDefOf.PositiveEvent, null, null, null, null, useColonistsFromCaravanArg: false, QuestPart.SignalListenMode.OngoingOnly, Gen.YieldSingle(target), filterDeadPawnsFromLookTargets: false, "[gravEngineSpawnedLetterText]", null, "[gravEngineSpawnedLetterLabel]");
+                quest.SignalPass(null, null, dropPodsSpawnedSignal);
+            });
+            quest.Delay(SkyfallerDelayTicks*3, delegate
+            {
+                
+
                 List<PawnKindDef> mechTypes = new List<PawnKindDef>
                 {
                 VGEDefOf.VGE_Astropede,
                 VGEDefOf.VGE_Hunter
                 };
                 float threatPoints = StorytellerUtility.DefaultThreatPointsNow(map);
-                int chunkAmount = Mathf.Max((int)(threatPoints / 900),1);
-                for(int i=0; i<chunkAmount; i++)
+                int chunkAmount = Mathf.Max((int)(threatPoints / 900), 1);
+                for (int i = 0; i < chunkAmount; i++)
                 {
                     Skyfaller skyfaller = SkyfallerMaker.MakeSkyfaller(ThingDefOf.ShipChunkIncoming_SmallExplosion, ChunkContents(quest, mechTypes));
                     skyfaller.contentsCanOverlap = false;
@@ -60,15 +68,12 @@ namespace VanillaGravshipExpanded
                         thing = skyfaller,
                         mapParentOfPawn = map.mapPawns.FreeColonistsSpawned.RandomElement(),
                         inSignal = QuestGen.slate.Get<string>("inSignal"),
-                        cell = CellFinder.RandomClosewalkCellNear(spawnCell, map, 30),
+                        cell = CellFinder.RandomClosewalkCellNear(spawnCell, map, 15),
                         questLookTarget = false
                     };
                     quest.AddPart(questPart_SpawnThing2);
                 }
-                
 
-                quest.Letter(LetterDefOf.PositiveEvent, null, null, null, null, useColonistsFromCaravanArg: false, QuestPart.SignalListenMode.OngoingOnly, Gen.YieldSingle(target), filterDeadPawnsFromLookTargets: false, "[gravEngineSpawnedLetterText]", null, "[gravEngineSpawnedLetterLabel]");
-                quest.SignalPass(null, null, dropPodsSpawnedSignal);
             });
             quest.LookTargets(target);
             QuestPart_Choice questPart_Choice = quest.RewardChoice();
