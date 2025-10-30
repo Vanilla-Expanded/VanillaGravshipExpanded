@@ -5,7 +5,7 @@
 		<label>agrocell</label>
 		<description>An enclosed, space-efficient growing unit designed for use on gravships. Built into the floor for unobstructed movement, it features integrated sunlamps and a nutrient system that must remain powered, as plants will die if power is cut.</description>
 		<noRightClickDraftAttack>true</noRightClickDraftAttack>
-		<thingClass>Building_PlantGrower</thingClass>
+		<thingClass>VanillaGravshipExpanded.Building_Agrocell</thingClass>
 		<graphicData>
 			<texPath>Things/Structures/Agrocell/Agrocell</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
@@ -59,12 +59,7 @@
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
 				<basePowerConsumption>160</basePowerConsumption>
-			</li>
-			<li Class="CompProperties_Schedule">
-				<!-- Match plant growing times -->
-				<startTime>0.25</startTime>
-				<endTime>0.8</endTime>
-				<offMessage>Off for plant resting period</offMessage>
+				<idlePowerDraw>70</idlePowerDraw>
 			</li>
 		</comps>
 		<researchPrerequisites>

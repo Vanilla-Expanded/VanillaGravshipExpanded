@@ -164,9 +164,14 @@ Please note that keeping several maps open may affect your performance.</VGE_Map
     <VGE_ColorPickerValue>brightness</VGE_ColorPickerValue>
     <VGE_ColorPickerValueTooltip>Choose a color by setting the color brightness.\n\nBrightness refers to "value" from HSV color model - hue, saturation, and value/brightness.</VGE_ColorPickerValueTooltip>
     <VGE_MustBePlacedInRangeOfGravSource>Must be placed in range of a grav engine or grav field amplifier.</VGE_MustBePlacedInRangeOfGravSource>
-	
-	<!-- Grav engine inspection replacement text (overwrites Odyssey's) -->
-	
-	<GravEngineInspectedLetterContents>Amongst the remnants of the crashed gravship, a still-intact gravjumper engine hums with energy.\n\nIt is possible to repair the substructure, but various components of the gravship are beyond saving. The engine pushes against gravity, levitating the ship and allowing long-distance travel. By travelling, you may unlock the technology that will give you an opportunity to rebuild these systems and more.\n\nLaunch a gravship by scaling it down, fixing damaged substructure and replacing damaged thrusters and astrofuel tanks. Refine more astrofuel in the biofuel refinery and select a gravtech research project to progress as you travel and stress the grav engine.\n\nLaunching a gravship will give you an option to abandon your current map.\n\n  - Research project completed: Basic gravtech\n  - Flooring unlocked: Gravship substructure\n  - Wall unlocked: Gravship hull\n  - Structures unlocked: Pilot cockpit, Gravjumper engine, Small thruster, Small astrofuel tank, Astrofuel pipe, Astrofuel valve, Astrofuel tap, Astrofuel drain, Grav field extender\n  - Recipe unlocked: Make astrofuel from chemfuel</GravEngineInspectedLetterContents>
+
+	  <!-- Grav engine inspection replacement text (overwrites Odyssey's) -->
+
+	  <GravEngineInspectedLetterContents>Amongst the remnants of the crashed gravship, a still-intact gravjumper engine hums with energy.\n\nIt is possible to repair the substructure, but various components of the gravship are beyond saving. The engine pushes against gravity, levitating the ship and allowing long-distance travel. By travelling, you may unlock the technology that will give you an opportunity to rebuild these systems and more.\n\nLaunch a gravship by scaling it down, fixing damaged substructure and replacing damaged thrusters and astrofuel tanks. Refine more astrofuel in the biofuel refinery and select a gravtech research project to progress as you travel and stress the grav engine.\n\nLaunching a gravship will give you an option to abandon your current map.\n\n  - Research project completed: Basic gravtech\n  - Flooring unlocked: Gravship substructure\n  - Wall unlocked: Gravship hull\n  - Structures unlocked: Pilot cockpit, Gravjumper engine, Small thruster, Small astrofuel tank, Astrofuel pipe, Astrofuel valve, Astrofuel tap, Astrofuel drain, Grav field extender\n  - Recipe unlocked: Make astrofuel from chemfuel</GravEngineInspectedLetterContents>
+
+    <!-- Agrocell text -->
+    <VGE_AgrocellSunLampEnable>Turn sun lamp on</VGE_AgrocellSunLampEnable>
+    <VGE_AgrocellSunLampDisable>Turn sun lamp off</VGE_AgrocellSunLampDisable>
+    <VGE_AgrocellSunLampDesc>Keeping the sun lamp on will make the agrocell produce light during the day, increasing power usage and allowing most plants to grow. However, disabling it allows for plants that require darkness to grow while saving some power at the same time.</VGE_AgrocellSunLampDesc>
 
 </LanguageData>
