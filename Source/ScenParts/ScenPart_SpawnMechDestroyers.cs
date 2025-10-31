@@ -1,6 +1,7 @@
 using KCSG;
 using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace VanillaGravshipExpanded
@@ -54,6 +55,22 @@ namespace VanillaGravshipExpanded
                         }
 
                         if (overlapsWithExisting)
+                        {
+                            attempts++;
+                            continue;
+                        }
+
+                        bool tooCloseToEdge = false;
+                        foreach (IntVec3 edgeCell in rect.EdgeCells)
+                        {
+                            if (GenRadial.RadialCellsAround(edgeCell, 29, false).Any(c => c.InBounds(map) && c.GetTerrain(map) != TerrainDefOf.Space))
+                            {
+                                tooCloseToEdge = true;
+                                break;
+                            }
+                        }
+
+                        if (tooCloseToEdge)
                         {
                             attempts++;
                             continue;
