@@ -100,7 +100,7 @@ public class CompApparelOxygenProvider : ThingComp, IReloadableComp
             return;
 
         // Don't run if the pawn doesn't have enough oxygen resistance as a base
-        var baseVacuumResistance = StatDefOf.VacuumResistance.Worker.GetValueUnfinalized(StatRequest.For(pawn), false);
+        var baseVacuumResistance = StatPart_OxygenPack.UncachedVacuumResistanceIgnoringOxygenPacks(pawn);
         if (baseVacuumResistance < Props.minResistanceToActivate)
         {
             // Special condition - not enough resistance for this pawn, allow other pieces of equipment to try and provide it

@@ -7,9 +7,25 @@ namespace VanillaGravshipExpanded;
 
 public class StatPart_OxygenPack : StatPart
 {
+    private static bool SkipOxygenPacks = false;
+
+    public static float UncachedVacuumResistanceIgnoringOxygenPacks(Pawn pawn)
+    {
+        try
+        {
+            SkipOxygenPacks = true;
+            // Don't call GetValue(pawn), as that one is cached, and we don't want that since we temporarily disabled one part of the equation (oxygen packs).
+            return StatDefOf.VacuumResistance.Worker.GetValue(StatRequest.For(pawn));
+        }
+        finally
+        {
+            SkipOxygenPacks = false;
+        }
+    }
+
     public override void TransformValue(StatRequest req, ref float val)
     {
-        if (req.Thing is not Pawn pawn || val >= 1f)
+        if (SkipOxygenPacks || req.Thing is not Pawn pawn || val >= 1f)
             return;
 
         if (GetFirstActiveRelevantApparel(pawn, val) != null)
@@ -18,7 +34,7 @@ public class StatPart_OxygenPack : StatPart
 
     public override string ExplanationPart(StatRequest req)
     {
-        if (req.Thing is not Pawn pawn)
+        if (SkipOxygenPacks || req.Thing is not Pawn pawn)
             return null;
 
         var builder = new StringBuilder();
