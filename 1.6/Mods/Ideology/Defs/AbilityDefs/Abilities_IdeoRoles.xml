@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<AbilityGroupDef>
+		<defName>VGE_EmergencyLaunch</defName>
+		<cooldownTicks>180000</cooldownTicks>
+	</AbilityGroupDef>
+	<AbilityDef>
+		<defName>VGE_EmergencyLaunch</defName>
+		<label>emergency launch</label>
+		<description>Use the piloting console to trigger an immediate emergency launch, landing in a random nearby location with a guaranteed mishap happening. Anyone outside of the gravship will be left behind.</description>
+		<groupDef>VGE_EmergencyLaunch</groupDef>
+		<iconPath>UI/Gizmos/Gizmo_EmergencyLaunch</iconPath>
+		<hotKey>Misc12</hotKey>
+		<jobDef>CastAbilityOnThingMelee</jobDef>
+		<showPsycastEffects>False</showPsycastEffects>
+		<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+		<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<verbProperties>
+			<verbClass>Verb_CastAbilityTouch</verbClass>
+			<drawAimPie>False</drawAimPie>
+			<range>-1</range>
+			<warmupTime>3</warmupTime>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetHumans>False</canTargetHumans>
+				<canTargetAnimals>False</canTargetAnimals>
+				<canTargetEntities>False</canTargetEntities>
+				<canTargetSubhumans>False</canTargetSubhumans>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="VanillaGravshipExpanded.CompProperties_AbilityEmergencyLaunch">
+
+			</li>
+		</comps>
+	</AbilityDef>
+	<AbilityGroupDef>
+		<defName>VGE_AnalyzeTheStars</defName>
+		<cooldownTicks>600000</cooldownTicks>
+	</AbilityGroupDef>
+	<AbilityDef>
+		<defName>VGE_AnalyzeTheStars</defName>
+		<label>analyze the stars</label>
+		<description>Use a telescope to analyze the stars to detect a new orbital location nearby.</description>
+		<groupDef>VGE_AnalyzeTheStars</groupDef>
+		<iconPath>UI/Gizmos/Gizmo_AnalyzeTheStars</iconPath>
+		<hotKey>Misc12</hotKey>
+		<jobDef>CastAbilityOnThingMelee</jobDef>
+		<showPsycastEffects>False</showPsycastEffects>
+		<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+		<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<verbProperties>
+			<verbClass>Verb_CastAbilityTouch</verbClass>
+			<drawAimPie>False</drawAimPie>
+			<range>-1</range>
+			<warmupTime>10</warmupTime>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+			
+				<canTargetHumans>False</canTargetHumans>
+				<canTargetAnimals>False</canTargetAnimals>
+				<canTargetEntities>False</canTargetEntities>
+				<canTargetSubhumans>False</canTargetSubhumans>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="VanillaGravshipExpanded.CompProperties_AbilityAnalyzeTheStars">
+
+			</li>
+		</comps>
+	</AbilityDef>
+	<AbilityGroupDef>
+		<defName>VGE_EngineeringCommand</defName>
+		<cooldownTicks>600000</cooldownTicks>
+	</AbilityGroupDef>
+	<AbilityDef>
+		<defName>VGE_EngineeringCommand</defName>
+		<label>engineering command</label>
+		<description>Offer guidance on maintenance and gravship construction efforts, boosting construction and maintenance abilities for everyone nearby. The effect remains attached to the caster for 24 hours.</description>
+		<jobDef>CastAbilityOnThing</jobDef>
+		<targetRequired>False</targetRequired>
+		<canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+		<iconPath>UI/Gizmos/Gizmo_EngineeringCommand</iconPath>
+		<stunTargetWhileCasting>True</stunTargetWhileCasting>
+		<showPsycastEffects>False</showPsycastEffects>
+		<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+		<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+		<groupDef>VGE_EngineeringCommand</groupDef>
+		<hotKey>Misc12</hotKey>
+		<uiOrder>3</uiOrder>
+		<warmupStartSound>CombatCommand_Warmup</warmupStartSound>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<statBases>
+			<Ability_Duration>1000</Ability_Duration>
+			<Ability_EffectRadius>12.9</Ability_EffectRadius>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<warmupTime>0.5</warmupTime>
+			<range>12.9</range>
+			<drawAimPie>False</drawAimPie>
+			<requireLineOfSight>False</requireLineOfSight>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetAnimals>false</canTargetAnimals>
+				<canTargetHumans>false</canTargetHumans>
+				<canTargetMechs>false</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>VGE_EngineeringCommand</hediffDef>
+				<onlyBrain>True</onlyBrain>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<replaceExisting>true</replaceExisting>
+			</li>
+		</comps>
+	</AbilityDef>
+</Defs>

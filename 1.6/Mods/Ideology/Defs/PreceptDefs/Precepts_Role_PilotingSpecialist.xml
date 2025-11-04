@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<PreceptDef ParentName="PreceptRoleSingleBase">
+		<defName>VGE_IdeoRole_PilotingSpecialist</defName>
+		<label>piloting specialist</label>
+		<description>A special ideoligious status devoted to the art of flight and control of gravship engines. Piloting specialists are trained to maneuver the vessel through planetary orbits and emergency situations, keeping the crew alive when systems fail. They can save the gravship and the crew from peril, but disdain manual work and construction.</description>
+		<createsRoleEmptyThought>False</createsRoleEmptyThought>
+		<iconPath>UI/IdeologyRoles/Role_PilotingSpecialist</iconPath>
+		<nameMaker>VGE_NamerRolePiloting</nameMaker>
+		<roleTags>
+			<li>PilotingSpecialist</li>
+		</roleTags>
+		<requiredMemes>
+			<li>Shipborn</li>
+		</requiredMemes>
+		<displayOrderInImpact>2</displayOrderInImpact>
+		<grantedAbilities>
+			<li>VGE_EmergencyLaunch</li>
+		</grantedAbilities>
+		<roleRequirements>
+			<li Class="RoleRequirement_MinSkillAny">
+				<skills>
+					<Intellectual>4</Intellectual>
+				</skills>
+			</li>
+		</roleRequirements>
+		<roleRequiredWorkTagAny>
+			<li>Intellectual</li>
+		</roleRequiredWorkTagAny>
+		<roleEffects>
+			<li Class="RoleEffect_PawnStatOffset">
+				<statDef>PilotingAbility</statDef>
+				<modifier>0.5</modifier>
+			</li>
+		</roleEffects>
+		<roleDisabledWorkTags>
+			<li>Crafting</li>
+			<li>Cooking</li>
+			<li>PlantWork</li>
+			<li>Mining</li>
+			<li>Constructing</li>
+		</roleDisabledWorkTags>
+	</PreceptDef>
+</Defs>

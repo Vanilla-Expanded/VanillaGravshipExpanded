@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<PreceptDef ParentName="PreceptRoleSingleBase">
+		<defName>VGE_IdeoRole_Navigator</defName>
+		<label>navigator</label>
+		<description>A special ideoligious status focused on the study of stellar phenomena and long-range navigation. Navigators guide the gravship through orbit and deep space, interpreting gravitational currents and charting safe passage between worlds. Their understanding of the cosmos greatly improves the ship’s research efficiency and travel safety, but they refuse to engage in mundane or physical labor.</description>
+		<createsRoleEmptyThought>False</createsRoleEmptyThought>
+		<iconPath>UI/IdeologyRoles/Role_Navigator</iconPath>
+		<nameMaker>VGE_NamerRoleNavigator</nameMaker>
+		<roleTags>
+			<li>Navigator</li>
+		</roleTags>
+		<requiredMemes>
+			<li>Shipborn</li>
+		</requiredMemes>
+		<displayOrderInImpact>2</displayOrderInImpact>
+		<grantedAbilities>
+			<li>VGE_AnalyzeTheStars</li>
+		</grantedAbilities>
+		<roleRequirements>
+			<li Class="RoleRequirement_MinSkillAny">
+				<skills>
+					<Intellectual>6</Intellectual>
+				</skills>
+			</li>
+		</roleRequirements>
+		<roleRequiredWorkTagAny>
+			<li>Intellectual</li>
+		</roleRequiredWorkTagAny>
+		<roleEffects>
+			<li Class="RoleEffect_PawnStatOffset">
+				<statDef>VGE_GravshipResearch</statDef>
+				<modifier>0.5</modifier>
+			</li>
+		</roleEffects>
+		<roleDisabledWorkTags>
+			<li>ManualDumb</li>
+			<li>Cooking</li>
+			<li>PlantWork</li>
+			<li>Mining</li>
+			<li>Animals</li>
+		</roleDisabledWorkTags>
+	</PreceptDef>
+</Defs>

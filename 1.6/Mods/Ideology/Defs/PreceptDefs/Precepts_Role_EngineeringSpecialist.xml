@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<PreceptDef ParentName="PreceptRoleSingleBase">
+		<defName>VGE_IdeoRole_EngineeringSpecialist</defName>
+		<label>engineering specialist</label>
+		<description>A special ideoligious status focused on maintaining and improving gravship systems to the exclusion of all else. This specialized role grants increased construction and repair efficiency, and the ability to coordinate nearby crew to improve maintenance operations across the ship. Holders of this role dedicate themselves entirely to the ship’s well-being, refusing to perform most surface-bound or menial labor.</description>
+		<createsRoleEmptyThought>False</createsRoleEmptyThought>
+		<iconPath>UI/IdeologyRoles/Role_EngineeringSpecialist</iconPath>
+		<nameMaker>VGE_NamerRoleEngineering</nameMaker>
+		<roleTags>
+			<li>EngineeringSpecialist</li>
+		</roleTags>
+		<requiredMemes>
+			<li>Shipborn</li>
+		</requiredMemes>
+		<displayOrderInImpact>2</displayOrderInImpact>
+		<grantedAbilities>
+			<li>VGE_EngineeringCommand</li>
+		</grantedAbilities>
+		<roleRequirements>
+			<li Class="RoleRequirement_MinSkillAny">
+				<skills>
+					<Construction>4</Construction>
+				</skills>
+			</li>
+		</roleRequirements>
+		<roleRequiredWorkTagAny>
+			<li>Constructing</li>
+		</roleRequiredWorkTagAny>
+		<roleEffects>
+			<li Class="RoleEffect_PawnStatOffset">
+				<statDef>VGE_GravshipMaintenance</statDef>
+				<modifier>0.5</modifier>
+			</li>
+			<li Class="RoleEffect_PawnStatOffset">
+				<statDef>ConstructionSpeed</statDef>
+				<modifier>0.3</modifier>
+			</li>
+			<li Class="RoleEffect_PawnStatOffset">
+				<statDef>GeneralLaborSpeed</statDef>
+				<modifier>0.3</modifier>
+			</li>
+		</roleEffects>
+		<roleDisabledWorkTags>
+			<li>ManualDumb</li>
+			<li>Cooking</li>
+			<li>PlantWork</li>
+			<li>Mining</li>
+			<li>Animals</li>
+		</roleDisabledWorkTags>
+	</PreceptDef>
+</Defs>
