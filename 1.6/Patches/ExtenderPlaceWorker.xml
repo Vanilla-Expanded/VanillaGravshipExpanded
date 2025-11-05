@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<Patch>
-    <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName="GravFieldExtender"]/placeWorkers/li[text()="PlaceWorker_InRangeOfGravEngine"]</xpath>
-        <value>
-            <li>VanillaGravshipExpanded.PlaceWorker_InRangeOfGravSource</li>
-        </value>
-    </Operation>
-</Patch>

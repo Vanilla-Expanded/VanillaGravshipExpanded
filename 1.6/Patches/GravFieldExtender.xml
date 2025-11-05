@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <!-- Replace built-in place worker -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravFieldExtender"]/placeWorkers/li[text()="PlaceWorker_InRangeOfGravEngine"]</xpath>
+    <value>
+      <li>VanillaGravshipExpanded.PlaceWorker_InRangeOfGravSource</li>
+    </value>
+  </Operation>
+
+  <!-- Change graphic -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravFieldExtender"]/graphicData/texPath/text()</xpath>
+    <value>Things/Structures/GravFieldExtender/GravFieldExtender</value>
+  </Operation>
+
+  <!-- Lower the footprint radius -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravFieldExtender"]/comps/li[@Class="CompProperties_SubstructureFootprint"]/radius</xpath>
+    <value>
+      <radius>12.9</radius>
+    </value>
+  </Operation>
+
+  <!-- Lower the amount of substructure provided from 250 to 100 -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravFieldExtender"]/comps/li[@Class="CompProperties_GravshipFacility"]/statOffsets/SubstructureSupport</xpath>
+    <value>
+      <SubstructureSupport>100</SubstructureSupport>
+    </value>
+  </Operation>
+
+  <!-- We can link up to 10 extenders -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravFieldExtender"]/comps/li[@Class="CompProperties_GravshipFacility"]/maxSimultaneous</xpath>
+    <value>
+      <maxSimultaneous>10</maxSimultaneous>
+    </value>
+  </Operation>
+
+  <!-- Max distance is now determined by whatever it is trying to link to. -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravFieldExtender"]/comps/li[@Class="CompProperties_GravshipFacility"]/maxDistance</xpath>
+    <value>
+      <maxDistance>500</maxDistance>
+    </value>
+  </Operation>
+
+  <!-- Change the description -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravFieldExtender"]/description</xpath>
+    <value>
+      <description>An ultratech device used to increase the size of a gravship. It extends the area in which substructure can be built, and increases the amount of substructure that a gravship can support. Must be built near a grav engine. A gravship can support up to ten grav field extenders.</description>
+    </value>
+  </Operation>
+
+  <!-- Grav field extenders return all resources when deconstructed -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravFieldExtender"]/resourcesFractionWhenDeconstructed</xpath>
+    <value>
+      <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+    </value>
+  </Operation>
+
+  <!-- Add maintenance sensitivity stat -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="GravFieldExtender"]/statBases</xpath>
+    <value>
+      <VGE_MaintenanceSensitivity>2</VGE_MaintenanceSensitivity>
+    </value>
+  </Operation>
+
+  <!-- Make grav field extenders tick -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="GravFieldExtender"]</xpath>
+    <value>
+      <tickerType>Normal</tickerType>
+    </value>
+  </Operation>
+
+  <!-- Add our comps -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="GravFieldExtender"]/comps</xpath>
+    <value>
+      <li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
+
+      </li>
+      <li Class="CompProperties_Breakdownable"/>
+    </value>
+  </Operation>
+
+</Patch>
