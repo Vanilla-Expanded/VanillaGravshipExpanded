@@ -177,5 +177,8 @@ Please note that keeping several maps open may affect your performance.</VGE_Map
 	<!-- Role abilities -->
 	
 	<VGE_MustTargetPilotConsole>This ability needs to target a pilot console.</VGE_MustTargetPilotConsole>
+	<VGE_RenameAsteroid>A new discovery!</VGE_RenameAsteroid>
+	<VGE_RenameAsteroidDesc>Since {0} was the first to discover the {1} nearby, they get to name it.</VGE_RenameAsteroidDesc>
+
 
 </LanguageData>

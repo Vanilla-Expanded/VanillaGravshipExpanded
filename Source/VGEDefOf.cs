@@ -37,7 +37,7 @@ namespace VanillaGravshipExpanded
         public static TerrainDef VGE_FakeTerrain;
         public static ThingDef VGE_LandingStructure;
 
-        public static ResearchProjectDef Electricity;
-
+        public static WorldObjectDef OrbitalItemStash, AsteroidBasic;
+        public static ThingDef Telescope, MineablePlasteel, MineableUranium;
     }
 }
