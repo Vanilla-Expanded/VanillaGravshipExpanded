@@ -15,8 +15,8 @@
 				<verbClass>Verb_Shoot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
 				<defaultProjectile>VGE_Bullet_MassDriver</defaultProjectile>
-				<forcedMissRadius>4.5</forcedMissRadius>
-				<warmupTime>2.08</warmupTime>
+				<forcedMissRadius>7.5</forcedMissRadius>
+				<warmupTime>4</warmupTime>
 				<range>27</range>
 				<burstShotCount>1</burstShotCount>
 				<soundCast>VGE_GravshipHowitzer</soundCast>
@@ -65,7 +65,7 @@
 				<verbClass>Verb_Shoot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
 				<defaultProjectile>Proj_Rocket</defaultProjectile>
-				<forcedMissRadius>4.2</forcedMissRadius>
+				<forcedMissRadius>6.5</forcedMissRadius>
 				<warmupTime>1.7</warmupTime>
 				<range>24</range>
 				<burstShotCount>2</burstShotCount>

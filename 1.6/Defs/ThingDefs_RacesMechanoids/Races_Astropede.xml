@@ -25,7 +25,7 @@
 		<defName>VGE_Astropede</defName>
 		<label>astropede</label>
 		<race>VGE_Astropede</race>
-		<combatPower>450</combatPower>
+		<combatPower>500</combatPower>
 		<allowInMechClusters>false</allowInMechClusters>
 		<isFighter>false</isFighter>
 		<lifeStages>

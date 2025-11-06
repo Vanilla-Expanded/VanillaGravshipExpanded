@@ -5,7 +5,7 @@
     <defName>VGE_Gravtech</defName>
     <label>gravtech</label>
     <generalTitle>Gravtech research projects</generalTitle>
-    <generalDescription>Unlock new gravship technologies by gathering gravdata from space travel. You can only have one active project at a time.</generalDescription>
+    <generalDescription>Unlock new gravship technologies by gathering gravdata from gravship travel. You can only have one active project at a time.\n\nThe amount of gravdata collected depends on the distance travelled with your gravship, the gravtech research stat of your gravship researcher, as well as any structures that improve gravdata yield.\n\nGravdata can also be passively collected by a researcher in orbit, provided they work on the gravtech console.</generalDescription>
   </ResearchTabDef>
 
 </Defs>

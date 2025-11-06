@@ -59,7 +59,7 @@
 		<race>VGE_Hunter</race>
 		<allowInMechClusters>false</allowInMechClusters>
 		<isFighter>false</isFighter>
-		<combatPower>210</combatPower>
+		<combatPower>300</combatPower>
 		<lifeStages>
 			<li MayRequire="Ludeon.Rimworld.Biotech">
 				<bodyGraphicData>
