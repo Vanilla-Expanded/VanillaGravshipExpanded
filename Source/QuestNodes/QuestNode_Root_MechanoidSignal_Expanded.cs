@@ -57,7 +57,7 @@ namespace VanillaGravshipExpanded
                 VGEDefOf.VGE_Hunter
                 };
                 float threatPoints = StorytellerUtility.DefaultThreatPointsNow(map);
-                int chunkAmount = Mathf.Max((int)(threatPoints / 900), 1);
+                int chunkAmount = Mathf.Max((int)(threatPoints / 1000), 1);
                 for (int i = 0; i < chunkAmount; i++)
                 {
                     Skyfaller skyfaller = SkyfallerMaker.MakeSkyfaller(ThingDefOf.ShipChunkIncoming_SmallExplosion, ChunkContents(quest, mechTypes));
