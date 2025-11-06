@@ -8,11 +8,11 @@
 				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
 				<li>.,.,SmallThruster_East,.,GravshipHull_Steel,.,GravshipHull_Steel,Door_Steel,GravshipHull_Steel,.,.,.,.,.,.,.,.</li>
 				<li>.,.,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,.,GravshipHull_Steel,GravshipHull_Steel,.,.,.,.,.,.,.</li>
-				<li>.,GravshipHull_Steel,GravshipHull_Steel,ChemfuelTank_Fuel20,.,ChemfuelTank_Fuel20,WallLamp_South,.,MealSurvivalPack,MealSurvivalPack,GravshipHull_Steel,GravshipHull_Steel,.,.,.,.,.</li>
+				<li>.,GravshipHull_Steel,GravshipHull_Steel,ChemfuelTank_Fuel20,.,ChemfuelTank_Fuel20,WallLamp_South,.,Shelf_Steel_North,.,GravshipHull_Steel,GravshipHull_Steel,.,.,.,.,.</li>
 				<li>.,GravshipHull_Steel,GravshipHull_Steel,.,.,.,.,.,PowerConduit,Battery_Power100,.,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,.</li>
 				<li>.,.,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,OxygenPump_West,VGE_GravjumperEngine,.,.,.,DiningChair_Steel_East,VGE_PilotCockpit_East,.,GravshipHull_Steel,.</li>
-				<li>.,GravshipHull_Steel,GravshipHull_Steel,VGE_AstrofuelPipe,.,Gun_Autopistol,.,.,.,.,VGE_FauxPlant,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,.</li>
-				<li>.,GravshipHull_Steel,GravshipHull_Steel,VGE_AstrofuelPipe,.,MedicineIndustrial,WallLamp_North,.,WoodLog,WoodLog,GravshipHull_Steel,GravshipHull_Steel,.,.,.,.,.</li>
+				<li>.,GravshipHull_Steel,GravshipHull_Steel,VGE_AstrofuelPipe,.,.,.,.,.,.,VGE_FauxPlant,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,.</li>
+				<li>.,GravshipHull_Steel,GravshipHull_Steel,VGE_AstrofuelPipe,.,Shelf_Steel_East,WallLamp_North,.,.,Shelf_Steel_South,GravshipHull_Steel,GravshipHull_Steel,.,.,.,.,.</li>
 				<li>.,.,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,.,GravshipHull_Steel,GravshipHull_Steel,.,.,.,.,.,.,.</li>
 				<li>.,.,SmallThruster_East,.,GravshipHull_Steel,.,GravshipHull_Steel,Door_Steel,GravshipHull_Steel,.,.,.,.,.,.,.,.</li>
 				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
@@ -22,40 +22,12 @@
 				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
 				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
 				<li>.,.,.,VGE_AstrofuelPipe,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,.,.,.,MealSurvivalPack,MealSurvivalPack,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
 				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
 				<li>.,.,.,VGE_AstrofuelPipe,VGE_OxygenPipe,VGE_OxygenPipe,VGE_OxygenPipe,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,VGE_SmallOxygenTank_Fuel95,.,Gun_Autopistol,.,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,Shelf_Steel_East,.,.,WoodLog,WoodLog,.,.,.,.,.,.,.</li>
+				<li>.,.,.,VGE_SmallOxygenTank_Fuel95,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
 				<li>.,.,.,VGE_AstrofuelPipe,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-			</li>
-			<li>
-				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,.,.,.,MealSurvivalPack,MealSurvivalPack,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,Gun_Autopistol,.,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,.,.,.,WoodLog,WoodLog,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-			</li>
-			<li>
-				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,.,.,.,Shelf_Steel_North,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,.,.,.,.,Shelf_Steel_South,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
 				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
 				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
 				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>

@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <!-- Gravship scenario starts with astrofuel rather than chemfuel -->
-	<Operation Class="PatchOperationReplace">
-    <xpath>Defs/ScenarioDef[defName="TheGravship"]/scenario/parts/li[@Class="ScenPart_StartingThing_Defined" and thingDef="Chemfuel"]/thingDef</xpath>
-    <value>
-      <thingDef>VGE_Astrofuel</thingDef>
-    </value>
-	</Operation>
+
+  <!-- Gravship scenario now starts with no chemfuel, since its astrofuel tanks start out filled -->
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ScenarioDef[defName="TheGravship"]/scenario/parts/li[@Class="ScenPart_StartingThing_Defined" and thingDef="Chemfuel"]</xpath>
+  </Operation>
+
+  <!-- Remove starting steel as well -->
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ScenarioDef[defName="TheGravship"]/scenario/parts/li[@Class="ScenPart_StartingThing_Defined" and thingDef="Steel"]</xpath>
+  </Operation>
+
 </Patch>

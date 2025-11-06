@@ -43,6 +43,9 @@ public static class ScenPart_PlayerPawnsArriveMethod_DoGravship_Patch
                 GenPlace.TryPlaceThing(startingAndOptionalPawn, result, map, ThingPlaceMode.Near);
             }
         }
+
+        var allShelves = list.OfType<Building_Storage>().ToList();
+        var emptyShelves = new List<Building_Storage>(allShelves);
         foreach (var startingItem in startingItems)
         {
             if (startingItem.def.CanHaveFaction)
@@ -53,13 +56,33 @@ public static class ScenPart_PlayerPawnsArriveMethod_DoGravship_Patch
             var attempts = 99;
             while (countLeft > 0 && attempts-- > 0)
             {
-                if (list.Where(t => t.def == ThingDefOf.Shelf || t.def == ThingDefOf.ShelfSmall || t.def == VGEDefOf.VGE_GravshipShelf).TryRandomElement(out var result2))
+                // First try to use empty shelves
+                if (!emptyShelves.Where(x => x.GetParentStoreSettings().AllowedToAccept(startingItem)).TryRandomElement(out var shelf))
                 {
-                    var randomCell = result2.OccupiedRect().RandomCell;
-                    var thing = startingItem.SplitOff(Math.Min(startingItem.def.stackLimit, countLeft));
-                    countLeft -= thing.stackCount;
-                    GenPlace.TryPlaceThing(thing, randomCell, map, ThingPlaceMode.Near);
+                    // If there's none, try placing around full shelves
+                    allShelves.Where(x => x.GetParentStoreSettings().AllowedToAccept(startingItem)).TryRandomElement(out shelf);
                 }
+
+                IntVec3 cell;
+                // Pick a shelf cell if possible
+                if (shelf != null)
+                {
+                    cell = shelf.OccupiedRect().RandomCell;
+                }
+                // Try to pick any substructure tile
+                else if (!cellRect.TryFindRandomCell(out cell, x => x.GetTerrain(map) == TerrainDefOf.Substructure))
+                {
+                    // Pick any tile in the rect
+                    cell = cellRect.RandomCell;
+                }
+
+                var thing = startingItem.SplitOff(Math.Min(startingItem.def.stackLimit, countLeft));
+                countLeft -= thing.stackCount;
+                GenPlace.TryPlaceThing(thing, cell, map, ThingPlaceMode.Near);
+
+                // If shelf is full after adding to it, remove it from list of empty shelves
+                if (shelf != null && shelf.SpaceRemainingFor(startingItem.def) <= 0)
+                    emptyShelves.Remove(shelf);
             }
         }
         foreach (var thing in list)
