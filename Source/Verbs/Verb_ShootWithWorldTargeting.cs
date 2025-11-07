@@ -1,4 +1,5 @@
 using RimWorld;
+using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 
@@ -29,7 +30,7 @@ namespace VanillaGravshipExpanded
             {
                 var turret = caster as Building_GravshipTurret;
                 var comp = caster.TryGetComp<CompWorldArtillery>();
-                if (comp.worldTarget.IsValid is false || comp.worldTarget.Map is null)
+                if (comp.worldTarget.IsValid is false || comp.worldTarget.WorldObject.Destroyed || comp.worldTarget.WorldObject is not MapParent mapParent || mapParent.HasMap is false)
                 {
                     turret.ResetForcedTarget();
                     return false;
