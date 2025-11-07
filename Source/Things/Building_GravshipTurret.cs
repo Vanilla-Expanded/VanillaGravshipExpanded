@@ -27,9 +27,9 @@ namespace VanillaGravshipExpanded
         public virtual bool CanFire => linkedTerminal?.MannedByPlayer ?? false;
 
         public Pawn ManningPawn => linkedTerminal?.MannableComp?.ManningPawn;
-        
+
         public virtual float GravshipTargeting => linkedTerminal?.GravshipTargeting ?? 0f;
-        
+
         protected virtual bool ShowNoLinkedTerminalOverlay => true;
 
         public Vector3 CastSource
@@ -229,7 +229,7 @@ namespace VanillaGravshipExpanded
                 }
                 yield return gizmo;
             }
-            
+
             if (Faction != Faction.OfPlayer)
             {
                 yield break;
