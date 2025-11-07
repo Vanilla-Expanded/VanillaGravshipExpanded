@@ -46,7 +46,7 @@
 				</li>
 			</lifeStageAges>
 			<body>Drone</body>
-			<baseHealthScale>0.72</baseHealthScale>
+			<baseHealthScale>0.58</baseHealthScale>
 			<baseBodySize>1</baseBodySize>
 			<soundMeleeHitPawn>Pawn_Melee_MechanoidSlash_HitPawn</soundMeleeHitPawn>
 			<soundMeleeHitBuilding>Pawn_Melee_MechanoidSlash_HitBuilding</soundMeleeHitBuilding>
