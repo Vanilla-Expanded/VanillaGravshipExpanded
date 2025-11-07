@@ -13,19 +13,18 @@ namespace VanillaGravshipExpanded
     [HarmonyPatch(typeof(Dialog_BeginRitual), "DrawExtraRitualOutcomeDescriptions")]
     public static class Dialog_BeginRitual_DrawExtraRitualOutcomeDescriptions_Patch
     {
-        public static void Prefix(Dialog_BeginRitual __instance, ref string __state)
+        public static void Postfix(Dialog_BeginRitual __instance, Rect viewRect, float totalQuality, ref float curY, ref float totalInfoHeight)
         {
             if (__instance is Dialog_BeginGravshipLaunch)
             {
-                var outcome = __instance.outcome.extraOutcomeDescriptions.First();
-                __state = outcome.description;
                 var engine = __instance.target.Thing.TryGetComp<CompPilotConsole>()?.engine;
                 var gravshipState = Dialog_BeginRitual_ShowRitualBeginWindow_Patch.state;
 
+                // Grav Anchor / Heatsink info
                 var map = gravshipState != null ? Current.Game.FindMap(gravshipState.targetTile) : null;
                 if (map != null && map.listerThings.AnyThingWithDef(ThingDefOf.GravAnchor))
                 {
-                    outcome.description += " " + "VGE_LaunchGravAnchorCooldownInfo".Translate();
+                    DrawInfoLine(viewRect, ref curY, ref totalInfoHeight, "VGE_LaunchGravAnchorCooldownInfo".Translate());
                 }
                 else
                 {
@@ -33,46 +32,56 @@ namespace VanillaGravshipExpanded
                     if (cooldownReduction > 0f)
                     {
                         var info = "VGE_LaunchHeatsinkCooldownInfo".Translate(cooldownReduction.ToStringPercent());
-                        outcome.description += " " + info;
+                        DrawInfoLine(viewRect, ref curY, ref totalInfoHeight, info);
                     }
                 }
+
+                // Warning about no gravtech project
+                bool noGravdataSource = World_ExposeData_Patch.currentGravtechProject == null && !engine.GravshipComponents.Any(x => x.parent is Building_GravshipBlackBox);
                 bool anyGravTechAvailable = DefDatabase<ResearchProjectDef>.AllDefs.Any(x => x.tab == VGEDefOf.VGE_Gravtech && x.CanStartNow);
-                if (World_ExposeData_Patch.currentGravtechProject == null && anyGravTechAvailable && engine.GravshipComponents.Any(x => x.parent is Building_GravshipBlackBox) is false)
+                if (noGravdataSource && anyGravTechAvailable)
                 {
-                    var warningPart = "Warning".Translate().ToString().ToUpper();
-                    var messagePart = "VGE_NoGravtechProjectSelected".Translate();
-                    var coloredWarning = $"<color=red>{warningPart}:</color> {messagePart}";
-                    outcome.description += "\n\n" + coloredWarning + "\n";
+                    string warningPart = "Warning".Translate().ToString().ToUpper() + ": ";
+                    string messagePart = "VGE_NoGravtechProjectSelected".Translate();
+
+                    GUI.color = ColorLibrary.RedReadable;
+                    DrawInfoLine(viewRect, ref curY, ref totalInfoHeight, warningPart + messagePart);
+                    GUI.color = Color.white;
                 }
 
+                // Gravdata and launch info
                 if (gravshipState != null)
                 {
                     Pawn researcherPawn = GravdataUtility.GetResearcher(__instance.assignments);
                     float distanceTravelled = GravshipHelper.GetDistance(engine.Map.Tile, gravshipState.targetTile);
                     List<QualityFactor> list = __instance.PopulateQualityFactors(out var qualityRange);
                     var quality = __instance.PredictedQuality(list).min;
-                    int gravdataYield = GravdataUtility.CalculateGravdataYield(distanceTravelled, quality, engine, researcherPawn);
-                    var gravdataInfo = "VGE_GravdataYieldInfo".Translate(gravdataYield);
-                    outcome.description += " " + gravdataInfo;
+
+                    if (!noGravdataSource)
+                    {
+                        int gravdataYield = GravdataUtility.CalculateGravdataYield(distanceTravelled, quality, engine, researcherPawn);
+                        var gravdataInfo = "VGE_GravdataYieldInfo".Translate(gravdataYield);
+                        DrawInfoLine(viewRect, ref curY, ref totalInfoHeight, gravdataInfo);
+                    }
 
                     if (GravshipUtility.TryGetPathFuelCost(engine.Map.Tile, gravshipState.targetTile, out var cost, out _, fuelFactor: engine.FuelUseageFactor))
                     {
-                        outcome.description += "\n\n" + "VGE_LaunchFuelAndHeatUnitsInfo".Translate(cost);
+                        DrawInfoLine(viewRect, ref curY, ref totalInfoHeight, "VGE_LaunchFuelAndHeatUnitsInfo".Translate(cost));
                     }
 
                     float boonChance = GravshipHelper.LaunchBoonChanceFromQuality(quality);
                     var boonInfo = "VGE_LaunchBoonChanceInfo".Translate((boonChance * 100).ToString("F1"));
-                    outcome.description += "\n\n" + boonInfo;
+                    DrawInfoLine(viewRect, ref curY, ref totalInfoHeight, boonInfo);
                 }
             }
         }
 
-        public static void Postfix(Dialog_BeginRitual __instance, string __state)
+        private static void DrawInfoLine(Rect viewRect, ref float curY, ref float totalInfoHeight, string text)
         {
-            if (__state.NullOrEmpty() is false)
-            {
-                __instance.outcome.extraOutcomeDescriptions.First().description = __state;
-            }
+            float height = Mathf.Max(Text.CalcHeight(text, viewRect.width), Text.LineHeight);
+            Widgets.Label(new Rect(viewRect.x, curY, viewRect.width, height), text);
+            curY += height;
+            totalInfoHeight += height;
         }
     }
 }

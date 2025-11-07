@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 	<ThingDef Name="VGE_GravshipLivingBuildingBase" ParentName="BuildingBase" Abstract="True">
 		<researchPrerequisites>
@@ -101,6 +101,7 @@
 			<li Class="CompProperties_AffectedByFacilities">
 				<linkableFacilities>
 					<li>VGE_CrewLockers</li>
+					<li MayRequire="Ludeon.RimWorld.Ideology">SleepAccelerator</li>
 				</linkableFacilities>
 			</li>
 			<li Class="BunkBeds.CompProperties_BunkBed">

@@ -50,6 +50,31 @@ namespace VanillaGravshipExpanded
             }
         }
 
+        public override void Impact(Thing hitThing, bool blockedByShield = false)
+        {
+            var verbProps = (launcher as Building_GravshipTurret).AttackVerb.verbProps;
+            if (hitThing != null)
+            {
+                if (hitThing.CanEverAttachFire())
+                {
+                    float chance = ((verbProps.flammabilityAttachFireChanceCurve == null) ? verbProps.beamChanceToAttachFire : verbProps.flammabilityAttachFireChanceCurve.Evaluate(hitThing.GetStatValue(StatDefOf.Flammability)));
+                    if (Rand.Chance(chance))
+                    {
+                        hitThing.TryAttachFire(verbProps.beamFireSizeRange.RandomInRange, launcher);
+                    }
+                }
+                else if (Rand.Chance(verbProps.beamChanceToStartFire))
+                {
+                    FireUtility.TryStartFireIn(Position, Map, verbProps.beamFireSizeRange.RandomInRange, launcher, verbProps.flammabilityAttachFireChanceCurve);
+                }
+            }
+            else if (Rand.Chance(verbProps.beamChanceToStartFire))
+            {
+                FireUtility.TryStartFireIn(Position, Map, verbProps.beamFireSizeRange.RandomInRange, launcher, verbProps.flammabilityAttachFireChanceCurve);
+            }
+            base.Impact(hitThing, blockedByShield);
+        }
+
         private void SpawnMote(TargetInfo origin, LocalTargetInfo usedTarget)
         {
             Vector3 offsetA = (ExactPosition - origin.CenterVector3).Yto0().normalized * def.projectile.beamStartOffset;

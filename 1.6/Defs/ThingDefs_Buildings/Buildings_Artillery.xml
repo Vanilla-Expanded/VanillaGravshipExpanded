@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
     <ThingDef Name="VGE_GravshipBuildingBase" ParentName="BuildingBase" Abstract="True">
@@ -506,6 +506,9 @@
                 <aimingChargeMoteOffset>2.5</aimingChargeMoteOffset>
                 <requireLineOfSight>false</requireLineOfSight>
                 <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+                <beamChanceToStartFire>1</beamChanceToStartFire>
+                <beamChanceToAttachFire>1</beamChanceToAttachFire>
+                <beamFireSizeRange>0.15~0.3</beamFireSizeRange>
                 <targetParams>
                     <canTargetLocations>true</canTargetLocations>
                 </targetParams>

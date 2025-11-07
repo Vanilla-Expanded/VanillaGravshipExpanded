@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
     <VGE_TargetingTerminalCanOnlyLinkWithGravshipArtillery>Targeting terminal can only link with gravship artillery.</VGE_TargetingTerminalCanOnlyLinkWithGravshipArtillery>
@@ -21,11 +21,10 @@
     <VGE_GravshipArtilleryNeedsVisibleMap>Gravship artillery needs to target a visible, explored map.</VGE_GravshipArtilleryNeedsVisibleMap>
     <VGE_GravshipArtilleryOutOfRange>Target is out of range.</VGE_GravshipArtilleryOutOfRange>
     <VGE_GravshipArtilleryInvalidFiringMode>Artillery cannot fire in this direction.</VGE_GravshipArtilleryInvalidFiringMode>
-    <VGE_GravshipArtilleryInvalidPlanetToGround>Artillery cannot fire from planet to ground.</VGE_GravshipArtilleryInvalidPlanetToGround>
     <VGE_GravshipArtilleryInvalidGroundToSpace>Artillery cannot fire from planet to space.</VGE_GravshipArtilleryInvalidGroundToSpace>
     <VGE_GravshipArtilleryInvalidSpaceToSpace>Artillery cannot fire from space to space.</VGE_GravshipArtilleryInvalidSpaceToSpace>
     <VGE_GravshipArtilleryInvalidSpaceToGround>Artillery cannot fire from space to ground.</VGE_GravshipArtilleryInvalidSpaceToGround>
-
+    <VGE_GravshipArtilleryInvalidGroundToGround>Artillery cannot fire from ground to ground</VGE_GravshipArtilleryInvalidGroundToGround>
     <VGE_ConfirmCrashLanding>Landing on this location will be considered a crash. Any highlighted structures underneath the gravship will damage any structures on the gravship in corresponding locations.\n\nThe substructure may also become damaged and will need replacing before the next launch.\n\nSome indestructible objects underneath may completely destroy the substructure and any objects on it.\n\nConsider picking a different landing zone.</VGE_ConfirmCrashLanding>
     <VGE_CrashLandingWarning>Landing on this location will be considered a crash and will damage the gravship.</VGE_CrashLandingWarning>
     <VGE_CannotLandIndestructibleObstacles>Can’t land here due to indestructible obstacles present. Choose another landing location.</VGE_CannotLandIndestructibleObstacles>
@@ -94,7 +93,6 @@ Please note that keeping several maps open may affect your performance.</VGE_Map
     <VGE_GravshipCurrentlyActive>another gravship is currently active</VGE_GravshipCurrentlyActive>
     <!-- Disabled message for gravship launch ritual when there's another gravship launch ritual active. Should hopefully never happen. -->
     <VGE_GravshipLaunchCurrentlyActive>another gravship is currently preparing to launch</VGE_GravshipLaunchCurrentlyActive>
-
 
     <!-- Mod options -->
 
@@ -173,12 +171,11 @@ Please note that keeping several maps open may affect your performance.</VGE_Map
     <VGE_AgrocellSunLampEnable>Turn sun lamp on</VGE_AgrocellSunLampEnable>
     <VGE_AgrocellSunLampDisable>Turn sun lamp off</VGE_AgrocellSunLampDisable>
     <VGE_AgrocellSunLampDesc>Keeping the sun lamp on will make the agrocell produce light during the day, increasing power usage and allowing most plants to grow. However, disabling it allows for plants that require darkness to grow while saving some power at the same time.</VGE_AgrocellSunLampDesc>
-	
+
 	<!-- Role abilities -->
-	
+
 	<VGE_MustTargetPilotConsole>This ability needs to target a pilot console.</VGE_MustTargetPilotConsole>
 	<VGE_RenameAsteroid>A new discovery!</VGE_RenameAsteroid>
 	<VGE_RenameAsteroidDesc>Since {0} was the first to discover the {1} nearby, they get to name it.</VGE_RenameAsteroidDesc>
-
 
 </LanguageData>
