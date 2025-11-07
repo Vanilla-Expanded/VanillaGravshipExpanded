@@ -14,9 +14,6 @@
         <showOnEntities>false</showOnEntities>
         <showOnDrones>false</showOnDrones>
         <neverDisabled>true</neverDisabled>
-        <statFactors>
-            <li>ShootingAccuracyPawn</li>
-        </statFactors>
         <skillNeedOffsets>
             <li Class="SkillNeed_BaseBonus">
                 <skill>Shooting</skill>
