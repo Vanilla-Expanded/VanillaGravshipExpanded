@@ -30,7 +30,6 @@ namespace VanillaGravshipExpanded
                     float multiplier = Mathf.Clamp(Mathf.Pow(gravshipTargeting, -alpha), 0.1f, 2.0f);
                     var warmupTime = building_GravshipTurret.def.building.turretBurstWarmupTime * multiplier;
                     building_GravshipTurret.burstWarmupTicksLeft = warmupTime.RandomInRange.SecondsToTicks();
-                    Log.Message("__instance.CurrentTarget: " + __instance.CurrentTarget + " - burstWarmupTicksLeft: " + building_GravshipTurret.burstWarmupTicksLeft);
                     VGEDefOf.VGE_GravshipTarget_Acquired.PlayOneShot(new TargetInfo(__instance.Position, __instance.Map));
                 }
             }

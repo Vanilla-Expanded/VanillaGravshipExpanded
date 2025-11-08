@@ -61,7 +61,6 @@ namespace VanillaGravshipExpanded
             return 0.5f + (targetingStat * 0.5f);
         }
 
-
         private float HitFactorFromShooter(Thing caster, float distance)
         {
             float f = (caster is Pawn) ? caster.GetStatValue(StatDefOf.ShootingAccuracyPawn) : (caster?.GetStatValue(StatDefOf.ShootingAccuracyTurret) ?? 1f);
@@ -187,7 +186,6 @@ namespace VanillaGravshipExpanded
                         var turret = parent as Building_TurretGun;
                         Find.Targeter.BeginTargeting(targetingParameters, delegate (LocalTargetInfo target)
                         {
-                            Log.Message("Target: " + target);
                             StartAttack(globalTarget, target, turret);
                             Current.Game.CurrentMap = turret.Map;
                             Find.CameraDriver.JumpToCurrentMapLoc(turret.Position);

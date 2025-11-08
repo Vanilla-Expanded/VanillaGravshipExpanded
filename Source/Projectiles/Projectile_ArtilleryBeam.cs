@@ -92,7 +92,6 @@ namespace VanillaGravshipExpanded
         public void SpawnWorldProjectile()
         {
             Map targetMap = Find.Maps.Find(m => m.Tile == targetTile);
-            Log.Message("Target map: " + targetMap + " - Target tile: " + targetTile);
             var comp = launcher.TryGetComp<CompWorldArtillery>();
             var turret = launcher as Building_GravshipTurret;
             var globalTarget = target.HasThing ? new GlobalTargetInfo(target.Thing) : new GlobalTargetInfo(target.Cell, targetMap);

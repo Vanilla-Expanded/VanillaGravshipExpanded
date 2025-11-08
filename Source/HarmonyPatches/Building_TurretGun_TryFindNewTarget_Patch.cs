@@ -17,15 +17,5 @@ namespace VanillaGravshipExpanded
             }
             return true;
         }
-
-        public static void Postfix(Building_TurretGun __instance, ref LocalTargetInfo __result)
-        {
-            if (__instance is Building_GravshipTurret turret && turret.CanAutoAttack)
-            {
-                //turret.OrderAttack(__result);
-                //__result = LocalTargetInfo.Invalid;
-                Log.Message(__instance + " - Found it?? " + __result.Thing);
-            }
-        }
     }
 }

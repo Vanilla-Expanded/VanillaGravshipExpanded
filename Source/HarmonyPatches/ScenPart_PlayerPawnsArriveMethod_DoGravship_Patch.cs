@@ -28,7 +28,6 @@ public static class ScenPart_PlayerPawnsArriveMethod_DoGravship_Patch
         cellRect = CellRect.CenteredOn(playerStartSpot, cellRect.Width, cellRect.Height);
         GenOption.GetAllMineableIn(cellRect, map);
         LayoutUtils.CleanRect(VGEDefOf.VGE_StartingGravjumper, map, cellRect, true);
-        Log.Message("Faction.OfPlayer: " + Faction.OfPlayer);
         VGEDefOf.VGE_StartingGravjumper.Generate(cellRect, map, list, Faction.OfPlayer);
 
         orGenerateVar.Add(cellRect);

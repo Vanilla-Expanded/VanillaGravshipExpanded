@@ -66,14 +66,12 @@ namespace VanillaGravshipExpanded
                 {
                     kvp.Key.weight = kvp.Value;
                 }
-                Log.Message(__state.outcomes.Select(kvp => $"{kvp.Key.defName}: {kvp.Key.weight}").ToStringSafeEnumerable());
             }
             catch (System.Exception ex)
             {
                 Log.Error($"[VGE] Exception in LandingEnded Postfix: {ex}");
             }
         }
-
 
         private static void ApplyGravDataYield(Gravship gravship, out int distanceTravelled)
         {
@@ -169,7 +167,6 @@ namespace VanillaGravshipExpanded
             {
                 Log.Error($"[VGE] Map lacked the GravMaintainables_MapComponent, can't handle maintenance loss");
             }
-
 
         }
 
