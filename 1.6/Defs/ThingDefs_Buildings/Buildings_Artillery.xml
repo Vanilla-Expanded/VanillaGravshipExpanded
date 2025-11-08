@@ -98,7 +98,7 @@
         <costList>
             <Steel>400</Steel>
             <GravlitePanel>60</GravlitePanel>
-            <Uranium>150</Uranium>
+            <Uranium>120</Uranium>
             <ComponentIndustrial>10</ComponentIndustrial>
         </costList>
         <constructionSkillPrerequisite>10</constructionSkillPrerequisite>
@@ -117,7 +117,7 @@
                         <li>Uranium</li>
                     </thingDefs>
                 </fuelFilter>
-                <fuelCapacity>150</fuelCapacity>
+                <fuelCapacity>120</fuelCapacity>
                 <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
                 <showFuelGizmo>true</showFuelGizmo>
                 <initialFuelPercent>1</initialFuelPercent>
@@ -314,7 +314,7 @@
             <Steel>400</Steel>
             <GravlitePanel>60</GravlitePanel>
             <ComponentIndustrial>10</ComponentIndustrial>
-            <VGE_Astrofuel>60</VGE_Astrofuel>
+            <VGE_Astrofuel>120</VGE_Astrofuel>
         </costList>
         <constructionSkillPrerequisite>10</constructionSkillPrerequisite>
         <building>
@@ -332,7 +332,7 @@
                         <li>VGE_Astrofuel</li>
                     </thingDefs>
                 </fuelFilter>
-                <fuelCapacity>60</fuelCapacity>
+                <fuelCapacity>120</fuelCapacity>
                 <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
                 <showFuelGizmo>true</showFuelGizmo>
                 <outOfFuelMessage>Missing rockets</outOfFuelMessage>
@@ -385,7 +385,7 @@
                 <muzzleFlashScale>8</muzzleFlashScale>
                 <forcedMissRadius>12</forcedMissRadius>
                 <requireLineOfSight>false</requireLineOfSight>
-                <consumeFuelPerShot>5</consumeFuelPerShot>
+                <consumeFuelPerShot>10</consumeFuelPerShot>
                 <isMortar>false</isMortar>
                 <targetParams>
                     <canTargetLocations>true</canTargetLocations>
@@ -417,10 +417,10 @@
         <thingClass>VanillaGravshipExpanded.Projectile_JavelinRocket</thingClass>
         <projectile>
             <damageDef>Bomb</damageDef>
-            <damageAmountBase>50</damageAmountBase>
+            <damageAmountBase>24</damageAmountBase>
             <armorPenetrationBase>0.1</armorPenetrationBase>
             <speed>70</speed>
-            <explosionRadius>3.9</explosionRadius>
+            <explosionRadius>2.9</explosionRadius>
             <flyOverhead>true</flyOverhead>
             <stoppingPower>0.5</stoppingPower>
             <soundImpact>BulletImpact_Metal</soundImpact>
@@ -505,11 +505,11 @@
             <drawOffset>(0,0,0.1)</drawOffset>
         </graphicData>
         <statBases>
-            <AccuracyTouch>0.65</AccuracyTouch>
-            <AccuracyShort>0.72</AccuracyShort>
-            <AccuracyMedium>0.65</AccuracyMedium>
-            <AccuracyLong>0.6</AccuracyLong>
-            <VGE_AccuracyGlobal>0.45</VGE_AccuracyGlobal>
+            <AccuracyTouch>0.90</AccuracyTouch>
+            <AccuracyShort>0.86</AccuracyShort>
+            <AccuracyMedium>0.80</AccuracyMedium>
+            <AccuracyLong>0.72</AccuracyLong>
+            <VGE_AccuracyGlobal>0.65</VGE_AccuracyGlobal>
         </statBases>
         <verbs>
             <li>
@@ -548,7 +548,7 @@
         </graphicData>
         <projectile>
             <damageDef>BeamBypassShields</damageDef>
-            <damageAmountBase>5</damageAmountBase>
+            <damageAmountBase>16</damageAmountBase>
             <flyOverhead>true</flyOverhead>
             <beamMoteDef>VGE_Mote_BeamRepeaterLaser</beamMoteDef>
             <beamStartOffset>2.5</beamStartOffset>
@@ -840,7 +840,7 @@
         <verbs>
             <li>
                 <verbClass>VanillaGravshipExpanded.Verb_ShootWithWorldTargeting</verbClass>
-                <defaultProjectile>VGE_Rocket_JavelinPodRocket</defaultProjectile>
+                <defaultProjectile>VGE_Rocket_JavelinRocket</defaultProjectile>
                 <range>99999</range>
                 <minRange>14.0</minRange>
                 <burstShotCount>6</burstShotCount>
@@ -864,46 +864,6 @@
         </building>
     </ThingDef>
 
-    <ThingDef ParentName="BaseBullet">
-        <defName>VGE_Rocket_JavelinPodRocket</defName>
-        <label>Javelin rocket</label>
-        <graphicData>
-            <texPath>Things/Projectiles/Rocket_Javelin</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-            <shaderType>TransparentPostLight</shaderType>
-            <drawSize>(2,2)</drawSize>
-        </graphicData>
-        <thingClass>VanillaGravshipExpanded.Projectile_JavelinRocket</thingClass>
-        <projectile>
-            <damageDef>Bomb</damageDef>
-            <damageAmountBase>24</damageAmountBase>
-            <armorPenetrationBase>0.1</armorPenetrationBase>
-            <speed>70</speed>
-            <explosionRadius>2.9</explosionRadius>
-            <flyOverhead>true</flyOverhead>
-            <stoppingPower>0.5</stoppingPower>
-            <soundImpact>BulletImpact_Metal</soundImpact>
-            <soundExplode>MortarBomb_Explode</soundExplode>
-            <soundAmbient>MortarRound_Ambient</soundAmbient>
-        </projectile>
-        <modExtensions>
-            <li Class="VanillaGravshipExpanded.ThrusterProjectileExtension">
-                <flameSize>3.0</flameSize>
-                <flameShaderType>MoteGlow</flameShaderType>
-                <flameShaderParameters>
-                    <_MainTex>/Things/Mote/SmallThruster_Burn</_MainTex>
-                </flameShaderParameters>
-                <exhaustFleckDef>GravshipThrusterExhaust</exhaustFleckDef>
-                <emissionsPerSecond>40.0</emissionsPerSecond>
-                <spawnRadiusRange>0.0~0.5</spawnRadiusRange>
-                <velocity>(0.0,0.0,-20.0)</velocity>
-                <velocityRotationRange>-10.0~10.0</velocityRotationRange>
-                <velocityMultiplierRange>0.8~1.2</velocityMultiplierRange>
-                <rotationOverTimeRange>-180.0~180.0</rotationOverTimeRange>
-                <scaleRange>1.5~3.0</scaleRange>
-            </li>
-        </modExtensions>
-    </ThingDef>
 
     <ThingDef ParentName="VGE_GravshipArtillerySmallBase">
         <defName>VGE_AnticraftCaster</defName>
@@ -933,7 +893,7 @@
         <comps>
             <li Class="CompProperties_Power">
                 <compClass>CompPowerTrader</compClass>
-                <basePowerConsumption>5000</basePowerConsumption>
+                <basePowerConsumption>10000</basePowerConsumption>
                 <idlePowerDraw>100</idlePowerDraw>
             </li>
             <li Class="CompProperties_Flickable" />
@@ -951,7 +911,7 @@
         </building>
         <modExtensions>
             <li Class="VanillaGravshipExpanded.TurretExtension_RotationSpeed">
-                <rotationSpeed>120</rotationSpeed>
+                <rotationSpeed>210</rotationSpeed>
             </li>
         </modExtensions>
         <placeWorkers>
@@ -969,11 +929,11 @@
             <drawOffset>(0,0,0.1)</drawOffset>
         </graphicData>
         <statBases>
-            <AccuracyTouch>0.77</AccuracyTouch>
-            <AccuracyShort>0.84</AccuracyShort>
-            <AccuracyMedium>0.74</AccuracyMedium>
-            <AccuracyLong>0.70</AccuracyLong>
-            <VGE_AccuracyGlobal>0.70</VGE_AccuracyGlobal>
+            <AccuracyTouch>0.98</AccuracyTouch>
+            <AccuracyShort>0.92</AccuracyShort>
+            <AccuracyMedium>0.86</AccuracyMedium>
+            <AccuracyLong>0.82</AccuracyLong>
+            <VGE_AccuracyGlobal>0.8</VGE_AccuracyGlobal>
         </statBases>
         <verbs>
             <li>
