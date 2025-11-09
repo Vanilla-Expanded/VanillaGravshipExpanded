@@ -8,6 +8,7 @@ using Verse.Sound;
 
 namespace VanillaGravshipExpanded
 {
+    [HotSwappable]
     [StaticConstructorOnStartup]
     [HarmonyPatch(typeof(ArchitectCategoryTab), nameof(ArchitectCategoryTab.DesignationTabOnGUI))]
     public static class ArchitectCategoryTab_DesignationTabOnGUI_Patch
@@ -69,15 +70,16 @@ namespace VanillaGravshipExpanded
             return false;
         }
 
+        private static float TopMargin => 5f;
         private static void DrawBetterArchitectMenu(ArchitectCategoryTab tab)
         {
             if (Find.DesignatorManager.SelectedDesignator != null)
             {
                 Find.DesignatorManager.SelectedDesignator.DoExtraGuiControls(0f, (float)(UI.screenHeight - 35) - ((MainTabWindow_Architect)MainButtonDefOf.Architect.TabWindow).WinHeight - 270f);
             }
-            var menuHeight = 330f;
+            var menuHeight = 270f;
             var leftWidth = 200f;
-            var ordersWidth = 175f;
+            var ordersWidth = 165f;
             var gizmoSize = 75f;
             var gizmoSpacing = 5f;
             var availableWidth = UI.screenWidth - 195f - (((MainTabWindow_Architect)MainButtonDefOf.Architect.TabWindow).RequestedTabSize.x + 10f) - leftWidth - ordersWidth;
@@ -88,16 +90,16 @@ namespace VanillaGravshipExpanded
                 UI.screenHeight - menuHeight - 35f,
                 leftWidth + gridWidth + ordersWidth,
                 menuHeight);
-            var leftRect = new Rect(mainRect.x, mainRect.y + 20f, leftWidth, mainRect.height - 30f);
+            var leftRect = new Rect(mainRect.x, mainRect.y + TopMargin, leftWidth, mainRect.height - TopMargin);
             var gridRect = new Rect(leftRect.xMax, mainRect.y, gridWidth, mainRect.height);
-            var ordersRect = new Rect(gridRect.xMax, mainRect.y + 30f, ordersWidth, mainRect.height - 30f);
+            var ordersRect = new Rect(gridRect.xMax, mainRect.y + TopMargin, ordersWidth, mainRect.height - TopMargin);
             var newColor = new Color(Color.white.r, Color.white.g, Color.white.b, 1f - 0.42f);
             Widgets.DrawWindowBackground(mainRect, newColor);
-            
+
             var allCategories = DefDatabase<DesignationCategoryDef>.AllDefsListForReading
                 .Where(d => d.GetModExtension<NestedCategoryExtension>()?.parentCategory == tab.def).ToList();
             allCategories.Add(tab.def);
-            
+
             var designatorDataList = new List<DesignatorCategoryData>();
             foreach (var cat in allCategories)
             {
@@ -126,12 +128,12 @@ namespace VanillaGravshipExpanded
         {
             var allCategories = designatorDataList.Select(d => d.def).ToList();
             DesignationCategoryDef currentSelection = null;
-            
+
             if (lastMainCategory == mainCat)
             {
                 selectedCategory.TryGetValue(mainCat, out currentSelection);
             }
-            
+
             string currentSearchText = currentArchitectCategoryTab?.quickSearchFilter?.Active == true ? currentArchitectCategoryTab.quickSearchFilter.Text : "";
             if (currentSearchText != lastSearchText)
             {
@@ -170,7 +172,7 @@ namespace VanillaGravshipExpanded
                     }
                 }
             }
-            
+
             var mainCategoryData = designatorDataList.FirstOrDefault(d => d.def == mainCat);
             var mainCategoryHasDesignators = mainCategoryData != null && mainCategoryData.buildables.Any(x => x is Designator_Place || x is Designator_Dropdown);
             var subCategories = allCategories.Where(c => c != mainCat).ToList();
@@ -216,8 +218,9 @@ namespace VanillaGravshipExpanded
                     selectedCategory[mainCat] = currentSelection;
                 }
             }
-            
+
             var outRect = rect.ContractedBy(10f);
+            outRect.y -= 8;
             var viewRect = new Rect(0, 0, outRect.width - 16f, GetCategoryViewHeight(displayCategories.Count));
             HandleScrollBar(outRect, viewRect, ref leftPanelScrollPosition);
             Widgets.BeginScrollView(outRect, ref leftPanelScrollPosition, viewRect);
@@ -271,7 +274,7 @@ namespace VanillaGravshipExpanded
 
         private static Designator DrawDesignatorGrid(Rect rect, DesignationCategoryDef category, List<Designator> designators)
         {
-            var outRect = new Rect(rect.x, rect.y + 30f, rect.width, rect.height - 30f);
+            var outRect = new Rect(rect.x, rect.y + TopMargin, rect.width, rect.height - TopMargin);
             if (designators.NullOrEmpty())
             {
                 Text.Font = GameFont.Medium;
@@ -310,7 +313,7 @@ namespace VanillaGravshipExpanded
             HandleScrollBar(rect, viewRect, ref designatorGridScrollPosition);
             Widgets.BeginScrollView(rect, ref designatorGridScrollPosition, viewRect);
             GizmoGridDrawer.drawnHotKeys.Clear();
-            
+
             for (int i = 0; i < designators.Count; i++)
             {
                 int row = i / gizmosPerRow;
@@ -328,7 +331,7 @@ namespace VanillaGravshipExpanded
                 ProcessGizmoResult(result, designator, ref mouseoverGizmo, ref interactedGizmo, ref floatMenuGizmo, ref interactedEvent);
             }
             ProcessGizmoInteractions(interactedGizmo, floatMenuGizmo, interactedEvent);
-            
+
             Widgets.EndScrollView();
             return mouseoverGizmo;
         }
@@ -354,7 +357,7 @@ namespace VanillaGravshipExpanded
             HandleScrollBar(outRect, viewRect, ref ordersScrollPosition);
             Widgets.BeginScrollView(outRect, ref ordersScrollPosition, viewRect);
             GizmoGridDrawer.drawnHotKeys.Clear();
-            
+
             for (var i = 0; i < designators.Count; i++)
             {
                 int row = i / columns;
@@ -374,7 +377,7 @@ namespace VanillaGravshipExpanded
                 ProcessGizmoResult(result, designator, ref mouseoverGizmo, ref interactedGizmo, ref floatMenuGizmo, ref interactedEvent);
             }
             ProcessGizmoInteractions(interactedGizmo, floatMenuGizmo, interactedEvent);
-            
+
             Widgets.EndScrollView();
             return mouseoverGizmo;
         }
@@ -438,7 +441,7 @@ namespace VanillaGravshipExpanded
                 interactedEvent = result.InteractEvent;
             }
         }
-        
+
         private static void ProcessGizmoInteractions(Designator interactedGizmo, Designator floatMenuGizmo, Event interactedEvent)
         {
             if (interactedGizmo != null)
@@ -461,7 +464,7 @@ namespace VanillaGravshipExpanded
                 }
             }
         }
-        
+
         private static float GetCategoryViewHeight(int itemCount)
         {
             return itemCount * 41f;

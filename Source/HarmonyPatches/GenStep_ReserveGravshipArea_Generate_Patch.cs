@@ -9,6 +9,16 @@ namespace VanillaGravshipExpanded
     [HarmonyPatch(typeof(GenStep_ReserveGravshipArea), "Generate")]
     public static class GenStep_ReserveGravshipArea_Generate_Patch
     {
+        public static bool Prefix(Map map, GenStepParams parms)
+        {
+            if (!MapGenerator.PlayerStartSpotValid)
+            {
+                GenStep_ReserveGravshipArea.SetStartSpot(map, new HashSet<IntVec3>(), new List<CellRect>());
+            }
+            return false;
+        }
+
+        /*
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator il)
         {
             var codes = new List<CodeInstruction>(instructions);
@@ -27,5 +37,6 @@ namespace VanillaGravshipExpanded
                 }
             }
         }
+        */
     }
 }
