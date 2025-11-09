@@ -25,7 +25,7 @@
 		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
 		<altitudeLayer>BuildingOnTop</altitudeLayer>
 		<passability>Standable</passability>
-		<terrainAffordanceNeeded IsNull="True" />
+		<terrainAffordanceNeeded IsNull="True"/>
 		<pathCost>0</pathCost>
 		<building>
 			<isEdifice>false</isEdifice>
@@ -248,6 +248,7 @@
 		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
 		<defaultPlacingRot>South</defaultPlacingRot>
 		<costStuffCount>50</costStuffCount>
+		<uiIconScale>0.75</uiIconScale>
 		<statBases>
 			<MaxHitPoints>120</MaxHitPoints>
 			<Mass>15</Mass>
@@ -434,8 +435,8 @@
 				<shortCircuitInRain>true</shortCircuitInRain>
 				<basePowerConsumption>200</basePowerConsumption>
 			</li>
-			<li Class="CompProperties_Flickable" />
-			<li Class="CompProperties_Breakdownable" />
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
 			<li Class="CompProperties_Usable" MayRequire="Ludeon.RimWorld.Biotech">
 				<useJob>TriggerObject</useJob>
 				<useLabel>Summon diabolus threat</useLabel>
@@ -493,8 +494,8 @@
 				<compClass>CompPowerTrader</compClass>
 				<basePowerConsumption>40</basePowerConsumption>
 			</li>
-			<li Class="CompProperties_Flickable" />
-			<li Class="CompProperties_Breakdownable" />
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
 		</comps>
 	</ThingDef>
 	<ThingDef ParentName="FurnitureWithQualityBase">
