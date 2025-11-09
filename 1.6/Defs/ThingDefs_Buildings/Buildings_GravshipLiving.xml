@@ -521,6 +521,7 @@
 		<altitudeLayer>Building</altitudeLayer>
 		<passability>PassThroughOnly</passability>
 		<fillPercent>0.20</fillPercent>
+		<uiIconScale>0.75</uiIconScale>
 		<statBases>
 			<MaxHitPoints>75</MaxHitPoints>
 			<WorkToBuild>500</WorkToBuild>
