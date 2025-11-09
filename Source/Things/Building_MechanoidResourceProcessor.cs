@@ -76,6 +76,7 @@ namespace VanillaGravshipExpanded
             Thing thing = ThingMaker.MakeThing(resource);
             thing.stackCount = resourceAmount;
             GenPlace.TryPlaceThing(thing, Position, Map, ThingPlaceMode.Near);
+            thing.SetForbidden(true, false);
             SoundDefOf.CryptosleepCasket_Eject.PlayOneShot(new TargetInfo(Position, Map));
             productionCycles--;
         }
