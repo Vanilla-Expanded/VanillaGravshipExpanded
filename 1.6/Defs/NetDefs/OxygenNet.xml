@@ -263,18 +263,18 @@
 					<texPath>UI/Gizmos/ExtractOxygen_Gizmo</texPath>
 					<labelKey>VGE_ExtractOxygen</labelKey>
 					<descKey>VGE_ExtractOxygenDesc</descKey>
-          <disabledReasonKey>VGE_ExtractOxygenDisabled</disabledReasonKey>
+					<disabledReasonKey>VGE_ExtractOxygenDisabled</disabledReasonKey>
 					<extractAmount>10</extractAmount>
 					<thing>VGE_OxygenCanister</thing>
-          <extractTime>120</extractTime>
-          <extractExactAmount>false</extractExactAmount>
+					<extractTime>120</extractTime>
+					<extractExactAmount>false</extractExactAmount>
 				</extractOptions>
-        <destroyOptions>
-          <li>
-            <thing>VGE_OxygenCanister</thing>
-            <spawnWhenDestroyed>false</spawnWhenDestroyed>
-          </li>
-        </destroyOptions>
+				<destroyOptions>
+					<li>
+						<thing>VGE_OxygenCanister</thing>
+						<spawnWhenDestroyed>false</spawnWhenDestroyed>
+					</li>
+				</destroyOptions>
 			</li>
 			<li Class="PipeSystem.CompProperties_ExplosiveContent">
 				<explosiveMaxRadius>7</explosiveMaxRadius>
@@ -301,6 +301,11 @@
 			<li>VGE_OxygenNetwork</li>
 		</researchPrerequisites>
 		<disableImpassableShotOverConfigError>true</disableImpassableShotOverConfigError>
+		<building>
+			<relatedBuildCommands>
+				<li>VGE_OxygenPipe</li>
+			</relatedBuildCommands>
+		</building>
 	</ThingDef>
 	<ThingDef ParentName="GravshipComponentBase">
 		<defName>VGE_LargeOxygenTank</defName>
@@ -350,18 +355,18 @@
 					<texPath>UI/Gizmos/ExtractOxygen_Gizmo</texPath>
 					<labelKey>VGE_ExtractOxygen</labelKey>
 					<descKey>VGE_ExtractOxygenDesc</descKey>
-          <disabledReasonKey>VGE_ExtractOxygenDisabled</disabledReasonKey>
+					<disabledReasonKey>VGE_ExtractOxygenDisabled</disabledReasonKey>
 					<extractAmount>10</extractAmount>
 					<thing>VGE_OxygenCanister</thing>
-          <extractTime>120</extractTime>
-          <extractExactAmount>false</extractExactAmount>
+					<extractTime>120</extractTime>
+					<extractExactAmount>false</extractExactAmount>
 				</extractOptions>
-        <destroyOptions>
-          <li>
-            <thing>VGE_OxygenCanister</thing>
-            <spawnWhenDestroyed>false</spawnWhenDestroyed>
-          </li>
-        </destroyOptions>
+				<destroyOptions>
+					<li>
+						<thing>VGE_OxygenCanister</thing>
+						<spawnWhenDestroyed>false</spawnWhenDestroyed>
+					</li>
+				</destroyOptions>
 			</li>
 			<li Class="PipeSystem.CompProperties_ExplosiveContent">
 				<explosiveMaxRadius>14</explosiveMaxRadius>
@@ -388,6 +393,11 @@
 			<li>StandardGravtech</li>
 		</researchPrerequisites>
 		<disableImpassableShotOverConfigError>true</disableImpassableShotOverConfigError>
+		<building>
+			<relatedBuildCommands>
+				<li>VGE_OxygenPipe</li>
+			</relatedBuildCommands>
+		</building>
 	</ThingDef>
 	<ThingDef ParentName="FurnitureBase">
 		<defName>VGE_OxygenCanisterFiller</defName>
@@ -424,7 +434,7 @@
 			<Steel>50</Steel>
 		</costList>
 		<building>
-      <blueprintClass>Blueprint_Storage</blueprintClass>
+			<blueprintClass>Blueprint_Storage</blueprintClass>
 			<preventDeteriorationOnTop>true</preventDeteriorationOnTop>
 			<ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
 			<fixedStorageSettings>
@@ -444,6 +454,9 @@
 					</thingDefs>
 				</filter>
 			</defaultStorageSettings>
+			<relatedBuildCommands>
+				<li>VGE_OxygenPipe</li>
+			</relatedBuildCommands>
 		</building>
 		<inspectorTabs>
 			<li>ITab_Storage</li>
@@ -497,7 +510,7 @@
 			<Steel>50</Steel>
 		</costList>
 		<building>
-      <blueprintClass>Blueprint_Storage</blueprintClass>
+			<blueprintClass>Blueprint_Storage</blueprintClass>
 			<preventDeteriorationOnTop>true</preventDeteriorationOnTop>
 			<ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
 			<fixedStorageSettings>
@@ -517,6 +530,9 @@
 					</thingDefs>
 				</filter>
 			</defaultStorageSettings>
+			<relatedBuildCommands>
+				<li>VGE_OxygenPipe</li>
+			</relatedBuildCommands>
 		</building>
 		<inspectorTabs>
 			<li>ITab_Storage</li>
@@ -597,6 +613,11 @@
 		</researchPrerequisites>
 		<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
 		<rotatable>false</rotatable>
+		<building>
+			<relatedBuildCommands>
+				<li>VGE_OxygenPipe</li>
+			</relatedBuildCommands>
+		</building>
 	</ThingDef>
 	<ThingDef ParentName="GravshipComponentBase">
 		<defName>VGE_LifeSupportSystem</defName>
@@ -604,7 +625,7 @@
 		<description>A vital device that processes harvested oxyalgae into breathable oxygen. Converts biomass into gas and pumps it into the oxygen network to supply pressurized rooms and equipment.</description>
 		<minifiedDef IsNull="True"/>
 		<thingCategories IsNull="True"/>
-    <drawerType>MapMeshAndRealTime</drawerType>
+		<drawerType>MapMeshAndRealTime</drawerType>
 		<graphicData>
 			<texPath>Things/Structures/LifeSupportTank/LifeSupportTank</texPath>
 			<graphicClass>VEF.Graphics.Graphic_RefuelableSingle</graphicClass>
@@ -656,7 +677,7 @@
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
 			<li Class="CompProperties_Refuelable">
-        <compClass>VanillaGravshipExpanded.CompRefuelable_IgnoreFlickableComp</compClass>
+				<compClass>VanillaGravshipExpanded.CompRefuelable_IgnoreFlickableComp</compClass>
 				<fuelCapacity>400</fuelCapacity>
 				<targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
 				<initialConfigurableTargetFuelLevel>400</initialConfigurableTargetFuelLevel>
@@ -688,6 +709,11 @@
 		</researchPrerequisites>
 		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
 		<rotatable>false</rotatable>
+		<building>
+			<relatedBuildCommands>
+				<li>VGE_OxygenPipe</li>
+			</relatedBuildCommands>
+		</building>
 	</ThingDef>
 	<ThingDef ParentName="BuildingBase">
 		<defName>VGE_IndustrialOxygenPump</defName>
@@ -748,7 +774,7 @@
 			<li Class="VanillaGravshipExpanded.CompProperties_ResourceTrader_OxygenPusher">
 				<!-- CompProperties_ResourceTrader props. -->
 				<pipeNet>VGE_OxygenNet</pipeNet>
-        <!-- 5 per second divided by 60 ticks per second -->
+				<!-- 5 per second divided by 60 ticks per second -->
 				<consumptionPerTick>0.08333333333333333333333333333333</consumptionPerTick>
 				<visualOnlyConsumption>true</visualOnlyConsumption>
 				<!-- Custom CompProperties_ResourceTrader_OxygenPusher props. -->
@@ -766,11 +792,11 @@
 		<placeWorkers>
 			<li>VanillaGravshipExpanded.PlaceWorker_OxygenPusher</li>
 		</placeWorkers>
-    <modExtensions>
-      <li Class="VEF.Buildings.GravshipLaunchExtension">
-        <isOxygenPusher>true</isOxygenPusher>
-      </li>
-    </modExtensions>
+		<modExtensions>
+			<li Class="VEF.Buildings.GravshipLaunchExtension">
+				<isOxygenPusher>true</isOxygenPusher>
+			</li>
+		</modExtensions>
 		<researchPrerequisites>
 			<li>VGE_OxygenNetwork</li>
 		</researchPrerequisites>
