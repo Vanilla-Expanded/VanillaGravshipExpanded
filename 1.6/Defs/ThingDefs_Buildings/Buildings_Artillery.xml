@@ -190,7 +190,7 @@
             <graphicClass>Graphic_Single</graphicClass>
             <shaderType>TransparentPostLight</shaderType>
         </graphicData>
-        <thingClass>VanillaGravshipExpanded.Projectile_Artillery</thingClass>
+        <thingClass>VanillaGravshipExpanded.Projectile_Gauss</thingClass>
         <projectile>
             <damageDef>Bomb</damageDef>
             <damageAmountBase>50</damageAmountBase>
@@ -741,7 +741,7 @@
             <graphicClass>Graphic_Single</graphicClass>
             <shaderType>TransparentPostLight</shaderType>
         </graphicData>
-        <thingClass>VanillaGravshipExpanded.Projectile_Artillery</thingClass>
+        <thingClass>VanillaGravshipExpanded.Projectile_Gauss</thingClass>
         <projectile>
             <damageDef>Bomb</damageDef>
             <damageAmountBase>40</damageAmountBase>

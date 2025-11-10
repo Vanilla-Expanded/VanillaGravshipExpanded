@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 	<FleckDef ParentName="FleckBase">
 		<defName>VGE_AstrofireBlast</defName>
@@ -26,4 +26,46 @@
 		<growthRate>0.04</growthRate>
 		<acceleration>(0.05, 0.0, 0.0)</acceleration>
 	</FleckDef>
+	<FleckDef ParentName="FleckBase_Thrown">
+		<defName>VGE_JavelinGlow</defName>
+		<graphicData>
+			<texPath>Things/Mote/FireGlow</texPath>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<fadeInTime>0.1</fadeInTime>
+		<solidTime>0</solidTime>
+		<fadeOutTime>3.3</fadeOutTime>
+	</FleckDef>
+	<FleckDef ParentName="FleckGlowDistortBackground" Name="FleckPsycastAreaEffect">
+		<defName>VGE_GaussDistortion</defName>
+		<altitudeLayer>MoteLow</altitudeLayer>
+		<fadeInTime>0.02</fadeInTime>
+		<fadeOutTime>0.04</fadeOutTime>
+		<solidTime>0</solidTime>
+		<growthRate>1.2</growthRate>
+		<graphicData>
+			<texPath>Things/Mote/Black</texPath>
+			<shaderParameters>
+				<_distortionIntensity>0.01</_distortionIntensity>
+				<_brightnessMultiplier>1.15</_brightnessMultiplier>
+			</shaderParameters>
+			<drawSize>2.3</drawSize>
+		</graphicData>
+	</FleckDef>
+
+  <FleckDef ParentName="FleckBase_Thrown">
+    <defName>VGE_GaussImpact</defName>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <fleckSystemClass>FleckSystemThrown</fleckSystemClass>
+    <fadeInTime>0.05</fadeInTime>
+    <fadeOutTime>0.2</fadeOutTime>
+    <solidTime>0.1</solidTime>
+    <growthRate>2</growthRate>
+    <graphicData>
+      <texPath>Things/Mote/VaporizeExplosionGlow</texPath>
+      <shaderType>MoteGlow</shaderType>
+      <drawSize>(4.5, 4.5)</drawSize>
+    </graphicData>
+  </FleckDef>
 </Defs>

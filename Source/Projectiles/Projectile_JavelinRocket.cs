@@ -1,6 +1,7 @@
 using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using UnityEngine;
 using Verse;
 
@@ -73,7 +74,7 @@ namespace VanillaGravshipExpanded
                 if (exhaustTicksLeft > 0)
                 {
                     exhaustTicksLeft--;
-                    if (Find.TickManager.TicksGame % exhaustEmissionInterval == 0)
+                    if (this.IsHashIntervalTick(this.exhaustEmissionInterval))
                     {
                         EmitExhaust();
                     }
@@ -121,6 +122,26 @@ namespace VanillaGravshipExpanded
                 param.Apply(FlameBlock);
             }
             GenDraw.DrawQuad(FlameMaterial, flamePosition, this.ExactRotation, Extension.flameSize, FlameBlock);
+
+            if(!Find.TickManager.Paused)
+            {
+                FleckMaker.ThrowSmoke(drawLoc, this.Map, 0.25f);
+
+                if (this.IsHashIntervalTick(this.exhaustEmissionInterval))
+                {
+                    FleckCreationData data = FleckMaker.GetDataStatic(this.ExactPosition + velocityDirection * 2, this.Map, VGEDefOf.VGE_JavelinGlow, Rand.Range(1f, 2f) * 2);
+                    data.rotationRate      = 0;
+                    data.velocityAngle     = this.ExactPosition.AngleToFlat(flamePosition) + 90 + Rand.Range(-15, 15);
+                    data.velocitySpeed     = this.def.projectile.speed/10 * this.DistanceCoveredFraction;
+                    this.Map.flecks.CreateFleck(data);
+
+                    FleckCreationData data2 = FleckMaker.GetDataStatic(this.ExactPosition + velocityDirection * 2, this.Map, FleckDefOf.LightningGlow, Rand.Range(0.25f, 0.5f) * 2);
+                    data2.rotationRate  = 0;
+                    data2.velocityAngle = this.ExactPosition.AngleToFlat(flamePosition) + 90 + Rand.Range(-15, 15);
+                    data2.velocitySpeed = this.def.projectile.speed / 20 * this.DistanceCoveredFraction;
+                    this.Map.flecks.CreateFleck(data2);
+                }
+            }
         }
 
     }
