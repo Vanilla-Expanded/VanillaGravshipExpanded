@@ -5,7 +5,7 @@ using Verse;
 
 namespace VanillaGravshipExpanded
 {
-    public class GameCondition_DisableElectricityAndHeatWave : GameCondition
+    public class GameCondition_SpaceSolarFlare : GameCondition
     {
         public override bool ElectricityDisabled => false;
 
@@ -29,6 +29,15 @@ namespace VanillaGravshipExpanded
         public override SkyTarget? SkyTarget(Map map)
         {
             return new SkyTarget(0.85f, OrangeColors, 1f, 1f);
+        }
+
+        public override void DoCellSteadyEffects(IntVec3 c, Map map)
+        {
+            base.DoCellSteadyEffects(c, map);
+            if (Rand.Chance(0.1f))
+            {
+                FleckMaker.ThrowHeatGlow(c, map, 2.3f);
+            }
         }
 
     }

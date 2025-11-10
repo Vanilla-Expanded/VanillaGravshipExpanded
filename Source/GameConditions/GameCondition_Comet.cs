@@ -173,5 +173,30 @@ namespace VanillaGravshipExpanded
                     where x != curColorIndex
                     select x).RandomElement();
         }
+
+        public override void DoCellSteadyEffects(IntVec3 c, Map map)
+        {
+            base.DoCellSteadyEffects(c, map);
+            if (Rand.Chance(0.1f))
+            {
+                ThrowCometGlow(c, map, 2.3f);
+            }
+        }
+        public static void ThrowCometGlow(IntVec3 c, Map map, float size)
+        {
+            Vector3 vector = c.ToVector3Shifted();
+            if (vector.ShouldSpawnMotesAt(map))
+            {
+                vector += size * new Vector3(Rand.Value - 0.5f, 0f, Rand.Value - 0.5f);
+                if (vector.InBounds(map))
+                {
+                    FleckCreationData dataStatic = FleckMaker.GetDataStatic(vector, map, FleckDefOf.LightningGlow, Rand.Range(4f, 6f) * size);
+                    dataStatic.rotationRate = Rand.Range(-3f, 3f);
+                    dataStatic.velocityAngle = Rand.Range(0, 360);
+                    dataStatic.velocitySpeed = 0.12f;
+                    map.flecks.CreateFleck(dataStatic);
+                }
+            }
+        }
     }
 }
