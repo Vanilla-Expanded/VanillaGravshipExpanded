@@ -70,10 +70,18 @@
 
 If you keep it around, it will still be present as a colony map until you abandon it.
 
-If you discard it, a crater will be created in it’s place and you will never be able to visit it again.
+If you discard it, it may be replaced by an abandoned settlement, returned to its original owner, turned back into a special/quest location, or destroyed.
 Please note that keeping several maps open may affect your performance.</VGE_MapDecisionText>
+    <VGE_MapDecisionSettleText>Your gravship has launched. You can now decide whether you want to settle the previous map.
+
+If you settle it, it will still be present as a colony map until you abandon it.
+
+If you decide to not settle it, the map will still be kept around until it is discarded automatically. It is currently kept around due to you having colonists in there, a shuttle or drop pods travelling there, or some special building present on the map.
+Please note that keeping several maps open may affect your performance.</VGE_MapDecisionSettleText>
     <VGE_KeepMap>Keep the map</VGE_KeepMap>
     <VGE_DiscardMap>Discard the map</VGE_DiscardMap>
+    <VGE_SettleMap>Settle map</VGE_SettleMap>
+    <VGE_DontSettle>Don't settle</VGE_DontSettle>
 
     <VGE_RapidlyDeterioratingInSpace>Rapidly deteriorating due to the vacuum of space.</VGE_RapidlyDeterioratingInSpace>
     <ConfirmGravEngineLaunch>Are you sure you want to launch?\n\nYou will be given a choice to keep the current map as well as anything not on gravship substructure, but if you choose to discard it, it will be permanently lost.</ConfirmGravEngineLaunch>
