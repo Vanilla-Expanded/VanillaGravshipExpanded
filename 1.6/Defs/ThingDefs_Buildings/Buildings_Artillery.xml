@@ -20,7 +20,7 @@
             <texPath>Things/Structures/Artillery/GravshipArtillery_Base_Normal</texPath>
         </graphicData>
         <passability>Impassable</passability>
-        <fillPercent>1.0</fillPercent>
+        <fillPercent>1</fillPercent>
         <tickerType>Normal</tickerType>
         <stealable>false</stealable>
         <rotatable>false</rotatable>
@@ -164,7 +164,6 @@
             </li>
         </verbs>
     </ThingDef>
-
 
     <ThingDef Name="VGE_GravshipArtillerySmallBase" ParentName="VGE_GravshipArtilleryBase" Abstract="True">
         <graphicData>
@@ -332,7 +331,7 @@
             <speed>115</speed>
             <explosionRadius>3.9</explosionRadius>
             <flyOverhead>true</flyOverhead>
-            <stoppingPower>2.0</stoppingPower>
+            <stoppingPower>2</stoppingPower>
         </projectile>
     </ThingDef>
 
@@ -425,7 +424,7 @@
                 <verbClass>VanillaGravshipExpanded.Verb_ShootWithWorldTargeting</verbClass>
                 <defaultProjectile>VGE_Rocket_JavelinRocket</defaultProjectile>
                 <range>99999</range>
-                <minRange>14.0</minRange>
+                <minRange>14</minRange>
                 <burstShotCount>6</burstShotCount>
                 <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
                 <soundCast>VGE_JavelinLauncher_Cast</soundCast>
@@ -471,24 +470,22 @@
         </projectile>
         <modExtensions>
             <li Class="VanillaGravshipExpanded.ThrusterProjectileExtension">
-                <flameSize>3.0</flameSize>
+                <flameSize>3</flameSize>
                 <flameShaderType>MoteGlow</flameShaderType>
                 <flameShaderParameters>
                     <_MainTex>/Things/Mote/SmallThruster_Burn</_MainTex>
                 </flameShaderParameters>
                 <exhaustFleckDef>GravshipThrusterExhaust</exhaustFleckDef>
-                <emissionsPerSecond>40.0</emissionsPerSecond>
+                <emissionsPerSecond>40</emissionsPerSecond>
                 <spawnRadiusRange>0.0~0.5</spawnRadiusRange>
                 <velocity>(0.0,0.0,-20.0)</velocity>
-                <velocityRotationRange>-10.0~10.0</velocityRotationRange>
+                <velocityRotationRange>-10.0~10</velocityRotationRange>
                 <velocityMultiplierRange>0.8~1.2</velocityMultiplierRange>
-                <rotationOverTimeRange>-180.0~180.0</rotationOverTimeRange>
-                <scaleRange>1.5~3.0</scaleRange>
+                <rotationOverTimeRange>-180.0~180</rotationOverTimeRange>
+                <scaleRange>1.5~3</scaleRange>
             </li>
         </modExtensions>
     </ThingDef>
-
-
 
     <ThingDef ParentName="VGE_GravshipArtillerySmallBase">
         <defName>VGE_AnticraftCaster</defName>
@@ -565,7 +562,7 @@
                 <verbClass>VanillaGravshipExpanded.Verb_ShootWithWorldTargeting</verbClass>
                 <defaultProjectile>VGE_Bullet_AnticraftCaster</defaultProjectile>
                 <range>9999</range>
-                <minRange>14.0</minRange>
+                <minRange>14</minRange>
                 <forcedMissRadius>0</forcedMissRadius>
                 <canGoWild>true</canGoWild>
                 <burstShotCount>20</burstShotCount>

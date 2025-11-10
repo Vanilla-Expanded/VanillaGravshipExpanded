@@ -68,7 +68,7 @@ namespace VanillaGravshipExpanded
             if (caster is Pawn)
             {
                 var globalAccuracy = caster.GetStatValue(VGEDefOf.VGE_AccuracyGlobal);
-                num = num * globalAccuracy;
+                num *= globalAccuracy;
             }
             var finalResult = Mathf.Max(num, 0.0201f);
             return finalResult;

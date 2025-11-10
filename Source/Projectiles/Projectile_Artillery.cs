@@ -19,6 +19,18 @@ namespace VanillaGravshipExpanded
             Scribe_Values.Look(ref missRadius, "missRadius");
         }
 
+        public Building_GravshipTurret GravshipTurret
+        {
+            get
+            {
+                if (launcher is Building_GravshipTurret gravshipTurret)
+                {
+                    return gravshipTurret;
+                }
+                return equipment as Building_GravshipTurret;
+            }
+        }
+
         public override int UpdateRateTicks => 1;
 
         public override void TickInterval(int delta)
@@ -52,15 +64,17 @@ namespace VanillaGravshipExpanded
                 worldProjectile.targetCell = target.Cell;
                 worldProjectile.missRadius = missRadius;
                 worldProjectile.projectileDef = this.def;
-                worldProjectile.launcher = this.launcher;
+                worldProjectile.launcher = launcher;
                 Find.WorldObjects.Add(worldProjectile);
             }
         }
 
         public override void Launch(Thing launcher, Vector3 origin, LocalTargetInfo usedTarget, LocalTargetInfo intendedTarget, ProjectileHitFlags hitFlags, bool preventFriendlyFire = false, Thing equipment = null, ThingDef targetCoverDef = null)
         {
-            var comp = launcher.TryGetComp<CompWorldArtillery>();
-            var turret = launcher as Building_GravshipTurret;
+            this.launcher = launcher;
+            this.equipment = equipment;
+            var turret = GravshipTurret;
+            var comp = turret.TryGetComp<CompWorldArtillery>();
             if (comp?.worldTarget.IsValid == true && comp.worldTarget.Tile != this.Tile)
             {
                 var edgeCell = comp.FindEdgeCell(launcher.Map, comp.worldTarget);

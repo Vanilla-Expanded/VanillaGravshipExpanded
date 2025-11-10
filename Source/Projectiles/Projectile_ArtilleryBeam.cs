@@ -12,6 +12,18 @@ namespace VanillaGravshipExpanded
     {
         public PlanetTile targetTile = PlanetTile.Invalid;
         public LocalTargetInfo target;
+
+        public Building_GravshipTurret GravshipTurret
+        {
+            get
+            {
+                if (launcher is Building_GravshipTurret gravshipTurret)
+                {
+                    return gravshipTurret;
+                }
+                return equipment as Building_GravshipTurret;
+            }
+        }
         public override void ExposeData()
         {
             base.ExposeData();
@@ -22,7 +34,10 @@ namespace VanillaGravshipExpanded
         public override Vector3 ExactPosition => destination + Vector3.up * def.Altitude;
         public override void Launch(Thing launcher, Vector3 origin, LocalTargetInfo usedTarget, LocalTargetInfo intendedTarget, ProjectileHitFlags hitFlags, bool preventFriendlyFire = false, Thing equipment = null, ThingDef targetCoverDef = null)
         {
-            var comp = launcher.TryGetComp<CompWorldArtillery>();
+            this.launcher = launcher;
+            this.equipment = equipment;
+            var turret = GravshipTurret;
+            var comp = turret.TryGetComp<CompWorldArtillery>();
             var originTarget = new TargetInfo(origin.ToIntVec3(), base.Map);
             if (comp.worldTarget.IsValid && comp.worldTarget.Tile != this.Tile)
             {
@@ -52,7 +67,7 @@ namespace VanillaGravshipExpanded
 
         public override void Impact(Thing hitThing, bool blockedByShield = false)
         {
-            var verbProps = (launcher as Building_GravshipTurret).AttackVerb.verbProps;
+            var verbProps = GravshipTurret.AttackVerb.verbProps;
             if (hitThing != null)
             {
                 if (hitThing.CanEverAttachFire())
@@ -91,9 +106,9 @@ namespace VanillaGravshipExpanded
 
         public void SpawnWorldProjectile()
         {
+            var turret = GravshipTurret;
             Map targetMap = Find.Maps.Find(m => m.Tile == targetTile);
-            var comp = launcher.TryGetComp<CompWorldArtillery>();
-            var turret = launcher as Building_GravshipTurret;
+            var comp = turret.TryGetComp<CompWorldArtillery>();
             var globalTarget = target.HasThing ? new GlobalTargetInfo(target.Thing) : new GlobalTargetInfo(target.Cell, targetMap);
             var hitChance = comp.GetHitChance(globalTarget);
             ArtilleryUtility.SpawnArtilleryProjectile(targetTile, Tile, def, launcher, globalTarget.Cell, 0f, hitChance);
