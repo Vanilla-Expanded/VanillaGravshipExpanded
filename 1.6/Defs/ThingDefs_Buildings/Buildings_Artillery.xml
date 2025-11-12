@@ -503,7 +503,7 @@
             <Flammability>0.4</Flammability>
             <WorkToBuild>18000</WorkToBuild>
             <Beauty>-25</Beauty>
-            <ShootingAccuracyTurret>1</ShootingAccuracyTurret>
+            <ShootingAccuracyTurret>0.86</ShootingAccuracyTurret>
         </statBases>
         <size>(3,3)</size>
         <costList>
@@ -516,7 +516,7 @@
         <comps>
             <li Class="CompProperties_Power">
                 <compClass>CompPowerTrader</compClass>
-                <basePowerConsumption>10000</basePowerConsumption>
+                <basePowerConsumption>50000</basePowerConsumption>
                 <idlePowerDraw>100</idlePowerDraw>
             </li>
             <li Class="CompProperties_Flickable" />
@@ -552,11 +552,11 @@
             <drawOffset>(0,0,0.1)</drawOffset>
         </graphicData>
         <statBases>
-            <AccuracyTouch>1</AccuracyTouch>
-            <AccuracyShort>1</AccuracyShort>
-            <AccuracyMedium>1</AccuracyMedium>
-            <AccuracyLong>1</AccuracyLong>
-            <VGE_AccuracyGlobal>1</VGE_AccuracyGlobal>
+            <AccuracyTouch>0.86</AccuracyTouch>
+            <AccuracyShort>0.86</AccuracyShort>
+            <AccuracyMedium>0.86</AccuracyMedium>
+            <AccuracyLong>0.86</AccuracyLong>
+            <VGE_AccuracyGlobal>0.80</VGE_AccuracyGlobal>
         </statBases>
         <verbs>
             <li>
@@ -592,7 +592,7 @@
         </graphicData>
         <projectile>
             <damageDef>VGE_AnticraftBeamBypassShields</damageDef>
-            <damageAmountBase>10</damageAmountBase>
+            <damageAmountBase>5</damageAmountBase>
             <flyOverhead>true</flyOverhead>
             <beamMoteDef>VGE_Mote_BeamRepeaterLaser</beamMoteDef>
             <beamStartOffset>1.25</beamStartOffset>

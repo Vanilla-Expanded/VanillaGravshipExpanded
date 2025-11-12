@@ -148,7 +148,7 @@
 	<ThingDef ParentName="GravshipComponentBase">
 		<defName>VGE_Gravlift</defName>
 		<label>gravlift</label>
-		<description>A complex vertical launch and stabilization platform integrated into the gravship's core structure. The gravlift provides the immense thrust required for vertical takeoff from planetary surfaces and stabilizes orbital insertion, allowing the gravship to remain suspended in space.</description>
+		<description>A complex vertical launch and stabilization platform integrated into the gravship’s core structure. The gravlift provides the immense thrust required for vertical takeoff from planetary surfaces and stabilizes orbital insertion, allowing the gravship to remain suspended in space. It also softens the crash landing greatly, reducing the damage taken and ensuring substructure does not suffer critical damage.</description>
 		<thingClass>VanillaGravshipExpanded.Building_Gravlift</thingClass>
 		<tickerType>Normal</tickerType>
 		<drawerType>MapMeshAndRealTime</drawerType>
