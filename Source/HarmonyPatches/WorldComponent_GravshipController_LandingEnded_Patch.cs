@@ -94,17 +94,9 @@ namespace VanillaGravshipExpanded
             distanceTravelled = GravshipHelper.GetDistance(launchSourceTile, landingTile);
             Log.Message($"[VGE] Distance travelled: {distanceTravelled} - from {launchSourceTile} to {landingTile}");
 
-            var blackBox = gravship.Engine.GravshipComponents.Select(comp => comp.parent).OfType<Building_GravshipBlackBox>().FirstOrDefault();
-
             if (gravdataCorruptionOccurred.TryGetValue(gravship.Engine, out bool corruptionOccurred) && corruptionOccurred)
             {
                 gravdataYield = 0;
-                Log.Message($"[VGE] Gravdata corruption occurred, yield set to 0");
-                if (blackBox != null)
-                {
-                    Log.Message($"[VGE] Clearing black box due to gravdata corruption");
-                    blackBox.TakeGravdata(blackBox.StoredGravdata);
-                }
             }
             else
             {
@@ -113,6 +105,7 @@ namespace VanillaGravshipExpanded
             }
 
             int remainingGravdata = gravdataYield;
+            var blackBox = gravship.Engine.GravshipComponents.Select(comp => comp.parent).OfType<Building_GravshipBlackBox>().FirstOrDefault();
             if (blackBox != null)
             {
                 var toAdd = blackBox.TakeGravdata(blackBox.StoredGravdata);

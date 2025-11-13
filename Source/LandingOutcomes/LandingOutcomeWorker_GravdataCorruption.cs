@@ -1,4 +1,4 @@
-﻿using RimWorld;
+using RimWorld;
 using RimWorld.Planet;
 using Verse;
 
@@ -13,7 +13,7 @@ namespace VanillaGravshipExpanded
 
         public override bool CanTrigger(Gravship gravship)
         {
-            return LaunchInfo_ExposeData_Patch.gravtechResearcherPawns.TryGetValue(gravship.engine.launchInfo, out var researcherPawn) && researcherPawn != null;
+            return gravship.engine.launchInfo.quality > 0 && LaunchInfo_ExposeData_Patch.gravtechResearcherPawns.TryGetValue(gravship.engine.launchInfo, out var researcherPawn) && researcherPawn != null;
         }
 
         public override void ApplyOutcome(Gravship gravship)
