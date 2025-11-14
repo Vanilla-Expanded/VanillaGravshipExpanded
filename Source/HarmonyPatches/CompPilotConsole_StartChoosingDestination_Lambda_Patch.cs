@@ -20,7 +20,7 @@ public static class CompPilotConsole_StartChoosingDestination_Lambda_Patch
         return false;
     }
 
-    private static MethodBase TargetMethod() => typeof(CompPilotConsole).FindIncludingInnerTypes<MethodBase>(t => t.FirstMethod(m => m.Name == "<StartChoosingDestination_NewTemp>b__2"));
+    private static MethodBase TargetMethod() => typeof(CompPilotConsole).FindIncludingInnerTypes<MethodBase>(t => t.FirstMethod(m => m.Name == $"<{nameof(CompPilotConsole.StartChoosingDestination_NewTemp)}>b__2"));
 
     private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instr)
     {
