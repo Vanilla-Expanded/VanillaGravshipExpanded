@@ -49,7 +49,7 @@ namespace VanillaGravshipExpanded
                 Close();
             }
             var SliderContainer1 = new Rect(0, 120, 450, 32f);
-            SettingsHelper.HorizontalSliderLabeled(SliderContainer1, ref World_ExposeData_Patch.maintenanceThreshold, new FloatRange(0, 1), "0%", "100%");
+            SettingsHelper.HorizontalSliderLabeled(SliderContainer1, ref World_ExposeData_Patch.maintenanceThreshold, new FloatRange(0, 0.99f), "0%", "99%");
 
         }
     }
