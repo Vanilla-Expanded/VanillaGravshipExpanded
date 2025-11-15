@@ -1,10 +1,4 @@
-﻿using RimWorld;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Verse;
+﻿using Verse;
 
 namespace VanillaGravshipExpanded
 {
@@ -13,6 +7,7 @@ namespace VanillaGravshipExpanded
 
         public float minMaintenanceForAlert = 0.3f;
         public float fleckEmissionRate = 0.01f;
+        public bool maintenanceFallsOutsideSubstructure = true;
 
         public CompProperties_GravMaintainable()
         {

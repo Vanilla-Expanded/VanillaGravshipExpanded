@@ -76,7 +76,7 @@
 				<wickTicks>70~150</wickTicks>
 			</li>
 			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
-       
+        <maintenanceFallsOutsideSubstructure>false</maintenanceFallsOutsideSubstructure>
 			</li>
 			<li Class="CompProperties_Breakdownable"/>
 		</value>
@@ -101,6 +101,20 @@
 			<VGE_MaintenanceSensitivity>1</VGE_MaintenanceSensitivity>
 		</value>
 	</Operation>
+  <!-- Change terrain affordance to medium -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="ChemfuelTank"]/terrainAffordanceNeeded</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="ChemfuelTank"]</xpath>
+      <value>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="ChemfuelTank"]/terrainAffordanceNeeded/text()</xpath>
+      <value>Medium</value>
+    </match>
+  </Operation>
 	<!-- Large tank -->
 	<!-- Change label -->
 	<Operation Class="PatchOperationReplace">
@@ -177,7 +191,7 @@
 				<wickTicks>70~150</wickTicks>
 			</li>
 			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
-       
+        <maintenanceFallsOutsideSubstructure>false</maintenanceFallsOutsideSubstructure>
 			</li>
 			<li Class="CompProperties_Breakdownable"/>
 		</value>
@@ -202,6 +216,20 @@
 			<VGE_MaintenanceSensitivity>1</VGE_MaintenanceSensitivity>
 		</value>
 	</Operation>
+  <!-- Change terrain affordance to medium -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="LargeChemfuelTank"]/terrainAffordanceNeeded</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="LargeChemfuelTank"]</xpath>
+      <value>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="LargeChemfuelTank"]/terrainAffordanceNeeded/text()</xpath>
+      <value>Medium</value>
+    </match>
+  </Operation>
 	<!-- Shared -->
 	<!-- Disable comp inheritance for vanilla tanks, since we don't want vanilla explosive contents comp -->
 	<Operation Class="PatchOperationAttributeSet">

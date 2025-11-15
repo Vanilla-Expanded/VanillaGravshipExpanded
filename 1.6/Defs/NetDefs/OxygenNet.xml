@@ -287,12 +287,12 @@
 				<wickTicks>70~150</wickTicks>
 			</li>
 			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
-       
+        <maintenanceFallsOutsideSubstructure>false</maintenanceFallsOutsideSubstructure>
 			</li>
 			<li Class="CompProperties_Breakdownable"/>
 		</comps>
 		<rotatable>true</rotatable>
-		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
 		<designationCategory>VGE_Vacuum</designationCategory>
 		<staticSunShadowHeight>0.5</staticSunShadowHeight>
 		<constructEffect>ConstructMetal</constructEffect>
@@ -379,12 +379,12 @@
 				<wickTicks>70~150</wickTicks>
 			</li>
 			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
-       
+        <maintenanceFallsOutsideSubstructure>false</maintenanceFallsOutsideSubstructure>
 			</li>
 			<li Class="CompProperties_Breakdownable"/>
 		</comps>
 		<rotatable>true</rotatable>
-		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
 		<designationCategory>VGE_Vacuum</designationCategory>
 		<staticSunShadowHeight>0.6</staticSunShadowHeight>
 		<constructEffect>ConstructMetal</constructEffect>
@@ -658,7 +658,7 @@
 			<Steel>160</Steel>
 			<ComponentIndustrial>4</ComponentIndustrial>
 		</costList>
-		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
 		<comps>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
@@ -701,7 +701,7 @@
 				<compClass>VEF.Graphics.CompDirtyMapMeshOnRefuelableChange</compClass>
 			</li>
 			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
-       
+        <maintenanceFallsOutsideSubstructure>false</maintenanceFallsOutsideSubstructure>
 			</li>
 		</comps>
 		<designationCategory>VGE_Vacuum</designationCategory>

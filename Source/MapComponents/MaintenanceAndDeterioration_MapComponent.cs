@@ -164,16 +164,29 @@ namespace VanillaGravshipExpanded
 
         public float AverageMaintenanceInMap()
         {
-            float totalMaintenance = 0;
-            if (maintainables_InMap.Count > 0)
+            var totalMaintenance = 0f;
+            var totalBuildings = 0;
+
+            foreach (Thing thing in maintainables_InMap)
             {
-                foreach (Thing thing in maintainables_InMap)
-                {
-                    totalMaintenance += thing.TryGetComp<CompGravMaintainable>().maintenance;
-                }
-                return totalMaintenance / maintainables_InMap.Count;
+                // Only player buildings
+                if (thing.Faction != Faction.OfPlayer)
+                    continue;
+
+                var comp = thing.TryGetComp<CompGravMaintainable>();
+                // Not null and maintenance is falling
+                if (comp is not { maintenanceFalls: true })
+                    continue;
+
+                // TODO: Add a check for grav engine connection
+                
+                totalMaintenance += thing.TryGetComp<CompGravMaintainable>().maintenance;
+                totalBuildings++;
             }
-            else return 1;
+
+            if (totalBuildings > 0)
+                return totalMaintenance / totalBuildings;
+            return 1;
         }
 
         public void ChangeGlobalMaintenance(float amount, float chance)

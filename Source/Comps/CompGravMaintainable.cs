@@ -1,10 +1,7 @@
 ﻿using RimWorld;
 using Verse;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using Verse.Noise;
-using Verse.AI;
 
 namespace VanillaGravshipExpanded
 {
@@ -14,6 +11,7 @@ namespace VanillaGravshipExpanded
 
         public float maintenance = 1;
         public CompBreakdownable compBreakdownable;
+        public bool maintenanceFalls;
 
         public override void PostExposeData()
         {
@@ -45,10 +43,7 @@ namespace VanillaGravshipExpanded
             FleckSystem system = parent.Map.flecks.CreateFleckSystemFor(VGEDefOf.VGE_MaintenanceSmoke);
             system.Prewarm(VGEDefOf.VGE_MaintenanceSmoke.Lifetime, null, delegate
             {
-                if (maintenance < Props.minMaintenanceForAlert)
-                {
-                    EmissionTick(system);
-                }             
+                EmissionTick(system);
             });
             parent.Map.flecks.HandOverSystem(system);
 
@@ -57,6 +52,8 @@ namespace VanillaGravshipExpanded
             {
                 mapComp.AddMaintainableToMap(this.parent);
             }
+
+            LongEventHandler.ExecuteWhenFinished(UpdateRequiresMaintenance);
         }
         public override void PostDestroy(DestroyMode mode, Map previousMap)
         {
@@ -84,10 +81,7 @@ namespace VanillaGravshipExpanded
             if (!parent.Spawned)
                 return;
 
-            if (maintenance < Props.minMaintenanceForAlert)
-            {
-                EmissionTick(parent.Map.flecks);
-            }
+            EmissionTick(parent.Map.flecks);
         }
 
         public override void CompTickRare()
@@ -99,10 +93,7 @@ namespace VanillaGravshipExpanded
             {
                 TickInterval();
             }
-            if (maintenance < Props.minMaintenanceForAlert)
-            {
-                EmissionTick(parent.Map.flecks);
-            }
+            EmissionTick(parent.Map.flecks);
         }
 
 
@@ -112,15 +103,17 @@ namespace VanillaGravshipExpanded
                 return;
 
             TickInterval();
-            if (maintenance < Props.minMaintenanceForAlert)
-            {
-                EmissionTick(parent.Map.flecks);
-            }
-
+            EmissionTick(parent.Map.flecks);
         }
 
         private void TickInterval()
         {
+            if (parent.IsHashIntervalTick(GenDate.TicksPerDay / 2, GenTicks.TickLongInterval))
+                UpdateRequiresMaintenance();
+
+            if (!maintenanceFalls)
+                return;
+
             if (maintenance > 0)
             {
                 maintenance -= (1f / 1800) * this.parent.GetStatValue(VGEDefOf.VGE_MaintenanceSensitivity);
@@ -173,13 +166,19 @@ namespace VanillaGravshipExpanded
 
         public override string CompInspectStringExtra()
         {
-            return "VGE_Maintenance".Translate(maintenance.ToStringPercent("F2"));
+            if (maintenanceFalls)
+                return "VGE_Maintenance".Translate(maintenance.ToStringPercent("F2"));
+            return null;
         }
 
        
 
         private void EmissionTick(IFleckCreator fleckDestination)
         {
+            if (maintenance >= Props.minMaintenanceForAlert || !maintenanceFalls)
+            {
+                return;
+            }
             if (!(Rand.Value < Props.fleckEmissionRate))
             {
                 return;
@@ -198,6 +197,24 @@ namespace VanillaGravshipExpanded
                 }
                 fleckDestination.CreateFleck(dataStatic);
             }
+        }
+
+
+        protected virtual void UpdateRequiresMaintenance()
+        {
+            if (!Props.maintenanceFallsOutsideSubstructure)
+            {
+                foreach (var pos in parent.OccupiedRect())
+                {
+                    if (!pos.SupportsStructureType(parent.Map, VGEDefOf.Substructure))
+                    {
+                        maintenanceFalls = false;
+                        return;
+                    }
+                }
+            }
+
+            maintenanceFalls = true;
         }
 
 

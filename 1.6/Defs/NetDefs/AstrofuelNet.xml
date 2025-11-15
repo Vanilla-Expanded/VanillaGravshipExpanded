@@ -306,11 +306,11 @@
 				<wickTicks>70~150</wickTicks>
 			</li>
 			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
-       
+        <maintenanceFallsOutsideSubstructure>false</maintenanceFallsOutsideSubstructure>
 			</li>
 			<li Class="CompProperties_Breakdownable"/>
 		</comps>
-		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
 		<designationCategory>VGE_Fuel</designationCategory>
 		<staticSunShadowHeight>0.2</staticSunShadowHeight>
 		<constructEffect>ConstructMetal</constructEffect>

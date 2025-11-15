@@ -55,7 +55,7 @@ namespace VanillaGravshipExpanded
                 {
                     CompGravMaintainable comp = maintainable.TryGetComp<CompGravMaintainable>();
                     if (comp != null) {
-                        if (comp.maintenance > comp.Props.minMaintenanceForAlert)
+                        if (comp.maintenance > comp.Props.minMaintenanceForAlert || !comp.maintenanceFalls || comp.parent.Faction != Faction.OfPlayer)
                         {
                             continue;
                         }
