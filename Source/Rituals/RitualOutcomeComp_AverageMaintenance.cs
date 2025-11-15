@@ -12,9 +12,9 @@ public class RitualOutcomeComp_AverageMaintenance : RitualOutcomeComp_QualitySin
     {
         float averageMaintenance=1;
 
-        if (ritualTarget.Map != null)
+        if (ritualTarget.Map != null && ritualTarget.Thing.TryGetComp<CompPilotConsole>() is { engine: not null } console)
         {
-            averageMaintenance = ritualTarget.Map.GetComponent<MaintenanceAndDeterioration_MapComponent>()?.AverageMaintenanceInMap() ?? 1;
+            averageMaintenance = ritualTarget.Map.GetComponent<MaintenanceAndDeterioration_MapComponent>()?.AverageMaintenanceForEngine(console.engine) ?? 1;
         }
 
         return new QualityFactor

@@ -162,12 +162,12 @@ namespace VanillaGravshipExpanded
             }
         }
 
-        public float AverageMaintenanceInMap()
+        public float AverageMaintenanceForEngine(Building_GravEngine engine)
         {
             var totalMaintenance = 0f;
             var totalBuildings = 0;
 
-            foreach (Thing thing in maintainables_InMap)
+            foreach (var thing in maintainables_InMap)
             {
                 // Only player buildings
                 if (thing.Faction != Faction.OfPlayer)
@@ -178,8 +178,9 @@ namespace VanillaGravshipExpanded
                 if (comp is not { maintenanceFalls: true })
                     continue;
 
-                // TODO: Add a check for grav engine connection
-                
+                if (!engine.LooselyConnectedToGravEngine(thing))
+                    continue;
+
                 totalMaintenance += thing.TryGetComp<CompGravMaintainable>().maintenance;
                 totalBuildings++;
             }
