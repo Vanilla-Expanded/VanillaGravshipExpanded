@@ -241,6 +241,10 @@
             <turretTopDrawSize>4</turretTopDrawSize>
             <turretBurstWarmupTime>4</turretBurstWarmupTime>
             <ai_combatDangerous>true</ai_combatDangerous>
+            <relatedBuildCommands>
+                <li>VGE_AmmoBox_GaussShell</li>
+                <li>VGE_TargetingTerminal</li>
+            </relatedBuildCommands>
         </building>
         <comps>
             <li Class="CompProperties_Refuelable">
@@ -366,6 +370,9 @@
             <turretTopDrawSize>4</turretTopDrawSize>
             <turretBurstWarmupTime>5</turretBurstWarmupTime>
             <ai_combatDangerous>true</ai_combatDangerous>
+            <relatedBuildCommands>
+                <li>VGE_TargetingTerminal</li>
+            </relatedBuildCommands>
         </building>
         <comps>
             <li Class="CompProperties_Refuelable">
@@ -531,6 +538,9 @@
             <turretTopDrawSize>4</turretTopDrawSize>
             <turretBurstWarmupTime>6.66</turretBurstWarmupTime>
             <ai_combatDangerous>true</ai_combatDangerous>
+            <relatedBuildCommands>
+                <li>VGE_TargetingTerminal</li>
+            </relatedBuildCommands>
         </building>
         <modExtensions>
             <li Class="VanillaGravshipExpanded.TurretExtension_RotationSpeed">
