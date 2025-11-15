@@ -69,7 +69,7 @@ public static class ScenPart_PlayerPawnsArriveMethod_DoGravship_Patch
                     cell = shelf.OccupiedRect().RandomCell;
                 }
                 // Try to pick any substructure tile
-                else if (!cellRect.TryFindRandomCell(out cell, x => x.GetTerrain(map) == TerrainDefOf.Substructure))
+                else if (!cellRect.TryFindRandomCell(out cell, x => x.GetTerrain(map) == TerrainDefOf.Substructure && x.GetFirstThing<Building_Door>(map) == null))
                 {
                     // Pick any tile in the rect
                     cell = cellRect.RandomCell;
@@ -77,7 +77,7 @@ public static class ScenPart_PlayerPawnsArriveMethod_DoGravship_Patch
 
                 var thing = startingItem.SplitOff(Math.Min(startingItem.def.stackLimit, countLeft));
                 countLeft -= thing.stackCount;
-                GenPlace.TryPlaceThing(thing, cell, map, ThingPlaceMode.Near);
+                GenPlace.TryPlaceThing(thing, cell, map, ThingPlaceMode.Near, extraValidator: x => x.GetFirstThing<Building_Door>(map) == null);
 
                 // If shelf is full after adding to it, remove it from list of empty shelves
                 if (shelf != null && shelf.SpaceRemainingFor(startingItem.def) <= 0)
