@@ -14,6 +14,7 @@
 			<claimable>false</claimable>
 			<neverBuildable>true</neverBuildable>
 			<deconstructible>true</deconstructible>
+      <alwaysDeconstructible>true</alwaysDeconstructible>
 			<alwaysShowRelatedBuildCommands>false</alwaysShowRelatedBuildCommands>
 		</building>
 	</ThingDef>
