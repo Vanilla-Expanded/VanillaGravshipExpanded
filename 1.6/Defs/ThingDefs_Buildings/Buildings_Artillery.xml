@@ -36,6 +36,7 @@
         <placeWorkers>
             <li>PlaceWorker_TurretTop</li>
         </placeWorkers>
+        <uiOrder>2500</uiOrder>
     </ThingDef>
 
     <ThingDef ParentName="VGE_GravshipBuildingBase">
@@ -76,6 +77,7 @@
                 <manWorkType>Violent, Intellectual</manWorkType>
             </li>
         </comps>
+        <uiOrder>2000</uiOrder>
     </ThingDef>
 
     <ThingDef ParentName="VGE_GravshipBuildingBase">
@@ -140,6 +142,7 @@
             <li>PlaceWorker_ShowTurretRadius</li>
         </placeWorkers>
         <resourcesFractionWhenDeconstructed>0.5</resourcesFractionWhenDeconstructed>
+        <uiOrder>2400</uiOrder>
     </ThingDef>
 
     <ThingDef ParentName="BaseWeaponTurret">
@@ -210,6 +213,7 @@
             <li>VGE_GravshipWeaponry</li>
         </researchPrerequisites>
         <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+        <uiOrder>2600</uiOrder>
     </ThingDef>
 
     <ThingDef ParentName="VGE_GravshipArtillerySmallBase">

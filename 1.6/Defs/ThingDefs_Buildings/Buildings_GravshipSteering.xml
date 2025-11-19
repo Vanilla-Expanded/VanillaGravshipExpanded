@@ -58,7 +58,7 @@
         <overlayDef>VGE_NoLinkedGrajumper</overlayDef>
       </li>
 		</comps>
-		<uiOrder>2100</uiOrder>
+		<uiOrder>2099</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="GravshipComponentBase">
 		<defName>VGE_PilotBridge</defName>
@@ -115,7 +115,7 @@
         <overlayDef>VGE_NoLinkedGravhulk</overlayDef>
       </li>
 		</comps>
-		<uiOrder>2100</uiOrder>
+		<uiOrder>2101</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="GravshipComponentBase">
 		<defName>VGE_CopilotConsole</defName>
@@ -168,6 +168,6 @@
 
             </li>
 		</comps>
-		<uiOrder>2100</uiOrder>
+		<uiOrder>2102</uiOrder>
 	</ThingDef>
 </Defs>

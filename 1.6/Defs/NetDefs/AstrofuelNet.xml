@@ -95,6 +95,7 @@
 		<researchPrerequisites>
 			<li>BasicGravtech</li>
 		</researchPrerequisites>
+    <uiOrder>2100</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="BuildingBase">
 		<defName>VGE_HiddenAstrofuelPipe</defName>
@@ -162,6 +163,7 @@
 		<researchPrerequisites>
 			<li>StandardGravtech</li>
 		</researchPrerequisites>
+    <uiOrder>2100</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="BuildingBase">
 		<defName>VGE_AstrofuelValve</defName>
@@ -217,6 +219,7 @@
 		<researchPrerequisites>
 			<li>BasicGravtech</li>
 		</researchPrerequisites>
+    <uiOrder>2100</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="FuelTankBase">
 		<defName>VGE_GiantAstrofuelTank</defName>
@@ -398,6 +401,7 @@
 		<researchPrerequisites>
 			<li>BasicGravtech</li>
 		</researchPrerequisites>
+    <uiOrder>2200</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="GravshipComponentBase">
 		<defName>VGE_AstrofuelDrain</defName>
@@ -475,6 +479,7 @@
 		<researchPrerequisites>
 			<li>BasicGravtech</li>
 		</researchPrerequisites>
+    <uiOrder>2200</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="GravshipComponentBase">
 		<defName>VGE_AstrofuelGenerator</defName>
@@ -569,6 +574,7 @@
 				<li>VGE_AstrofuelPipe</li>
 			</relatedBuildCommands>
 		</building>
+    <uiOrder>2800</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="GravshipComponentBase">
 		<defName>VGE_IndustrialAstrofuelGenerator</defName>
@@ -663,6 +669,7 @@
 				<li>VGE_AstrofuelPipe</li>
 			</relatedBuildCommands>
 		</building>
+    <uiOrder>2805</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="GravshipComponentBase">
 		<defName>VGE_AstrofuelSynthesizer</defName>
@@ -752,6 +759,7 @@
 				<li>VGE_AstrofuelPipe</li>
 			</relatedBuildCommands>
 		</building>
+    <uiOrder>2500</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="GravshipComponentBase">
 		<defName>VGE_Astropurifier</defName>
@@ -889,7 +897,7 @@
 				<fleckEmissionRate>1</fleckEmissionRate>
 			</li>
 		</comps>
-		<uiOrder>2206</uiOrder>
+		<uiOrder>2210</uiOrder>
 		<building>
 			<relatedBuildCommands>
 				<li>VGE_AstrofuelPipe</li>

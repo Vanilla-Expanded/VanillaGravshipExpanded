@@ -123,6 +123,7 @@
       <li>BasicGravtech</li>
     </researchPrerequisites>
     <notifyMapRemoved>true</notifyMapRemoved>
+    <uiOrder>2000</uiOrder>
   </ThingDef>
 
   <ThingDef ParentName="GravshipComponentBase">
@@ -239,6 +240,7 @@
       <li>AdvancedGravtech</li>
     </researchPrerequisites>
     <notifyMapRemoved>true</notifyMapRemoved>
+    <uiOrder>2002</uiOrder>
   </ThingDef>
 
 </Defs>

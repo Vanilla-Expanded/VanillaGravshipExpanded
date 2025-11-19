@@ -91,6 +91,7 @@
 				</inheritRecipesFrom>
 			</li>
 		</modExtensions>
+    <uiOrder>2380</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="BenchBase">
 		<defName>VGE_CompactDrugLab</defName>
@@ -170,6 +171,7 @@
 				</inheritRecipesFrom>
 			</li>
 		</modExtensions>
+    <uiOrder>2380</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="BenchBase">
 		<defName>VGE_CompactMachiningTable</defName>
@@ -252,6 +254,7 @@
 				</inheritRecipesFrom>
 			</li>
 		</modExtensions>
+    <uiOrder>2380</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="BenchBase">
 		<defName>VGE_CompactSmithy</defName>
@@ -334,6 +337,7 @@
 				</inheritRecipesFrom>
 			</li>
 		</modExtensions>
+    <uiOrder>2380</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="BenchBase">
 		<defName>VGE_CompactTailor</defName>
@@ -413,6 +417,7 @@
 				</inheritRecipesFrom>
 			</li>
 		</modExtensions>
+    <uiOrder>2380</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="BenchBase">
 		<defName>VGE_CompactRefinery</defName>
@@ -491,6 +496,7 @@
 				</inheritRecipesFrom>
 			</li>
 		</modExtensions>
+    <uiOrder>2380</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="BenchBase">
 		<defName>VGE_CompactFabBench</defName>
@@ -570,5 +576,6 @@
 				</inheritRecipesFrom>
 			</li>
 		</modExtensions>
+    <uiOrder>2380</uiOrder>
 	</ThingDef>
 </Defs>

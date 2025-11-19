@@ -55,7 +55,7 @@
 		<hasInteractionCell>true</hasInteractionCell>
 		<interactionCellOffset>(0, 0,-1)</interactionCellOffset>
 		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
-		<uiOrder>2101</uiOrder>
+		<uiOrder>2350</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="GravshipComponentBase">
 		<defName>VGE_GravshipBlackBox</defName>

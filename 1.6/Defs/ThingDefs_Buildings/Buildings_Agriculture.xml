@@ -67,5 +67,6 @@
 		</researchPrerequisites>
 		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
 		<designationCategory>Odyssey</designationCategory>
+    <uiOrder>2390</uiOrder>
 	</ThingDef>
 </Defs>

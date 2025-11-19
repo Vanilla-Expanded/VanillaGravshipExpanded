@@ -170,6 +170,7 @@
 				<preventSharingThought>True</preventSharingThought>
 			</li>
 		</comps>
+    <uiOrder>2000</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="VGE_GravshipLivingBedBase">
 		<defName>VGE_MedbayBed</defName>
@@ -222,6 +223,7 @@
 				</linkableFacilities>
 			</li>
 		</comps>
+    <uiOrder>2020</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="VGE_GravshipLivingFurnitureBase">
 		<defName>VGE_CrewLockers</defName>
@@ -273,6 +275,7 @@
 				<maxDistance>6</maxDistance>
 			</li>
 		</comps>
+    <uiOrder>2100</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="StorageShelfBase">
 		<defName>VGE_GravshipShelf</defName>
@@ -379,6 +382,10 @@
 				<radius>3</radius>
 			</li>
 		</comps>
+    <overrideMinifiedRot>North</overrideMinifiedRot>
+    <minifiedDrawOffset>(0, 0, 0.3)</minifiedDrawOffset>
+    <uiIconOffset>(0, -0.2)</uiIconOffset>
+    <uiOrder>2340</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="VGE_GravshipLivingBuildingBase">
 		<defName>VGE_CommsTerminal</defName>
@@ -453,6 +460,7 @@
 				<delayTicks>120</delayTicks>
 			</li>
 		</comps>
+    <uiOrder>2342</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="VGE_GravshipLivingWallMountedBase">
 		<defName>VGE_WallOrbitalTradeBeacon</defName>
@@ -497,6 +505,10 @@
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
 		</comps>
+    <overrideMinifiedRot>North</overrideMinifiedRot>
+    <minifiedDrawOffset>(0, 0, 0.3)</minifiedDrawOffset>
+    <uiIconOffset>(0, -0.2)</uiIconOffset>
+    <uiOrder>2341</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="FurnitureWithQualityBase">
 		<defName>VGE_FauxPlant</defName>
@@ -540,6 +552,7 @@
 		<rotatable>false</rotatable>
 		<uiIconOffset>(0, -0.05)</uiIconOffset>
 		<techLevel>Spacer</techLevel>
+    <uiOrder>2120</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="VGE_GravshipLivingBuildingBase">
 		<defName>VGE_SealantPopper</defName>

@@ -206,5 +206,20 @@
       </value>
     </match>
   </Operation>
+  
+  <!-- Change UI order -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="GravEngine"]/uiOrder</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravEngine"]</xpath>
+      <value>
+        <uiOrder>2001</uiOrder>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravEngine"]/uiOrder</xpath>
+      <value>2001</value>
+    </match>
+  </Operation>
 
 </Patch>

@@ -70,5 +70,6 @@
 		<researchPrerequisites>
 			<li>StandardGravtech</li>
 		</researchPrerequisites>
+    <uiOrder>2351</uiOrder>
 	</ThingDef>
 </Defs>

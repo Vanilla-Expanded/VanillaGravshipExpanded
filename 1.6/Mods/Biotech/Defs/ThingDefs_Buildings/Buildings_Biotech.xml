@@ -56,6 +56,7 @@
                 <gravshipTargeting>0.9</gravshipTargeting>
             </li>
         </modExtensions>
+        <uiOrder>2005</uiOrder>
     </ThingDef>
 
 </Defs>

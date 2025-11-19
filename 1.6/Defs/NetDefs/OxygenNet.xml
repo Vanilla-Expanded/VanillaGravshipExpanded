@@ -94,6 +94,7 @@
 		<researchPrerequisites>
 			<li>VGE_OxygenNetwork</li>
 		</researchPrerequisites>
+    <uiOrder>2400</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="BuildingBase">
 		<defName>VGE_HiddenOxygenPipe</defName>
@@ -162,6 +163,7 @@
 			<li>VGE_OxygenNetwork</li>
 			<li>StandardGravtech</li>
 		</researchPrerequisites>
+    <uiOrder>2400</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="BuildingBase">
 		<defName>VGE_OxygenValve</defName>
@@ -214,6 +216,7 @@
 		<researchPrerequisites>
 			<li>VGE_OxygenNetwork</li>
 		</researchPrerequisites>
+    <uiOrder>2400</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="GravshipComponentBase">
 		<defName>VGE_SmallOxygenTank</defName>
@@ -306,6 +309,7 @@
 				<li>VGE_OxygenPipe</li>
 			</relatedBuildCommands>
 		</building>
+    <uiOrder>2420</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="GravshipComponentBase">
 		<defName>VGE_LargeOxygenTank</defName>
@@ -398,6 +402,7 @@
 				<li>VGE_OxygenPipe</li>
 			</relatedBuildCommands>
 		</building>
+    <uiOrder>2425</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="FurnitureBase">
 		<defName>VGE_OxygenCanisterFiller</defName>
@@ -474,6 +479,7 @@
 		<researchPrerequisites>
 			<li>VGE_OxygenNetwork</li>
 		</researchPrerequisites>
+    <uiOrder>2450</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="FurnitureBase">
 		<defName>VGE_OxygenCanisterEmptier</defName>
@@ -550,6 +556,7 @@
 		<researchPrerequisites>
 			<li>VGE_OxygenNetwork</li>
 		</researchPrerequisites>
+    <uiOrder>2450</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="GravshipComponentBase">
 		<defName>VGE_OxygenHarvester</defName>

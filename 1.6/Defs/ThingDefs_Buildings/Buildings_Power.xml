@@ -124,7 +124,7 @@
 		</comps>
 		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
 		<designationCategory>Odyssey</designationCategory>
-		<uiOrder>2020</uiOrder>
+		<uiOrder>2280</uiOrder>
 		<constructEffect>ConstructMetal</constructEffect>
 		<designationHotKey>Misc4</designationHotKey>
 		<canOverlapZones>false</canOverlapZones>
@@ -196,7 +196,7 @@
 		</placeWorkers>
 		<terrainAffordanceNeeded IsNull="True" />
 		<designationCategory>Odyssey</designationCategory>
-		<uiOrder>2100</uiOrder>
+		<uiOrder>2300</uiOrder>
 		<designationHotKey>Misc5</designationHotKey>
 		<constructEffect>ConstructMetal</constructEffect>
 		<researchPrerequisites>
