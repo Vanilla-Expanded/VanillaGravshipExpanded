@@ -33,12 +33,6 @@
 				<modifier>0.5</modifier>
 			</li>
 		</roleEffects>
-		<roleDisabledWorkTags>
-			<li>Crafting</li>
-			<li>Cooking</li>
-			<li>PlantWork</li>
-			<li>Mining</li>
-			<li>Constructing</li>
-		</roleDisabledWorkTags>
+		
 	</PreceptDef>
 </Defs>
