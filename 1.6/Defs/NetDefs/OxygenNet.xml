@@ -626,6 +626,7 @@
 				<li>VGE_OxygenPipe</li>
 			</relatedBuildCommands>
 		</building>
+    <uiOrder>2600</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="GravshipComponentBase">
 		<defName>VGE_LifeSupportSystem</defName>
@@ -722,6 +723,7 @@
 				<li>VGE_OxygenPipe</li>
 			</relatedBuildCommands>
 		</building>
+    <uiOrder>2650</uiOrder>
 	</ThingDef>
 	<ThingDef ParentName="BuildingBase">
 		<defName>VGE_IndustrialOxygenPump</defName>
@@ -811,6 +813,7 @@
 		<uiOrder>2505</uiOrder>
 		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
 		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <defaultPlacingRot>South</defaultPlacingRot>
 	</ThingDef>
 	<ThingDef ParentName="GravshipComponentBase">
 		<defName>VGE_OxygenReclaimer</defName>
