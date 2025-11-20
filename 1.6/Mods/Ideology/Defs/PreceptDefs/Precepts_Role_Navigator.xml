@@ -3,7 +3,7 @@
 	<PreceptDef ParentName="PreceptRoleSingleBase">
 		<defName>VGE_IdeoRole_Navigator</defName>
 		<label>navigator</label>
-		<description>A special ideoligious status focused on the study of stellar phenomena and long-range navigation. Navigators guide the gravship through orbit and deep space, interpreting gravitational currents and charting safe passage between worlds. Their understanding of the cosmos greatly improves the ship’s research efficiency and travel safety, but they refuse to engage in mundane or physical labor.</description>
+		<description>A special ideoligious status focused on the study of stellar phenomena and long-range navigation. Navigators guide the gravship through orbit and deep space, interpreting gravitational currents and charting safe passage between worlds. Their understanding of the cosmos greatly improves the ship’s research efficiency and travel safety.</description>
 		<createsRoleEmptyThought>False</createsRoleEmptyThought>
 		<iconPath>UI/IdeologyRoles/Role_Navigator</iconPath>
 		<nameMaker>VGE_NamerRoleNavigator</nameMaker>

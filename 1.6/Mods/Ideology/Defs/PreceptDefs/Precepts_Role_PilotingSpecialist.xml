@@ -3,7 +3,7 @@
 	<PreceptDef ParentName="PreceptRoleSingleBase">
 		<defName>VGE_IdeoRole_PilotingSpecialist</defName>
 		<label>piloting specialist</label>
-		<description>A special ideoligious status devoted to the art of flight and control of gravship engines. Piloting specialists are trained to maneuver the vessel through planetary orbits and emergency situations, keeping the crew alive when systems fail. They can save the gravship and the crew from peril, but disdain manual work and construction.</description>
+		<description>A special ideoligious status devoted to the art of flight and control of gravship engines. Piloting specialists are trained to maneuver the vessel through planetary orbits and emergency situations, keeping the crew alive when systems fail. They can save the gravship and the crew from peril.</description>
 		<createsRoleEmptyThought>False</createsRoleEmptyThought>
 		<iconPath>UI/IdeologyRoles/Role_PilotingSpecialist</iconPath>
 		<nameMaker>VGE_NamerRolePiloting</nameMaker>

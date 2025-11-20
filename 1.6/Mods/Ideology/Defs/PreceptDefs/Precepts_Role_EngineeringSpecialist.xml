@@ -3,7 +3,7 @@
 	<PreceptDef ParentName="PreceptRoleSingleBase">
 		<defName>VGE_IdeoRole_EngineeringSpecialist</defName>
 		<label>engineering specialist</label>
-		<description>A special ideoligious status focused on maintaining and improving gravship systems to the exclusion of all else. This specialized role grants increased construction and repair efficiency, and the ability to coordinate nearby crew to improve maintenance operations across the ship. Holders of this role dedicate themselves entirely to the ship’s well-being, refusing to perform most surface-bound or menial labor.</description>
+		<description>A special ideoligious status focused on maintaining and improving gravship systems to the exclusion of all else. This specialized role grants increased construction and repair efficiency, and the ability to coordinate nearby crew to improve maintenance operations across the ship. Holders of this role dedicate themselves entirely to the ship’s well-being.</description>
 		<createsRoleEmptyThought>False</createsRoleEmptyThought>
 		<iconPath>UI/IdeologyRoles/Role_EngineeringSpecialist</iconPath>
 		<nameMaker>VGE_NamerRoleEngineering</nameMaker>
