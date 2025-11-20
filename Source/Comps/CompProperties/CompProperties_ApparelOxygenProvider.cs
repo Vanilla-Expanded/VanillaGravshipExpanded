@@ -33,9 +33,11 @@ public class CompProperties_ApparelOxygenProvider : CompProperties
             yield return error;
 
         if (fuelDef != null && fuelCountToRefill == 0 && fuelCountPerCharge == 0)
-            yield return "Reloadable component has ammoDef but one of ammoCountToRefill or ammoCountPerCharge must be set";
+            yield return $"Oxygen provider has {nameof(fuelDef)} but one of {nameof(fuelCountToRefill)} or {nameof(fuelCountPerCharge)} must be set";
         if (fuelCountToRefill != 0 && fuelCountPerCharge != 0)
-            yield return "Reloadable component: specify only one of ammoCountToRefill and ammoCountPerCharge";
+            yield return $"Oxygen provider: specify only one of {nameof(fuelCountToRefill)} and {nameof(fuelCountPerCharge)}";
+        if (parentDef.tickerType != TickerType.Normal)
+            yield return $"Oxygen provider requires the parent apparel's {nameof(ThingDef.tickerType)} to be {nameof(TickerType.Normal)}, but it currently is set to {parentDef.tickerType}";
     }
 
     public override IEnumerable<StatDrawEntry> SpecialDisplayStats(StatRequest req)
