@@ -1,4 +1,4 @@
-﻿using RimWorld;
+using RimWorld;
 using Verse;
 using Verse.Sound;
 
@@ -14,7 +14,8 @@ public static class GravshipResearchUtility
     {
         if (!project.IsGravshipResearch())
             return false;
-
+        if (project.PrerequisitesCompleted is false)
+            return true;
         if (playSound)
             SoundDefOf.ResearchStart.PlayOneShotOnCamera();
         World_ExposeData_Patch.currentGravtechProject = project;
