@@ -281,7 +281,16 @@ namespace VanillaGravshipExpanded
             CellRect cellRect = CellRect.CenteredOn(position, layoutDef.Sizes.x, layoutDef.Sizes.z);
             GenOption.GetAllMineableIn(cellRect, map);
             LayoutUtils.CleanRect(layoutDef, map, cellRect, true);
-            layoutDef.Generate(cellRect, map, Faction, forceNullFaction: forceNullFaction);
+            var things = new List<Thing>();
+            AutoHomeAreaMaker_MarkHomeAroundThing_Patch.preventHomeArea = true;
+            layoutDef.Generate(cellRect, map, things, Faction, forceNullFaction: forceNullFaction);
+            var engine = things.OfType<Building_GravEngine>().FirstOrDefault();
+            if (engine != null && engine.Faction != Faction.OfPlayer)
+            {
+                engine.SetFaction(Faction.OfPlayer);
+                engine.ForceSubstructureDirty();
+            }
+            AutoHomeAreaMaker_MarkHomeAroundThing_Patch.preventHomeArea = false;
             return cellRect;
         }
 
