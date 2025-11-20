@@ -202,7 +202,7 @@ namespace VanillaGravshipExpanded
 
         protected virtual void UpdateRequiresMaintenance()
         {
-            if (!Props.maintenanceFallsOutsideSubstructure)
+            if (!Props.maintenanceFallsOutsideSubstructure && parent.Spawned)
             {
                 foreach (var pos in parent.OccupiedRect())
                 {
