@@ -1,5 +1,6 @@
 using HarmonyLib;
 using RimWorld;
+using System.Reflection;
 using Verse;
 
 namespace VanillaGravshipExpanded
@@ -45,6 +46,27 @@ namespace VanillaGravshipExpanded
                     harmony.Patch(drawPanelMethod, prefix: prefix, postfix: postfix);
                 }
                 else Log.Error("[VGE] DubsMintMenus.MainTabWindow_MintResearch.DrawPanel method is not found.");
+
+                var mysterBoxType = AccessTools.Inner(mainTabWindowType, "MysterBox");
+                if (mysterBoxType != null)
+                {
+                    var pushToQueueMethod = AccessTools.Method(mysterBoxType, "PushToQueue");
+                    if (pushToQueueMethod != null)
+                    {
+                        var prefix = new HarmonyMethod(typeof(DubsMintMenus_Compat_Patches), nameof(Queue_Prefix));
+                        harmony.Patch(pushToQueueMethod, prefix: prefix);
+                    }
+                    else Log.Error("[VGE] DubsMintMenus.MainTabWindow_MintResearch.MysterBox.PushToQueue method is not found.");
+
+                    var insertQueueMethod = AccessTools.Method(mysterBoxType, "InsertQueue");
+                    if (insertQueueMethod != null)
+                    {
+                        var prefix = new HarmonyMethod(typeof(DubsMintMenus_Compat_Patches), nameof(Queue_Prefix));
+                        harmony.Patch(insertQueueMethod, prefix: prefix);
+                    }
+                    else Log.Error("[VGE] DubsMintMenus.MainTabWindow_MintResearch.MysterBox.InsertQueue method is not found.");
+                }
+                else Log.Error("[VGE] DubsMintMenus.MainTabWindow_MintResearch.MysterBox type is not found.");
             }
             else Log.Error("[VGE] DubsMintMenus.MainTabWindow_MintResearch type is not found.");
         }
@@ -78,6 +100,15 @@ namespace VanillaGravshipExpanded
             {
                 Find.ResearchManager.currentProj = __state;
             }
+        }
+
+        public static bool Queue_Prefix(ResearchProjectDef proj)
+        {
+            if (proj.IsGravshipResearch())
+            {
+                return !proj.SetGravshipResearch();
+            }
+            return true;
         }
     }
 }
