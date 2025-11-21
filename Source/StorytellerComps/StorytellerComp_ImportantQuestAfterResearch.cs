@@ -1,4 +1,4 @@
-
+﻿
 using RimWorld;
 using System.Collections.Generic;
 using Verse;
@@ -15,10 +15,6 @@ namespace VanillaGravshipExpanded
  
         public override IEnumerable<FiringIncident> MakeIntervalIncidents(IIncidentTarget target)
         {
-            if (BeenGivenQuest)
-            {
-                yield break;
-            }
             if (!Props.research.IsFinished) {
                 yield break;
             }
@@ -27,7 +23,7 @@ namespace VanillaGravshipExpanded
                 World_ExposeData_Patch.countDownSinceElectricityTickCounter +=1000;
             }
 
-            if (World_ExposeData_Patch.countDownSinceElectricityTickCounter > countDownSinceElectricity&&IntervalsPassed > Props.fireAfterDaysPassed * 60)
+            if (World_ExposeData_Patch.countDownSinceElectricityTickCounter > countDownSinceElectricity&&IntervalsPassed > Props.fireAfterDaysPassed * 60 && !BeenGivenQuest)
             {
                 IncidentDef questIncident = Props.questIncident;
                 if (questIncident.TargetAllowed(target))
