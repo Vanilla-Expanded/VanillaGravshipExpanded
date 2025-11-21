@@ -11,8 +11,8 @@
 				<li>VQEA_DestroyedLargeThruster_East,.,.,.,VGE_AstrofuelPipe,WallLamp_South,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,Autodoor_Steel,GravshipHull_Steel,GravshipHull_Steel,.,.,.,.,.,.</li>
 				<li>GravshipHull_Steel,.,.,GravshipHull_Steel,GravshipHull_Steel,Autodoor_Steel,GravshipHull_Steel,Battery_East,.,.,Filth_RubbleBuilding,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,.,.,.,.</li>
 				<li>GravshipHull_Steel,VQEA_DestroyedSmallHeatsink_East,.,.,Autodoor_Steel,Filth_RubbleBuilding,PowerConduit,.,.,.,.,.,Filth_RubbleBuilding,Filth_RubbleBuilding,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel</li>
-				<li>SmallThruster_East,.,GravshipHull_Steel,VGE_AstrofuelPipe,GravshipHull_Steel,WallLamp_West,VGE_GravjumperEngine,ChessTable_Steel,Stool_Steel_East,.,Stool_Steel_East,VGE_PilotCockpit_East,.,.,.,GravlitePanel,VQEA_DestroyedGravExtender,GravshipHull_Steel</li>
-				<li>GravshipHull_Steel,.,.,.,Autodoor_Steel,.,GravshipHull_Steel,VQEA_DestroyedSmallOxygenTank_North,.,.,.,.,.,Bed_Steel_West,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel</li>
+				<li>SmallThruster_East,.,GravshipHull_Steel,VGE_AstrofuelPipe,GravshipHull_Steel,WallLamp_West,VGE_GravjumperEngine,ChessTable_Steel,Stool_Steel_East,.,Stool_Steel_East,VGE_PilotCockpit_East,.,.,.,.,.,GravshipHull_Steel</li>
+				<li>GravshipHull_Steel,.,.,.,Autodoor_Steel,.,GravshipHull_Steel,VQEA_DestroyedSmallOxygenTank_North,.,.,.,GravFieldExtender,.,Bed_Steel_West,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel</li>
 				<li>GravshipHull_Steel,VQEA_DestroyedSmallHeatsink_East,.,GravshipHull_Steel,GravshipHull_Steel,Autodoor_Steel,GravshipHull_Steel,.,.,.,Filth_RubbleBuilding,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,.,.,.,.</li>
 				<li>.,.,ChemfuelTank_North_Fuel26,.,VGE_AstrofuelPipe,WallLamp_North,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,Filth_RubbleBuilding,GravshipHull_Steel,GravshipHull_Steel,.,.,.,.,.,.</li>
 				<li>VQEA_DestroyedLargeThruster_East,.,.,.,VGE_AstrofuelDrain,GravshipHull_Steel,GravshipHull_Steel,GravshipHull_Steel,Filth_RubbleBuilding,.,Building_OutfitStand_Steel_South,GravshipHull_Steel,.,.,.,.,.,.</li>
@@ -26,7 +26,7 @@
 				<li>.,.,.,.,.,.,PowerConduit,PowerConduit,PowerConduit,PowerConduit,PowerConduit,PowerConduit,.,.,.,.,.,.</li>
 				<li>.,.,.,.,VGE_AstrofuelPipe,.,PowerConduit,.,.,.,WallLamp_South,PowerConduit,PowerConduit,PowerConduit,.,.,.,.</li>
 				<li>.,.,.,.,VGE_AstrofuelPipe,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,VGE_AstrofuelPipe,GravshipHull_Steel,VGE_AstrofuelPipe,.,.,.,.,.,.,.,.,.,.,ShelfSmall_Steel_West,.,.</li>
+				<li>.,.,VGE_AstrofuelPipe,GravshipHull_Steel,VGE_AstrofuelPipe,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
 				<li>.,.,.,.,VGE_AstrofuelPipe,.,PowerConduit,.,.,.,.,.,.,.,.,.,.,.</li>
 				<li>.,.,.,.,VGE_AstrofuelPipe,.,PowerConduit,.,.,.,WallLamp_North,PowerConduit,PowerConduit,PowerConduit,.,.,.,.</li>
 				<li>.,.,.,.,.,.,PowerConduit,PowerConduit,PowerConduit,Autodoor_Steel,PowerConduit,PowerConduit,.,.,.,.,.,.</li>
