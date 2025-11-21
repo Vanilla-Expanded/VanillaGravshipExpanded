@@ -11,7 +11,7 @@
         <xpath>Defs/DesignationCategoryDef[defName="Odyssey"]</xpath>
         <value>
             <li Class="VanillaGravshipExpanded.NestedCategoryExtension">
-                <iconTexPath>UI/SubcategoryIcons/SubcategoryIcon_Platform</iconTexPath>
+                <iconTexPath>UI/SubcategoryIcons/SubcategoryIcon_Other</iconTexPath>
             </li>
         </value>
     </Operation>
