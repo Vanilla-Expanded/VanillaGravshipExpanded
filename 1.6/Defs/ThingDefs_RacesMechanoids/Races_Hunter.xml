@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<ThingDef ParentName="LightMechanoid">
+	<ThingDef ParentName="BaseMechanoid">
 		<defName>VGE_Hunter</defName>
 		<label>hunter</label>
 		<description>A fast, human-sized combat mechanoid designed for zero-gravity warfare. It drifts effortlessly through space, closing in on the target before unleashing devastating salvos from the twin-linked javelin launcher. While the missiles strike with lethal precision, their short range forces hunters into dangerous proximity with the enemy.</description>
@@ -11,6 +11,7 @@
 			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
 			<ArmorRating_Sharp>0.4</ArmorRating_Sharp>
 			<Mass>60</Mass>
+			<MechEnergyLossPerHP MayRequire="Ludeon.Rimworld.Biotech">0.66</MechEnergyLossPerHP>
 		</statBases>
 		<tools Inherit="false">
 			<li>
@@ -28,9 +29,16 @@
 
 			</li>
 		</comps>
+		<butcherProducts>
+			<Steel>10</Steel>
+		</butcherProducts>
 		<race>
+			<intelligence>ToolUser</intelligence>
+			<thinkTreeMain>Mechanoid</thinkTreeMain>
+			<baseBodySize>0.7</baseBodySize>
+			<mechWeightClass>Light</mechWeightClass>
 			<lifeStageAges>
-				<li>
+				<li MayRequire="Ludeon.Rimworld.Biotech">
 					<def>MechanoidFullyFormed</def>
 					<minAge>0</minAge>
 					<soundWounded>Pawn_Hunter_Wounded</soundWounded>
