@@ -50,7 +50,9 @@
 				<maxSimultaneous>1</maxSimultaneous>
 				<maxDistance>200</maxDistance>
 			</li>
-			<li Class="CompProperties_Breakdownable"/>
+      <!-- CompPilotConsole requires CompProperties_Breakdownable, but Tweaks Galore removes it. -->
+      <!-- Fully specify the RimWorld namespace, as it doesn't seem to touch it at the moment. May change in the future. -->
+      <li Class="RimWorld.CompProperties_Breakdownable"/>
 			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
 
             </li>
@@ -107,7 +109,9 @@
 				<maxSimultaneous>1</maxSimultaneous>
 				<maxDistance>200</maxDistance>
 			</li>
-			<li Class="CompProperties_Breakdownable"/>
+      <!-- CompPilotConsole requires CompProperties_Breakdownable, but Tweaks Galore removes it. -->
+      <!-- Fully specify the RimWorld namespace, as it doesn't seem to touch it at the moment. May change in the future. -->
+			<li Class="RimWorld.CompProperties_Breakdownable"/>
 			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
 
             </li>
@@ -163,7 +167,9 @@
 				<maxSimultaneous>1</maxSimultaneous>
 				<maxDistance>200</maxDistance>
 			</li>
-			<li Class="CompProperties_Breakdownable"/>
+      <!-- CompPilotConsole requires CompProperties_Breakdownable, but Tweaks Galore removes it. -->
+      <!-- Fully specify the RimWorld namespace, as it doesn't seem to touch it at the moment. May change in the future. -->
+			<li Class="RimWorld.CompProperties_Breakdownable"/>
 			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
 
             </li>
