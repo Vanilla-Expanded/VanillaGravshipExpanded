@@ -9,7 +9,7 @@ public class CompRefuelable_AstrofuelSynthesizer : CompRefuelable
     public override void CompTick()
     {
         // If resource is not, don't drain resources
-        if (!synthesizer.ResourceOn || synthesizer.LowPowerModeOn || synthesizer.PipeNet.AvailableCapacityLastTick <= 0f)
+        if (!synthesizer.ResourceOn || synthesizer.LowPowerModeOn || synthesizer.PipeNet.AvailableCapacityLastTick <= -synthesizer.Props.consumptionPerTick)
             return;
 
         var prevRate = Props.fuelConsumptionRate;
