@@ -25,6 +25,7 @@
 		</statBases>
 		<size>(1, 2)</size>
 		<rotatable>true</rotatable>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
 		<fillPercent>0.4</fillPercent>
 		<passability>PassThroughOnly</passability>
 		<pathCost>14</pathCost>

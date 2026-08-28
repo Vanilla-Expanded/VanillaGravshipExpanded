@@ -54,6 +54,7 @@
         </graphicData>
         <passability>PassThroughOnly</passability>
         <designationCategory>VGE_Combat</designationCategory>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
         <pathCost>50</pathCost>
         <fillPercent>0.4</fillPercent>
         <statBases>
