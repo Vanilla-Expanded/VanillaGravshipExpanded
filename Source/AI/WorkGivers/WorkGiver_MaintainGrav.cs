@@ -72,9 +72,19 @@ namespace VanillaGravshipExpanded
                 return false;
             }
 
+            if (comp.maintenance >= 1f)
+            {
+                return false;
+            }
+
             if (comp.maintenance > World_ExposeData_Patch.maintenanceThreshold && !forced)
             {
 
+                return false;
+            }
+
+            if (!comp.CanMaintain(pawn, forced))
+            {
                 return false;
             }
 

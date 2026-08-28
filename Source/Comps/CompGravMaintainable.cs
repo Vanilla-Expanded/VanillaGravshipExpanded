@@ -14,6 +14,7 @@ namespace VanillaGravshipExpanded
         public float maintenance = 1;
         public CompBreakdownable compBreakdownable;
         public bool maintenanceFalls;
+        public bool maintenanceEnabled = true;
 
         public override void PostExposeData()
         {
@@ -139,6 +140,18 @@ namespace VanillaGravshipExpanded
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
+            if (Props.toggleMaintainGizmoEnabled && (maintenanceFalls || Props.toggleMaintainGizmoAlwaysEnabled))
+            {
+                yield return new Command_Toggle
+                {
+                    defaultLabel = Props.toggleMaintainLabelKey.Translate(),
+                    defaultDesc = Props.toggleMaintainDescKey.Translate(),
+                    icon = Props.ToggleMaintainGizmoIcon,
+                    isActive = () => maintenanceEnabled,
+                    toggleAction = () => maintenanceEnabled = !maintenanceEnabled,
+                };
+            }
+
             if (DebugSettings.ShowDevGizmos)
             {
 
@@ -215,6 +228,11 @@ namespace VanillaGravshipExpanded
             }
 
             maintenanceFalls = true;
+        }
+
+        public virtual bool CanMaintain(Pawn pawn, bool forced)
+        {
+            return maintenanceEnabled || forced;
         }
 
 
