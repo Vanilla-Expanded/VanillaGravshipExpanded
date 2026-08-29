@@ -65,7 +65,7 @@ namespace VanillaGravshipExpanded
 
             };
             repair.FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch);
-            repair.WithEffect(base.TargetThingA.def.repairEffect, TargetIndex.A);
+            repair.WithEffect(base.TargetThingA?.def.repairEffect, TargetIndex.A);
             repair.defaultCompleteMode = ToilCompleteMode.Never;
             repair.activeSkill = () => SkillDefOf.Construction;
             repair.handlingFacing = true;
