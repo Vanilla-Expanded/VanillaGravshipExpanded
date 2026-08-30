@@ -37,6 +37,16 @@
 			<li Class="VanillaGravshipExpanded.StatPart_LinkedGlobalMaintenanceSensitivity"/>
 		</parts>
 	</StatDef>
+  <StatDef>
+    <defName>VGE_MaintenanceDifficulty</defName>
+    <label>maintenance difficulty</label>
+    <description>A offset to the difficulty to maintain this structure. It has no effect on maintenance depletion rate.</description>
+    <category>Building</category>
+    <defaultBaseValue>0</defaultBaseValue>
+    <toStringStyle>PercentZero</toStringStyle>
+    <showIfUndefined>false</showIfUndefined>
+    <displayPriorityInCategory>3101</displayPriorityInCategory>
+  </StatDef>
 	<StatDef>
 		<defName>VGE_GravPowerAdjacency</defName>
 		<label>grav power adjacency</label>

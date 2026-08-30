@@ -39,7 +39,7 @@ namespace VanillaGravshipExpanded
             repair.initAction = delegate
             {
                 statValuePawn = repair.actor.GetStatValue(VGEDefOf.VGE_GravshipMaintenance);
-                statValueObject = Mathf.Max(building.GetStatValue(VGEDefOf.VGE_MaintenanceSensitivity), 1f);
+                statValueObject = Mathf.Max(building.GetStatValue(VGEDefOf.VGE_MaintenanceSensitivity) + building.GetStatValue(VGEDefOf.VGE_MaintenanceDifficulty), 1f);
             };
             repair.tickIntervalAction = delegate (int delta)
             {
