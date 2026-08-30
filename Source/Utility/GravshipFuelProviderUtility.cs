@@ -107,7 +107,7 @@ public static class GravshipFuelProviderUtility
         }
 
         if (otherFuel > 0f && entries <= maxEntries)
-            builder.AppendInNewLine($"{Mathf.RoundToInt(otherFuel)} {"VGE_OtherFuel".Translate()}");
+            builder.AppendInNewLine($"{otherFuel.ToStringDecimalIfSmall()} {"VGE_OtherFuel".Translate()}");
 
         CachedFuelConsumptionReport.CacheValues(engine, fuelCostRatio, maxEntries, startingText, extraTextAtMaxEntries, builder);
 
