@@ -180,7 +180,14 @@ namespace VanillaGravshipExpanded
                         var turret = parent as Building_TurretGun;
                         Find.Targeter.BeginTargeting(targetingParameters, delegate (LocalTargetInfo target)
                         {
-                            StartAttack(globalTarget, target, turret);
+                            if (globalTarget.Tile == parent.Map.Tile)
+                            {
+                                turret.OrderAttack(target);
+                            }
+                            else
+                            {
+                                StartAttack(globalTarget, target, turret);
+                            }
                             Current.Game.CurrentMap = turret.Map;
                             Find.CameraDriver.JumpToCurrentMapLoc(turret.Position);
                         }, highlightAction: delegate (LocalTargetInfo x)
