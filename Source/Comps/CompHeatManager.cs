@@ -25,6 +25,10 @@ namespace VanillaGravshipExpanded
         private int roomCacheTick;
         private bool shouldApplyHeat;
         public float HeatUnits => heatUnits;
+
+        private static readonly HashSet<Room> WorkingCheckedRoomsList = [];
+        private static readonly HashSet<Region> WorkingCheckedRegionsList = [];
+
         public Building_GravEngine Engine => parent as Building_GravEngine;
 
         public override void PostExposeData()
@@ -145,7 +149,7 @@ namespace VanillaGravshipExpanded
                 return false;
             if (Find.TickManager.TicksGame - roomCacheTick > 60)
             {
-                cachedShipRooms = GetShipRooms();
+                CacheShipRooms();
                 roomCacheTick = Find.TickManager.TicksGame;
             }
 
@@ -166,9 +170,10 @@ namespace VanillaGravshipExpanded
             return true;
         }
 
-        private List<Room> GetShipRooms()
+        private void CacheShipRooms()
         {
-            var shipRooms = new HashSet<Room>();
+            cachedShipRooms ??= [];
+            cachedShipRooms.Clear();
             // foreach (var pos in Engine.ValidSubstructure)
             // {
             //     if (pos.UsesOutdoorTemperature(parent.Map))
@@ -181,18 +186,39 @@ namespace VanillaGravshipExpanded
             //     }
             // }
 
-            foreach (var comp in Engine.GravshipComponents)
+            WorkingCheckedRoomsList.Clear();
+            WorkingCheckedRegionsList.Clear();
+            for (var i = -1; i < Engine.GravshipComponents.Count; i++)
             {
-                if (comp.parent.Position.UsesOutdoorTemperature(parent.Map))
-                    continue;
+                // Start with the engine
+                var thing = i < 0 ? Engine : Engine.GravshipComponents[i].parent;
+                RegionTraverser.BreadthFirstTraverse(
+                    // Start with a region or pos/map to get region from, we start from grav engine
+                    thing.Position,
+                    thing.Map,
+                    // If the closest cell to either previous region or the engine has substructure, allow entry.
+                    // Skips checking a ton of cells this way (as opposed to checking each cell), but may skip some rooms.
+                    (from, to) =>
+                    {
+                        // No duplicate region checks
+                        if (!WorkingCheckedRegionsList.Add(to))
+                            return false;
+                        return Engine.ValidSubstructure.Contains(to.extentsClose.ClosestCellTo(from.AnyCell)) || Engine.ValidSubstructure.Contains(to.extentsClose.ClosestCellTo(Engine.Position));
+                    },
+                    // Process all the rooms in regions, starting with grav engine room.
+                    reg =>
+                    {
+                        var room = reg.Room;
+                        if (room == null || !WorkingCheckedRoomsList.Add(room) || room.UsesOutdoorTemperature || room.PsychologicallyOutdoors)
+                            return false;
 
-                var room = comp.parent.Position.GetRoom(parent.Map);
-                if (room != null)
-                {
-                    shipRooms.Add(room);
-                }
+                        cachedShipRooms.Add(room);
+                        return false;
+                    }, int.MaxValue, RegionType.Set_All);
             }
-            return shipRooms.Where(room => room.PsychologicallyOutdoors == false).ToList();
+
+            WorkingCheckedRoomsList.Clear();
+            WorkingCheckedRegionsList.Clear();
         }
 
         public void ClearGravEngineHeat()
