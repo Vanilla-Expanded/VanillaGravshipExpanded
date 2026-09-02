@@ -260,8 +260,8 @@
         </building>
         <comps>
             <li Class="CompProperties_Refuelable">
-                <fuelLabel>Uranium Slugs</fuelLabel>
-                <fuelGizmoLabel>Uranium Slugs</fuelGizmoLabel>
+                <fuelLabel>Uranium slugs</fuelLabel>
+                <fuelGizmoLabel>Uranium slugs</fuelGizmoLabel>
                 <fuelFilter>
                     <thingDefs>
                         <li>Uranium</li>
