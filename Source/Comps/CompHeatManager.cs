@@ -136,7 +136,7 @@ namespace VanillaGravshipExpanded
             }
         }
 
-        private bool TryApplyHeatToShip(float heatAmount)
+        public bool TryApplyHeatToShip(float heatAmount)
         {
             var map = parent.Map;
             if (map == null)
