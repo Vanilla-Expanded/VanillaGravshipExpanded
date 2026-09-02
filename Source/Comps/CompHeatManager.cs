@@ -110,7 +110,7 @@ namespace VanillaGravshipExpanded
 
             if (heatUnits > 0 && applyToShip)
             {
-                bool result = TryApplyHeatToShip(heatUnits);
+                bool result = TryApplyHeatToShip(heatUnits, true);
                 if (result is false)
                 {
                     shouldApplyHeat = true;
@@ -136,7 +136,9 @@ namespace VanillaGravshipExpanded
             }
         }
 
-        public bool TryApplyHeatToShip(float heatAmount)
+        public bool TryApplyHeatToShip(float heatAmount) => TryApplyHeatToShip(heatAmount, false);
+
+        private bool TryApplyHeatToShip(float heatAmount, bool removeFromHeatUnits)
         {
             var map = parent.Map;
             if (map == null)
@@ -154,7 +156,8 @@ namespace VanillaGravshipExpanded
                 return false;
 
             float heatPerCell = heatAmount / totalCells;
-            heatUnits -= heatAmount;
+            if (removeFromHeatUnits)
+                heatUnits -= heatAmount;
             foreach (var room in cachedShipRooms)
             {
                 float roomHeat = heatPerCell * room.CellCount;
