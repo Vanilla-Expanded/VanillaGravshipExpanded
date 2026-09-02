@@ -67,12 +67,8 @@ public static class ScenPart_PlayerPawnsArriveMethod_DoGravship_Patch
             var attempts = 99;
             while (countLeft > 0 && attempts-- > 0)
             {
-                // First try to use empty shelves
-                if (!emptyShelves.Where(x => x.GetParentStoreSettings().AllowedToAccept(startingItem)).TryRandomElement(out var shelf))
-                {
-                    // If there's none, try placing around full shelves
-                    allShelves.Where(x => x.GetParentStoreSettings().AllowedToAccept(startingItem)).TryRandomElement(out shelf);
-                }
+                // Try to use empty shelves
+                emptyShelves.Where(x => x.Accepts(startingItem) && x.SpaceRemainingFor(startingItem.def) != 0).TryRandomElement(out var shelf);
 
                 IntVec3 cell;
                 // Pick a shelf cell if possible
@@ -81,7 +77,7 @@ public static class ScenPart_PlayerPawnsArriveMethod_DoGravship_Patch
                     cell = shelf.OccupiedRect().RandomCell;
                 }
                 // Try to pick any substructure tile
-                else if (!cellRect.TryFindRandomCell(out cell, x => x.GetTerrain(map) == TerrainDefOf.Substructure && x.GetFirstThing<Building_Door>(map) == null))
+                else if (!cellRect.TryFindRandomCell(out cell, x => x.SupportsStructureType(map, VGEDefOf.Substructure) && x.GetFirstThing<Building_Door>(map) == null && x.GetRoof(map) != null))
                 {
                     // Pick any tile in the rect
                     cell = cellRect.RandomCell;
@@ -89,10 +85,25 @@ public static class ScenPart_PlayerPawnsArriveMethod_DoGravship_Patch
 
                 var thing = startingItem.SplitOff(Math.Min(startingItem.def.stackLimit, countLeft));
                 countLeft -= thing.stackCount;
-                GenPlace.TryPlaceThing(thing, cell, map, ThingPlaceMode.Near, extraValidator: x => x.GetFirstThing<Building_Door>(map) == null);
+                // Spawn attempts (with a couple of fallbacks)
+                // If not shelf, try spawning under roof, not in an edifice and not in doors
+                if (shelf != null || !GenPlace.TryPlaceThing(thing, cell, map, ThingPlaceMode.Near, extraValidator: x => x.GetFirstThing<Building_Door>(map) == null && x.GetEdifice(map) == null && x.GetRoof(map) != null))
+                {
+                    // If not shelf, try spawning under a roof and not in doors
+                    if (shelf != null || !GenPlace.TryPlaceThing(thing, cell, map, ThingPlaceMode.Near, extraValidator: x => x.GetFirstThing<Building_Door>(map) == null && x.GetRoof(map) != null))
+                    {
+                        // Try spawning not in doors
+                        if (!GenPlace.TryPlaceThing(thing, cell, map, ThingPlaceMode.Near, extraValidator: x => x.GetFirstThing<Building_Door>(map) == null))
+                        {
+                            // Final check, no extra validator - should never happen under normal circumstances
+                            if (!GenPlace.TryPlaceThing(thing, cell, map, ThingPlaceMode.Near))
+                                Log.Error($"Failed spawning {thing} around gravship near {cell}.");
+                        }
+                    }
+                }
 
                 // If shelf is full after adding to it, remove it from list of empty shelves
-                if (shelf != null && shelf.SpaceRemainingFor(startingItem.def) <= 0)
+                if (shelf != null && shelf.SpaceRemainingFor(startingItem.def) == 0)
                     emptyShelves.Remove(shelf);
             }
         }
@@ -110,7 +121,7 @@ public static class ScenPart_PlayerPawnsArriveMethod_DoGravship_Patch
         }
         foreach (var cell in cellRect)
         {
-            if (cell.GetTerrain(map) == TerrainDefOf.Substructure)
+            if (cell.SupportsStructureType(map, VGEDefOf.Substructure))
             {
                 map.areaManager.Home[cell] = true;
             }
