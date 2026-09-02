@@ -24,6 +24,7 @@
 			<VGE_MaintenanceSensitivity>2</VGE_MaintenanceSensitivity>
 		</statBases>
 		<size>(3,1)</size>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
 		<passability>PassThroughOnly</passability>
 		<pathCost>50</pathCost>
 		<tickerType>Normal</tickerType>

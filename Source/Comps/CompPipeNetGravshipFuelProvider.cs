@@ -200,7 +200,7 @@ public class CompPipeNetGravshipFuelProvider : CompGravshipFacility, IGravshipFu
 
         data.sortingOrder = range * fuelConsumedRatio;
         if (data.totalAmount > 0)
-            data.reportString = $"{Mathf.RoundToInt(data.totalAmount)} {Props.pipeNet.resource.name.UncapitalizeFirst()}";
+            data.reportString = $"{data.totalAmount.ToStringDecimalIfSmall()} {Props.pipeNet.resource.name.UncapitalizeFirst()}";
 
         return data;
     }

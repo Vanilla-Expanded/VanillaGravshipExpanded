@@ -26,7 +26,7 @@
 			<Steel>150</Steel>
 			<ComponentIndustrial>4</ComponentIndustrial>
 		</costList>
-		<altitudeLayer>Building</altitudeLayer>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
 		<fillPercent>0.3</fillPercent>
 		<useHitPoints>True</useHitPoints>
 		<statBases>

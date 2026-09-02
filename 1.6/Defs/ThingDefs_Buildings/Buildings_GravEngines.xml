@@ -101,6 +101,7 @@
           <li>VGE_FlightComputer</li>
           <li>VGE_GravshipStructuralBeam</li>
           <li MayRequire="vanillaexpanded.gravship2">VGE_LargeGravshipShieldGenerator</li>
+          <li MayRequire="vanillaexpanded.gravship2">VGE_EmergencyGenerator</li>
         </linkableFacilities>
       </li>
       <li>
@@ -232,6 +233,7 @@
           <li>VGE_FlightComputer</li>
           <li>VGE_GravshipStructuralBeam</li>
           <li MayRequire="vanillaexpanded.gravship2">VGE_LargeGravshipShieldGenerator</li>
+          <li MayRequire="vanillaexpanded.gravship2">VGE_EmergencyGenerator</li>
         </linkableFacilities>
       </li>
       <li>

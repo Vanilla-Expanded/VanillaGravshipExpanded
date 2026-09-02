@@ -7,11 +7,14 @@ namespace VanillaGravshipExpanded
 {
     public class CompGravMaintainable : ThingComp
     {
+        public const float MaintenanceAfterBreakdown = 0.05f;
+
         public CompProperties_GravMaintainable Props => props as CompProperties_GravMaintainable;
 
         public float maintenance = 1;
         public CompBreakdownable compBreakdownable;
         public bool maintenanceFalls;
+        public bool maintenanceEnabled = true;
 
         public override void PostExposeData()
         {
@@ -104,7 +107,7 @@ namespace VanillaGravshipExpanded
             EmissionTick(parent.Map.flecks);
         }
 
-        private void TickInterval()
+        protected virtual void TickInterval()
         {
             if (parent.IsHashIntervalTick(GenDate.TicksPerDay / 2, GenTicks.TickLongInterval))
                 UpdateRequiresMaintenance();
@@ -121,7 +124,7 @@ namespace VanillaGravshipExpanded
 
             if (maintenance <= 0)
             {
-                maintenance = 0.05f;
+                maintenance = MaintenanceAfterBreakdown;
                 Signal_Breakdown();
             }
         }
@@ -137,6 +140,18 @@ namespace VanillaGravshipExpanded
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
+            if (Props.toggleMaintainGizmoEnabled && (maintenanceFalls || Props.toggleMaintainGizmoAlwaysEnabled))
+            {
+                yield return new Command_Toggle
+                {
+                    defaultLabel = Props.toggleMaintainLabelKey.Translate(),
+                    defaultDesc = Props.toggleMaintainDescKey.Translate(),
+                    icon = Props.ToggleMaintainGizmoIcon,
+                    isActive = () => maintenanceEnabled,
+                    toggleAction = () => maintenanceEnabled = !maintenanceEnabled,
+                };
+            }
+
             if (DebugSettings.ShowDevGizmos)
             {
 
@@ -213,6 +228,11 @@ namespace VanillaGravshipExpanded
             }
 
             maintenanceFalls = true;
+        }
+
+        public virtual bool CanMaintain(Pawn pawn, bool forced)
+        {
+            return maintenanceEnabled || forced;
         }
 
 

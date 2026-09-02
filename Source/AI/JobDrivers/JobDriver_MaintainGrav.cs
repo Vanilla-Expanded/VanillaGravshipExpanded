@@ -39,7 +39,7 @@ namespace VanillaGravshipExpanded
             repair.initAction = delegate
             {
                 statValuePawn = repair.actor.GetStatValue(VGEDefOf.VGE_GravshipMaintenance);
-                statValueObject = building.GetStatValue(VGEDefOf.VGE_MaintenanceSensitivity);
+                statValueObject = Mathf.Max(building.GetStatValue(VGEDefOf.VGE_MaintenanceSensitivity) + building.GetStatValue(VGEDefOf.VGE_MaintenanceDifficulty), 1f);
             };
             repair.tickIntervalAction = delegate (int delta)
             {
@@ -47,7 +47,7 @@ namespace VanillaGravshipExpanded
                
                 actor.rotationTracker.FaceTarget(actor.CurJob.GetTarget(TargetIndex.A));
 
-                comp.maintenance += (0.001f * statValuePawn) / statValueObject;
+                comp.maintenance += 0.001f * statValuePawn * delta / statValueObject;
 
 
                 if (comp.maintenance >= 1)
@@ -65,7 +65,7 @@ namespace VanillaGravshipExpanded
 
             };
             repair.FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch);
-            repair.WithEffect(base.TargetThingA.def.repairEffect, TargetIndex.A);
+            repair.WithEffect(base.TargetThingA?.def.repairEffect, TargetIndex.A);
             repair.defaultCompleteMode = ToilCompleteMode.Never;
             repair.activeSkill = () => SkillDefOf.Construction;
             repair.handlingFacing = true;
