@@ -552,7 +552,7 @@
     </Filth_RubbleBuilding>
   </things>
   <terrain>
-    <VGE_DamagedSubstructure>
+    <Substructure>
       <rects>
         <li>(1,0,3,3)</li>
         <li>(4,1,4,3)</li>
@@ -571,10 +571,6 @@
         <li>(10,10,10,11)</li>
         <li>(1,11,2,12)</li>
         <li>(3,12,3,12)</li>
-      </rects>
-    </VGE_DamagedSubstructure>
-    <Substructure>
-      <rects>
         <li>(5,1,5,2)</li>
         <li>(6,2,7,2)</li>
         <li>(11,2,11,2)</li>
