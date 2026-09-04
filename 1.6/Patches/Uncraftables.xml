@@ -81,6 +81,19 @@
           </fixedParams>
         </thingSetMaker>
       </li>
+      <li MayRequire="vanillaexpanded.gravship2">
+        <weight>1</weight>
+        <thingSetMaker Class="ThingSetMaker_StackCount">
+          <fixedParams>
+            <filter>
+              <thingDefs>
+                <li>VGE_EmergencyGenerator</li>
+              </thingDefs>
+            </filter>
+            <countRange>1</countRange>
+          </fixedParams>
+        </thingSetMaker>
+      </li>
     </value>
   </Operation>
 
@@ -93,6 +106,7 @@
       <li>VGE_Gravlift</li>
       <li>VGE_Astropurifier</li>
       <li>VGE_OxygenReclaimer</li>
+      <li MayRequire="vanillaexpanded.gravship2">VGE_EmergencyGenerator</li>
     </value>
   </Operation>
 </Patch>
