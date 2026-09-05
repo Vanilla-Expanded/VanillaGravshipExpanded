@@ -36,7 +36,7 @@
 				<requiresLOS>false</requiresLOS>
 			</li>
 			<li Class="VanillaGravshipExpanded.CompProperties_GravdataYield">
-				<multiplier>5</multiplier>
+				<multiplier>3</multiplier>
 			</li>
 			<li Class="CompProperties_Breakdownable"/>
 			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
