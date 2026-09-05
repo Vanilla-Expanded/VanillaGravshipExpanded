@@ -96,6 +96,7 @@
         <killedLeavings>
             <GravlitePanel>30</GravlitePanel>
             <ChunkSlagSteel>5</ChunkSlagSteel>
+            <li MayRequire="Ludeon.RimWorld.Biotech">SubcoreHigh</li>
         </killedLeavings>
     </ThingDef>
 
