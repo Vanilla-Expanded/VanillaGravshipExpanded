@@ -78,6 +78,6 @@ public static class CompPilotConsole_StartChoosingDestination_Lambda_Patch
 
     private static string GetCostsReplacement(string current, CompPilotConsole console, float cost)
     {
-        return GravshipFuelProviderUtility.GetFuelConsumptionReport(console.engine, cost / console.engine.TotalFuel, startingText: $"{"Cost".Translate().CapitalizeFirst()}:").ToString();
+        return GravshipFuelProviderUtility.GetFuelConsumptionReport(console.engine, cost / console.engine.TotalFuel, startingText: $"{"Cost".Translate().CapitalizeFirst()}:");
     }
 }

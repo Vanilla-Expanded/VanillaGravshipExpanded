@@ -75,15 +75,15 @@ public static class GravshipFuelProviderUtility
         }
     }
 
-    public static StringBuilder GetFuelConsumptionReport(Building_GravEngine engine, float fuelCostRatio, int maxEntries = int.MaxValue, string startingText = null, string extraTextAtMaxEntries = null)
+    public static string GetFuelConsumptionReport(Building_GravEngine engine, float fuelCostRatio, int maxEntries = int.MaxValue, string startingText = null, string extraTextAtMaxEntries = null)
     {
-        var builder = CachedFuelConsumptionReport.GetCachedIfValid(engine, fuelCostRatio, maxEntries, startingText, extraTextAtMaxEntries, 0);
-        if (builder != null)
-            return builder;
+        var result = CachedFuelConsumptionReport.GetCachedIfValid(engine, fuelCostRatio, maxEntries, startingText, extraTextAtMaxEntries, 0);
+        if (result != null)
+            return result;
 
         var list = new List<FuelUsageData>();
-    
-        builder = new StringBuilder(startingText);
+
+        var builder = new StringBuilder(startingText);
         var entries = 0;
         var otherFuel = 0f;
 
@@ -109,9 +109,10 @@ public static class GravshipFuelProviderUtility
         if (otherFuel > 0f && entries <= maxEntries)
             builder.AppendInNewLine($"{otherFuel.ToStringDecimalIfSmall()} {"VGE_OtherFuel".Translate()}");
 
-        CachedFuelConsumptionReport.CacheValues(engine, fuelCostRatio, maxEntries, startingText, extraTextAtMaxEntries, builder);
+        result = builder.ToString();
+        CachedFuelConsumptionReport.CacheValues(engine, fuelCostRatio, maxEntries, startingText, extraTextAtMaxEntries, result);
 
-        return builder;
+        return result;
 
         void GetFuelConsumptionReports(IGravshipFuelProvider provider, Building_GravEngine gravEngine, List<CompGravshipThruster> thrusters, List<IGravshipFuelProvider> otherProviders)
         {
@@ -232,9 +233,9 @@ public static class GravshipFuelProviderUtility
         private string cachedStartingText;
         private string cachedExtraTextAtMaxEntries;
 
-        private StringBuilder cachedValue;
+        private string cachedValue;
 
-        internal StringBuilder GetCachedIfValid(Building_GravEngine engine, float fuelCostRatio, int maxEntries, string startingText, string extraTextAtMaxEntries, int cacheValidFor)
+        internal string GetCachedIfValid(Building_GravEngine engine, float fuelCostRatio, int maxEntries, string startingText, string extraTextAtMaxEntries, int cacheValidFor)
         {
             if (Find.TickManager.TicksGame > tick + cacheValidFor ||
                 cachedEngine != engine ||
@@ -252,7 +253,7 @@ public static class GravshipFuelProviderUtility
             return cachedValue;
         }
 
-        internal void CacheValues(Building_GravEngine engine, float fuelCostRatio, int maxEntries, string startingText, string extraTextAtMaxEntries, StringBuilder value)
+        internal void CacheValues(Building_GravEngine engine, float fuelCostRatio, int maxEntries, string startingText, string extraTextAtMaxEntries, string value)
         {
             tick = Find.TickManager.TicksGame;
             cachedEngine = engine;

@@ -32,7 +32,7 @@ public static class Building_GravEngine_ConsumeFuel_Patch
         GravshipFuelProviderUtility.ConsumeFuelRatioForAllProviders(__instance, ratio, extendedInfo.fuelSpentPerTank);
 
         var heatManager = __instance.GetComp<CompHeatManager>();
-        heatManager.AddHeat(cost);
+        heatManager.AddHeat(heatManager.HeatGeneratedFromFuel(cost));
         ApplyCooldownReduction(__instance);
     }
 

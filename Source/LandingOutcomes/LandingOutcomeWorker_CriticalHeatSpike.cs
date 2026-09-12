@@ -21,7 +21,7 @@ namespace VanillaGravshipExpanded
             if (gravship.Engine.launchInfo.ExtendedInfo(false) is { lastCost: > 0 } extendedInfo)
             {
                 var heatManager = gravship.Engine.GetComp<CompHeatManager>();
-                heatManager.AddHeat(extendedInfo.lastCost);
+                heatManager.AddHeat(heatManager.HeatGeneratedFromFuel(extendedInfo.lastCost));
                 SendStandardLetter(gravship.Engine, null, gravship.Engine);
             }
         }

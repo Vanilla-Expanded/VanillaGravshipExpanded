@@ -70,7 +70,9 @@
     <VGE_GravheatAbsorberCoolingDown>Gravheat absorber is cooling down. Available in: {0}</VGE_GravheatAbsorberCoolingDown>
     <VGE_LaunchGravAnchorCooldownInfo>However, landing in a location containing a grav anchor will completely remove the launch cooldown.</VGE_LaunchGravAnchorCooldownInfo>
     <VGE_LaunchHeatsinkCooldownInfo>The heatsinks will reduce the launch cooldown time by {0}.</VGE_LaunchHeatsinkCooldownInfo>
-    <VGE_LaunchFuelAndHeatUnitsInfo>This launch will use {0} astrofuel and generate about {0} heat units, raising the temperature across the gravship.</VGE_LaunchFuelAndHeatUnitsInfo>
+    <VGE_LaunchHeatUnitsInfo>This launch will generate about {0} heat units, raising the temperature across the gravship.</VGE_LaunchHeatUnitsInfo>
+    <!-- Uses fuel providers, rest of the data will be used using data from those. -->
+    <VGE_LaunchFuelInfo>This launch will consume the following fuel:</VGE_LaunchFuelInfo>
 
     <VGE_DesignatorRemoveSubstructure>Remove substructure</VGE_DesignatorRemoveSubstructure>
     <VGE_DesignatorRemoveSubstructureDesc>Remove substructure from the gravship.</VGE_DesignatorRemoveSubstructureDesc>

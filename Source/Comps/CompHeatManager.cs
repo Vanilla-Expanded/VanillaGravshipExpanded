@@ -40,11 +40,16 @@ namespace VanillaGravshipExpanded
 
         public const float BaseHeatMultiplier = 100f;
         public const float BaseHeatsinkCapacityMultiplier = 5f;
+        public const float BaseFuelToHeatFactor = 2f;
 
         [TweakValue("0GravshipHeatMultiplier", 1f, 500f)]
         public static float HeatMultiplier = BaseHeatMultiplier;
         [TweakValue("0GravshipHeatsinkCapacityMultiplier", 1f, 100f)]
         public static float HeatsinkCapacityMultiplier = BaseHeatsinkCapacityMultiplier;
+        [TweakValue("0GravshipFuelToHeatFactor", 1f, 20f)]
+        public static float FuelToHeatFactor = BaseFuelToHeatFactor;
+
+        public float HeatGeneratedFromFuel(float consumedFuel) => Mathf.Max(consumedFuel / FuelToHeatFactor, 0f);
 
         // Keeping the old method for mod compatibility purposes, may remove in the future
         public void AddHeat(float amount) => AddHeat(amount, true);
