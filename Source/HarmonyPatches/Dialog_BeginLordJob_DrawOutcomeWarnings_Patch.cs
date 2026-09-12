@@ -66,7 +66,10 @@ namespace VanillaGravshipExpanded
 
                     if (GravshipUtility.TryGetPathFuelCost(engine.Map.Tile, gravshipState.targetTile, out var cost, out _, fuelFactor: engine.FuelUseageFactor))
                     {
-                        DrawInfoLine(viewRect, ref curY, ref totalInfoHeight, "VGE_LaunchFuelAndHeatUnitsInfo".Translate(cost));
+                        var comp = engine.GetComp<CompHeatManager>();
+                        DrawInfoLine(viewRect, ref curY, ref totalInfoHeight, "VGE_LaunchHeatUnitsInfo".Translate(comp.HeatGeneratedFromFuel(cost)));
+                        var report = GravshipFuelProviderUtility.GetFuelConsumptionReport(engine, cost / engine.TotalFuel, startingText: "VGE_LaunchFuelInfo".Translate());
+                        DrawInfoLine(viewRect, ref curY, ref totalInfoHeight, report);
                     }
 
                     float boonChance = GravshipHelper.LaunchBoonChanceFromQuality(quality);
