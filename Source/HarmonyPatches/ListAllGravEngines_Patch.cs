@@ -11,13 +11,12 @@ namespace VanillaGravshipExpanded;
 [HarmonyPatch]
 public static class ListAllGravEngines_Patch
 {
-    private static List<Thing> TmpList = [];
+    private static readonly List<Thing> TmpList = [];
 
     private static IEnumerable<MethodBase> TargetMethods()
     {
         yield return typeof(SubstructureGrid).DeclaredMethod(nameof(SubstructureGrid.DrawSubstructureCountOnGUI));
         yield return typeof(SubstructureGrid).DeclaredMethod(nameof(SubstructureGrid.DrawSubstructureFootprint));
-        yield return typeof(JobGiver_BoardOrLeaveGravship).DeclaredMethod(nameof(JobGiver_BoardOrLeaveGravship.TryGiveJob));
 
         var method = typeof(FormCaravanComp).FindIncludingInnerTypes<MethodBase>(t => t.FirstMethod(m => m.Name == "<GetGizmos>b__0"));
         if (method != null)
@@ -27,11 +26,12 @@ public static class ListAllGravEngines_Patch
     }
 
     private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instr, MethodBase baseMethod)
+        => ReplaceListerThings(instr, baseMethod, typeof(ListAllGravEngines_Patch).DeclaredMethod(nameof(ReturnAllGravEngines)), 1);
+
+    public static IEnumerable<CodeInstruction> ReplaceListerThings(IEnumerable<CodeInstruction> instr, MethodBase baseMethod, MethodBase listerThingsMethodReplacement, int expectedPatches)
     {
         var gravEngineField = typeof(ThingDefOf).DeclaredField(nameof(ThingDefOf.GravEngine));
-
         var listerThingsMethodTarget = typeof(ListerThings).DeclaredMethod(nameof(ListerThings.ThingsOfDef));
-        var listerThingsMethodReplacement = typeof(ListAllGravEngines_Patch).DeclaredMethod(nameof(ReturnAllGravEngines));
 
         var isGravEngineField = false;
         var replacedThingsOfDefCalls = 0;
@@ -59,7 +59,6 @@ public static class ListAllGravEngines_Patch
             yield return ci;
         }
 
-        const int expectedPatches = 1;
         if (replacedThingsOfDefCalls != expectedPatches)
             Log.Error($"Patching {baseMethod.DeclaringType?.Name}:{baseMethod.Name} - unexpected amount of patches. Expected patches: {expectedPatches}, actual patch amount: {replacedThingsOfDefCalls}. Game may fail to find custom VE grav engines.");
     }
