@@ -253,4 +253,5 @@ Please note that keeping several maps open may affect your performance.</VGE_Map
     <VGE_ChooseAStartingGravshipDesc>Choose which gravship you’d like to start the scenario with. Starting resources will be deposited on that gravship. Different gravships may start with different structures.</VGE_ChooseAStartingGravshipDesc>
     <VGE_SourceMod>Source: {0}</VGE_SourceMod>
     <VGE_GravshipRangeCurrentLayer>gravship range ({0})</VGE_GravshipRangeCurrentLayer>
+    <VGE_PlayerOwnedOrbitalColonyDesc>An orbital colony owned by player faction.</VGE_PlayerOwnedOrbitalColonyDesc>
 </LanguageData>
