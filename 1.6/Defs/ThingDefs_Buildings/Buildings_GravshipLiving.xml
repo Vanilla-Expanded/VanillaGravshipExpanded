@@ -391,6 +391,10 @@
 				<target>Fire</target>
 				<radius>3</radius>
 			</li>
+      <li Class="CompProperties_ProximityFuse">
+        <target>VGE_Astrofire</target>
+        <radius>3</radius>
+      </li>
 		</comps>
     <overrideMinifiedRot>North</overrideMinifiedRot>
     <minifiedDrawOffset>(0, 0, 0.3)</minifiedDrawOffset>
