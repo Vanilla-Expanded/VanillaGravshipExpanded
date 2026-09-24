@@ -42,7 +42,6 @@ public static class CompFirefoamPack_ChanceToUse_Patch
         // if (thingList[i] is Fire || thingList[i].HasAttachment(ThingDefOf.Fire)) {}
         // And wraps HasAttachement with our extra astrofire conditions.
 
-        var indexer = typeof(List<Thing>).IndexerGetter([typeof(int)]);
         matcher.Reset();
 
         matcher.MatchEndForward(
@@ -51,7 +50,7 @@ public static class CompFirefoamPack_ChanceToUse_Patch
             // Load index
             CodeMatch.IsLdloc(),
             // Grabs the value from the list
-            CodeMatch.Calls(indexer),
+            CodeMatch.Calls(typeof(List<Thing>).IndexerGetter([typeof(int)])),
             // Grabs the fire field
             CodeMatch.LoadsField(typeof(ThingDefOf).DeclaredField(nameof(ThingDefOf.Fire))),
             // Calls HasAttachment
@@ -61,9 +60,14 @@ public static class CompFirefoamPack_ChanceToUse_Patch
         );
 
         matcher.Insert(
+            // Copy instructions we matched, since they point to fields we want:
+            // Load the thing list
             new CodeInstruction(matcher.InstructionAt(-5)),
+            // Load the index in the list
             new CodeInstruction(matcher.InstructionAt(-4)),
-            new CodeInstruction(OpCodes.Callvirt, indexer),
+            // Call the indexer getter from the list
+            new CodeInstruction(matcher.InstructionAt(-3)),
+            // Call our wrapper method
             CodeInstruction.Call(() => AstrofireCheckWrapper)
         );
     }
