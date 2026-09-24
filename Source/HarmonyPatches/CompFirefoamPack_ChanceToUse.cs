@@ -52,8 +52,6 @@ public static class CompFirefoamPack_ChanceToUse_Patch
             CodeMatch.IsLdloc(),
             // Grabs the value from the list
             CodeMatch.Calls(indexer),
-            // Checks if instance is fire
-            // new CodeMatch(OpCodes.Isinst, typeof(Fire)),
             // Grabs the fire field
             CodeMatch.LoadsField(typeof(ThingDefOf).DeclaredField(nameof(ThingDefOf.Fire))),
             // Calls HasAttachment
