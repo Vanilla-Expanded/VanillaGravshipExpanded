@@ -58,9 +58,13 @@ namespace VanillaGravshipExpanded
                 def.projectile.flyOverhead = false;
                 if (position.InBounds(base.Map))
                 {
-                    base.Position = ExactPosition.ToIntVec3();
+                    base.Position = position;
+                    ImpactSomething();
                 }
-                ImpactSomething();
+                else
+                {
+                    Destroy();
+                }
                 def.projectile.flyOverhead = true;
             }
         }

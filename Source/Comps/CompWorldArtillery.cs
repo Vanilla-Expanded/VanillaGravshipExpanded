@@ -246,8 +246,10 @@ namespace VanillaGravshipExpanded
             base.CompTickInterval(delta);
             if (target.IsValid && target.ThingDestroyed || worldTarget.WorldObject != null && worldTarget.WorldObject.Destroyed)
             {
-                var parent = this.parent as Building_TurretGun;
-                parent.ResetForcedTarget();
+                if (parent is Building_GravshipTurret turret)
+                {
+                    turret.AbortFiringState();
+                }
                 Reset();
             }
         }
