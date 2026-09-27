@@ -62,6 +62,7 @@ namespace VanillaGravshipExpanded
                 worldProjectile.startTile = this.Map.Tile;
                 worldProjectile.targetTile = targetTile;
                 worldProjectile.targetCell = target.Cell;
+                worldProjectile.targetThing = target.HasThing ? target.Thing : null;
                 worldProjectile.missRadius = missRadius;
                 worldProjectile.projectileDef = this.def;
                 worldProjectile.launcher = launcher;

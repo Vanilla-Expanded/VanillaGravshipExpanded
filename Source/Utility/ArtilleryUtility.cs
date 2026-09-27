@@ -36,7 +36,7 @@ namespace VanillaGravshipExpanded
             return angle;
         }
 
-        public static void SpawnArtilleryProjectile(PlanetTile targetTile, PlanetTile startTile, ThingDef projectileDef, Thing launcher, IntVec3 targetCell, float missRadius, float hitChance = 1.0f)
+        public static void SpawnArtilleryProjectile(PlanetTile targetTile, PlanetTile startTile, ThingDef projectileDef, Thing launcher, IntVec3 targetCell, float missRadius, float hitChance = 1.0f, Thing targetThing = null)
         {
             if (targetCell.IsValid is false)
             {
@@ -47,9 +47,12 @@ namespace VanillaGravshipExpanded
             if (map is null) return;
             var spawnCell = FindSpawnCell(map, targetTile, startTile, targetCell);
             IntVec3 finalTargetCell;
+            LocalTargetInfo usedTarget;
+            LocalTargetInfo intendedTarget = targetCell;
             if (missRadius > 0f)
             {
                 finalTargetCell = targetCell + (Rand.InsideUnitCircle * missRadius).ToVector3().ToIntVec3();
+                usedTarget = finalTargetCell;
             }
             else
             {
@@ -58,15 +61,25 @@ namespace VanillaGravshipExpanded
                     ShootLine shootLine = new ShootLine(spawnCell, targetCell);
                     shootLine.ChangeDestToMissWild(hitChance, projectileDef.projectile.flyOverhead, map);
                     finalTargetCell = shootLine.Dest;
+                    usedTarget = finalTargetCell;
                 }
                 else
                 {
                     finalTargetCell = targetCell;
+                    if (targetThing != null)
+                    {
+                        usedTarget = targetThing;
+                        intendedTarget = targetThing;
+                    }
+                    else
+                    {
+                        usedTarget = targetCell;
+                    }
                 }
             }
 
             var projectile = (Projectile)GenSpawn.Spawn(projectileDef, spawnCell, map);
-            projectile.Launch(launcher, spawnCell.ToVector3(), finalTargetCell, targetCell, ProjectileHitFlags.IntendedTarget | ProjectileHitFlags.NonTargetPawns | ProjectileHitFlags.NonTargetWorld);
+            projectile.Launch(launcher, spawnCell.ToVector3(), usedTarget, intendedTarget, ProjectileHitFlags.IntendedTarget | ProjectileHitFlags.NonTargetPawns | ProjectileHitFlags.NonTargetWorld);
         }
     }
 }

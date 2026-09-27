@@ -118,7 +118,7 @@ namespace VanillaGravshipExpanded
             var comp = turret.TryGetComp<CompWorldArtillery>();
             var globalTarget = target.HasThing ? new GlobalTargetInfo(target.Thing) : new GlobalTargetInfo(target.Cell, targetMap);
             var hitChance = comp.GetHitChance(globalTarget);
-            ArtilleryUtility.SpawnArtilleryProjectile(targetTile, Tile, def, launcher, globalTarget.Cell, 0f, hitChance);
+            ArtilleryUtility.SpawnArtilleryProjectile(targetTile, Tile, def, launcher, globalTarget.Cell, 0f, hitChance, target.HasThing ? target.Thing : null);
         }
     }
 }

@@ -14,6 +14,7 @@ namespace VanillaGravshipExpanded
         public ThingDef projectileDef;
         public float missRadius;
         public Thing launcher;
+        public Thing targetThing;
 
         public override Material Material => projectileDef.graphic.MatSingle;
         public override Texture2D ExpandingIcon => projectileDef.uiIcon;
@@ -27,6 +28,7 @@ namespace VanillaGravshipExpanded
             Scribe_Defs.Look(ref projectileDef, "projectileDef");
             Scribe_Values.Look(ref missRadius, "missRadius");
             Scribe_References.Look(ref launcher, "launcher");
+            Scribe_References.Look(ref targetThing, "targetThing");
         }
 
         private const float TravelSpeed = 0.00025f * 2f;
@@ -88,7 +90,7 @@ namespace VanillaGravshipExpanded
 
         private void OnArrival()
         {
-            ArtilleryUtility.SpawnArtilleryProjectile(targetTile, Tile, projectileDef, launcher, targetCell, missRadius);
+            ArtilleryUtility.SpawnArtilleryProjectile(targetTile, Tile, projectileDef, launcher, targetCell, missRadius, 1f, targetThing);
             Destroy();
         }
     }
