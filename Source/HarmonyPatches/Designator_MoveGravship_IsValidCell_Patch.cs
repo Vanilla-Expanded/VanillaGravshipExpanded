@@ -39,7 +39,6 @@ namespace VanillaGravshipExpanded
                     }
                 }
             }
-            GravshipMapGenUtility.GetBlockingThingsInCell(cell, map);
             if (!GenConstruct.CanBuildOnTerrain(TerrainDefOf.Substructure, cell, map, Rot4.North))
             {
                 return "GravshipBlockedByTerrain".Translate(cell.GetTerrain(map));
