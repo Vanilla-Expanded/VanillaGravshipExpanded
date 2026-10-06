@@ -147,7 +147,7 @@ namespace VanillaGravshipExpanded
         public static void Postfix(float progress, Dictionary<Pawn, int> totalPresence, LordJob_Ritual jobRitual)
         {
             var engine = jobRitual.selectedTarget.Thing?.TryGetComp<CompPilotConsole>()?.engine;
-            if (engine is null) return;
+            if (engine?.launchInfo is null) return;
             var launchInfo = engine.launchInfo;
             var extendedInfo = launchInfo.ExtendedInfo(true);
             extendedInfo.launchSourceTile = engine.Map.Tile;
