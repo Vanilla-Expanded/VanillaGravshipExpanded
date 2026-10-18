@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <!-- Make vanilla grav engine link with our facilities. -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="GravEngine"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+    <value>
+      <li>VGE_OxygenReclaimer</li>
+      <li>VGE_SmallHeatsink</li>
+      <li>VGE_LargeHeatsink</li>
+      <li>VGE_GravheatAbsorber</li>
+      <li>VGE_GravFieldAmplifier</li>
+      <li>VGE_GiantThruster</li>
+      <li>VGE_GunnerSubpersonaCore</li>
+      <li MayRequire="Ludeon.RimWorld.Biotech">VGE_OperatorSubpersonaCore</li>
+      <li>VGE_Gravlift</li>
+      <li>VGE_GravtechConsole</li>
+      <li>VGE_GravshipBlackBox</li>
+      <li MayRequire="vanillaexpanded.gravship2">VGE_AuxiliaryAstrofuelTank</li>
+      <li>VGE_GiantAstrofuelTank</li>
+      <li>VGE_CopilotConsole</li>
+      <li>VGE_EngineeringConsole</li>
+      <li>VGE_MaintenanceHub</li>
+      <li>VGE_FlightComputer</li>
+      <li>VGE_GravshipStructuralBeam</li>
+      <li MayRequire="vanillaexpanded.gravship2">VGE_LargeGravshipShieldGenerator</li>
+      <li MayRequire="vanillaexpanded.gravship2">VGE_EmergencyGenerator</li>
+    </value>
+  </Operation>
+
+  <!-- Give comps to grav engine -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="GravEngine"]/comps</xpath>
+    <value>
+      <!-- Make grav engine affected by constant gravship bonuses (bonuses from connected, but potentially inactive facilities). -->
+      <li>
+        <compClass>VanillaGravshipExpanded.CompAffectedByConstantGravshipFacilityBonus</compClass>
+      </li>
+      <li Class="VanillaGravshipExpanded.CompProperties_HeatManager"/>
+      <li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <!-- Make grav engine a power plant -->
+      <li Class="CompProperties_Power">
+        <compClass>VanillaGravshipExpanded.CompPowerPlantGravEngine</compClass>
+        <basePowerConsumption>-4800</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <!-- Add extra handling for situation of multiple grav engines -->
+      <li>
+        <compClass>VanillaGravshipExpanded.CompMultipleGravEnginesHandler</compClass>
+      </li>
+      <li Class="VanillaGravshipExpanded.CompProperties_GravEngineHaze">
+        <hazeSettings>
+          <scale>3</scale>
+          <offset>(0, 0.5)</offset>
+        </hazeSettings>
+      </li>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="GravEngine"]/statBases</xpath>
+    <value>
+      <VGE_MaintenanceSensitivity>3</VGE_MaintenanceSensitivity>
+      <VGE_GlobalMaintenanceSensitivity>0</VGE_GlobalMaintenanceSensitivity>
+      <WorkToBuild>65400</WorkToBuild>
+    </value>
+  </Operation>
+
+  <!-- Replace label -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravEngine"]/label/text()</xpath>
+    <value>gravship engine</value>
+  </Operation>
+
+  <!-- Replace description -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravEngine"]/description/text()</xpath>
+    <value>The ultratech heart of a gravship. The grav engine generates lift by inverting and intensifying the effect of gravity in a field around itself. This engine can lift upwards, but does not produce forward thrust. It can't function far from a large gravity well like a planet, so it is useless for interplanetary travel.\n\nWhen launched, anything on substructure that's connected to the grav engine will be transported to a new map.\n\nGlitterworld engineers use gravships to launch orbital platforms and build skyrippers. They require massive and hyper-specialized facilities to produce, making them a rare sight outside of glitterworlds.</value>
+  </Operation>
+
+  <!-- Replace subsbtructure support -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravEngine"]/statBases/SubstructureSupport/text()</xpath>
+    <value>250</value>
+  </Operation>
+
+  <!-- Replace market value -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravEngine"]/statBases/MarketValue/text()</xpath>
+    <value>6700</value>
+  </Operation>
+
+  <!-- Replace market value -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravEngine"]/comps/li[@Class="CompProperties_SubstructureFootprint"]/radius/text()</xpath>
+    <value>11.9</value>
+  </Operation>
+
+  <!-- Give cost to grav engine -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="GravEngine"]</xpath>
+    <value>
+      <costList>
+        <Gravcore>3</Gravcore>
+        <GravlitePanel>120</GravlitePanel>
+        <ComponentSpacer>8</ComponentSpacer>
+        <Steel>180</Steel>
+      </costList>
+    </value>
+  </Operation>
+
+  <!-- Make the engine deconstructible -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravEngine"]/building/deconstructible/text()</xpath>
+    <value>true</value>
+  </Operation>
+
+  <!-- Change grav engine graphic -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravEngine"]/graphicData/texPath/text()</xpath>
+    <value>Things/Structures/GravEngines/GravEngine/GravEngine</value>
+  </Operation>
+
+  <!-- Orb and cooldown graphic are hardcoded, so we use a custom graphic class and some harmony patches to handle those -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravEngine"]/graphicData/graphicClass/text()</xpath>
+    <value>VanillaGravshipExpanded.Graphic_GravEngineSingle</value>
+  </Operation>
+
+  <!-- Give grav engine menu icon -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="GravEngine"]</xpath>
+    <value>
+      <uiIconPath>Things/Structures/GravEngines/GravEngine/GravEngine_MenuIcon</uiIconPath>
+    </value>
+  </Operation>
+
+  <!-- Give grav engine designation category -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="GravEngine"]</xpath>
+    <value>
+      <designationCategory>VGE_Platform</designationCategory>
+    </value>
+  </Operation>
+
+  <!-- Give grav engine place worker to make sure there's only 1 engine. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="GravEngine"]/placeWorkers</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravEngine"]</xpath>
+      <value>
+        <placeWorkers>
+          <li>VanillaGravshipExpanded.PlaceWorker_OnlySingleGravEngine</li>
+        </placeWorkers>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravEngine"]/placeWorkers</xpath>
+      <value>
+        <li>VanillaGravshipExpanded.PlaceWorker_OnlySingleGravEngine</li>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- We give grav engine a comp that wants to be notified about the map being removed, so mark the def as such. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="GravEngine"]/notifyMapRemoved</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravEngine"]</xpath>
+      <value>
+        <notifyMapRemoved>true</notifyMapRemoved>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravEngine"]/notifyMapRemoved/text()</xpath>
+      <value>true</value>
+    </match>
+  </Operation>
+
+  <!-- Add research prerequisite to the engine. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="GravEngine"]/researchPrerequisites</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravEngine"]</xpath>
+      <value>
+        <researchPrerequisites>
+          <li>StandardGravtech</li>
+        </researchPrerequisites>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravEngine"]/researchPrerequisites</xpath>
+      <value>
+        <li>StandardGravtech</li>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Force grav engine to always drop gravcores -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="GravEngine"]/building/forcedCostLeavings</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravEngine"]/building</xpath>
+      <value>
+        <forcedCostLeavings>
+          <li>Gravcore</li>
+        </forcedCostLeavings>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravEngine"]/building/forcedCostLeavings</xpath>
+      <value>
+        <li>Gravcore</li>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Change UI order -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="GravEngine"]/uiOrder</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravEngine"]</xpath>
+      <value>
+        <uiOrder>2001</uiOrder>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravEngine"]/uiOrder</xpath>
+      <value>2001</value>
+    </match>
+  </Operation>
+
+  <!-- Add our ITab to the grav engine console -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="GravEngine"]/inspectorTabs</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravEngine"]</xpath>
+      <value>
+        <inspectorTabs>
+          <li>VanillaGravshipExpanded.ITab_GravshipFuel</li>
+        </inspectorTabs>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravEngine"]/inspectorTabs</xpath>
+      <value>
+        <li>VanillaGravshipExpanded.ITab_GravshipFuel</li>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

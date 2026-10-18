@@ -1,15 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <LangVersion>12</LangVersion>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <OutputPath>..\1.6\Assemblies\</OutputPath>
+    <OutputPath>../1.7/Assemblies/</OutputPath>
+    <TargetFramework>net10.0</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-    <DebugType>portable</DebugType>
+    <DebugType>None</DebugType>
+    <LangVersion>latest</LangVersion>
+    <Nullable>warnings</Nullable>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <RootNamespace>$(MSBuildProjectName.Replace(" ", "."))</RootNamespace>
+    <AssemblyName>$(MSBuildProjectName.Replace(" ", "."))</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -26,23 +28,23 @@
 
   <ItemGroup>
     <PackageReference Include="Lib.Harmony" Version="2.*" ExcludeAssets="runtime" />
-    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4739-beta" />
-    <PackageReference Include="Krafs.Publicizer" Version="2.*" PrivateAssets="all">
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.7.4979-alpha" />
+    <PackageReference Include="Krafs.Publicizer" Version="2.3.2" PrivateAssets="all">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="PipeSystem">
-      <HintPath>..\..\VanillaExpandedFramework\1.6\Assemblies\PipeSystem.dll</HintPath>
+      <HintPath>..\..\VanillaExpandedFramework\1.7\Assemblies\PipeSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="VEF">
-      <HintPath>..\..\VanillaExpandedFramework\1.6\Assemblies\VEF.dll</HintPath>
+      <HintPath>..\..\VanillaExpandedFramework\1.7\Assemblies\VEF.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="KCSG">
-      <HintPath>..\..\VanillaExpandedFramework\1.6\Assemblies\KCSG.dll</HintPath>
+      <HintPath>..\..\VanillaExpandedFramework\1.7\Assemblies\KCSG.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>

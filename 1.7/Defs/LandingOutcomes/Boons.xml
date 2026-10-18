@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<VanillaGravshipExpanded.LaunchBoonDef>
+		<defName>VGE_LandmarkSpotted</defName>
+		<label>landmark spotted</label>
+		<letterLabel>landmark spotted</letterLabel>
+		<letterText>While landing {GRAVSHIP}, your crew noticed unusual location in the surrounding area. Their curiosity might lead to valuable discoveries. {LANDMARK} has been spotted nearby.</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<workerClass>VanillaGravshipExpanded.LaunchBoonWorker_LandmarkSpotted</workerClass>
+		<weight>1</weight>
+	</VanillaGravshipExpanded.LaunchBoonDef>
+	<VanillaGravshipExpanded.LaunchBoonDef>
+		<defName>VGE_RichDepositDetected</defName>
+		<label>rich deposit detected</label>
+		<letterLabel>rich deposit detected</letterLabel>
+		<letterText>While landing {GRAVSHIP}, automated sensors picked up strong readings of rare and valuable resources deep beneath the surface.</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<workerClass>VanillaGravshipExpanded.LaunchBoonWorker_RichDepositDetected</workerClass>
+		<weight>1</weight>
+	</VanillaGravshipExpanded.LaunchBoonDef>
+	<VanillaGravshipExpanded.LaunchBoonDef>
+		<defName>VGE_CaravanEncounter</defName>
+		<label>caravan encounter</label>
+		<letterLabel>caravan encounter</letterLabel>
+		<letterText>While landing {GRAVSHIP}, a nearby travelling caravan noticed the ship and approached out of curiosity. They're looking to trade.</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<workerClass>VanillaGravshipExpanded.LaunchBoonWorker_CaravanEncounter</workerClass>
+		<weight>1</weight>
+	</VanillaGravshipExpanded.LaunchBoonDef>
+	<VanillaGravshipExpanded.LaunchBoonDef>
+		<defName>VGE_PerfectTrajectory</defName>
+		<label>perfect trajectory</label>
+		<letterLabel>perfect trajectory</letterLabel>
+		<letterText>During the launch of {GRAVSHIP}, {PILOT} executed a flawless flight path calculation, ensuring the ship wasted no motion on its journey. The precise maneuvering drastically reduced fuel usage.</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<workerClass>VanillaGravshipExpanded.LaunchBoonWorker_PerfectTrajectory</workerClass>
+		<weight>1</weight>
+	</VanillaGravshipExpanded.LaunchBoonDef>
+	<VanillaGravshipExpanded.LaunchBoonDef>
+		<defName>VGE_AsteroidDiscovery</defName>
+		<label>asteroid discovery</label>
+		<letterLabel>asteroid discovery</letterLabel>
+		<letterText>While traveling, {GRAVSHIP}'s sensors picked up a drifting asteroid rich in valuable materials.</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<workerClass>VanillaGravshipExpanded.LaunchBoonWorker_AsteroidDiscovery</workerClass>
+		<weight>1</weight>
+	</VanillaGravshipExpanded.LaunchBoonDef>
+	<VanillaGravshipExpanded.LaunchBoonDef>
+		<defName>VGE_CrewEuphoria</defName>
+		<label>crew euphoria</label>
+		<letterLabel>crew euphoria</letterLabel>
+		<letterText>The launch of {GRAVSHIP} was so smooth that it left the crew in high spirits. Laughter and celebration echo through the ship's corridors.</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<workerClass>VanillaGravshipExpanded.LaunchBoonWorker_CrewEuphoria</workerClass>
+		<weight>1</weight>
+	</VanillaGravshipExpanded.LaunchBoonDef>
+	<VanillaGravshipExpanded.LaunchBoonDef>
+		<defName>VGE_GravframeHarmony</defName>
+		<label>gravframe harmony</label>
+		<letterLabel>gravframe harmony</letterLabel>
+		<letterText>{GRAVSHIP}’s structural frame experienced minimal stress during launch. The gravfield alignment was perfect, placing no extra strain on the ship’s components.</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<workerClass>VanillaGravshipExpanded.LaunchBoonWorker_GravframeHarmony</workerClass>
+		<weight>1</weight>
+		<negateMaintenance>true</negateMaintenance>
+	</VanillaGravshipExpanded.LaunchBoonDef>
+	<VanillaGravshipExpanded.LaunchBoonDef>
+		<defName>VGE_QuestOffered</defName>
+		<label>quest offered</label>
+		<letterLabel>quest offered</letterLabel>
+		<letterText>As {GRAVSHIP} executed its landing sequence, it was spotted by {LEADER}, a leader from the friendly {FACTION}. Impressed by the display of technology, they reached out and offered a quest.</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<workerClass>VanillaGravshipExpanded.LaunchBoonWorker_QuestOffered</workerClass>
+		<weight>1</weight>
+	</VanillaGravshipExpanded.LaunchBoonDef>
+</Defs>

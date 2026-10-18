@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="MoteBase">
+        <defName>VGE_GaussSmoke</defName>
+        <graphicData>
+            <texPath>Things/Gas/ThickSmoke</texPath>
+            <color>(1, 1, 1, 0.8)</color>
+        </graphicData>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <mote>
+            <fadeInTime>0.1</fadeInTime>
+            <solidTime>1</solidTime>
+            <fadeOutTime>1.25</fadeOutTime>
+            <growthRate>1</growthRate>
+        </mote>
+    </ThingDef>
+
+</Defs>

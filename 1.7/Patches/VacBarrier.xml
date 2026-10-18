@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <!-- Replace vanilla graphics with our own -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="VacBarrier"]/graphicData/texPath/text()</xpath>
+    <value>Things/Structures/VacBarriers/VacBarrier_Barrier</value>
+  </Operation>
+
+  <!-- Replace top/frame graphic -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="VacBarrier"]/building/doorTopGraphic/texPath/text()</xpath>
+    <value>Things/Structures/VacBarriers/VacBarrier_Top</value>
+  </Operation>
+
+  <!-- Replace bblueprint graphic -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="VacBarrier"]/building/blueprintGraphicData/texPath/text()</xpath>
+    <value>Things/Structures/VacBarriers/VacBarrier_MenuIcon</value>
+  </Operation>
+
+  <!-- Replace UI icon -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="VacBarrier"]/uiIconPath/text()</xpath>
+    <value>Things/Structures/VacBarriers/VacBarrier_MenuIcon_south</value>
+  </Operation>
+
+  <!-- Remove the vac door draw color. VGE vac doors match the vanilla ones in color, but the vanilla ones seen in-game are recolored. -->
+  <!-- Well, probably it's for the better to just set it to white instead of fully removing it in case some other XML patch relies on the color property. -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="VacBarrier"]/graphicData/color/text()</xpath>
+    <value>(255, 255, 255)</value>
+  </Operation>
+
+  <!-- Change the thing class of vac barriers to our recolorable vac barriers. -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="VacBarrier"]/thingClass/text()</xpath>
+    <value>VanillaGravshipExpanded.Building_VacBarrier_Recolorable</value>
+  </Operation>
+
+  <!-- Add a color generator to vanilla vac barrier so its barrier starts colored. -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="VacBarrier"]</xpath>
+    <value>
+      <colorGenerator Class="ColorGenerator_Single">
+        <color>(146,76,237)</color>
+      </colorGenerator>
+    </value>
+  </Operation>
+
+  <!-- Update draw sizes -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="VacBarrier"]/graphicData/drawSize/text()</xpath>
+    <value>(2,2)</value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="VacBarrier"]/building/doorTopGraphic/drawSize/text()</xpath>
+    <value>(2,2)</value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="VacBarrier"]/building/blueprintGraphicData/drawSize/text()</xpath>
+    <value>(2,2)</value>
+  </Operation>
+
+</Patch>

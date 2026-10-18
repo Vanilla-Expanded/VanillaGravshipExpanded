@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <VanillaGravshipExpanded.StartingGravshipDef>
+    <defName>VGE_StartingGravjumper_Default</defName>
+    <label>Default</label>
+    <description>The default starting gravjumper from Vanilla Gravships Expanded - Chapter 1.</description>
+    <prefab>StartingGravjumper_Default</prefab>
+    <imagePreview>UI/StartingGravjumpers/StartingGravjumper_Default</imagePreview>
+    <gravshipTags>
+      <li>Gravjumper</li>
+    </gravshipTags>
+  </VanillaGravshipExpanded.StartingGravshipDef>
+
+  <VanillaGravshipExpanded.StartingGravshipDef>
+    <defName>VGE_StartingGravjumper_OdysseyDLC</defName>
+    <label>Odysseus</label>
+    <description>The Odyssey DLC-inspired starting gravjumper.</description>
+    <prefab>StartingGravjumper_OdysseyDLC</prefab>
+    <imagePreview>UI/StartingGravjumpers/StartingGravjumper_Vanilla</imagePreview>
+    <gravshipTags>
+      <li>Gravjumper</li>
+    </gravshipTags>
+  </VanillaGravshipExpanded.StartingGravshipDef>
+
+  <VanillaGravshipExpanded.StartingGravshipDef>
+    <defName>VGE_StartingGravjumper_Runaway</defName>
+    <label>Runaway</label>
+    <description>A large but heavily damaged runaway gravjumper.</description>
+    <prefab>StartingGravjumper_Runaway</prefab>
+    <imagePreview>UI/StartingGravjumpers/StartingGravjumper_Runaway</imagePreview>
+    <gravshipTags>
+      <li>Gravjumper</li>
+    </gravshipTags>
+  </VanillaGravshipExpanded.StartingGravshipDef>
+
+  <VanillaGravshipExpanded.StartingGravshipDef>
+    <defName>VGE_StartingGravjumper_Fighter</defName>
+    <label>Fighter</label>
+    <description>A small combat gravjumper with defensive turrets.</description>
+    <prefab>StartingGravjumper_Fighter</prefab>
+    <imagePreview>UI/StartingGravjumpers/StartingGravjumper_Fighter</imagePreview>
+    <gravshipTags>
+      <li>Gravjumper</li>
+    </gravshipTags>
+  </VanillaGravshipExpanded.StartingGravshipDef>
+
+  <VanillaGravshipExpanded.StartingGravshipDef>
+    <defName>VGE_StartingGravjumper_Trader</defName>
+    <label>Trading vessel</label>
+    <description>A trade-capable gravjumper with large storage space.</description>
+    <prefab>StartingGravjumper_Trader</prefab>
+    <imagePreview>UI/StartingGravjumpers/StartingGravjumper_Trader</imagePreview>
+    <gravshipTags>
+      <li>Gravjumper</li>
+    </gravshipTags>
+  </VanillaGravshipExpanded.StartingGravshipDef>
+
+  <VanillaGravshipExpanded.StartingGravshipDef>
+    <defName>VGE_StartingGravjumper_TransportBarge</defName>
+    <label>Transport barge</label>
+    <description>A transport barge with a small pilot cabin.</description>
+    <prefab>StartingGravjumper_TransportBarge</prefab>
+    <imagePreview>UI/StartingGravjumpers/StartingGravjumper_TransportBarge</imagePreview>
+    <gravshipTags>
+      <li>Gravjumper</li>
+    </gravshipTags>
+  </VanillaGravshipExpanded.StartingGravshipDef>
+
+  <VanillaGravshipExpanded.StartingGravshipDef>
+    <defName>VGE_StartingGravjumper_PersonnelTransport</defName>
+    <label>Personnel transport</label>
+    <description>A long personnel transport with a sleeping cabin.</description>
+    <prefab>StartingGravjumper_PersonnelTransport</prefab>
+    <imagePreview>UI/StartingGravjumpers/StartingGravjumper_PersonnelTransport</imagePreview>
+    <gravshipTags>
+      <li>Gravjumper</li>
+    </gravshipTags>
+  </VanillaGravshipExpanded.StartingGravshipDef>
+
+</Defs>

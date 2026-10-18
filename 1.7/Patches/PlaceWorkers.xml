@@ -1,0 +1,75 @@
+<Patch>
+
+  <!-- Add oxygen place worker to Odyssey's life support unit. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="LifeSupportUnit"]/placeWorkers</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="LifeSupportUnit"]</xpath>
+      <value>
+        <placeWorkers>
+          <li>VanillaGravshipExpanded.PlaceWorker_OxygenPusher</li>
+        </placeWorkers>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="LifeSupportUnit"]/placeWorkers</xpath>
+      <value>
+        <li>VanillaGravshipExpanded.PlaceWorker_OxygenPusher</li>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Add or set drawPlaceWorkersWhileSelected to true for Odyssey's life suport unit. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="LifeSupportUnit"]/drawPlaceWorkersWhileSelected</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="LifeSupportUnit"]</xpath>
+      <value>
+        <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="LifeSupportUnit"]/drawPlaceWorkersWhileSelected</xpath>
+      <value>
+        <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Add oxygen place worker to Odyssey's archean tree. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="Plant_TreeArchean"]/placeWorkers</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="Plant_TreeArchean"]</xpath>
+      <value>
+        <placeWorkers>
+          <li>VanillaGravshipExpanded.PlaceWorker_OxygenPusher</li>
+        </placeWorkers>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="Plant_TreeArchean"]/placeWorkers</xpath>
+      <value>
+        <li>VanillaGravshipExpanded.PlaceWorker_OxygenPusher</li>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Add or set drawPlaceWorkersWhileSelected to true for Odyssey's archean tree. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="Plant_TreeArchean"]/drawPlaceWorkersWhileSelected</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="Plant_TreeArchean"]</xpath>
+      <value>
+        <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="Plant_TreeArchean"]/drawPlaceWorkersWhileSelected</xpath>
+      <value>
+        <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

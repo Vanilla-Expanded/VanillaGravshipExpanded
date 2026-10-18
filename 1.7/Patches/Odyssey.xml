@@ -1,0 +1,47 @@
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[defName="GravshipLandingMarker"]</xpath>
+        <value>
+            <seeThroughFog>true</seeThroughFog>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/TerrainDef[defName="Substructure"]</xpath>
+        <value>
+            <uiIconPath>UI/MenuIcons/Substructure_MenuIcon</uiIconPath>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/DesignationCategoryDef[defName="Odyssey"]/specialDesignatorClasses</xpath>
+        <value>
+            <li>VanillaGravshipExpanded.Designator_RemoveSubstructure</li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs</xpath>
+        <value>
+            <ScenPartDef>
+                <defName>VGE_ScenPart_SpawnMechDestroyers</defName>
+                <label>mech destroyers</label>
+                <scenPartClass>VanillaGravshipExpanded.ScenPart_SpawnMechDestroyers</scenPartClass>
+                <selectionWeight>1.0</selectionWeight>
+                <summaryPriority>300</summaryPriority>
+                <canBeRandomlyAdded>false</canBeRandomlyAdded>
+                <canBePlayerAddedRemoved>false</canBePlayerAddedRemoved>
+            </ScenPartDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ScenarioDef[defName="TheGravship"]/scenario/parts</xpath>
+        <value>
+            <li Class="VanillaGravshipExpanded.ScenPart_SpawnMechDestroyers">
+                <def>VGE_ScenPart_SpawnMechDestroyers</def>
+            </li>
+        </value>
+    </Operation>
+
+</Patch>

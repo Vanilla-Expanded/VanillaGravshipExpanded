@@ -1,0 +1,19 @@
+<Patch>
+
+  <!-- Main AI for replenishing oxygen packs -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThinkTreeDef[defName="MainColonistBehaviorCore"]/thinkRoot/subNodes/li/subNodes</xpath>
+    <value>
+      <li Class="VanillaGravshipExpanded.JobGiver_RefillOxygenPack"/>
+    </value>
+  </Operation>
+
+  <!-- Prisoner AI for replenishing oxygen packs -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThinkTreeDef[defName="Humanlike"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPrisoner"]/subNodes/li[tagToGive="SatisfyingNeeds"]/subNodes/li/subNodes</xpath>
+    <value>
+      <li Class="VanillaGravshipExpanded.JobGiver_RefillOxygenPack"/>
+    </value>
+  </Operation>
+
+</Patch>

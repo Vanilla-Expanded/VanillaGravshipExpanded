@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- For fast searching the map for minified grav engines -->
+  <ThingDef ParentName="MinifiedThing">
+    <defName>VGE_MinifiedGravjumperEngine</defName>
+  </ThingDef>
+
+  <ThingDef ParentName="MinifiedThing">
+    <defName>VGE_MinifiedGravhulkEngine</defName>
+  </ThingDef>
+
+  <ThingDef ParentName="GravshipComponentBase">
+    <defName>VGE_GravjumperEngine</defName>
+    <label>gravjumper engine</label>
+    <description>A compact gravtech engine designed for short-range jumps within a planet’s atmosphere. The gravjumper engine creates a brief, localized distortion in gravitational flow, allowing rapid vertical lift, but does not produce forward thrust. It can't function far from a large gravity well like a planet, so it is useless for interplanetary travel.\n\nWhen launched, anything on substructure that's connected to the grav engine will be transported to a new map.\n\nOften used by explorers, scouts, and smugglers, gravjumper engines are prized for their agility and minimal power requirements. They are simpler to produce than full gravship engines, but still rely on high-grade materials and advanced fabrication.</description>
+    <thingClass>Building_GravEngine</thingClass>
+    <drawerType>RealtimeOnly</drawerType>
+    <tickerType>Normal</tickerType>
+    <minifiedDef>VGE_MinifiedGravjumperEngine</minifiedDef>
+    <graphicData>
+      <graphicClass>VanillaGravshipExpanded.Graphic_GravEngineSingle</graphicClass>
+      <texPath>Things/Structures/GravEngines/GravJumperEngine/GravJumperEngine</texPath>
+      <drawSize>(2,2)</drawSize>
+      <addTopAltitudeBias>true</addTopAltitudeBias>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>400</MaxHitPoints>
+      <Mass>10</Mass>
+      <GravshipRange>0</GravshipRange>
+      <SubstructureSupport>100</SubstructureSupport>
+      <MarketValue>1800</MarketValue>
+      <VGE_MaintenanceSensitivity>3</VGE_MaintenanceSensitivity>
+      <VGE_GlobalMaintenanceSensitivity>0</VGE_GlobalMaintenanceSensitivity>
+      <WorkToBuild>18900</WorkToBuild>
+      <VGE_GravshipVisibilityFactor MayRequire="vanillaexpanded.gravship2">1</VGE_GravshipVisibilityFactor>
+      <VGE_GravshipLaunchVisibilityOffset MayRequire="vanillaexpanded.gravship2">0</VGE_GravshipLaunchVisibilityOffset>
+    </statBases>
+    <uiIconPath>Things/Structures/GravEngines/GravJumperEngine/GravJumperEngine_MenuIcon</uiIconPath>
+    <size>(1,1)</size>
+    <designationCategory>VGE_Platform</designationCategory>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>0.6</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <pathCost>20</pathCost>
+    <canOverlapZones>false</canOverlapZones>
+    <building>
+      <ai_neverTrashThis>true</ai_neverTrashThis>
+      <deconstructible>true</deconstructible>
+      <relatedBuildCommands>
+        <li>GravshipHull</li>
+      </relatedBuildCommands>
+      <relatedTerrain>
+        <li>Substructure</li>
+      </relatedTerrain>
+      <forcedCostLeavings>
+        <li>Gravcore</li>
+      </forcedCostLeavings>
+    </building>
+    <costList>
+      <Gravcore>1</Gravcore>
+      <GravlitePanel>50</GravlitePanel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+      <Steel>60</Steel>
+    </costList>
+    <comps>
+      <li Class="CompProperties_SubstructureFootprint">
+        <radius>7.9</radius>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>5</glowRadius>
+        <glowColor>(0,218,255,0)</glowColor>
+      </li>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>GravFieldExtender</li>
+          <li>VGE_PilotCockpit</li>
+          <li MayRequire="vanillaexpanded.gravship2">VGE_AuxiliaryAstrofuelTank</li>
+          <li>ChemfuelTank</li>
+          <li>LargeChemfuelTank</li>
+          <li>VGE_GiantAstrofuelTank</li>
+          <li>SmallThruster</li>
+          <li>LargeThruster</li>
+          <li>VGE_GiantThruster</li>
+          <li>FuelOptimizer</li>
+          <li>SignalJammer</li>
+          <li>PilotSubpersonaCore</li>
+          <li>GravshipShieldGenerator</li>
+          <li>VGE_OxygenReclaimer</li>
+          <li>VGE_SmallHeatsink</li>
+          <li>VGE_LargeHeatsink</li>
+          <li>VGE_GravheatAbsorber</li>
+          <li>VGE_GravFieldAmplifier</li>
+          <li>VGE_GunnerSubpersonaCore</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">VGE_OperatorSubpersonaCore</li>
+          <li>VGE_Gravlift</li>
+          <li>VGE_GravtechConsole</li>
+          <li>VGE_GravshipBlackBox</li>
+          <li>VGE_EngineeringConsole</li>
+          <li>VGE_MaintenanceHub</li>
+          <li>VGE_FlightComputer</li>
+          <li>VGE_GravshipStructuralBeam</li>
+          <li MayRequire="vanillaexpanded.gravship2">VGE_LargeGravshipShieldGenerator</li>
+          <li MayRequire="vanillaexpanded.gravship2">VGE_EmergencyGenerator</li>
+        </linkableFacilities>
+      </li>
+      <li>
+        <compClass>VanillaGravshipExpanded.CompAffectedByConstantGravshipFacilityBonus</compClass>
+      </li>
+      <li Class="CompProperties_AmbientSound">
+        <sound>GravshipEngine_Ambient</sound>
+      </li>
+      <li Class="VanillaGravshipExpanded.CompProperties_HeatManager" />
+      <li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable" />
+      <li Class="CompProperties_Breakdownable" />
+      <li Class="CompProperties_Power">
+        <compClass>VanillaGravshipExpanded.CompPowerPlantGravEngine</compClass>
+        <basePowerConsumption>-2400</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li>
+        <compClass>VanillaGravshipExpanded.CompMultipleGravEnginesHandler</compClass>
+      </li>
+      <li Class="VanillaGravshipExpanded.CompProperties_GravEngineHaze">
+        <hazeSettings>
+          <scale>1.5</scale>
+          <offset>(0, 0)</offset>
+        </hazeSettings>
+      </li>
+    </comps>
+    <placeWorkers>
+      <li>VanillaGravshipExpanded.PlaceWorker_OnlySingleGravEngine</li>
+    </placeWorkers>
+    <researchPrerequisites>
+      <li>BasicGravtech</li>
+    </researchPrerequisites>
+    <inspectorTabs>
+      <li>VanillaGravshipExpanded.ITab_GravshipFuel</li>
+    </inspectorTabs>
+    <notifyMapRemoved>true</notifyMapRemoved>
+    <uiOrder>2000</uiOrder>
+  </ThingDef>
+
+  <ThingDef ParentName="GravshipComponentBase">
+    <defName>VGE_GravhulkEngine</defName>
+    <label>gravhulk engine</label>
+    <description>The gravhulk is a colossal class of gravship, engineered to transport entire megacolonies, orbital platforms, or mobile city-cores across the skies of a planet. The grav engine generates lift by inverting and intensifying the effect of gravity in a field around itself. This engine can lift upwards, but does not produce forward thrust. It can't function far from a large gravity well like a planet, so it is useless for interplanetary travel.\n\nWhen launched, anything on substructure that's connected to the grav engine will be transported to a new map.\n\nGravhulks are the pride of glitterworld infrastructure fleets, often used to deploy prefabricated settlements, floating arcologies, or deep-strata excavation hubs. Their sheer scale demands enormous production facilities and crew specialization, making them one of the rarest and most powerful gravships ever built.</description>
+    <thingClass>Building_GravEngine</thingClass>
+    <drawerType>RealtimeOnly</drawerType>
+    <tickerType>Normal</tickerType>
+    <minifiedDef>VGE_MinifiedGravhulkEngine</minifiedDef>
+    <graphicData>
+      <graphicClass>VanillaGravshipExpanded.Graphic_GravEngineSingle</graphicClass>
+      <texPath>Things/Structures/GravEngines/GravHulkEngine/GravHulkEngine</texPath>
+      <drawSize>(5,5)</drawSize>
+      <addTopAltitudeBias>true</addTopAltitudeBias>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>3000</MaxHitPoints>
+      <Mass>100</Mass>
+      <GravshipRange>0</GravshipRange>
+      <SubstructureSupport>500</SubstructureSupport>
+      <MarketValue>12500</MarketValue>
+      <VGE_MaintenanceSensitivity>3</VGE_MaintenanceSensitivity>
+      <VGE_GlobalMaintenanceSensitivity>0</VGE_GlobalMaintenanceSensitivity>
+      <WorkToBuild>94000</WorkToBuild>
+      <VGE_GravshipVisibilityFactor MayRequire="vanillaexpanded.gravship2">1</VGE_GravshipVisibilityFactor>
+      <VGE_GravshipLaunchVisibilityOffset MayRequire="vanillaexpanded.gravship2">0</VGE_GravshipLaunchVisibilityOffset>
+    </statBases>
+    <uiIconPath>Things/Structures/GravEngines/GravHulkEngine/GravHulkEngine_MenuIcon</uiIconPath>
+    <size>(5,5)</size>
+    <designationCategory>VGE_Platform</designationCategory>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>0.6</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <pathCost>20</pathCost>
+    <canOverlapZones>false</canOverlapZones>
+    <building>
+      <ai_neverTrashThis>true</ai_neverTrashThis>
+      <deconstructible>true</deconstructible>
+      <relatedBuildCommands>
+        <li>GravshipHull</li>
+      </relatedBuildCommands>
+      <relatedTerrain>
+        <li>Substructure</li>
+      </relatedTerrain>
+      <forcedCostLeavings>
+        <li>Gravcore</li>
+      </forcedCostLeavings>
+    </building>
+    <costList>
+      <Gravcore>5</Gravcore>
+      <GravlitePanel>200</GravlitePanel>
+      <ComponentSpacer>16</ComponentSpacer>
+      <Plasteel>200</Plasteel>
+    </costList>
+    <comps>
+      <li Class="CompProperties_SubstructureFootprint">
+        <radius>23.9</radius>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>12</glowRadius>
+        <glowColor>(0,218,255,0)</glowColor>
+      </li>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>GravFieldExtender</li>
+          <li>VGE_PilotBridge</li>
+          <li MayRequire="vanillaexpanded.gravship2">VGE_AuxiliaryAstrofuelTank</li>
+          <li>ChemfuelTank</li>
+          <li>LargeChemfuelTank</li>
+          <li>VGE_GiantAstrofuelTank</li>
+          <li>SmallThruster</li>
+          <li>LargeThruster</li>
+          <li>VGE_GiantThruster</li>
+          <li>FuelOptimizer</li>
+          <li>SignalJammer</li>
+          <li>PilotSubpersonaCore</li>
+          <li>GravshipShieldGenerator</li>
+          <li>VGE_OxygenReclaimer</li>
+          <li>VGE_SmallHeatsink</li>
+          <li>VGE_LargeHeatsink</li>
+          <li>VGE_GravheatAbsorber</li>
+          <li>VGE_GravFieldAmplifier</li>
+          <li>VGE_GunnerSubpersonaCore</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">VGE_OperatorSubpersonaCore</li>
+          <li>VGE_Gravlift</li>
+          <li>VGE_GravtechConsole</li>
+          <li>VGE_GravshipBlackBox</li>
+          <li>VGE_CopilotConsole</li>
+          <li>VGE_EngineeringConsole</li>
+          <li>VGE_MaintenanceHub</li>
+          <li>VGE_FlightComputer</li>
+          <li>VGE_GravshipStructuralBeam</li>
+          <li MayRequire="vanillaexpanded.gravship2">VGE_LargeGravshipShieldGenerator</li>
+          <li MayRequire="vanillaexpanded.gravship2">VGE_EmergencyGenerator</li>
+        </linkableFacilities>
+      </li>
+      <li>
+        <compClass>VanillaGravshipExpanded.CompAffectedByConstantGravshipFacilityBonus</compClass>
+      </li>
+      <li Class="CompProperties_AmbientSound">
+        <sound>GravshipEngine_Ambient</sound>
+      </li>
+      <li Class="VanillaGravshipExpanded.CompProperties_HeatManager" />
+      <li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable" />
+      <li Class="CompProperties_Breakdownable" />
+      <li Class="CompProperties_Power">
+        <compClass>VanillaGravshipExpanded.CompPowerPlantGravEngine</compClass>
+        <basePowerConsumption>-7200</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li>
+        <compClass>VanillaGravshipExpanded.CompMultipleGravEnginesHandler</compClass>
+      </li>
+      <li Class="VanillaGravshipExpanded.CompProperties_GravEngineHaze">
+        <hazeSettings>
+          <scale>5</scale>
+          <offset>(0, 0.5)</offset>
+        </hazeSettings>
+      </li>
+    </comps>
+    <placeWorkers>
+      <li>VanillaGravshipExpanded.PlaceWorker_OnlySingleGravEngine</li>
+    </placeWorkers>
+    <researchPrerequisites>
+      <li>AdvancedGravtech</li>
+    </researchPrerequisites>
+    <inspectorTabs>
+      <li>VanillaGravshipExpanded.ITab_GravshipFuel</li>
+    </inspectorTabs>
+    <notifyMapRemoved>true</notifyMapRemoved>
+    <uiOrder>2002</uiOrder>
+  </ThingDef>
+
+</Defs>

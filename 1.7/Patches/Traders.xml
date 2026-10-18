@@ -1,0 +1,63 @@
+<Patch>
+
+  <!-- Make gravcore buyable from traders -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Gravcore"]/tradeability</xpath>
+    <value>
+      <tradeability>Buyable</tradeability>
+    </value>
+  </Operation>
+
+  <!-- Add gravcore to Traders Guild orbital traders (Combat Supplier and Exotic only) -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/TraderKindDef[defName="Orbital_CombatSupplier" or defName="Orbital_Exotic"]/stockGenerators</xpath>
+    <value>
+      <li Class="VanillaGravshipExpanded.StockGenerator_Gravcore" />
+    </value>
+  </Operation>
+
+  <!-- Add oxygen to every orbital trader stock. -->
+  <Operation Class="PatchOperationAdd">
+    <!-- Use translate() to change text to lowercase (only change relevant characters). -->
+    <xpath>Defs/TraderKindDef[translate(orbital, 'TRUE', 'true')="true"]/stockGenerators</xpath>
+    <value>
+      <!-- Oxygen canisters can only be purchased (item's tradeability) -->
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>VGE_OxygenCanister</thingDef>
+        <countRange>100~300</countRange>
+      </li>
+    </value>
+  </Operation>
+
+  <!-- Add chemfuel to orbital bulk goods trader and slave trader stock (the only ones that carry chemfuel). -->
+  <Operation Class="PatchOperationAdd">
+    <!-- Use translate() to change text to lowercase (only change relevant characters). -->
+    <xpath>Defs/TraderKindDef[defName="Orbital_BulkGoods"]/stockGenerators</xpath>
+    <value>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>VGE_Astrofuel</thingDef>
+        <countRange>100~300</countRange>
+      </li>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <!-- Use translate() to change text to lowercase (only change relevant characters). -->
+    <xpath>Defs/TraderKindDef[defName="Orbital_PirateMerchant"]/stockGenerators</xpath>
+    <value>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>VGE_Astrofuel</thingDef>
+        <countRange>25~100</countRange>
+      </li>
+    </value>
+  </Operation>
+
+  <!-- Make all traders buying/selling chemfuel also purchase astrofuel. -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/TraderKindDef/stockGenerators[li[(@Class="StockGenerator_SingleDef" or @Class="StockGenerator_BuySingleDef") and thingDef="Chemfuel"]]</xpath>
+    <value>
+      <li Class="StockGenerator_BuySingleDef"><thingDef>VGE_Astrofuel</thingDef></li>
+    </value>
+  </Operation>
+
+</Patch>

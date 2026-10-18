@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <RitualObligationTargetFilterDef Abstract="True" Name="VGE_GravshipLaunchTargetFilter">
+    <workerClass>VanillaGravshipExpanded.RitualObligationTargetWorker_GravshipLaunchSpecificConsole</workerClass>
+  </RitualObligationTargetFilterDef>
+
+  <RitualObligationTargetFilterDef ParentName="VGE_GravshipLaunchTargetFilter">
+    <defName>VGE_GravjumperLaunch</defName>
+    <thingDefs>
+      <li>VGE_PilotCockpit</li>
+    </thingDefs>
+  </RitualObligationTargetFilterDef>
+
+  <RitualObligationTargetFilterDef ParentName="VGE_GravshipLaunchTargetFilter">
+    <defName>VGE_GravhulkLaunch</defName>
+    <thingDefs>
+      <li>VGE_PilotBridge</li>
+    </thingDefs>
+  </RitualObligationTargetFilterDef>
+
+</Defs>

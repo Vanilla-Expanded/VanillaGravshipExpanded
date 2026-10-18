@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <EffecterDef>
+    <defName>VGE_OxygenHarvester</defName>
+    <maintainTicks>250</maintainTicks>
+    <children>
+      <li>
+        <subEffecterClass>VanillaGravshipExpanded.SubEffecter_SprayerContinuous_MoveTowardsSource</subEffecterClass>
+        <moteDef>VGE_OxygenMote</moteDef>
+        <ticksBetweenMotes>37</ticksBetweenMotes>
+        <speed>10~15</speed>
+        <scale>0.85~1.15</scale>
+        <spawnLocType>OnSource</spawnLocType>
+        <positionRadius>8.5</positionRadius>
+        <positionRadiusMin>3.5</positionRadiusMin>
+      </li>
+    </children>
+  </EffecterDef>
+
+  <EffecterDef>
+    <defName>VGE_HazeEffecter</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <fleckDef>VGE_HazeFleck</fleckDef>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+    </children>
+  </EffecterDef>
+</Defs>

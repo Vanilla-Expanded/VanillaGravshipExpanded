@@ -1,0 +1,15 @@
+<Patch>
+
+  <!-- Make compact multi-analyzer an equivalent building to a multi-analyzer -->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="MultiAnalyzer"]</xpath>
+		<value>
+      <li Class="VEF.Buildings.ResearchBuildingExtension">
+        <equivalentFacilities>
+          <li>VGE_CompactMultiAnalyzer</li>
+        </equivalentFacilities>
+      </li>
+		</value>
+	</Operation>
+
+</Patch>

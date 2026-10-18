@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Apparel_VacsuitHelmet"]/equippedStatOffsets/VacuumResistance</xpath>
+		<value>
+			<VacuumResistance>0.65</VacuumResistance>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[@Name="ApparelArmorHelmetReconBase"]/equippedStatOffsets/VacuumResistance</xpath>
+		<value>
+			<VacuumResistance>0.5</VacuumResistance>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[@Name="ApparelArmorHelmetPowerBase"]/equippedStatOffsets/VacuumResistance</xpath>
+		<value>
+			<VacuumResistance>0.55</VacuumResistance>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Royalty</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[@Name="ApparelArmorHelmetCataphractBase"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<VacuumResistance>0.62</VacuumResistance>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Biotech</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="Apparel_ArmorHelmetMechCommander"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<VacuumResistance>0.62</VacuumResistance>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="Apparel_ArmorHelmetMechlordHelmet"]/equippedStatOffsets</xpath>
+					<value>
+						<VacuumResistance>0.62</VacuumResistance>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Factions Expanded - Empire</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="VFEE_Apparel_TechfriarCrown"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<VacuumResistance>0.55</VacuumResistance>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="VFEE_Apparel_AbsolverHelmet"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<VacuumResistance>0.62</VacuumResistance>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="VFEE_Apparel_DeserterHelmet"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<VacuumResistance>0.62</VacuumResistance>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="VFEE_Apparel_JanissaryHelmet"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<VacuumResistance>0.5</VacuumResistance>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Armour Expanded</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="VAE_Headgear_TrooperHelmet"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<VacuumResistance>0.55</VacuumResistance>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="VAE_Headgear_HeavyMarineHelmet"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<VacuumResistance>0.62</VacuumResistance>
+					</value>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Royalty</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VAE_Headgear_RoyalTrooperHelmet"]/equippedStatOffsets/VacuumResistance</xpath>
+								<value>
+									<VacuumResistance>0.55</VacuumResistance>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VAE_Headgear_RoyalSiegeHelmet"]/equippedStatOffsets/VacuumResistance</xpath>
+								<value>
+									<VacuumResistance>0.62</VacuumResistance>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Factions Expanded - Pirates</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VFEPirates.WarcasketDef[defName="VFEP_WarcasketHelmet_Siegebreaker"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<VacuumResistance>0.65</VacuumResistance>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VFEPirates.WarcasketDef[defName="VFEP_Warcasket_Siegebreaker"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<VacuumResistance>0.22</VacuumResistance>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VFEPirates.WarcasketDef[defName="VFEP_WarcasketHelmet_Guardian"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<VacuumResistance>0.65</VacuumResistance>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VFEPirates.WarcasketDef[defName="VFEP_Warcasket_Guardian"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<VacuumResistance>0.22</VacuumResistance>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VFEPirates.WarcasketDef[defName="VFEP_WarcasketHelmet_Controller"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<VacuumResistance>0.65</VacuumResistance>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VFEPirates.WarcasketDef[defName="VFEP_Warcasket_Controller"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<VacuumResistance>0.22</VacuumResistance>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VFEPirates.WarcasketDef[defName="VFEP_WarcasketHelmet_Sarcophagus"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<VacuumResistance>0.65</VacuumResistance>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VFEPirates.WarcasketDef[defName="VFEP_Warcasket_Sarcophagus"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<VacuumResistance>0.22</VacuumResistance>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VFEPirates.WarcasketDef[defName="VFEP_WarcasketHelmet_Brute"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<VacuumResistance>0.65</VacuumResistance>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VFEPirates.WarcasketDef[defName="VFEP_Warcasket_Brute"]/equippedStatOffsets/VacuumResistance</xpath>
+					<value>
+						<VacuumResistance>0.22</VacuumResistance>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

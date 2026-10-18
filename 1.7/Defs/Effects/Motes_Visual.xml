@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="MoteBase">
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <defName>VGE_OxygenMote</defName>
+    <thingClass>VanillaGravshipExpanded.MoteThrownMoveTowardsSource</thingClass>
+    <mote>
+      <fadeInTime>0.1</fadeInTime>
+      <solidTime>60</solidTime>
+      <fadeOutTime>0.25</fadeOutTime>
+      <needsMaintenance>False</needsMaintenance>
+    </mote>
+    <graphicData>
+      <drawSize>0.5</drawSize>
+      <color>(170, 170, 170, 100)</color>
+      <texPath>Things/Mote/BrightFlash</texPath>
+    </graphicData>
+  </ThingDef>
+
+</Defs>

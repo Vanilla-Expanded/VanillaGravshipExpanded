@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <EffecterDef>
+    <defName>VGE_CompactBiosculpterPod_Operating</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_Sustainer</subEffecterClass>
+        <soundDef>BiosculpterPod_Operating</soundDef>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>
+        <soundDef>BiosculpterPod_Start</soundDef>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
+        <fleckDef>VGE_CompactBiosculpterScanner_Forward</fleckDef>
+        <spawnLocType>BetweenPositions</spawnLocType>
+        <positionLerpFactor>0.6</positionLerpFactor>
+        <rotation>0</rotation>
+        <ticksBetweenMotes>180</ticksBetweenMotes>
+        <speed>-0.52</speed>
+        <angle>0</angle>
+        <useTargetBInitialRotation>true</useTargetBInitialRotation>
+        <fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
+        <fleckDef>VGE_CompactBiosculpterScanner_Backward</fleckDef>
+        <spawnLocType>BetweenPositions</spawnLocType>
+        <positionLerpFactor>1.3</positionLerpFactor>
+        <rotation>0</rotation>
+        <ticksBetweenMotes>180</ticksBetweenMotes>
+        <initialDelayTicks>120</initialDelayTicks>
+        <speed>1</speed>
+        <angle>0</angle>
+        <useTargetBInitialRotation>true</useTargetBInitialRotation>
+        <fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+      </li>
+    </children>
+  </EffecterDef>
+
+  <EffecterDef>
+    <defName>VGE_CompactBiosculpterPod_Ready</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
+        <fleckDef>VGE_CompactBiosculpterScanner_Ready</fleckDef>
+        <spawnLocType>OnSource</spawnLocType>
+        <rotation>0</rotation>
+        <color>(0.5,0.5,0.5)</color>
+        <ticksBetweenMotes>180</ticksBetweenMotes>
+      </li>
+    </children>
+  </EffecterDef>
+
+</Defs>

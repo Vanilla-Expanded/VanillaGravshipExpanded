@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<LandingOutcomeDef>
+		<defName>VGE_OxygenLeak</defName>
+		<letterLabel>oxygen leak</letterLabel>
+		<letterText>While landing {GRAVSHIP}, a small breach opened in one of the oxygen tanks, venting the entirety of the tank's supply. Until the leak is repaired, the oxygen tank will not work.</letterText>
+		<letterDef>NegativeEvent</letterDef>
+		<workerClass>VanillaGravshipExpanded.LandingOutcomeWorker_OxygenLeak</workerClass>
+		<weight>1</weight>
+	</LandingOutcomeDef>
+	<LandingOutcomeDef>
+		<defName>VGE_VacBarrierFlicker</defName>
+		<letterLabel>vac barrier flicker</letterLabel>
+		<letterText>While landing {GRAVSHIP}, a power fluctuation caused one of the vac barriers to fail, depressurizing a small section of the ship. It will need to be repaired for it to work again.</letterText>
+		<letterDef>NegativeEvent</letterDef>
+		<workerClass>VanillaGravshipExpanded.LandingOutcomeWorker_VacBarrierFlicker</workerClass>
+		<weight>1</weight>
+	</LandingOutcomeDef>
+	<LandingOutcomeDef>
+		<defName>VGE_GravdataCorruption</defName>
+		<letterLabel>gravdata corruption</letterLabel>
+		<letterText>An unexpected electromagnetic spike during landing corrupted all of the gravdata collected on this trip.</letterText>
+		<letterDef>NegativeEvent</letterDef>
+		<workerClass>VanillaGravshipExpanded.LandingOutcomeWorker_GravdataCorruption</workerClass>
+		<weight>1</weight>
+	</LandingOutcomeDef>
+	<LandingOutcomeDef>
+		<defName>VGE_AstrofuelPipeRupture</defName>
+		<letterLabel>astrofuel pipe rupture</letterLabel>
+		<letterText>During {GRAVSHIP}'s landing, a damaged fuel line sprayed astrofuel into the room. A stray spark set it ablaze in a sudden astrofire.</letterText>
+		<letterDef>NegativeEvent</letterDef>
+		<workerClass>VanillaGravshipExpanded.LandingOutcomeWorker_AstrofuelPipeRupture</workerClass>
+		<weight>1</weight>
+	</LandingOutcomeDef>
+	<LandingOutcomeDef>
+		<defName>VGE_UnwantedAttention</defName>
+		<letterLabel>unwanted attention</letterLabel>
+		<letterText>As {GRAVSHIP} descended, its heat signature was spotted by nearby raiders. They've rallied and are moving in to attack before the dust settles.</letterText>
+		<letterDef>NegativeEvent</letterDef>
+		<workerClass>VanillaGravshipExpanded.LandingOutcomeWorker_UnwantedAttention</workerClass>
+		<weight>1</weight>
+	</LandingOutcomeDef>
+	<LandingOutcomeDef>
+		<defName>VGE_VerminInfestation</defName>
+		<letterLabel>vermin infestation</letterLabel>
+		<letterText>Shortly after {GRAVSHIP} touched down, swarms of manhunting rats poured out of ventilation shafts across the ship. No one knows how they got in.</letterText>
+		<letterDef>NegativeEvent</letterDef>
+		<workerClass>VanillaGravshipExpanded.LandingOutcomeWorker_VerminInfestation</workerClass>
+		<weight>1</weight>
+	</LandingOutcomeDef>
+	<LandingOutcomeDef>
+		<defName>VGE_CriticalHeatSpike</defName>
+		<letterLabel>critical heat spike</letterLabel>
+		<letterText>While bringing {GRAVSHIP} down, the grav engine's heat control system malfunctioned, causing structural heat to surge far beyond safe limits.</letterText>
+		<letterDef>NegativeEvent</letterDef>
+		<workerClass>VanillaGravshipExpanded.LandingOutcomeWorker_CriticalHeatSpike</workerClass>
+		<weight>1</weight>
+	</LandingOutcomeDef>
+	<LandingOutcomeDef>
+		<defName>VGE_GravTurbulence</defName>
+		<letterLabel>grav turbulence</letterLabel>
+		<letterText>An unexpected gravitic vibration during {GRAVSHIP}’s descent shook every component on board, loosening bolts and wearing joints.</letterText>
+		<letterDef>NegativeEvent</letterDef>
+		<workerClass>VanillaGravshipExpanded.LandingOutcomeWorker_GravTurbulence</workerClass>
+		<weight>1</weight>
+	</LandingOutcomeDef>
+</Defs>

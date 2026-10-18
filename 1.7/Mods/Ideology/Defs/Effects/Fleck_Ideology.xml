@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <FleckDef ParentName="FleckBase_Thrown">
+    <defName>VGE_CompactBiosculpterScanner_Forward</defName>
+    <altitudeLayer>Building</altitudeLayer>
+    <altitudeLayerIncOffset>-0.5</altitudeLayerIncOffset>
+    <fadeInTime>0.1</fadeInTime>
+    <solidTime>1.8</solidTime>
+    <fadeOutTime>0.4</fadeOutTime>
+    <graphicData>
+      <texPath>Things/Mote/BrightFlash</texPath>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+  </FleckDef>
+
+  <FleckDef ParentName="FleckBase_Thrown">
+    <defName>VGE_CompactBiosculpterScanner_Backward</defName>
+    <altitudeLayer>Building</altitudeLayer>
+    <altitudeLayerIncOffset>-1.5</altitudeLayerIncOffset>
+    <fadeInTime>0.1</fadeInTime>
+    <solidTime>0.4</solidTime>
+    <fadeOutTime>0.3</fadeOutTime>
+    <graphicData>
+      <texPath>Things/Mote/BrightFlash</texPath>
+      <drawSize>(0.75,1)</drawSize>
+    </graphicData>
+  </FleckDef>
+
+  <FleckDef ParentName="FleckBase">
+    <defName>VGE_CompactBiosculpterScanner_Ready</defName>
+    <altitudeLayer>Building</altitudeLayer>
+    <altitudeLayerIncOffset>-0.5</altitudeLayerIncOffset>
+    <fadeInTime>1.2</fadeInTime>
+    <solidTime>0</solidTime>
+    <fadeOutTime>0.8</fadeOutTime>
+    <graphicData>
+      <texPath>UI/Overlays/HighlightAtlas</texPath>
+      <drawSize>(1,2)</drawSize>
+    </graphicData>
+  </FleckDef>
+
+</Defs>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<!-- Add standard gravtech as a research prerequisite -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="PilotConsole"]/researchPrerequisites</xpath>
+		<value>
+			<li>StandardGravtech</li>
+		</value>
+	</Operation>
+	<!-- Remove basic gravtech as a research prerequisite -->
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="PilotConsole"]/researchPrerequisites/li[text()="BasicGravtech"]</xpath>
+	</Operation>
+	<!-- Replace vanilla graphics with our own -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="PilotConsole"]/graphicData/texPath/text()</xpath>
+		<value>Things/Structures/PilotConsoles/PilotConsole/PilotConsole</value>
+	</Operation>
+	<!-- Update draw size -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="PilotConsole"]/graphicData/drawSize/text()</xpath>
+		<value>(4,3)</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="PilotConsole"]/statBases</xpath>
+		<value>
+			<VGE_MaintenanceSensitivity>2</VGE_MaintenanceSensitivity>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="PilotConsole"]</xpath>
+		<value>
+			<tickerType>Normal</tickerType>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="PilotConsole"]/comps</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
+       
+			</li>
+      <li Class="VanillaGravshipExpanded.CompProperties_DisconnectedFacilityOverlay">
+        <overlayDef>VGE_NoLinkedGravhulk</overlayDef>
+      </li>
+		</value>
+	</Operation>
+
+  <!-- Add our ITab to the pilot console -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="PilotConsole"]/inspectorTabs</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="PilotConsole"]</xpath>
+      <value>
+        <inspectorTabs>
+          <li>VanillaGravshipExpanded.ITab_GravshipFuel</li>
+        </inspectorTabs>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="PilotConsole"]/inspectorTabs</xpath>
+      <value>
+        <li>VanillaGravshipExpanded.ITab_GravshipFuel</li>
+      </value>
+    </match>
+  </Operation>
+</Patch>

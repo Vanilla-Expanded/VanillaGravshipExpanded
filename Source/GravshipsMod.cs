@@ -2,10 +2,12 @@ using HarmonyLib;
 using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
+using LudeonTK;
 using UnityEngine;
 using Verse;
 
 namespace VanillaGravshipExpanded;
+
 
 public class GravshipsMod : Mod
 {
@@ -32,4 +34,18 @@ public class GravshipsMod : Mod
         settings.DoWindowContents(inRect);
     }
 
+    // [DebugOutput("Soky debug")]
+    // private static void NoCoverThings()
+    // {
+    //     var enumerable = DefDatabase<ThingDef>.AllDefs.Where(def => def.building != null && def.category == ThingCategory.Building && !def.IsFrame && def.fillPercent <= Mathf.Epsilon);
+    //     
+    //     var array = new TableDataGetter<ThingDef>[]
+    //     {
+    //         new("defName", def => def.defName),
+    //         new("label", def => def.label),
+    //         new("modContentPack", def => def.modContentPack?.Name ?? "(unknown)")
+    //     };
+    //
+    //     DebugTables.MakeTablesDialog(enumerable, array);
+    // }
 }

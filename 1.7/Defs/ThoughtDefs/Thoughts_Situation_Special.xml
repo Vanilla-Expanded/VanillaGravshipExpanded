@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+
+  <ThoughtDef>
+    <defName>VGE_Comet_Thought</defName>
+    <workerClass>ThoughtWorker_Aurora</workerClass>
+    <gameCondition>VGE_Comet</gameCondition>
+    <stages>
+      <li>
+        <label>beautiful comet</label>
+        <description>The view is amazing.</description>
+        <baseMoodEffect>14</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>VGE_ToxicHaze</defName>
+    <workerClass>VanillaGravshipExpanded.ThoughtWorker_ToxicHaze</workerClass>
+    <stages>
+      <li>
+        <label>toxic haze</label>
+        <description>This toxic dust is unnerving and physically irritating. I want to get inside.</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

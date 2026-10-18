@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>VGE_GravshipScannerCluster</defName>
+    <label>gravship scanner cluster</label>
+    <description>An advanced multi-frequency sensor cluster used by researchers to detect resources underground, across the planet, or in orbit. The scanner can be tuned to target specific minerals underground, or over long range, or set to scan for orbital objects. Detection rates depend on the operator's research ability. Buried resources will require deep drills to extract, while distant mineral deposits and orbital objects must be visited to be collected. Building multiple units does not increase the frequency of orbital detections. It draws power directly from the grav engine.</description>
+    <graphicData>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <texPath>Things/Structures/GravshipFurniture/GravshipScannerCluster/GravshipScannerCluster</texPath>
+      <drawSize>(4,4)</drawSize>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>400</MaxHitPoints>
+      <WorkToBuild>30000</WorkToBuild>
+      <Flammability>0.5</Flammability>
+      <Beauty>-8</Beauty>
+    </statBases>
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(0,0,2)</interactionCellOffset>
+    <interactionCellIcon>DiningChair</interactionCellIcon>
+    <interactionCellIconReverse>true</interactionCellIconReverse>
+    <size>(3,3)</size>
+    <fillPercent>0.4</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <canOverlapZones>false</canOverlapZones>
+    <designationCategory>Odyssey</designationCategory>
+    <constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <researchPrerequisites>
+      <li>AdvancedGravtech</li>
+    </researchPrerequisites>
+    <tickerType>Normal</tickerType>
+    <costList>
+      <GravlitePanel>30</GravlitePanel>
+      <ComponentIndustrial>10</ComponentIndustrial>
+      <ComponentSpacer>6</ComponentSpacer>
+      <Steel>300</Steel>
+    </costList>
+    <rotatable>true</rotatable>
+    <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+    </building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>500</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="VanillaGravshipExpanded.CompProperties_ScannerCluster">
+        <defaultModuleKey>OrbitalScanner</defaultModuleKey>
+        <!-- Passive modules not yet 100% implemented, currently no way to switch between them. -->
+        <defaultPassiveModuleKey>OrbitalScanner</defaultPassiveModuleKey>
+        <scanSpeedStat>ResearchSpeed</scanSpeedStat>
+        <scanFindMtbDays>3</scanFindMtbDays>
+        <scanFindGuaranteedDays>6</scanFindGuaranteedDays>
+        <soundWorking>ScannerGroundPenetrating_Ambience</soundWorking>
+      </li>
+      <li Class="VanillaGravshipExpanded.CompProperties_ScannerCluster_DeepScannerModule">
+        <clusterModuleKey>DeepScanner</clusterModuleKey>
+<!--        <soundWorking>ScannerGroundPenetrating_Ambience</soundWorking>-->
+        <allowForResourceSelection>true</allowForResourceSelection>
+        <randomResourceGizmoIconPath>UI/Commands/ViewQuest</randomResourceGizmoIconPath>
+        <scanningResearchPrerequisites>
+          <li>GroundPenetratingScanner</li>
+        </scanningResearchPrerequisites>
+      </li>
+      <li Class="VanillaGravshipExpanded.CompProperties_ScannerCluster_ModuleBase">
+        <compClass>VanillaGravshipExpanded.CompScannerCluster_LongRangeMineralScannerModule</compClass>
+        <clusterModuleKey>LongRangeMineralScanner</clusterModuleKey>
+        <scanFindMtbDaysOverride>4</scanFindMtbDaysOverride>
+        <scanFindGuaranteedDaysOverride>8</scanFindGuaranteedDaysOverride>
+<!--        <soundWorking>ScannerLongRangeMineral_Ambience</soundWorking>-->
+        <scanningResearchPrerequisites>
+          <li>LongRangeMineralScanner</li>
+        </scanningResearchPrerequisites>
+      </li>
+      <li Class="VanillaGravshipExpanded.CompProperties_ScannerCluster_ModuleBase">
+        <compClass>VanillaGravshipExpanded.CompScannerCluster_OrbitalScannerModule</compClass>
+        <clusterModuleKey>OrbitalScanner</clusterModuleKey>
+        <noActiveScanningMessage>Orbital scanner only supports passive scanning</noActiveScanningMessage>
+      </li>
+    </comps>
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <placeWorkers>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+      <li>PlaceWorker_ShowDeepResources</li>
+    </placeWorkers>
+    <uiOrder>2505</uiOrder>
+  </ThingDef>
+
+</Defs>

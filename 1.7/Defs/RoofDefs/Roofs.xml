@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <RoofDef>
+    <defName>VGE_VacBarrierRoof</defName>
+    <label>vac barrier roof</label>
+    <isNatural>false</isNatural>
+    <isThickRoof>false</isThickRoof>
+    <canCollapse>true</canCollapse>
+    <modExtensions>
+      <li Class="VEF.Maps.RoofExtension">
+        <dealDamageOnCollapsed>false</dealDamageOnCollapsed>
+        <drawRoofShadow>false</drawRoofShadow>
+        <roofOverlayColor>(0.3, 0, 0.4)</roofOverlayColor>
+        <customRoofGraphic Class="VanillaGravshipExpanded.ColorableVacBarrierRoofGraphic">
+          <!-- Draw data -->
+          <offset>(0, 0, 0.5)</offset>
+          <!-- Material data -->
+          <customRoofGraphicPath>Things/Structures/RoofVacBarrier</customRoofGraphicPath>
+          <customRoofGraphicShader>TransparentPostLight</customRoofGraphicShader>
+          <!-- Normally used as the singular color for material, here we use it as a base/default color. -->
+          <customRoofGraphicColor>(146,76,237)</customRoofGraphicColor>
+        </customRoofGraphic>
+      </li>
+    </modExtensions>
+  </RoofDef>
+
+</Defs>

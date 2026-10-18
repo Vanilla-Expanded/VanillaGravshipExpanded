@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<StatDef>
+		<defName>VGE_AccuracyGlobal</defName>
+		<label>global accuracy</label>
+		<description>Accuracy when firing at targets on the world map. Multiplied by the operator's gravship targeting skill.</description>
+		<category>Weapon_Ranged</category>
+		<defaultBaseValue>1</defaultBaseValue>
+		<minValue>0.01</minValue>
+		<maxValue>1</maxValue>
+		<toStringStyle>PercentZero</toStringStyle>
+		<showIfUndefined>false</showIfUndefined>
+		<displayPriorityInCategory>5105</displayPriorityInCategory>
+	</StatDef>
+	<StatDef>
+		<defName>VGE_SubstructureSupportMultiplier</defName>
+		<label>substructure support multiplier</label>
+		<description>A multiplier to the maximum substructure supported by the gravship.</description>
+		<category>Building</category>
+		<defaultBaseValue>1</defaultBaseValue>
+		<minValue>0.01</minValue>
+		<toStringStyle>PercentZero</toStringStyle>
+		<hideAtValue>1</hideAtValue>
+	</StatDef>
+	<StatDef>
+		<defName>VGE_MaintenanceSensitivity</defName>
+		<label>maintenance sensitivity</label>
+		<description>A factor of the difficulty to maintain this structure, as well as the speed at which its maintenance will deplete.</description>
+		<category>Building</category>
+		<defaultBaseValue>1</defaultBaseValue>
+		<minValue>0</minValue>
+		<toStringStyle>PercentZero</toStringStyle>
+		<showIfUndefined>false</showIfUndefined>
+		<displayPriorityInCategory>3101</displayPriorityInCategory>
+		<parts>
+			<li Class="VanillaGravshipExpanded.StatPart_ToxicDustCloud"/>
+			<li Class="VanillaGravshipExpanded.StatPart_LinkedGlobalMaintenanceSensitivity"/>
+		</parts>
+	</StatDef>
+  <StatDef>
+    <defName>VGE_MaintenanceDifficulty</defName>
+    <label>maintenance difficulty</label>
+    <description>A offset to the difficulty to maintain this structure. It has no effect on maintenance depletion rate.</description>
+    <category>Building</category>
+    <defaultBaseValue>0</defaultBaseValue>
+    <toStringStyle>PercentZero</toStringStyle>
+    <showIfUndefined>false</showIfUndefined>
+    <displayPriorityInCategory>3101</displayPriorityInCategory>
+  </StatDef>
+	<StatDef>
+		<defName>VGE_GravPowerAdjacency</defName>
+		<label>grav power adjacency</label>
+		<description>A factor on the power produced, influenced by the amount of other gravcore power cells or coils around.</description>
+		<category>Building</category>
+		<defaultBaseValue>1</defaultBaseValue>
+		<minValue>0</minValue>
+		<maxValue>2.2</maxValue>
+		<toStringStyle>PercentZero</toStringStyle>
+		<showIfUndefined>false</showIfUndefined>
+		<displayPriorityInCategory>3101</displayPriorityInCategory>
+	</StatDef>
+	<StatDef>
+		<defName>VGE_GlobalMaintenanceSensitivity</defName>
+		<label>global maintenance sensitivity</label>
+		<description>An offset to the maintenance sensitivity of the grav engine and all its linked facilities.</description>
+		<category>Building</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<toStringStyle>PercentZero</toStringStyle>
+		<showIfUndefined>false</showIfUndefined>
+		<displayPriorityInCategory>3101</displayPriorityInCategory>
+	</StatDef>
+</Defs>

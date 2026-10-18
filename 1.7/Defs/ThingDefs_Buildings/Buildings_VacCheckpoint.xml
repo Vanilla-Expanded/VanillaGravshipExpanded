@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="DoorBase">
+    <defName>VGE_VacCheckpoint</defName>
+    <label>vac checkpoint</label>
+    <description>A safety checkpoint indicating the entrance to vacuum environment. Colonists will not cross it without required vacuum resistance.</description>
+    <!-- Class for always open doors that don't rotate to walls and have no moving parts. -->
+    <thingClass>VanillaGravshipExpanded.Building_VacCheckpoint</thingClass>
+    <graphicData>
+      <texPath>Things/Structures/VacCheckpoint/VacCheckpoint</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>Things/Structures/VacCheckpoint/VacCheckpoint</uiIconPath>
+    <altitudeLayer>FloorEmplacement</altitudeLayer>
+    <statBases>
+      <WorkToBuild>0</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+    <rotatable>false</rotatable>
+    <useHitPoints>False</useHitPoints>
+    <scatterableOnMapGen>false</scatterableOnMapGen>
+    <blockWind>false</blockWind>
+    <holdsRoof>false</holdsRoof>
+    <staticSunShadowHeight>0.0</staticSunShadowHeight>
+    <blockLight>false</blockLight>
+    <fillPercent>0</fillPercent>
+    <size>(1,1)</size>
+    <stuffCategories Inherit="False"/>
+    <useStuffTerrainAffordance>false</useStuffTerrainAffordance>
+    <terrainAffordanceNeeded IsNull="True" />
+    <designationCategory>VGE_Vacuum</designationCategory>
+    <uiOrder>2000</uiOrder>
+    <passability>Standable</passability>
+    <building>
+      <isAirtight>false</isAirtight>
+      <!-- Just in case -->
+      <alwaysExchangeVacuum>true</alwaysExchangeVacuum>
+      <!-- Same as inactive vac barrier -->
+      <doorTempEqualizeRate>14</doorTempEqualizeRate>
+      <sowTag>SupportPlantsOnly</sowTag>
+      <canPlaceOverImpassablePlant>false</canPlaceOverImpassablePlant>
+      <ai_chillDestination>false</ai_chillDestination>
+      <wakeDormantPawnsOnConstruction>false</wakeDormantPawnsOnConstruction>
+      <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+      <canPlaceOverWall>false</canPlaceOverWall>
+    </building>
+    <comps>
+      <!-- The comp handles actual blocking part, gizmo, etc. -->
+      <!-- Originally handled by the building, had to be changes somewhat to allow for different door types to be supported. -->
+      <!-- Now, this can be applied to any doors. -->
+      <li Class="VanillaGravshipExpanded.CompProperties_VacCheckpoint">
+        <!-- Starting values after placing -->
+        <requiredResistanceByDefault>0.7</requiredResistanceByDefault>
+        <allowDraftedByDefault>true</allowDraftedByDefault>
+        <!-- Generally, vac checkpoints only apply to same faction pawns. -->
+        <!-- If true, this will always apply to player pawns (could be useful in dungeons and stuff like that). -->
+        <alwaysApplyToPlayer>false</alwaysApplyToPlayer>
+        <!-- To prevent abuse, vac checkpoints don't apply to pawns in a mental state. -->
+        <!-- For example, this prevents placing vac checkpoints around a berserk pawn to stop them from being a threat. -->
+        <applyToPawnsWithMentalState>false</applyToPawnsWithMentalState>
+        <!-- Determines if the gizmo only shows up in space (or other biomes with vacuum) or if the building is on top of substructure (so may end up in space at some point) -->
+        <onlyShowGizmoWhenRelevant>false</onlyShowGizmoWhenRelevant>
+      </li>
+    </comps>
+    <replaceTags IsNull="True" />
+    <placeWorkers IsNull="True" />
+  </ThingDef>
+
+</Defs>

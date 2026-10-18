@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <!-- Small thruster -->
+
+  <!-- Change description -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="SmallThruster"]/description/text()</xpath>
+    <value>An astrofuel thruster that increases the range and maximum size of the gravship. Thrusters require an unobstructed area free of large buildings and gravship substructure.\n\nA gravship can support up to ten small thrusters.</value>
+  </Operation>
+
+  <!-- Decrease the thruster range to 6 -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="SmallThruster"]/comps/li[@Class="CompProperties_GravshipThruster"]/statOffsets/GravshipRange/text()</xpath>
+    <value>6</value>
+  </Operation>
+
+  <!-- Add comps -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="SmallThruster"]/comps</xpath>
+    <value>
+      <li Class="VanillaGravshipExpanded.CompProperties_ResourceThruster">
+        <pipeNet>VGE_AstrofuelNet</pipeNet>
+        <outOfFuelOverlay>VGE_NoAstrofuel</outOfFuelOverlay>
+      </li>
+      <li Class="VanillaGravshipExpanded.CompProperties_ConstantGravshipFacilityBonus">
+        <statOffsets>
+          <VGE_SubstructureSupportMultiplier>0.01</VGE_SubstructureSupportMultiplier>
+        </statOffsets>
+      </li>
+      <li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
+        <fleckEmissionRate>1</fleckEmissionRate>
+      </li>
+    </value>
+  </Operation>
+
+  <!-- Increase max thruster count to 10 -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="SmallThruster"]/comps/li[@Class="CompProperties_GravshipThruster"]/maxSimultaneous/text()</xpath>
+    <value>10</value>
+  </Operation>
+
+  <!-- Replace vanilla graphics with our own -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="SmallThruster"]/graphicData/texPath/text()</xpath>
+    <value>Things/Structures/Thrusters/SmallAstrofuelThruster</value>
+  </Operation>
+
+  <!-- Update draw size to fit the new graphic -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="SmallThruster"]/graphicData/drawSize/text()</xpath>
+    <value>(2, 3)</value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="SmallThruster"]/statBases</xpath>
+    <value>
+      <VGE_MaintenanceSensitivity>2</VGE_MaintenanceSensitivity>
+    </value>
+  </Operation>
+
+  <!-- Large thruster -->
+
+  <!-- Change description -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="LargeThruster"]/description/text()</xpath>
+    <value>An advanced astrofuel thruster with a heat-resistant vacstone liner. It greatly increases the range and maximum size of the gravship. Thrusters require an unobstructed area free of large buildings and gravship substructure.\n\nRequires vacstone blocks, which can be obtained from orbital asteroids.\n\nA gravship can support up to six large thrusters.</value>
+  </Operation>
+
+  <!-- Decrease the thruster range to 10 -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="LargeThruster"]/comps/li[@Class="CompProperties_GravshipThruster"]/statOffsets/GravshipRange/text()</xpath>
+    <value>10</value>
+  </Operation>
+
+  <!-- Add substructure support multiplier stat -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="LargeThruster"]/comps</xpath>
+    <value>
+      <li Class="VanillaGravshipExpanded.CompProperties_ResourceThruster">
+        <pipeNet>VGE_AstrofuelNet</pipeNet>
+        <outOfFuelOverlay>VGE_NoAstrofuel</outOfFuelOverlay>
+      </li>
+      <li Class="VanillaGravshipExpanded.CompProperties_ConstantGravshipFacilityBonus">
+        <statOffsets>
+          <VGE_SubstructureSupportMultiplier>0.05</VGE_SubstructureSupportMultiplier>
+        </statOffsets>
+      </li>
+      <li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
+        <fleckEmissionRate>1</fleckEmissionRate>
+      </li>
+    </value>
+  </Operation>
+
+  <!-- Replace vanilla graphics with our own -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="LargeThruster"]/graphicData/texPath/text()</xpath>
+    <value>Things/Structures/Thrusters/LateralThruster</value>
+  </Operation>
+
+  <!-- Update draw size to fit the new graphic -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="LargeThruster"]/graphicData/drawSize/text()</xpath>
+    <value>(3, 4)</value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="LargeThruster"]/statBases</xpath>
+    <value>
+      <VGE_MaintenanceSensitivity>2</VGE_MaintenanceSensitivity>
+    </value>
+  </Operation>
+
+</Patch>

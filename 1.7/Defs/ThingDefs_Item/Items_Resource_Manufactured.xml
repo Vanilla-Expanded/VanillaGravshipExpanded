@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>VGE_OxygenCanister</defName>
+    <label>oxygen canister</label>
+    <description>A life-sustaining gas. Used to pressurize rooms, supply breathable air, or fuel specialized equipment and survival gear. Volatile when damaged.</description>
+    <tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Things/Items/Resource/OxygenCanister</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.85</drawSize>
+    </graphicData>
+    <stackLimit>150</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <tradeability>Buyable</tradeability>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <MarketValue>0.4</MarketValue>
+      <Mass>0.05</Mass>
+      <Flammability>2</Flammability>
+      <DeteriorationRate>2.0</DeteriorationRate>
+    </statBases>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>1.9</explosiveRadius>
+        <explosiveDamageType>Thump</explosiveDamageType>
+        <explosiveExpandPerStackcount>0.02</explosiveExpandPerStackcount>
+        <startWickOnDamageTaken>
+          <li>Flame</li>
+        </startWickOnDamageTaken>
+        <startWickHitPointsPercent>0</startWickHitPointsPercent>
+        <wickTicks>70~150</wickTicks>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>VGE_Astrofuel</defName>
+    <label>astrofuel</label>
+    <description>A high-energy synthetic fuel. Used to power gravship thrusters and boosters, or to generate electricity in specialized systems. Extremely combustible, it burns violently even in low-oxygen environments.</description>
+    <possessionCount>20</possessionCount>
+    <tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Things/Items/Resource/Astrofuel</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.85</drawSize>
+    </graphicData>
+    <stackLimit>75</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <intricate>true</intricate> <!-- Not returned to player when product made of this is smelted. -->
+    <statBases>
+      <MaxHitPoints>75</MaxHitPoints>
+      <MarketValue>6</MarketValue>
+      <Mass>0.1</Mass>
+      <Flammability>2.0</Flammability>
+      <DeteriorationRate>2.0</DeteriorationRate>
+    </statBases>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>1.1</explosiveRadius>
+        <explosiveDamageType>VGE_AstrofireDamage</explosiveDamageType>
+        <explosiveExpandPerStackcount>0.037</explosiveExpandPerStackcount>
+        <startWickOnDamageTaken>
+          <li>Flame</li>
+		  <li>VGE_AstrofireDamage</li>
+        </startWickOnDamageTaken>
+        <startWickHitPointsPercent>0.333</startWickHitPointsPercent>
+        <preExplosionSpawnThingDef>VGE_Filth_Astrofuel</preExplosionSpawnThingDef>
+        <preExplosionSpawnChance>1</preExplosionSpawnChance>
+        <wickTicks>70~150</wickTicks>
+      </li>
+    </comps>
+    <allowedArchonexusCount>100</allowedArchonexusCount>
+  </ThingDef>
+
+</Defs>

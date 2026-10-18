@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <GravshipComponentTypeDef>
+    <defName>VGE_OxygenGenerator</defName>
+    <label>oxygen generator</label>
+    <requiredForLaunch>false</requiredForLaunch>
+  </GravshipComponentTypeDef>
+
+  <GravshipComponentTypeDef>
+    <defName>VGE_Heatsink</defName>
+    <label>heatsink</label>
+    <requiredForLaunch>false</requiredForLaunch>
+  </GravshipComponentTypeDef>
+
+</Defs>

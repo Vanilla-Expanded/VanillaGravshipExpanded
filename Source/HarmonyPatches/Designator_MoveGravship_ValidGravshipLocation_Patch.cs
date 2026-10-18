@@ -10,6 +10,7 @@ namespace VanillaGravshipExpanded
     {
         public static void Postfix(List<IntVec3> validCells, List<IntVec3> invalidCells, ref AcceptanceReport __result)
         {
+            // Consider turning into a transpiler, this shit's slow
             if (!__result.Accepted && __result.Reason == "GravshipMustBeConnectedToLand".Translate())
             {
                 if (validCells != null && invalidCells != null)

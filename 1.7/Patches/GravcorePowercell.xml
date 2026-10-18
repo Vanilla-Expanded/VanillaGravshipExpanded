@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="GravcorePowerCell"]/description</xpath>
+		<value>
+			<description>A power generator that passively draws a small amount of energy from gravitational waves passing through the gravship. Adjacent gravcore power cells will multiply their power output by 15% for each gravcore power cell.</description>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="GravcorePowerCell"]/researchPrerequisites</xpath>
+		<value>
+			<researchPrerequisites>
+				<li>VGE_GravshipPower</li>
+			</researchPrerequisites>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="GravcorePowerCell"]/designationCategory</xpath>
+		<value>
+			<designationCategory>Odyssey</designationCategory>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="GravcorePowerCell"]/statBases</xpath>
+		<value>
+			<VGE_GravPowerAdjacency>1</VGE_GravPowerAdjacency>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="GravcorePowerCell"]/statBases</xpath>
+		<value>
+			<VGE_MaintenanceSensitivity>2</VGE_MaintenanceSensitivity>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="GravcorePowerCell"]/comps</xpath>
+		<value>
+			<li Class="CompProperties_Facility">
+				<statOffsets>
+					<VGE_GravPowerAdjacency>0.15</VGE_GravPowerAdjacency>
+				</statOffsets>
+				<maxSimultaneous>8</maxSimultaneous>
+			</li>
+			<li Class="CompProperties_AffectedByFacilities">
+				<linkableFacilities>
+					<li>GravcorePowerCell</li>
+				</linkableFacilities>
+			</li>
+			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
+       
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="GravcorePowerCell"]/comps/li[@Class="CompProperties_Power"]</xpath>
+		<value>
+			<li Class="CompProperties_Power">
+				<compClass>VanillaGravshipExpanded.CompPowerPlantGravcoreAdjacency</compClass>
+				<basePowerConsumption>-1000</basePowerConsumption>
+				<transmitsPower>true</transmitsPower>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="GravcorePowerCell"]/graphicData/texPath</xpath>
+		<value>
+			<texPath>Things/Structures/Power/GravcorePowerCell</texPath>
+		</value>
+	</Operation>
+</Patch>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="MineralRich"]/resourceBlacklist</xpath>
+		<value>
+			<li>VGE_Compressed_Vacstone</li>
+			<li>VGE_Compressed_Steel</li>
+			<li>VGE_Compressed_Silver</li>
+			<li>VGE_Compressed_Gold</li>
+			<li>VGE_Compressed_Uranium</li>
+			<li>VGE_Compressed_Plasteel</li>
+			<li>VGE_Compressed_Jade</li>
+		</value>
+	</Operation>
+	
+</Patch>

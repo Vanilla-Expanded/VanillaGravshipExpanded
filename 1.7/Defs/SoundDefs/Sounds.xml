@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <SoundDef>
+        <defName>VGE_GravshipHowitzer</defName>
+        <context>MapOnly</context>
+        <eventNames />
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Folder">
+                        <clipPath>GravshipHowitzer_Shot</clipPath>
+                    </li>
+                </grains>
+                <volumeRange>67.05882~72.94118</volumeRange>
+                <pitchRange>0.8516304~1.254348</pitchRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>VGE_GravshipTarget_Acquired</defName>
+        <context>MapOnly</context>
+        <eventNames />
+        <maxSimultaneous>1</maxSimultaneous>
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>GravshipTarget_Acquired_01</clipPath>
+                    </li>
+                </grains>
+                <volumeRange>15</volumeRange>
+                <pitchRange>0.9~1.1</pitchRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>VGE_JavelinLauncher_Cast</defName>
+        <context>MapOnly</context>
+        <eventNames />
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Folder">
+                        <clipPath>JavelinLauncher_Cast</clipPath>
+                    </li>
+                </grains>
+                <volumeRange>45~55</volumeRange>
+                <pitchRange>0.95~1.05</pitchRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>VGE_MicrometeorStorm</defName>
+        <sustain>True</sustain>
+        <context>MapOnly</context>
+        <priorityMode>PrioritizeNearest</priorityMode>
+        <subSounds>
+            <li>
+                <onCamera>True</onCamera>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>MicrometeorStorm_Sustainer</clipPath>
+                    </li>
+                </grains>
+                <volumeRange>15~15</volumeRange>
+                <muteWhenPaused>true</muteWhenPaused>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+</Defs>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <VEF.DefMigrationDef>
+    <defName>VGE_Migrations</defName>
+    <migratedDefs>
+      <JobDef>
+        <VGE_BeatAstrofire>
+          <replacement>VEF_BeatCustomFire</replacement>
+        </VGE_BeatAstrofire>
+        <VGE_ExtinguishAstrofiresNearby>
+          <replacement>VEF_ExtinguishCustomFiresNearby</replacement>
+        </VGE_ExtinguishAstrofiresNearby>
+        <VGE_ExtinguishSelfAstrofire>
+          <replacement>VEF_ExtinguishCustomFireSelf</replacement>
+        </VGE_ExtinguishSelfAstrofire>
+      </JobDef>
+      <WorkGiverDef>
+        <VGE_FightAstrofire>
+          <replacement>VEF_FightCustomFire</replacement>
+        </VGE_FightAstrofire>
+      </WorkGiverDef>
+    </migratedDefs>
+    <migratedTypes>
+      <VanillaGravshipExpanded.Astrofire>
+        <VEF.Things.CustomFire>
+          <!-- Optional base type, in case you want to make sure to match the base type matches correctly. -->
+          <!-- If not specified, it'll match any type with the target type. -->
+          <baseType>Thing</baseType>
+        </VEF.Things.CustomFire>
+      </VanillaGravshipExpanded.Astrofire>
+      <VanillaGravshipExpanded.JobDriver_BeatAstrofire>
+        <VEF.Things.JobDriver_BeatCustomFire>
+          <baseType>JobDriver</baseType>
+        </VEF.Things.JobDriver_BeatCustomFire>
+      </VanillaGravshipExpanded.JobDriver_BeatAstrofire>
+      <VanillaGravshipExpanded.JobDriver_ExtinguishAstrofiresNearby>
+        <VEF.Things.JobDriver_ExtinguishCustomFiresNearby>
+          <baseType>JobDriver</baseType>
+        </VEF.Things.JobDriver_ExtinguishCustomFiresNearby>
+      </VanillaGravshipExpanded.JobDriver_ExtinguishAstrofiresNearby>
+      <VanillaGravshipExpanded.JobDriver_ExtinguishSelfAstrofire>
+        <VEF.Things.JobDriver_ExtinguishCustomFireSelf>
+          <baseType>JobDriver</baseType>
+        </VEF.Things.JobDriver_ExtinguishCustomFireSelf>
+      </VanillaGravshipExpanded.JobDriver_ExtinguishSelfAstrofire>
+    </migratedTypes>
+  </VEF.DefMigrationDef>
+
+</Defs>

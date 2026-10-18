@@ -169,9 +169,12 @@ Please note that keeping several maps open may affect your performance.</VGE_Map
     <VGE_CooldownRemaining>Cooldown remaining: {0}</VGE_CooldownRemaining>
     <VGE_ResourceProcessorInfo>{0} {1} production completes in: {2}\nRemaining production processes to complete: {3}</VGE_ResourceProcessorInfo>
 
-    <!-- Astrofire alert -->
+    <!-- Astrofire alert. Unused in 1.7+, replaced with framework custom fires. Kept around for 1.6 mod compatibility. -->
     <VGE_AstrofireInHomeArea>Astrofire!</VGE_AstrofireInHomeArea>
     <VGE_AstrofireInHomeAreaDesc>There is an astrofire in the home area.</VGE_AstrofireInHomeAreaDesc>
+    <!-- Custom fire system for astrofire. Replaces the old 1.6 system. -->
+    <VGE_ReportBeatAstrofire>beating astrofire out.</VGE_ReportBeatAstrofire>
+    <VGE_ReportExtinguishAstrofiresNearby>extinguishing astrofires nearby.</VGE_ReportExtinguishAstrofiresNearby>
 
     <VGE_RequiresSubstructureOrScaffolding>Requires substructure or scaffold to be build on.</VGE_RequiresSubstructureOrScaffolding>
 

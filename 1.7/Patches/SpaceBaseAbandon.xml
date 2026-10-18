@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/WorldObjectDef[@Name="SpaceBase"]/comps</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/WorldObjectDef[@Name="SpaceBase"]</xpath>
+			<value>
+				<comps>
+					<li Class="WorldObjectCompProperties_Abandon" />
+				</comps>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/WorldObjectDef[@Name="SpaceBase"]/comps/li[@Class="WorldObjectCompProperties_Abandon"]</xpath>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>/Defs/WorldObjectDef[@Name="SpaceBase"]/comps</xpath>
+				<value>
+					<li Class="WorldObjectCompProperties_Abandon" />
+				</value>
+			</nomatch>
+		</match>
+	</Operation>
+</Patch>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/TerrainDef[defName="Space"]/pathCost</xpath>
+    <value>
+      <pathCost>490</pathCost>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/TerrainDef[defName="Space"]/affordances</xpath>
+    <value>
+      <li>Walkable</li>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/TerrainDef[defName="Space"]/passability</xpath>
+  </Operation>
+</Patch>

@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <WeatherDef Name="VGE_DustCloud">
+    <defName>VGE_DustCloud</defName>
+    <label>dust cloud</label>
+    <isBad>true</isBad>
+    <description>A dense cosmic dust cloud has drifted across your sector, shrouding your gravship in particulate haze. Visibility is almost zero, and targeting systems are struggling to lock onto anything. The dust will eventually clear as the cloud drifts away.</description>
+    <windSpeedFactor>0.5</windSpeedFactor>
+    <accuracyMultiplier>0.3</accuracyMultiplier>
+    <favorability>Neutral</favorability>
+    <perceivePriority>1</perceivePriority>
+    <maxRangeCap>20.0</maxRangeCap>
+    <maxGlow>0</maxGlow>
+    <preventsShuttleLaunch>true</preventsShuttleLaunch>
+    <ambientSounds>
+      <li>Ambient_Wind_Fog</li>
+    </ambientSounds>
+    <overlayClasses>
+      <li>VanillaGravshipExpanded.WeatherOverlay_DustCloud</li>
+    </overlayClasses>
+    <commonalityRainfallFactor>
+      <points>
+        <li>(0, 0)</li>
+        <li>(1300, 1)</li>
+      </points>
+    </commonalityRainfallFactor>
+    <durationRange>12000~36000</durationRange>
+    <canOccurAsRandomForcedEvent>true</canOccurAsRandomForcedEvent>
+    <skyColorsDay>
+      <sky>(0.65, 0.7, 0.75)</sky>
+      <shadow>(0.70, 0.70, 0.70)</shadow>
+      <overlay>(0.5, 0.6, 0.65)</overlay>
+      <saturation>0.6</saturation>
+    </skyColorsDay>
+    <skyColorsDusk>
+      <sky>(0.6, 0.65, 0.7)</sky>
+      <shadow>(0.68, 0.68, 0.68)</shadow>
+      <overlay>(0.5, 0.55, 0.6)</overlay>
+      <saturation>0.6</saturation>
+    </skyColorsDusk>
+    <skyColorsNightEdge>
+      <sky>(0.35, 0.4, 0.45)</sky>
+      <shadow>(0.6, 0.6, 0.6)</shadow>
+      <overlay>(0.4, 0.45, 0.5)</overlay>
+      <saturation>0.5</saturation>
+    </skyColorsNightEdge>
+    <skyColorsNightMid>
+      <sky>(0.3, 0.35, 0.4)</sky>
+      <shadow>(0.58, 0.58, 0.58)</shadow>
+      <overlay>(0.35, 0.4, 0.45)</overlay>
+      <saturation>0.5</saturation>
+    </skyColorsNightMid>
+  </WeatherDef>
+  <WeatherDef ParentName="VGE_DustCloud">
+    <defName>VGE_ToxicDustCloud</defName>
+    <label>toxic dust cloud</label>
+    <description>A drifting cloud of highly toxic cosmic dust has enveloped your gravship. Microscopic particulates are seeping into every exposed space, corroding surfaces and poisoning the crew.</description>
+	 <canOccurAsRandomForcedEvent>false</canOccurAsRandomForcedEvent>
+    <overlayClasses>
+      <li>VanillaGravshipExpanded.WeatherOverlay_ToxicDustCloud</li>
+    </overlayClasses>
+    <skyColorsDay>
+      <sky>(0.847, 1.0, 0)</sky>
+      <shadow>(0.918, 0.784, 1.0)</shadow>
+      <overlay>(0.6, 0.8, 0.5)</overlay>
+      <saturation>0.85</saturation>
+    </skyColorsDay>
+    <skyColorsDusk>
+      <sky>(0.847, 1.0, 0)</sky>
+      <shadow>(0.918, 0.784, 1.0)</shadow>
+      <overlay>(0.6, 0.8, 0.5)</overlay>
+      <saturation>0.85</saturation>
+    </skyColorsDusk>
+    <skyColorsNightEdge>
+      <sky>(0.847, 1.0, 0)</sky>
+      <shadow>(0.918, 0.784, 1.0)</shadow>
+      <overlay>(0.6, 0.8, 0.5)</overlay>
+      <saturation>0.85</saturation>
+    </skyColorsNightEdge>
+    <skyColorsNightMid>
+      <sky>(0.847, 1.0, 0)</sky>
+      <shadow>(0.918, 0.784, 1.0)</shadow>
+      <overlay>(0.6, 0.8, 0.5)</overlay>
+      <saturation>0.85</saturation>
+    </skyColorsNightMid>
+  </WeatherDef>
+</Defs>

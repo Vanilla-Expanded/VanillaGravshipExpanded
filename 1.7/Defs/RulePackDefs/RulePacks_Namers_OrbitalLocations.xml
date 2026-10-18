@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <RulePackDef>
+        <defName>VGE_NamerWorldObject_IceAsteroid</defName>
+        <include>
+            <li>WorldFeatureNamerCommon</li>
+        </include>
+        <rulePack>
+            <rulesStrings>
+                <li>terrain_word(p=4)->ice asteroid</li>
+                <li>terrain_word->icy rock</li>
+                <li>terrain_word->frozen satellite</li>
+                <li>terrain_word->frigid planetoid</li>
+                <li>terrain_word->gelid moon</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+	<RulePackDef>
+        <defName>VGE_NamerWorldObject_AsteroidCluster</defName>
+        <include>
+            <li>WorldFeatureNamerCommon</li>
+        </include>
+        <rulePack>
+            <rulesStrings>
+                <li>terrain_word(p=4)->asteroid cluster</li>
+                <li>terrain_word->rock cluster</li>
+                <li>terrain_word->scattered satellites</li>
+                <li>terrain_word->dispersed planetoids</li>
+                <li>terrain_word->minor moons</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+	
+	<RulePackDef>
+        <defName>VGE_NamerWorldObject_AsteroidField</defName>
+        <include>
+            <li>WorldFeatureNamerCommon</li>
+        </include>
+        <rulePack>
+            <rulesStrings>
+                <li>terrain_word(p=4)->asteroid field</li>
+               
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+	
+	<RulePackDef>
+        <defName>VGE_NamerWorldObject_PorousAsteroid</defName>
+        <include>
+            <li>WorldFeatureNamerCommon</li>
+        </include>
+        <rulePack>
+            <rulesStrings>
+                <li>terrain_word(p=4)->porous asteroid</li>
+                <li>terrain_word->honeycombed rock</li>
+                <li>terrain_word->perforated satellite</li>
+              
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+	
+	<RulePackDef>
+        <defName>VGE_NamerWorldObject_GiantAsteroid</defName>
+        <include>
+            <li>WorldFeatureNamerCommon</li>
+        </include>
+        <rulePack>
+            <rulesStrings>
+                <li>terrain_word(p=4)->giant asteroid</li>
+                <li>terrain_word->giant rock</li>
+                <li>terrain_word->giant satellite</li>
+                <li>terrain_word->giant planetoid</li>
+                <li>terrain_word->giant moon</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+	
+	<RulePackDef>
+        <defName>VGE_NamerWorldObject_ShatteredAsteroid</defName>
+        <include>
+            <li>WorldFeatureNamerCommon</li>
+        </include>
+        <rulePack>
+            <rulesStrings>
+                <li>terrain_word(p=4)->shattered asteroid</li>
+                <li>terrain_word->shattered rock</li>
+                <li>terrain_word->fractured satellite</li>
+                <li>terrain_word->sundered planetoid</li>
+                <li>terrain_word->ruptured moon</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+	
+	<RulePackDef>
+        <defName>VGE_NamerWorldObject_DenseAsteroid</defName>
+        <include>
+            <li>WorldFeatureNamerCommon</li>
+        </include>
+        <rulePack>
+            <rulesStrings>
+                <li>terrain_word(p=4)->dense asteroid</li>
+                <li>terrain_word->dense rock</li>
+                <li>terrain_word->dense satellite</li>
+                <li>terrain_word->dense planetoid</li>
+                <li>terrain_word->dense moon</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+	
+	<RulePackDef>
+        <defName>VGE_NamerWorldObject_SmallAsteroid</defName>
+        <include>
+            <li>WorldFeatureNamerCommon</li>
+        </include>
+        <rulePack>
+            <rulesStrings>
+                <li>terrain_word(p=4)->small asteroid</li>
+                <li>terrain_word->small rock</li>
+                <li>terrain_word->small satellite</li>
+                <li>terrain_word->small planetoid</li>
+                <li>terrain_word->small moon</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+	
+	
+</Defs>

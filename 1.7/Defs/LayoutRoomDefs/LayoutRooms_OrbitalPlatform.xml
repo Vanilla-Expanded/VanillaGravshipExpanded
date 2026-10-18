@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+
+
+  <LayoutRoomDef>
+    <defName>VGE_OrbitalHydroponics</defName>
+    <canMergeWithAdjacentRoom>true</canMergeWithAdjacentRoom>
+    <prefabs>
+      <AncientTableDrugLab>
+        <countPerTenEdgeCells>2</countPerTenEdgeCells>
+        <minMaxRange>1~1</minMaxRange>
+      </AncientTableDrugLab>
+      <VGE_HydroponicsBasin_Cluster>
+        <countPerHundredCells>3</countPerHundredCells>
+        <minMaxRange>2~3</minMaxRange>
+      </VGE_HydroponicsBasin_Cluster>
+      <IndustrialShelf_Edge>
+        <countPerTenEdgeCells>3</countPerTenEdgeCells>
+        <minMaxRange>5~15</minMaxRange>
+      </IndustrialShelf_Edge>
+     
+      <TableWithStools_1x2>
+        <countPerHundredCells>2</countPerHundredCells>
+        <minMaxRange>1~1</minMaxRange>
+      </TableWithStools_1x2>
+      <AncientSpacerCrate_Cluster>
+        <countPerHundredCells>2</countPerHundredCells>
+        <minMaxRange>2~10</minMaxRange>
+      </AncientSpacerCrate_Cluster>
+    </prefabs>
+    <parts>
+      <Corpse>0.1</Corpse>
+    </parts>
+    <floorTypes>
+      <li>AncientConcrete</li>
+    </floorTypes>
+    <edgeTerrain>AncientTile</edgeTerrain>
+  </LayoutRoomDef>
+  
+ 
+</Defs>

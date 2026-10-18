@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef Name="VGE_GravshipBuildingBase" ParentName="BuildingBase" Abstract="True">
+        <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+        <designationCategory>Odyssey</designationCategory>
+        <researchPrerequisites>
+            <li>VGE_GravshipWeaponry</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+    <ThingDef Name="VGE_GravshipArtilleryBase" ParentName="VGE_GravshipBuildingBase" Abstract="True">
+        <thingClass>Building_TurretGun</thingClass>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <drawHighlight>true</drawHighlight>
+        <drawHighlightOnlyForHostile>true</drawHighlightOnlyForHostile>
+        <hasTooltip>true</hasTooltip>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Structures/Artillery/GravshipArtillery_Base_Normal</texPath>
+        </graphicData>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>1</fillPercent>
+        <tickerType>Normal</tickerType>
+        <stealable>false</stealable>
+        <rotatable>false</rotatable>
+        <designationCategory>VGE_Combat</designationCategory>
+        <comps>
+            <li Class="CompProperties_Forbiddable" />
+        </comps>
+        <building>
+            <turretTopDrawSize>5</turretTopDrawSize>
+            <ai_combatDangerous>true</ai_combatDangerous>
+            <playTargetAcquiredSound>false</playTargetAcquiredSound>
+        </building>
+        <placeWorkers>
+            <li>PlaceWorker_TurretTop</li>
+        </placeWorkers>
+        <uiOrder>2500</uiOrder>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_GravshipBuildingBase">
+        <defName>VGE_TargetingTerminal</defName>
+        <label>targeting terminal</label>
+        <description>A control station dedicated to operating a single gravship artillery piece. Requires a crew member to manually aim and fire the weapon. It draws power directly from the grav engine.</description>
+        <thingClass>VanillaGravshipExpanded.Building_TargetingTerminal</thingClass>
+        <tickerType>Normal</tickerType>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <uiIconScale>0.7</uiIconScale>
+        <graphicData>
+            <texPath>Things/Structures/TargetingTerminal/TargetingTerminal</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <passability>PassThroughOnly</passability>
+        <designationCategory>VGE_Combat</designationCategory>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
+        <pathCost>50</pathCost>
+        <fillPercent>0.4</fillPercent>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <WorkToBuild>1600</WorkToBuild>
+            <Flammability>0.5</Flammability>
+            <Beauty>-2</Beauty>
+        </statBases>
+        <size>(1,1)</size>
+        <costList>
+            <Steel>30</Steel>
+            <ComponentIndustrial>2</ComponentIndustrial>
+        </costList>
+        <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+        <hasInteractionCell>True</hasInteractionCell>
+        <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+        <comps>
+            <li Class="CompProperties_Forbiddable" />
+            <li Class="CompProperties_Mannable">
+                <compClass>VanillaGravshipExpanded.CompMannableWithFailReason</compClass>
+                <manWorkType>Violent, Intellectual</manWorkType>
+            </li>
+        </comps>
+        <uiOrder>2000</uiOrder>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_GravshipBuildingBase">
+        <defName>VGE_PointDefenseTurret</defName>
+        <label>point defense turret</label>
+        <designationCategory>VGE_Combat</designationCategory>
+        <description>A specialized defensive turret built exclusively for gravships. It intercepts explosive projectiles and incoming drop pods within its protective radius, but cannot engage ground targets. Interception chance scales with the target’s velocity.</description>
+        <thingClass>Building_TurretGun</thingClass>
+        <uiIconPath>Things/Structures/Artillery/GravshipPointDefense_MenuIcon</uiIconPath>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <graphicData>
+            <texPath>Things/Structures/Artillery/GravshipArtillery_Base_Normal</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <altitudeLayer>Building</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>1</fillPercent>
+        <tickerType>Normal</tickerType>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <Flammability>0.7</Flammability>
+            <WorkToBuild>15000</WorkToBuild>
+            <Beauty>-20</Beauty>
+        </statBases>
+        <size>(3,3)</size>
+        <costList>
+            <Steel>400</Steel>
+            <GravlitePanel>40</GravlitePanel>
+            <ComponentIndustrial>6</ComponentIndustrial>
+        </costList>
+        <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>200</basePowerConsumption>
+            </li>
+            <li Class="CompProperties_Flickable" />
+            <li Class="CompProperties_Refuelable">
+                <fuelLabel>Ammunition</fuelLabel>
+                <fuelGizmoLabel>Ammunition</fuelGizmoLabel>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>Steel</li>
+                    </thingDefs>
+                </fuelFilter>
+                <fuelCapacity>75</fuelCapacity>
+                <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+                <showFuelGizmo>true</showFuelGizmo>
+                <initialFuelPercent>1</initialFuelPercent>
+            </li>
+            <li Class="VanillaGravshipExpanded.CompProperties_PointDefence">
+                <interceptionRadius>14.9</interceptionRadius>
+                <!-- With the current implementation (using VTR), 15 is the current minimum that won't cause issues. -->
+                <!-- Using a lower value will end up with the turret still shooting roughly once every 15 ticks if you're not looking at it. -->
+                <interceptionAttemptInterval>15</interceptionAttemptInterval>
+                <blacklistedProjectileDefs>
+                    <li>Bullet_HellsphereCannonGun</li>
+                    <li>Bullet_InfernoCannon</li>
+                    <li>Bullet_Heatspike</li>
+                </blacklistedProjectileDefs>
+            </li>
+        </comps>
+        <building>
+            <turretGunDef>VGE_Gun_PointDefense</turretGunDef>
+            <turretTopDrawSize>4</turretTopDrawSize>
+        </building>
+        <placeWorkers>
+            <li>PlaceWorker_TurretTop</li>
+            <li>PlaceWorker_ShowTurretRadius</li>
+        </placeWorkers>
+        <resourcesFractionWhenDeconstructed>0.5</resourcesFractionWhenDeconstructed>
+        <uiOrder>2400</uiOrder>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>VGE_Gun_PointDefense</defName>
+        <label>point defense gun</label>
+        <description>A rapid-fire gun for point-defense applications.</description>
+        <graphicData>
+            <texPath>Things/Structures/Artillery/GravshipPointDefense_TurretTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <warmupTime>0</warmupTime>
+                <range>14.9</range>
+                <burstShotCount>1</burstShotCount>
+                <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
+                <soundCast>GunShotA</soundCast>
+                <soundCastTail>GunTail_Light</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+                <consumeFuelPerShot>1</consumeFuelPerShot>
+            </li>
+        </verbs>
+    </ThingDef>
+
+    <ThingDef Name="VGE_GravshipArtillerySmallBase" ParentName="VGE_GravshipArtilleryBase" Abstract="True">
+        <graphicData>
+            <texPath>Things/Structures/Artillery/GravshipArtillery_Base_Small</texPath>
+        </graphicData>
+        <size>(3,3)</size>
+        <building>
+            <turretTopDrawSize>4</turretTopDrawSize>
+        </building>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_GravshipBuildingBase">
+        <defName>VGE_AmmoBox_GaussShell</defName>
+        <label>gauss shell ammo box</label>
+        <description>A small-sized box containing large uranium shells. Used by different gauss artillery turrets to reload. A box is fed directly into an adjacent gravship artillery when it needs to be reloaded.</description>
+        <thingClass>Building</thingClass>
+        <category>Building</category>
+        <drawerType>MapMeshOnly</drawerType>
+        <canOverlapZones>false</canOverlapZones>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <designationCategory>VGE_Combat</designationCategory>
+        <passability>PassThroughOnly</passability>
+        <pathCost>50</pathCost>
+        <fillPercent>0.2</fillPercent>
+        <blockWind>false</blockWind>
+        <statBases>
+            <MaxHitPoints>150</MaxHitPoints>
+            <Flammability>0.5</Flammability>
+            <Beauty>-5</Beauty>
+            <WorkToBuild>1000</WorkToBuild>
+        </statBases>
+        <size>(1, 1)</size>
+        <costList>
+            <Uranium>120</Uranium>
+        </costList>
+        <graphicData>
+            <texPath>Things/Structures/Artillery/AmmoCrate_GaussSlugs</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2, 2)</drawSize>
+        </graphicData>
+        <rotatable>false</rotatable>
+        <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+        <researchPrerequisites>
+            <li>VGE_GravshipWeaponry</li>
+        </researchPrerequisites>
+        <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+        <uiOrder>2600</uiOrder>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_GravshipArtillerySmallBase">
+        <defName>VGE_GaussGun</defName>
+        <label>gauss gun</label>
+        <description>A small, single-barrel electromagnetic cannon that launches dense uranium slugs at extreme velocities. Designed for both local bombardments and medium-range engagements, it can also target other gravships in orbit. Requires a linked targeting terminal with an operator to function. It draws power directly from the grav engine.</description>
+        <thingClass>VanillaGravshipExpanded.Building_GravshipTurretAutoAttack</thingClass>
+        <uiIconPath>Things/Structures/Artillery/GaussGun_MenuIcon</uiIconPath>
+        <graphicData>
+            <texPath>Things/Structures/Artillery/GravshipArtillery_Base_Small</texPath>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <Flammability>0.4</Flammability>
+            <WorkToBuild>18000</WorkToBuild>
+            <Beauty>-25</Beauty>
+        </statBases>
+        <costList>
+            <Steel>250</Steel>
+            <GravlitePanel>50</GravlitePanel>
+            <Uranium>120</Uranium>
+            <ComponentIndustrial>6</ComponentIndustrial>
+        </costList>
+        <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+        <building>
+            <turretGunDef>VGE_Gun_GaussGun</turretGunDef>
+            <turretBurstCooldownTime>8</turretBurstCooldownTime>
+            <turretTopDrawSize>4</turretTopDrawSize>
+            <turretTopOffset>(0, 0.25)</turretTopOffset>
+            <turretBurstWarmupTime>4</turretBurstWarmupTime>
+            <ai_combatDangerous>true</ai_combatDangerous>
+            <relatedBuildCommands>
+                <li>VGE_AmmoBox_GaussShell</li>
+                <li>VGE_TargetingTerminal</li>
+                <li MayRequire="vanillaexpanded.gravship2">VGE_TargetingConsole</li>
+            </relatedBuildCommands>
+        </building>
+        <comps>
+            <li Class="CompProperties_Refuelable">
+                <fuelLabel>Uranium slugs</fuelLabel>
+                <fuelGizmoLabel>Uranium slugs</fuelGizmoLabel>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>Uranium</li>
+                        <li>VGE_AmmoBox_GaussShell</li>
+                    </thingDefs>
+                </fuelFilter>
+                <fuelCapacity>120</fuelCapacity>
+                <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+                <showFuelGizmo>true</showFuelGizmo>
+                <initialFuelPercent>1</initialFuelPercent>
+                <fuelMultiplier>1</fuelMultiplier>
+                <factorByDifficulty>true</factorByDifficulty>
+            </li>
+            <li Class="VanillaGravshipExpanded.CompProperties_BoxRefuel">
+                <refuelWith>VGE_AmmoBox_GaussShell</refuelWith>
+                <mustUseBoxes>true</mustUseBoxes>
+            </li>
+            <li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
+                <worldMapAttackRange>20</worldMapAttackRange>
+                <firingMode>GroundToSpace, GroundToGround, SpaceToSpace, SpaceToGround</firingMode>
+            </li>
+        </comps>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.TurretExtension_RotationSpeed">
+                <rotationSpeed>80</rotationSpeed>
+            </li>
+            <li Class="VanillaGravshipExpanded.TurretExtension_Barrels">
+                <barrels>
+                    <li>(0, 0, 1.5)</li>
+                </barrels>
+            </li>
+        </modExtensions>
+        <placeWorkers>
+            <li>PlaceWorker_TurretTop</li>
+        </placeWorkers>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>VGE_Gun_GaussGun</defName>
+        <label>gauss gun</label>
+        <description>A small, single-barrel electromagnetic cannon.</description>
+        <graphicData>
+            <texPath>Things/Structures/Artillery/GaussGun_TurretTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <verbs>
+            <li>
+                <verbClass>VanillaGravshipExpanded.Verb_ShootWithSmoke</verbClass>
+                <defaultProjectile>VGE_Bullet_GaussGun</defaultProjectile>
+                <range>99999</range>
+                <minRange>14.9</minRange>
+                <burstShotCount>1</burstShotCount>
+                <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+                <soundCast>VGE_GravshipHowitzer</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>10</muzzleFlashScale>
+                <forcedMissRadius>6.75</forcedMissRadius>
+                <requireLineOfSight>false</requireLineOfSight>
+                <consumeFuelPerShot>5</consumeFuelPerShot>
+                <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+                <isMortar>false</isMortar>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+            </li>
+        </verbs>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>VGE_Bullet_GaussGun</defName>
+        <label>Gauss gun shot</label>
+        <graphicData>
+            <texPath>Things/Projectiles/GaussShot_VerySmall</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
+        <thingClass>VanillaGravshipExpanded.Projectile_Gauss</thingClass>
+        <projectile>
+            <damageDef>Bomb</damageDef>
+            <damageAmountBase>40</damageAmountBase>
+            <armorPenetrationBase>0.15</armorPenetrationBase>
+            <speed>115</speed>
+            <explosionRadius>3.9</explosionRadius>
+            <flyOverhead>true</flyOverhead>
+            <stoppingPower>2</stoppingPower>
+        </projectile>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.SubstructureDamageExtension">
+                <substructureDamageRadius>1.9</substructureDamageRadius>
+            </li>
+        </modExtensions>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_GravshipArtillerySmallBase">
+        <defName>VGE_JavelinPod</defName>
+        <label>javelin pod</label>
+        <description>A compact multi-tube missile platform that launches a volley of six guided astrofuel javelins. Meant for fast, hard-hitting strikes against exposed gravships and unarmored surface forces. Requires a linked targeting terminal with an operator to function. It draws power directly from the grav engine.</description>
+        <thingClass>VanillaGravshipExpanded.Building_JavelinPod</thingClass>
+        <uiIconPath>Things/Structures/Artillery/JavelinPod_MenuIcon</uiIconPath>
+        <graphicData>
+            <texPath>Things/Structures/Artillery/GravshipArtillery_Base_Small</texPath>
+            <drawSize>(3,3)</drawSize>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <Flammability>0.4</Flammability>
+            <WorkToBuild>18000</WorkToBuild>
+            <Beauty>-25</Beauty>
+        </statBases>
+        <size>(3,3)</size>
+        <costList>
+            <Steel>250</Steel>
+            <GravlitePanel>50</GravlitePanel>
+            <VGE_Astrofuel>60</VGE_Astrofuel>
+            <ComponentIndustrial>6</ComponentIndustrial>
+        </costList>
+        <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+        <building>
+            <turretGunDef>VGE_Gun_JavelinPod</turretGunDef>
+            <turretBurstCooldownTime>30</turretBurstCooldownTime>
+            <turretTopDrawSize>4</turretTopDrawSize>
+            <turretTopOffset>(0, 0.25)</turretTopOffset>
+            <turretBurstWarmupTime>5</turretBurstWarmupTime>
+            <ai_combatDangerous>true</ai_combatDangerous>
+            <relatedBuildCommands>
+                <li>VGE_TargetingTerminal</li>
+                <li MayRequire="vanillaexpanded.gravship2">VGE_TargetingConsole</li>
+            </relatedBuildCommands>
+        </building>
+        <comps>
+            <li Class="CompProperties_Refuelable">
+                <fuelLabel>Astrofuel</fuelLabel>
+                <fuelGizmoLabel>Astrofuel</fuelGizmoLabel>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>VGE_Astrofuel</li>
+                    </thingDefs>
+                </fuelFilter>
+                <fuelCapacity>60</fuelCapacity>
+                <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+                <showFuelGizmo>true</showFuelGizmo>
+                <initialFuelPercent>1</initialFuelPercent>
+                <outOfFuelMessage>Missing rockets</outOfFuelMessage>
+            </li>
+            <li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
+                <worldMapAttackRange>20</worldMapAttackRange>
+                <firingMode>GroundToSpace, GroundToGround, SpaceToSpace, SpaceToGround</firingMode>
+            </li>
+        </comps>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.TurretExtension_RotationSpeed">
+                <rotationSpeed>80</rotationSpeed>
+            </li>
+            <li Class="VanillaGravshipExpanded.TurretExtension_Barrels">
+                <barrels>
+                    <li>(0.5, 0, 1.5)</li>
+                    <li>(0, 0, 1.5)</li>
+                    <li>(-0.5, 0, 1.5)</li>
+                </barrels>
+            </li>
+        </modExtensions>
+        <placeWorkers>
+            <li>PlaceWorker_TurretTop</li>
+        </placeWorkers>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>VGE_Gun_JavelinPod</defName>
+        <label>javelin pod</label>
+        <description>A compact multi-tube missile platform.</description>
+        <graphicData>
+            <texPath>Things/Structures/Artillery/JavelinPod_TurretTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <building>
+            <turretTopLoadedGraphic>
+                <texPath>Things/Structures/Artillery/JavelinPod_TurretTop_Loaded</texPath>
+                <graphicClass>Graphic_Single</graphicClass>
+            </turretTopLoadedGraphic>
+        </building>
+        <verbs>
+            <li>
+                <verbClass>VanillaGravshipExpanded.Verb_ShootWithWorldTargeting</verbClass>
+                <defaultProjectile>VGE_Rocket_JavelinRocket</defaultProjectile>
+                <range>99999</range>
+                <minRange>14</minRange>
+                <burstShotCount>6</burstShotCount>
+                <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
+                <soundCast>VGE_JavelinLauncher_Cast</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>8</muzzleFlashScale>
+                <forcedMissRadius>9</forcedMissRadius>
+                <requireLineOfSight>false</requireLineOfSight>
+                <consumeFuelPerShot>10</consumeFuelPerShot>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+            </li>
+        </verbs>
+        <building>
+            <turretTopLoadedGraphic>
+                <texPath>Things/Structures/Artillery/JavelinPod_TurretTop_Loaded</texPath>
+                <graphicClass>Graphic_Single</graphicClass>
+            </turretTopLoadedGraphic>
+        </building>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>VGE_Rocket_JavelinRocket</defName>
+        <label>Javelin rocket</label>
+        <graphicData>
+            <texPath>Things/Projectiles/Rocket_Javelin</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <thingClass>VanillaGravshipExpanded.Projectile_JavelinRocket</thingClass>
+        <projectile>
+            <damageDef>Bomb</damageDef>
+            <damageAmountBase>24</damageAmountBase>
+            <armorPenetrationBase>0.1</armorPenetrationBase>
+            <speed>70</speed>
+            <explosionRadius>2.9</explosionRadius>
+            <flyOverhead>true</flyOverhead>
+            <stoppingPower>0.5</stoppingPower>
+            <soundImpact>BulletImpact_Metal</soundImpact>
+            <soundExplode>MortarBomb_Explode</soundExplode>
+            <soundAmbient>MortarRound_Ambient</soundAmbient>
+        </projectile>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.ThrusterProjectileExtension">
+                <flameSize>3</flameSize>
+                <flameShaderType>MoteGlow</flameShaderType>
+                <flameShaderParameters>
+                    <_MainTex>/Things/Mote/SmallThruster_Burn</_MainTex>
+                </flameShaderParameters>
+                <exhaustFleckDef>GravshipThrusterExhaust</exhaustFleckDef>
+                <emissionsPerSecond>40</emissionsPerSecond>
+                <spawnRadiusRange>0.0~0.5</spawnRadiusRange>
+                <velocity>(0.0,0.0,-20.0)</velocity>
+                <velocityRotationRange>-10.0~10</velocityRotationRange>
+                <velocityMultiplierRange>0.8~1.2</velocityMultiplierRange>
+                <rotationOverTimeRange>-180.0~180</rotationOverTimeRange>
+                <scaleRange>1.5~3</scaleRange>
+            </li>
+            <li Class="VanillaGravshipExpanded.SubstructureDamageExtension">
+                <substructureDamageRadius>1.9</substructureDamageRadius>
+            </li>
+        </modExtensions>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_GravshipArtillerySmallBase">
+        <defName>VGE_AnticraftCaster</defName>
+        <label>anticraft caster</label>
+        <description>A medium gravship-mounted energy weapon that fires short, razor-sharp bursts of cutting beam with surgical precision. Built to punch holes through critical systems, the caster trades sustained suppression for rapid, accurate strikes. Requires a linked targeting terminal with an operator to function. Uses a lot of power to fire.</description>
+        <thingClass>VanillaGravshipExpanded.Building_AnticraftCaster</thingClass>
+        <uiIconPath>Things/Structures/Artillery/AnticraftCaster_MenuIcon</uiIconPath>
+        <graphicData>
+            <texPath>Things/Structures/Artillery/GravshipArtillery_Base_Small</texPath>
+            <drawSize>(3,3)</drawSize>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <Flammability>0.4</Flammability>
+            <WorkToBuild>18000</WorkToBuild>
+            <Beauty>-25</Beauty>
+            <ShootingAccuracyTurret>0.86</ShootingAccuracyTurret>
+        </statBases>
+        <size>(3,3)</size>
+        <costList>
+            <Steel>250</Steel>
+            <GravlitePanel>50</GravlitePanel>
+            <ComponentSpacer>2</ComponentSpacer>
+            <ComponentIndustrial>6</ComponentIndustrial>
+        </costList>
+        <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>50000</basePowerConsumption>
+                <idlePowerDraw>100</idlePowerDraw>
+            </li>
+            <li Class="CompProperties_Flickable" />
+            <li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
+                <worldMapAttackRange>36</worldMapAttackRange>
+                <firingMode>GroundToSpace, SpaceToSpace, SpaceToGround</firingMode>
+            </li>
+        </comps>
+        <building>
+            <turretGunDef>VGE_Gun_AnticraftCaster</turretGunDef>
+            <turretBurstCooldownTime>8</turretBurstCooldownTime>
+            <turretTopDrawSize>4</turretTopDrawSize>
+            <turretTopOffset>(0, 0.25)</turretTopOffset>
+            <turretBurstWarmupTime>6.66</turretBurstWarmupTime>
+            <ai_combatDangerous>true</ai_combatDangerous>
+            <relatedBuildCommands>
+                <li>VGE_TargetingTerminal</li>
+                <li MayRequire="vanillaexpanded.gravship2">VGE_TargetingConsole</li>
+            </relatedBuildCommands>
+        </building>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.TurretExtension_RotationSpeed">
+                <rotationSpeed>210</rotationSpeed>
+            </li>
+        </modExtensions>
+        <placeWorkers>
+            <li>PlaceWorker_TurretTop</li>
+        </placeWorkers>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>VGE_Gun_AnticraftCaster</defName>
+        <label>anticraft caster</label>
+        <description>A medium gravship-mounted energy weapon.</description>
+        <graphicData>
+            <texPath>Things/Structures/Artillery/AnticraftCaster_TurretTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <AccuracyTouch>0.86</AccuracyTouch>
+            <AccuracyShort>0.86</AccuracyShort>
+            <AccuracyMedium>0.86</AccuracyMedium>
+            <AccuracyLong>0.86</AccuracyLong>
+            <VGE_AccuracyGlobal>0.80</VGE_AccuracyGlobal>
+        </statBases>
+        <verbs>
+            <li>
+                <verbClass>VanillaGravshipExpanded.Verb_ShootWithWorldTargeting</verbClass>
+                <defaultProjectile>VGE_Bullet_AnticraftCaster</defaultProjectile>
+                <range>9999</range>
+                <minRange>14</minRange>
+                <forcedMissRadius>0</forcedMissRadius>
+                <canGoWild>true</canGoWild>
+                <burstShotCount>20</burstShotCount>
+                <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+                <soundCast>Shot_BeamRepeater</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>26</muzzleFlashScale>
+                <aimingChargeMote>Mote_BeamRepeater_Charge</aimingChargeMote>
+                <aimingChargeMoteOffset>1.5</aimingChargeMoteOffset>
+                <requireLineOfSight>false</requireLineOfSight>
+                <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+            </li>
+        </verbs>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>VGE_Bullet_AnticraftCaster</defName>
+        <label>anticraft caster beam</label>
+        <thingClass>VanillaGravshipExpanded.Projectile_ArtilleryBeam</thingClass>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>VGE_AnticraftBeamBypassShields</damageDef>
+            <damageAmountBase>5</damageAmountBase>
+            <flyOverhead>true</flyOverhead>
+            <beamMoteDef>VGE_Mote_BeamRepeaterLaser</beamMoteDef>
+            <beamStartOffset>1.25</beamStartOffset>
+            <armorPenetrationBase>0.5</armorPenetrationBase>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="MoteBase">
+        <defName>VGE_Mote_BeamRepeaterLaser</defName>
+        <thingClass>MoteDualAttached</thingClass>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <mote>
+            <fadeInTime>0.1</fadeInTime>
+            <fadeOutTime>0.1</fadeOutTime>
+            <solidTime>0.1</solidTime>
+            <rotateTowardsTarget>True</rotateTowardsTarget>
+            <scaleToConnectTargets>True</scaleToConnectTargets>
+        </mote>
+        <drawOffscreen>true</drawOffscreen>
+        <graphicData>
+            <texPath>Things/Mote/GraserBeam</texPath>
+            <graphicClass>Graphic_MoteWithAgeSecs</graphicClass>
+            <shaderType>MoteBeam</shaderType>
+            <drawSize>(2,1)</drawSize>
+            <shaderParameters>
+                <_ExtraTexA>/Things/Mote/BeamSecondaryNoise_A</_ExtraTexA>
+                <_ExtraTexB>/Things/Mote/BeamSecondaryNoise_B</_ExtraTexB>
+                <_ScrollSpeedA>0</_ScrollSpeedA>
+                <_ScrollSpeedB>0</_ScrollSpeedB>
+                <_Intensity>2</_Intensity>
+            </shaderParameters>
+        </graphicData>
+    </ThingDef>
+
+</Defs>

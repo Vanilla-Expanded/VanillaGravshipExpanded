@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Gravship scenario now starts with no chemfuel, since its astrofuel tanks start out filled -->
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ScenarioDef[defName="TheGravship"]/scenario/parts/li[@Class="ScenPart_StartingThing_Defined" and thingDef="Chemfuel"]</xpath>
+  </Operation>
+
+  <!-- Remove starting steel as well -->
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ScenarioDef[defName="TheGravship"]/scenario/parts/li[@Class="ScenPart_StartingThing_Defined" and thingDef="Steel"]</xpath>
+  </Operation>
+
+  <!-- Change scenario name -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ScenarioDef[defName="TheGravship"]/label/text()</xpath>
+    <value>The Gravjumper</value>
+  </Operation>
+
+  <!-- Change scenario description -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ScenarioDef[defName="TheGravship"]/description/text()</xpath>
+    <value>Your gravjumper sits docked at the orbital relay. As your crew begins to salvage the equipment, you realize that this isn't ancient human tech - it's a mechanoid beacon. The relay crackles to life and broadcasts its war alert to a distant mechhive. They're hunting you now, and they will eventually find you wherever you go.\n\nNote: This is a difficult scenario and is not recommended for new players.</value>
+  </Operation>
+
+  <!-- Change scenario description -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ScenarioDef[defName="TheGravship"]/scenario/parts/li[@Class="ScenPart_GameStartDialog" and def="GameStartDialog"]/text/text()</xpath>
+    <value>You screwed up, and now the mechhive wants you dead. Its terrifying murder machines will arrive soon. Gather the valuable gravlite panels, then use your gravjumper to flee to a safe location on the planet below.\n\nTo launch the gravjumper, select the pilot cockpit, then select the launch command.\n\nOn the world map, select ‘view planet' to choose a landing spot on the planet.\n\nFrom now on, wherever you go, the mechanoids will eventually find you. To stop them, you must find and defeat the mechhive itself.</value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ScenarioDef[defName="TheGravship"]/scenario/parts</xpath>
+    <value>
+      <li Class="VanillaGravshipExpanded.ScenPart_ChooseStartingGravship">
+        <def>VGE_ChooseStartingGravship</def>
+        <tag>Gravjumper</tag>
+        <startingAstrofuel>100</startingAstrofuel>
+        <startingOxygen>125</startingOxygen>
+      </li>
+    </value>
+  </Operation>
+
+  <!-- Don't keep starting map from scenario -->
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/MapGeneratorDef[defName="OrbitalRelay"]</xpath>
+    <value>
+      <li Class="VanillaGravshipExpanded.NeverKeepThisMapAfterTakeoffExtension"/>
+    </value>
+  </Operation>
+
+</Patch>

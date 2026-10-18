@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <!-- Replace vanilla comp for oxygen pump with our own. -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="OxygenPump"]/comps/li[@Class="CompProperties_OxygenPusher"]</xpath>
+		<value>
+      <li Class="VanillaGravshipExpanded.CompProperties_ResourceTrader_OxygenPusher">
+        <!-- CompProperties_ResourceTrader props. -->
+        <pipeNet>VGE_OxygenNet</pipeNet>
+        <!-- 1 per second divided by 60 ticks per second -->
+        <consumptionPerTick>0.01666666666666666666666666666667</consumptionPerTick>
+        <visualOnlyConsumption>true</visualOnlyConsumption>
+        <!-- Custom CompProperties_ResourceTrader_OxygenPusher props. -->
+        <lowPowerConsumptionFactor>0.1</lowPowerConsumptionFactor>
+        <!-- Vanilla CompProperties_OxygenPusher props, copied over (since we're replacing them). -->
+        <requiresPower>true</requiresPower>
+        <airPerSecondPerHundredCells>0.01</airPerSecondPerHundredCells>
+      </li>
+    </value>
+	</Operation>
+
+  <!-- Modify original cost to compensate for the need for entire pipe network. -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="OxygenPump"]/costList/Steel</xpath>
+    <value>
+      <Steel>30</Steel>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="OxygenPump"]/costList/ComponentIndustrial</xpath>
+    <value>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </value>
+  </Operation>
+
+  <!-- Replace vanilla graphics with our own. -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="OxygenPump"]/uiIconPath</xpath>
+    <value>
+      <uiIconPath>Things/Structures/OxygenPump/OxygenPump_MenuIcon</uiIconPath>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="OxygenPump"]/graphicData/texPath</xpath>
+    <value>
+      <texPath>Things/Structures/OxygenPump/OxygenPump</texPath>
+    </value>
+  </Operation>
+
+  <!-- Remove low power mode comp from oxygen pump, as our oxygen pusher comp handles it itself. -->
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ThingDef[defName="OxygenPump"]/comps/li[@Class="CompProperties_LowPowerUnlessVacuum"]</xpath>
+  </Operation>
+
+  <!-- Add oxygen place worker to Odyssey's oxygen pump. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="OxygenPump"]/placeWorkers</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="OxygenPump"]</xpath>
+      <value>
+        <placeWorkers>
+          <li>VanillaGravshipExpanded.PlaceWorker_OxygenPusher</li>
+        </placeWorkers>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="OxygenPump"]/placeWorkers</xpath>
+      <value>
+        <li>VanillaGravshipExpanded.PlaceWorker_OxygenPusher</li>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Add or set drawPlaceWorkersWhileSelected to true for Odyssey's oxygen pump. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="OxygenPump"]/drawPlaceWorkersWhileSelected</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="OxygenPump"]</xpath>
+      <value>
+        <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="OxygenPump"]/drawPlaceWorkersWhileSelected</xpath>
+      <value>
+        <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Replace vanilla research -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="OxygenPump"]/researchPrerequisites/li[text()="OrbitalTech"]/text()</xpath>
+    <value>VGE_OxygenNetwork</value>
+  </Operation>
+
+  <!-- Add or create related build commands for Odyssey's oxygen pump. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="OxygenPump"]/building/relatedBuildCommands</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="OxygenPump"]/building</xpath>
+      <value>
+        <relatedBuildCommands>
+          <li>VGE_IndustrialOxygenPump</li>
+          <li>VGE_OxygenPipe</li>
+          <li>VGE_OxygenValve</li>
+          <li>VGE_SmallOxygenTank</li>
+          <li>VGE_LargeOxygenTank</li>
+          <li>VGE_OxygenCanisterFiller</li>
+          <li>VGE_OxygenCanisterEmptier</li>
+          <li>VGE_OxygenHarvester</li>
+          <li>VGE_LifeSupportSystem</li>
+          <!-- In case something makes those craftable. -->
+          <li>VGE_OxygenReclaimer</li>
+        </relatedBuildCommands>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="OxygenPump"]/building/relatedBuildCommands</xpath>
+      <value>
+        <li>VGE_IndustrialOxygenPump</li>
+        <li>VGE_OxygenPipe</li>
+        <li>VGE_OxygenValve</li>
+        <li>VGE_SmallOxygenTank</li>
+        <li>VGE_LargeOxygenTank</li>
+        <li>VGE_OxygenCanisterFiller</li>
+        <li>VGE_OxygenCanisterEmptier</li>
+        <li>VGE_OxygenHarvester</li>
+        <li>VGE_LifeSupportSystem</li>
+        <!-- In case something makes those craftable. -->
+        <li>VGE_OxygenReclaimer</li>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Since vanilla oxygen pump no longer uses the vanilla oxygen pusher comp (but our pipe-net based one), -->
+  <!-- the gravship launch won't treat it as an oxygen source. Add our custom DefModExtension to it so it's -->
+  <!-- treated as one again, and won't be causing warnings about no oxygen pumps anymore during launch. -->
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="OxygenPump"]</xpath>
+    <value>
+      <li Class="VEF.Buildings.GravshipLaunchExtension">
+        <isOxygenPusher>true</isOxygenPusher>
+      </li>
+    </value>
+  </Operation>
+
+</Patch>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <WorkGiverDef>
+    <defName>VGE_HaulToCompactBiosculpterPod</defName>
+    <label>carry to biosculpter pod</label>
+    <giverClass>VanillaGravshipExpanded.WorkGiver_HaulToCompactBiosculpterPod</giverClass>
+    <workType>Hauling</workType>
+    <verb>fill</verb>
+    <gerund>filling</gerund>
+    <priorityInType>109</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+</Defs>

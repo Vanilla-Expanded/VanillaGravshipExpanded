@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+
+  <PrefabDef>
+    <defName>VGE_HydroponicsBasin_Cluster</defName>
+    <size>(6,6)</size>
+    <things>
+      <HydroponicsBasin>
+        <position>(2,0,0)</position>
+        <relativeRotation>Counterclockwise</relativeRotation>
+      </HydroponicsBasin>
+      <HydroponicsBasin>
+        <positions>
+          <li>(4, 0, 1)</li>
+          <li>(0, 0, 2)</li>
+        </positions>
+      </HydroponicsBasin>
+      <HydroponicsBasin>
+        <position>(2,0,4)</position>
+        <relativeRotation>Clockwise</relativeRotation>
+      </HydroponicsBasin>
+      <SunLamp>
+        <position>(2,0,2)</position>
+      </SunLamp>
+      <HiddenConduit>
+        <positions>
+          <li>(0, 0, 0)</li>
+          <li>(1, 0, 0)</li>
+          <li>(2, 0, 0)</li>
+          <li>(3, 0, 0)</li>
+          <li>(4, 0, 0)</li>
+          <li>(0, 0, 1)</li>
+          <li>(4, 0, 1)</li>
+          <li>(0, 0, 2)</li>
+          <li>(4, 0, 2)</li>
+          <li>(0, 0, 3)</li>
+          <li>(4, 0, 3)</li>
+          <li>(0, 0, 4)</li>
+          <li>(1, 0, 4)</li>
+          <li>(2, 0, 4)</li>
+          <li>(3, 0, 4)</li>
+          <li>(4, 0, 4)</li>
+          <li>(4, 0, 5)</li>
+          <li>(2, 0, 2)</li>
+          <li>(2, 0, 1)</li>
+        </positions>
+      </HiddenConduit>
+      <AncientPlantPot>
+        <chance>0.3</chance>
+        <positions>
+          <li>(1, 0, 1)</li>
+          <li>(2, 0, 1)</li>
+          <li>(3, 0, 1)</li>
+          <li>(5, 0, 1)</li>
+          <li>(1, 0, 2)</li>
+          <li>(3, 0, 2)</li>
+          <li>(1, 0, 3)</li>
+          <li>(2, 0, 3)</li>
+          <li>(3, 0, 3)</li>
+          <li>(5, 0, 3)</li>
+          <li>(1, 0, 5)</li>
+          <li>(2, 0, 5)</li>
+        </positions>
+      </AncientPlantPot>
+    </things>
+  </PrefabDef>
+
+ 
+
+</Defs>

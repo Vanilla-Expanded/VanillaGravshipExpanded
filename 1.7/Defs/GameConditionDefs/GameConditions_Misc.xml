@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<GameConditionDef>
+		<defName>VGE_SpaceSolarFlare</defName>
+		<conditionClass>VanillaGravshipExpanded.GameCondition_SpaceSolarFlare</conditionClass>
+		<label>solar flare</label>
+		<description>A solar flare has begun.\n\nWhile this solar flare will not disable electronic devices, it will quickly heat all exposed surfaces, potentially causing heatstroke and fires.\n\nIt should pass in about a day.</description>
+		<endMessage>The solar flare is ending.</endMessage>
+		<letterText>A solar flare has begun.\n\nWhile this solar flare will not disable electronic devices, it will quickly heat all exposed surfaces, potentially causing heatstroke and fires.\n\nIt should pass in about a day.</letterText>
+		<letterDef>NegativeEvent</letterDef>
+		<canBePermanent>true</canBePermanent>
+		<allowUnderground>false</allowUnderground>
+		<preventShuttleLaunch>true</preventShuttleLaunch>
+		<layerWhitelist>
+			<li>Orbit</li>
+		</layerWhitelist>
+	</GameConditionDef>
+
+	<GameConditionDef>
+		<defName>VGE_GravitationalAnomaly</defName>
+		<conditionClass>VanillaGravshipExpanded.GameCondition_GravitationalAnomaly</conditionClass>
+		<label>gravitational anomaly</label>
+		<description>A powerful gravity distortion has enveloped your gravship, preventing any kind of launch until it subsides. The anomaly will remain for the next few days before naturally fading away. Until then, all gravship launch rituals are unavailable and the ship will be unable to move from this location.\n\nWhile the anomaly persists, your systems will passively collect gravdata, but only if an active gravship research project is selected.</description>
+		<endMessage>The gravitational anomaly is dissipating.</endMessage>
+		<letterText>A powerful gravity distortion has enveloped your gravship, preventing any kind of launch until it subsides. The anomaly will remain for the next few days before naturally fading away. Until then, all gravship launch rituals are unavailable and the ship will be unable to move from this location.\n\nWhile the anomaly persists, your systems will passively collect gravdata, but only if an active gravship research project is selected.</letterText>
+		<letterDef>NegativeEvent</letterDef>
+		<canBePermanent>true</canBePermanent>
+		<allowUnderground>false</allowUnderground>
+		<preventShuttleLaunch>true</preventShuttleLaunch>
+		<layerWhitelist>
+			<li>Orbit</li>
+		</layerWhitelist>
+	</GameConditionDef>
+
+	<GameConditionDef>
+		<defName>VGE_Comet</defName>
+		<conditionClass>VanillaGravshipExpanded.GameCondition_Comet</conditionClass>
+		<label>comet</label>
+		<description>A massive comet is passing nearby, its brilliant tail lighting up the void around your gravship. The spectacle inspires awe among the crew, raising their spirits until it will fade from view.</description>
+		<endMessage>The comet has passed.</endMessage>
+		<letterText>A massive comet is passing nearby, its brilliant tail lighting up the void around your gravship. The spectacle inspires awe among the crew, raising their spirits until it will fade from view.</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<canBePermanent>true</canBePermanent>
+		<allowUnderground>false</allowUnderground>
+
+		<layerWhitelist>
+			<li>Orbit</li>
+		</layerWhitelist>
+	</GameConditionDef>
+
+	<GameConditionDef>
+		<defName>VGE_MicrometeorStorm</defName>
+		<conditionClass>VanillaGravshipExpanded.GameCondition_MicrometeorStorm</conditionClass>
+		<label>micrometeor storm</label>
+		<description>A micrometeor storm is pelting the area with tiny, high-velocity debris. Exposed structures and people are slowly damaged by the constant bombardment.\n\nThe storm is expected to last about a day.</description>
+		<endMessage>The micrometeor storm has ended.</endMessage>
+		<letterText>A micrometeor storm is pelting the area with tiny, high-velocity debris. Exposed structures and people are slowly damaged by the constant bombardment.\n\nThe storm is expected to last about a day.</letterText>
+		<letterDef>ThreatBig</letterDef>
+		<canBePermanent>true</canBePermanent>
+		<allowUnderground>false</allowUnderground>
+		<preventShuttleLaunch>true</preventShuttleLaunch>
+		<layerWhitelist>
+			<li>Orbit</li>
+		</layerWhitelist>
+	</GameConditionDef>
+
+	<GameConditionDef>
+		<defName>VGE_SpaceDebris</defName>
+		<conditionClass>VanillaGravshipExpanded.GameCondition_SpaceDebris</conditionClass>
+		<label>space debris</label>
+		<description>A drifting cloud of ancient wreckage has crossed our flight path. Pieces of metal and scrap hurtle past the ship. Some will miss, others might not.\n\nThe debris will pass us by in about 12 hours.</description>
+		<endMessage>The space debris has passed.</endMessage>
+		<letterText>A drifting cloud of ancient wreckage has crossed our flight path. Pieces of metal and scrap hurtle past the ship. Some will miss, others might not.\n\nThe debris will pass us by in about 12 hours.</letterText>
+		<letterDef>ThreatBig</letterDef>
+		<canBePermanent>true</canBePermanent>
+		<allowUnderground>false</allowUnderground>
+		<preventShuttleLaunch>true</preventShuttleLaunch>
+		<layerWhitelist>
+			<li>Orbit</li>
+		</layerWhitelist>
+	</GameConditionDef>
+
+	<GameConditionDef>
+		<defName>VGE_AsteroidShower</defName>
+		<conditionClass>VanillaGravshipExpanded.GameCondition_AsteroidShower</conditionClass>
+		<label>asteroid shower</label>
+		<description>An asteroid shower has crossed into your gravship’s sector. Countless fragments of vacstone streak across the void, some slamming into the hull with explosive force. Most will burn away or miss, but not all.</description>
+		<endMessage>The asteroid shower has passed.</endMessage>
+		<letterText>An asteroid shower has crossed into your gravship’s sector. Countless fragments of vacstone streak across the void, some slamming into the hull with explosive force. Most will burn away or miss, but not all.</letterText>
+		<letterDef>ThreatBig</letterDef>
+		<canBePermanent>true</canBePermanent>
+		<allowUnderground>false</allowUnderground>
+		<preventShuttleLaunch>true</preventShuttleLaunch>
+		<layerWhitelist>
+			<li>Orbit</li>
+		</layerWhitelist>
+	</GameConditionDef>
+
+	<GameConditionDef>
+		<defName>VGE_DustCloud</defName>
+		<conditionClass>VanillaGravshipExpanded.GameCondition_DustCloud</conditionClass>
+		<label>dust cloud</label>
+		<description>A dense cosmic dust cloud has drifted across your sector, shrouding your gravship in particulate haze. Visibility is almost zero, and targeting systems are struggling to lock onto anything. The dust will eventually clear as the cloud drifts away.</description>
+		<endMessage>The dust cloud started to disperse.</endMessage>
+		<letterText>A dense cosmic dust cloud has drifted across your sector, shrouding your gravship in particulate haze. Visibility is almost zero, and targeting systems are struggling to lock onto anything. The dust will eventually clear as the cloud drifts away.</letterText>
+		<letterDef>NegativeEvent</letterDef>
+		<weatherDef>VGE_DustCloud</weatherDef>
+		<canBePermanent>true</canBePermanent>
+		<allowUnderground>false</allowUnderground>
+		<preventShuttleLaunch>true</preventShuttleLaunch>
+		<layerWhitelist>
+			<li>Orbit</li>
+		</layerWhitelist>
+	</GameConditionDef>
+	<GameConditionDef>
+		<defName>VGE_ToxicDustCloud</defName>
+		<conditionClass>VanillaGravshipExpanded.GameCondition_ToxicDustCloud</conditionClass>
+		<label>toxic dust cloud</label>
+		<description>A drifting cloud of highly toxic cosmic dust has enveloped your gravship. Microscopic particulates are seeping into every exposed space, corroding surfaces and poisoning the crew. The dust cloud will persist only briefly, but its effects are immediate and dangerous.</description>
+		<endMessage>The toxic dust cloud started to disperse.</endMessage>
+		<letterText>A drifting cloud of highly toxic cosmic dust has enveloped your gravship. Microscopic particulates are seeping into every exposed space, corroding surfaces and poisoning the crew. The dust cloud will persist only briefly, but its effects are immediate and dangerous.</letterText>
+		<letterDef>ThreatBig</letterDef>
+		<weatherDef>VGE_ToxicDustCloud</weatherDef>
+		<canBePermanent>true</canBePermanent>
+		<allowUnderground>false</allowUnderground>
+		<preventShuttleLaunch>true</preventShuttleLaunch>
+		<layerWhitelist>
+			<li>Orbit</li>
+		</layerWhitelist>
+	</GameConditionDef>
+</Defs>

@@ -2,7 +2,6 @@ using System.Linq;
 using RimWorld;
 using RimWorld.Planet;
 using Verse;
-using Verse.AI.Group;
 
 namespace VanillaGravshipExpanded
 {
@@ -43,7 +42,7 @@ namespace VanillaGravshipExpanded
                 var spawnCell = selectedPipe.Position + GenRadial.RadialPattern[Rand.RangeInclusive(1, 8)];
                 if (spawnCell.InBounds(map) && spawnCell.GetTerrain(map) != TerrainDefOf.Space)
                 {
-                    AstrofireUtility.TryStartAstrofireIn(spawnCell, map, Rand.Range(0.5f, 1.5f), null);
+                    VEF.Things.CustomFireUtility.TryStartCustomFireIn(spawnCell, map, Rand.Range(0.5f, 1.5f), null, VGEDefOf.VGE_Astrofire);
                 }
             }
             SendStandardLetter(gravship.Engine, null, new LookTargets(selectedPipe));

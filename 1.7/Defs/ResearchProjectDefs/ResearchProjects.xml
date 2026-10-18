@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ResearchProjectDef Name="VGE_GravtechResearchBase" Abstract="True">
+		<tab>VGE_Gravtech</tab>
+		<techLevel>Spacer</techLevel>
+    <modExtensions>
+      <!-- The extension can be applied to the tab, or the ResearchProjectDef itself. -->
+      <!-- As a precaution to mods moving this research to a different tab, we're adding the extension to the researches themselves as well. -->
+      <li Class="VanillaGravshipExpanded.GravtechResearchExtension" />
+    </modExtensions>
+	</ResearchProjectDef>
+	<ResearchProjectDef ParentName="VGE_GravtechResearchBase">
+		<defName>VGE_GravshipWeaponry</defName>
+		<label>gravship weaponry</label>
+		<description>Construct gravship artillery and point defense turrets to fight other ships in orbit or provide bombardments from the sky.</description>
+		<baseCost>400</baseCost>
+		<prerequisites>
+			<li>StandardGravtech</li>
+		</prerequisites>
+		<researchViewX>3.00</researchViewX>
+		<researchViewY>1.50</researchViewY>
+	</ResearchProjectDef>
+	<ResearchProjectDef ParentName="VGE_GravtechResearchBase">
+		<defName>VGE_CompactWorkspaces</defName>
+		<label>compact workspaces</label>
+		<description>Unlock smaller variants of workbenches designed for gravships. Compact enough to fit into tight quarters without sacrificing essential functions.</description>
+		<baseCost>400</baseCost>
+		<prerequisites>
+			<li>StandardGravtech</li>
+		</prerequisites>
+		<researchViewX>3.00</researchViewX>
+		<researchViewY>2.50</researchViewY>
+	</ResearchProjectDef>
+	<ResearchProjectDef ParentName="VGE_GravtechResearchBase">
+		<defName>VGE_OxygenNetwork</defName>
+		<label>oxygen network</label>
+		<description>Harvest and store oxygen for use on gravships. Unlocks construction of vacsuits and other survival gear needed to operate in vacuum.</description>
+		<baseCost>100</baseCost>
+		<prerequisites>
+			<li>BasicGravtech</li>
+		</prerequisites>
+		<researchViewX>1.00</researchViewX>
+		<researchViewY>2.50</researchViewY>
+	</ResearchProjectDef>
+	<ResearchProjectDef ParentName="VGE_GravtechResearchBase">
+		<defName>VGE_AstrofuelRefining</defName>
+		<label>astrofuel refining</label>
+		<description>Construct astrofuel synthesizers that automatically convert chemfuel into astrofuel for gravship use.</description>
+		<baseCost>400</baseCost>
+		<prerequisites>
+			<li>StandardGravtech</li>
+		</prerequisites>
+		<researchViewX>3.00</researchViewX>
+		<researchViewY>3.50</researchViewY>
+	</ResearchProjectDef>
+	<ResearchProjectDef ParentName="VGE_GravtechResearchBase">
+		<defName>VGE_GravshipPower</defName>
+		<label>gravship power</label>
+		<description>Construct gravship solar panelling, gravcore power cells, and astrofuel generators to supply energy for gravship systems.</description>
+		<baseCost>100</baseCost>
+		<prerequisites>
+			<li>BasicGravtech</li>
+		</prerequisites>
+		<researchViewX>1.00</researchViewX>
+		<researchViewY>1.50</researchViewY>
+	</ResearchProjectDef>
+	<ResearchProjectDef ParentName="VGE_GravtechResearchBase">
+		<defName>VGE_HeatDissipation</defName>
+		<label>heat dissipation</label>
+		<description>Harvest structural heat generated during gravship launches and dissipate it safely. Excess heat can be converted into usable power. Heatsink capacity and power output is increased.</description>
+		<baseCost>400</baseCost>
+		<prerequisites>
+			<li>StandardGravtech</li>
+		</prerequisites>
+		<researchViewX>3.00</researchViewX>
+		<researchViewY>4.50</researchViewY>
+	</ResearchProjectDef>
+	<ResearchProjectDef ParentName="VGE_GravtechResearchBase">
+		<defName>VGE_GravshipLiving</defName>
+		<label>gravship living</label>
+		<description>Build gravship-exclusive furniture such as bunk beds, lockers, and medbay beds to keep crew comfortable and functional in long voyages.</description>
+		<baseCost>100</baseCost>
+		<prerequisites>
+			<li>BasicGravtech</li>
+		</prerequisites>
+		<researchViewX>1.00</researchViewX>
+		<researchViewY>4.50</researchViewY>
+	</ResearchProjectDef>
+</Defs>

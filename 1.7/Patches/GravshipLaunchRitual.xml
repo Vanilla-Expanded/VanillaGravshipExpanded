@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <!-- Add extra roles -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/RitualBehaviorDef[defName='GravshipLaunch']/roles</xpath>
+    <value>
+      <li Class="RitualRoleColonist">
+        <id>gravtechResearcher</id>
+        <label>gravtech researcher</label>
+        <maxCount>1</maxCount>
+        <required>false</required>
+        <usedSkill>Intellectual</usedSkill>
+        <usedStat>VGE_GravshipResearch</usedStat>
+        <allowChild>false</allowChild>
+        <blocksSocialInteraction>true</blocksSocialInteraction>
+        <countsAsParticipant>false</countsAsParticipant>
+      </li>
+      <li Class="RitualRoleColonist">
+        <id>gravtechEngineer</id>
+        <label>gravtech engineer</label>
+        <maxCount>1</maxCount>
+        <required>false</required>
+        <usedSkill>Construction</usedSkill>
+        <usedStat>VGE_GravshipMaintenance</usedStat>
+        <allowChild>false</allowChild>
+        <blocksSocialInteraction>true</blocksSocialInteraction>
+        <countsAsParticipant>false</countsAsParticipant>
+      </li>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/RitualBehaviorDef[defName='GravshipLaunch']/stages/li/roleBehaviors</xpath>
+    <value>
+      <li>
+        <roleId>gravtechResearcher</roleId>
+        <dutyDef>ArriveToCell</dutyDef>
+        <customPositions>
+          <li Class="VanillaGravshipExpanded.RitualPosition_GravtechConsole">
+            <faceThing>true</faceThing>
+          </li>
+        </customPositions>
+      </li>
+      <li>
+        <roleId>gravtechEngineer</roleId>
+        <dutyDef>ArriveToCell</dutyDef>
+        <customPositions>
+          <li Class="VanillaGravshipExpanded.RitualPosition_EngineeringConsole">
+            <faceThing>true</faceThing>
+          </li>
+        </customPositions>
+      </li>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/RitualBehaviorDef[defName='GravshipLaunch']/stages/li/endTriggers/li/roleIds</xpath>
+    <value>
+      <li>gravtechResearcher</li>
+      <li>gravtechEngineer</li>
+    </value>
+  </Operation>
+
+  <!-- Add extra bonuses for new roles, thrusters, copilot console -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/RitualOutcomeEffectDef[defName="GravshipLaunch"]/comps</xpath>
+    <value>
+      <li Class="RitualOutcomeComp_PawnStatScaled">
+        <label>{PAWN_labelShort}'s research ability</label>
+        <labelAbstract>gravtech researcher's research ability</labelAbstract>
+        <roleId>gravtechResearcher</roleId>
+        <statDef>ResearchSpeed</statDef>
+        <curve>
+          <points>
+            <li>(0.1, 0.0)</li>
+            <li>(1.0, 0.05)</li>
+            <li>(2.5, 0.1)</li>
+          </points>
+        </curve>
+      </li>
+      <li Class="RitualOutcomeComp_PawnStatScaled">
+        <label>{PAWN_labelShort}'s maintenance ability</label>
+        <labelAbstract>gravtech engineer's maintenance ability</labelAbstract>
+        <roleId>gravtechEngineer</roleId>
+        <statDef>VGE_GravshipMaintenance</statDef>
+        <curve>
+          <points>
+            <li>(0.1, 0.0)</li>
+            <li>(1.0, 0.05)</li>
+            <li>(2.5, 0.1)</li>
+          </points>
+        </curve>
+      </li>
+      <li Class="RitualOutcomeComp_GravshipFacilities">
+        <label>giant thrusters</label>
+        <facilityQualityOffsets>
+          <li>
+            <key>VGE_GiantThruster</key>
+            <value>0.03</value>
+          </li>
+        </facilityQualityOffsets>
+      </li>
+      <li Class="VanillaGravshipExpanded.RitualOutcomeComp_AverageMaintenance">
+        <label>Average maintenance of the gravship</label>
+        <curve>
+          <points>
+            <li>(0, -1)</li>
+            <li>(0.5, -0.1)</li>
+            <li>(1, 0)</li>
+          </points>
+        </curve>
+      </li>
+      <li Class="VanillaGravshipExpanded.RitualOutcomeComp_MannedGravshipFacilities">
+        <label>manned copilot console</label>
+        <roleId>copilot</roleId>
+        <facilitiesPerPawn>1</facilitiesPerPawn>
+        <facilityQualityOffsets>
+          <li>
+            <key>VGE_CopilotConsole</key>
+            <value>0.1</value>
+          </li>
+        </facilityQualityOffsets>
+      </li>
+      <li Class="VanillaGravshipExpanded.RitualOutcomeComp_LandingOnGravAnchor">
+        <label>landing near grav anchor</label>
+        <qualityOffset>0.2</qualityOffset>
+      </li>
+    </value>
+  </Operation>
+
+  <!-- Make copilot use their console -->
+  <Operation Class="PatchOperationAttributeSet">
+    <xpath>Defs/RitualBehaviorDef[defName="GravshipLaunch"]/stages/li/roleBehaviors/li[roleId="copilot"]/customPositions/li[@Class="RitualPosition_Copilot"]</xpath>
+    <attribute>Class</attribute>
+    <value>VanillaGravshipExpanded.RitualPosition_CopilotWithConsole</value>
+  </Operation>
+
+  <!-- Replace vanilla ritual obligation with our own, which targets specific consoles only -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/RitualObligationTargetFilterDef[defName="GravshipLaunch"]/workerClass/text()</xpath>
+    <value>VanillaGravshipExpanded.RitualObligationTargetWorker_GravshipLaunchSpecificConsole</value>
+  </Operation>
+
+  <!-- Specify that we're specifically targeting the pilot console -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/RitualObligationTargetFilterDef[defName="GravshipLaunch"]</xpath>
+    <value>
+      <thingDefs>
+        <li>PilotConsole</li>
+      </thingDefs>
+    </value>
+  </Operation>
+
+  <!-- Lower bonus from large thrusters -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/RitualOutcomeEffectDef[defName="GravshipLaunch"]/comps/li[@Class="RitualOutcomeComp_GravshipFacilities"]/facilityQualityOffsets/li[key="LargeThruster"]/value/text()</xpath>
+    <value>0.02</value>
+  </Operation>
+
+  <!-- Increase bonus for crew -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/RitualOutcomeEffectDef[defName="GravshipLaunch"]/comps/li[@Class="RitualOutcomeComp_ParticipantCount" and label="crew count"]/curve/points</xpath>
+    <value>
+      <points>
+        <li>(0, 0)</li>
+        <li>(5, 0.15)</li>
+      </points>
+    </value>
+  </Operation>
+
+  <!-- Lower bonus for copilot -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/RitualOutcomeEffectDef[defName="GravshipLaunch"]/comps/li[@Class="RitualOutcomeComp_PawnStatScaled" and roleId="pilot"]/curve/points</xpath>
+    <value>
+      <points>
+        <li>(0.1, 0.0)</li>
+        <li>(1.0, 0.05)</li>
+        <li>(2.5, 0.1)</li>
+      </points>
+    </value>
+  </Operation>
+
+  <!-- Replace gravship ritual icon (for precept) -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/PreceptDef[defName="GravshipLaunch"]/iconPath/text()</xpath>
+    <value>UI/RitualIcons/LaunchGravship_Gizmo</value>
+  </Operation>
+
+  <!-- Replace gravship ritual icon (for pattern) -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/RitualPatternDef[defName="GravshipLaunch"]/iconPathOverride/text()</xpath>
+    <value>UI/RitualIcons/LaunchGravship_Gizmo</value>
+  </Operation>
+
+  <!-- Replace cancel gravship ritual icon -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/RitualPatternDef[defName="GravshipLaunch"]/cancelIconPathOverride/text()</xpath>
+    <value>UI/RitualIcons/CancelLaunchGravship_Gizmo</value>
+  </Operation>
+
+</Patch>

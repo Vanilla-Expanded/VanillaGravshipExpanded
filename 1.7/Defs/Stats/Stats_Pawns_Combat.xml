@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <StatDef>
+        <defName>VGE_GravshipTargeting</defName>
+        <label>gravship targeting</label>
+        <description>How well this person operates the targeting terminal and how accurate their shots with gravship weaponry will be.</description>
+        <category>PawnCombat</category>
+        <defaultBaseValue>1</defaultBaseValue>
+        <minValue>0.01</minValue>
+       <toStringStyle>PercentOne</toStringStyle>
+       <toStringStyleUnfinalized>FloatOne</toStringStyleUnfinalized>
+        <showOnAnimals>false</showOnAnimals>
+        <showOnEntities>false</showOnEntities>
+        <showOnDrones>false</showOnDrones>
+        <neverDisabled>true</neverDisabled>
+        <skillNeedOffsets>
+            <li Class="SkillNeed_BaseBonus">
+                <skill>Shooting</skill>
+                <baseValue>0.0</baseValue>
+                <bonusPerLevel>1</bonusPerLevel>
+            </li>
+            <li Class="SkillNeed_BaseBonus">
+                <skill>Intellectual</skill>
+                <baseValue>0.0</baseValue>
+                <bonusPerLevel>1</bonusPerLevel>
+            </li>
+        </skillNeedOffsets>
+        <capacityFactors>
+            <li>
+                <capacity>Consciousness</capacity>
+                <weight>1</weight>
+            </li>
+            <li>
+                <capacity>Sight</capacity>
+                <weight>1</weight>
+            </li>
+            <li>
+                <capacity>Manipulation</capacity>
+                <weight>0.5</weight>
+            </li>
+        </capacityFactors>
+<postProcessCurve>
+  <points>
+    <li>(-20, 0.01)</li>
+    <li>(-15, 0.05)</li>
+    <li>(-10, 0.10)</li>
+    <li>(-5, 0.25)</li>
+    <li>(0, 0.50)</li>
+    <li>(5, 0.75)</li>
+    <li>(10, 0.90)</li>
+    <li>(15, 0.97)</li>
+    <li>(20, 1.00)</li>
+    <li>(25, 1.30)</li>
+    <li>(30, 1.60)</li>
+    <li>(35, 1.90)</li>
+    <li>(40, 2.20)</li>
+    <li>(45, 2.45)</li>
+    <li>(50, 2.70)</li>
+    <li>(55, 2.90)</li>
+    <li>(60, 3.00)</li>
+  </points>
+</postProcessCurve>
+    <postProcessStatFactors>
+      <li MayRequire="Ludeon.RimWorld.Biotech">ShootingAccuracyChildFactor</li>
+    </postProcessStatFactors>
+    </StatDef>
+	
+	
+
+</Defs>

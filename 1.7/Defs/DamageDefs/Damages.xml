@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <DamageDef>
+    <defName>VGE_SealantPopper</defName>
+    <label>sealant popper</label>
+    <workerClass>VanillaGravshipExpanded.DamageWorker_SealantPopper</workerClass>
+    <canInterruptJobs>false</canInterruptJobs>
+    <makesBlood>false</makesBlood>
+    <defaultDamage>0</defaultDamage>
+    <explosionCellFleck>BlastExtinguisher</explosionCellFleck>
+    <explosionColorEdge>(1, 1, 1, 0.05)</explosionColorEdge>
+    <harmsHealth>false</harmsHealth>
+    <soundExplosion>Explosion_Stun</soundExplosion>
+    <combatLogRules>Damage_Extinguish</combatLogRules>
+  </DamageDef>
+  <DamageDef>
+    <defName>VGE_ExtinguishAstrofire</defName>
+    <label>extinguish</label>
+    <workerClass>VEF.Things.DamageWorker_ExtinguishCustomFire</workerClass>
+    <canInterruptJobs>false</canInterruptJobs>
+    <makesBlood>false</makesBlood>
+    <defaultDamage>999999</defaultDamage>
+    <hediff>CoveredInFirefoam</hediff>
+    <explosionCellFleck>BlastExtinguisher</explosionCellFleck>
+    <explosionColorEdge>(1, 1, 1, 0.05)</explosionColorEdge>
+    <soundExplosion>Explosion_Stun</soundExplosion>
+    <harmsHealth>false</harmsHealth>
+    <combatLogRules>Damage_Extinguish</combatLogRules>
+    <consideredHelpful>true</consideredHelpful>
+		<modExtensions>
+			<li Class="VEF.Things.CustomFireDamageExtension">
+				<fireDef>VGE_Astrofire</fireDef>
+			</li>
+		</modExtensions>
+  </DamageDef>
+  <DamageDef>
+    <defName>VGE_AstrofireDamage</defName>
+    <workerClass>VEF.Things.DamageWorker_CustomFire</workerClass>
+    <label>astrofire</label>
+    <hasForcefulImpact>false</hasForcefulImpact>
+    <makesBlood>false</makesBlood>
+    <canInterruptJobs>false</canInterruptJobs>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0} has burned to death.</deathMessage>
+    <hediff>Burn</hediff>
+    <armorCategory>Heat</armorCategory>
+    <minDamageToFragment>15</minDamageToFragment>
+    <defaultDamage>10</defaultDamage>
+    <defaultArmorPenetration>0</defaultArmorPenetration>
+    <explosionHeatEnergyPerCell>15</explosionHeatEnergyPerCell>
+    <explosionCellFleck>VGE_AstrofireBlast</explosionCellFleck>
+    <explosionColorCenter>(1, 0.5, 0.8)</explosionColorCenter>
+    <explosionColorEdge>(0.7, 0.35, 1)</explosionColorEdge>
+    <soundExplosion>Explosion_Flame</soundExplosion>
+    <combatLogRules>Damage_Flame</combatLogRules>
+    <canUseDeflectMetalEffect>false</canUseDeflectMetalEffect>
+    <scaleDamageToBuildingsBasedOnFlammability>true</scaleDamageToBuildingsBasedOnFlammability>
+		<modExtensions>
+			<li Class="VEF.Things.CustomFireDamageExtension">
+				<fireDef>VGE_Astrofire</fireDef>
+			</li>
+		</modExtensions>
+  </DamageDef>
+
+  <DamageDef ParentName="Beam">
+    <defName>VGE_AnticraftBeamBypassShields</defName>
+    <ignoreShields>true</ignoreShields>
+    <buildingDamageFactorImpassable>8</buildingDamageFactorImpassable>
+    <buildingDamageFactorPassable>4</buildingDamageFactorPassable>
+  </DamageDef>
+</Defs>

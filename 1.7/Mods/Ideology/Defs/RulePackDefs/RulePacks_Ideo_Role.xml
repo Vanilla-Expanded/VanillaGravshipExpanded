@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+   <!-- ENGINEERING SPECIALIST -->
+  <RulePackDef>
+    <defName>VGE_NamerRoleEngineering</defName>
+    <include>
+      <li>NamerRoleSpecialistUtility</li>
+    </include>
+    <rulePack>
+      <rulesStrings>
+        <li>r_roleName(p=4)->[firstPart][secondPart]</li>
+        <li>r_roleName(p=1)->chief engineer</li>
+        <li>r_roleName(p=1)->systems mechanic</li>
+        <li>r_roleName(p=1)->gravship technician</li>
+        <li>firstPart->tech</li>
+        <li>firstPart->gear</li>
+        <li>firstPart->grav</li>
+        <li>firstPart->struct</li>
+        <li>firstPart->mech</li>
+        <li>firstPart->servo</li>
+        <li>firstPart->spark</li>
+        <li>firstPart->circuit</li>
+        <li>firstPart->forge</li>
+        <li>firstPart->engine</li>
+        <li>secondPart(p=4)->wright</li>
+        <li>secondPart(p=3)->smith</li>
+        <li>secondPart(p=3)->hand</li>
+        <li>secondPart(p=2)->fixer</li>
+        <li>secondPart(p=2)->tinker</li>
+        <li>secondPart(p=2)->mason</li>
+        <li>secondPart(p=1)->builder</li>
+        <li>secondPart(p=1)->keeper</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+   <!-- NAVIGATOR -->
+  <RulePackDef>
+    <defName>VGE_NamerRoleNavigator</defName>
+    <include>
+      <li>NamerRoleSpecialistUtility</li>
+    </include>
+    <rulePack>
+      <rulesStrings>
+        <li>r_roleName(p=4)->[firstPart][secondPart]</li>
+        <li>r_roleName(p=1)->navigator</li>
+        <li>r_roleName(p=1)->stellar guide</li>
+        <li>r_roleName(p=1)->star seer</li>
+        <li>firstPart->astro</li>
+        <li>firstPart->star</li>
+        <li>firstPart->void</li>
+        <li>firstPart->grav</li>
+        <li>firstPart->cosmo</li>
+        <li>firstPart->celes</li>
+        <li>firstPart->orbit</li>
+        <li>firstPart->sky</li>
+        <li>firstPart->helm</li>
+        <li>secondPart(p=3)->reader</li>
+        <li>secondPart(p=3)->seer</li>
+        <li>secondPart(p=3)->finder</li>
+        <li>secondPart(p=2)->walker</li>
+        <li>secondPart(p=2)->pilot</li>
+        <li>secondPart(p=2)->chartist</li>
+        <li>secondPart(p=1)->sailer</li>
+        <li>secondPart(p=1)->gazer</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <!-- PILOTING SPECIALIST -->
+  <RulePackDef>
+    <defName>VGE_NamerRolePiloting</defName>
+    <include>
+      <li>NamerRoleSpecialistUtility</li>
+    </include>
+    <rulePack>
+      <rulesStrings>
+        <li>r_roleName(p=4)->[firstPart][secondPart]</li>
+        <li>r_roleName(p=1)->pilot</li>
+        <li>r_roleName(p=1)->flight officer</li>
+        <li>r_roleName(p=1)->helmsman</li>
+        <li>firstPart->flight</li>
+        <li>firstPart->sky</li>
+        <li>firstPart->grav</li>
+        <li>firstPart->orb</li>
+        <li>firstPart->astro</li>
+        <li>firstPart->nav</li>
+        <li>firstPart->thruster</li>
+        <li>firstPart->course</li>
+        <li>firstPart->helm</li>
+        <li>firstPart->wing</li>
+        <li>secondPart(p=4)->master</li>
+        <li>secondPart(p=3)->rider</li>
+        <li>secondPart(p=3)->pilot</li>
+        <li>secondPart(p=2)->driver</li>
+        <li>secondPart(p=2)->runner</li>
+        <li>secondPart(p=2)->captain</li>
+        <li>secondPart(p=1)->keeper</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+ 
+
+</Defs>

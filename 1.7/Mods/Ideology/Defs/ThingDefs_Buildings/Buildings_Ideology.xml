@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>VGE_CompactBiosculpterPod</defName>
+    <label>compact biosculpter pod</label>
+    <description>A miniaturized version of the biosculpter pod, designed to fit within the confined spaces of a gravship. It performs a variety of biological alterations including age reversal and pleasure-giving. The pod biotunes to its user at the end of a cycle. While biotuned, it cannot be used by anyone else, but cycles will complete 25% more quickly. Biotuning resets if the pod is unused for 80 days. It draws power directly from the grav engine.</description>
+    <containedPawnsSelectable>true</containedPawnsSelectable>
+    <graphicData>
+      <texPath>Things/Structures/GravshipBiosculpterPod/GravshipBiosculpterPod</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shadowData>
+        <volume>(0.9,0.6,2.9)</volume>
+      </shadowData>
+      <drawSize>(2, 3)</drawSize>
+    </graphicData>
+    <drawerType>RealtimeOnly</drawerType>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <researchPrerequisites>
+      <li>VGE_CompactWorkspaces</li>
+      <li>Biosculpting</li>
+    </researchPrerequisites>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>21</pathCost>
+    <blockWind>true</blockWind>
+    <fillPercent>0.5</fillPercent>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>14000</WorkToBuild>
+      <Mass>30</Mass>
+      <Flammability>0.5</Flammability>
+      <BiosculpterPodSpeedFactor>1</BiosculpterPodSpeedFactor>
+      <Beauty>-5</Beauty>
+    </statBases>
+    <size>(1,3)</size>
+    <interactionCellOffset>(0,0,2)</interactionCellOffset>
+    <hasInteractionCell>true</hasInteractionCell>
+    <costList>
+      <GravlitePanel>10</GravlitePanel>
+      <Steel>60</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+      <haulToContainerDuration>120</haulToContainerDuration>
+      <uninstallWork>1800</uninstallWork>
+      <fixedStorageSettings>
+        <filter>
+          <categories>
+            <li>Foods</li>
+          </categories>
+          <specialFiltersToDisallow>
+            <li>AllowPlantFood</li>
+          </specialFiltersToDisallow>
+          <disallowedThingDefs>
+            <li>Hay</li>
+          </disallowedThingDefs>
+        </filter>
+      </fixedStorageSettings>
+      <defaultStorageSettings>
+        <filter>
+          <categories>
+            <li>Foods</li>
+          </categories>
+          <disallowedCategories>
+            <li>EggsFertilized</li>
+          </disallowedCategories>
+          <disallowedThingDefs>
+            <li>InsectJelly</li>
+            <li>MealLavish</li>
+            <li>MealLavish_Veg</li>
+            <li>MealLavish_Meat</li>
+            <li>Chocolate</li>
+            <li MayRequire="Ludeon.RimWorld.Biotech">HemogenPack</li>
+          </disallowedThingDefs>
+        </filter>
+      </defaultStorageSettings>
+    </building>
+    <resourcesFractionWhenDeconstructed>0.25</resourcesFractionWhenDeconstructed>
+    <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+    <designationCategory>Odyssey</designationCategory>
+    <uiOrder>2550</uiOrder>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
+    <tickerType>Normal</tickerType>
+    <inspectorTabs>
+      <li>ITab_BiosculpterNutritionStorage</li>
+    </inspectorTabs>
+    <comps>
+      <li Class="VEF.Buildings.CompProperties_ExtendedBiosculpterPod">
+        <enterSound>BiosculpterPod_Enter</enterSound>
+        <exitSound>BiosculpterPod_Exit</exitSound>
+        <operatingEffecter>VGE_CompactBiosculpterPod_Operating</operatingEffecter>
+        <readyEffecter>VGE_CompactBiosculpterPod_Ready</readyEffecter>
+        <selectCycleColor>(0.321, 1, 0.349)</selectCycleColor>
+        <biotunedCycleSpeedFactor>1.25</biotunedCycleSpeedFactor>
+
+        <!-- Copy all biosculpter cycles from vanill BiosculpterPod def that we don't already have here (as in - no duplicate keys) -->
+        <copyCyclesFrom>BiosculpterPod</copyCyclesFrom>
+        <!-- In vanilla, (0.8 * drawSizeX, 1, 0.8 * drawSizeZ) -->
+        <backgroundSize>(0.8, 1, 1.5)</backgroundSize>
+        <backgroundOffsetNorth>(0, 0, 0.4)</backgroundOffsetNorth>
+        <backgroundOffsetEast>(0.45, 0, 0.2)</backgroundOffsetEast>
+        <backgroundOffsetWest>(-0.45, 0, 0.2)</backgroundOffsetWest>
+        <!-- Offset of the pawn in the biosculpter pod -->
+        <pawnOffsetNorth>(0, 0, 0.5)</pawnOffsetNorth>
+        <pawnOffsetSouth>(0, 0, -0.2)</pawnOffsetSouth>
+        <pawnOffsetEast>(0.5, 0, 0.1)</pawnOffsetEast>
+        <pawnOffsetWest>(-0.4, 0, 0.1)</pawnOffsetWest>
+      </li>
+      <!-- Make it link to the nutrient paste net -->
+      <li Class="PipeSystem.CompProperties_Resource" MayRequire="VanillaExpanded.VNutrientE">
+        <pipeNet>VNPE_NutrientPasteNet</pipeNet>
+      </li>
+    </comps>
+    <placeWorkers>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+    </placeWorkers>
+  </ThingDef>
+
+</Defs>

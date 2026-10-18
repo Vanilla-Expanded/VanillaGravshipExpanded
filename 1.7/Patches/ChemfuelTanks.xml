@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<!-- Small tank -->
+	<!-- Change label -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="ChemfuelTank"]/label</xpath>
+		<value>
+			<label>small astrofuel tank</label>
+		</value>
+	</Operation>
+	<!-- Change description -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="ChemfuelTank"]/description</xpath>
+		<value>
+			<description>An astrofuel storage tank that supplies fuel for thrusters on a gravship.</description>
+		</value>
+	</Operation>
+	<!-- Change graphic -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="ChemfuelTank"]/graphicData/texPath</xpath>
+		<value>
+			<texPath>Things/PipeNetworks/Astrofuel/AstrofuelTank</texPath>
+		</value>
+	</Operation>
+	<!-- Remove vanilla refuelable with pipe resource storage, re-add it as gravship facility (we don't inherit comps), give pipe net explosive content. -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="ChemfuelTank"]/comps/li[@Class="CompProperties_Refuelable"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded.CompProperties_PipeNetFuelProvider">
+        <pipeNet>VGE_AstrofuelNet</pipeNet>
+				<providesFuel>true</providesFuel>
+				<componentTypeDef>FuelStorage</componentTypeDef>
+				<requiresLOS>false</requiresLOS>
+				<showMaxSimultaneous>false</showMaxSimultaneous>
+				<maxSimultaneous>9999</maxSimultaneous>
+				<maxDistance>500</maxDistance>
+			</li>
+			<li Class="PipeSystem.CompProperties_ResourceStorage">
+				<pipeNet>VGE_AstrofuelNet</pipeNet>
+				<storageCapacity>250</storageCapacity>
+				<barSize>(1.3, 0.25)</barSize>
+				<margin>0.1</margin>
+				<centerOffset>(0, 0, 0)</centerOffset>
+				<barHorizontal>true</barHorizontal>
+				<extractOptions>
+					<texPath>UI/Gizmos/ExtractAstrofuel_Gizmo</texPath>
+					<labelKey>VGE_ExtractAstrofuel</labelKey>
+					<descKey>VGE_ExtractAstrofuelDesc</descKey>
+					<disabledReasonKey>VGE_ExtractAstrofuelDisabled</disabledReasonKey>
+					<extractAmount>-1</extractAmount>
+					<extractExactAmount>false</extractExactAmount>
+					<thing>VGE_Astrofuel</thing>
+					<extractTime>120</extractTime>
+				</extractOptions>
+				<refillOptions>
+					<thing>VGE_Astrofuel</thing>
+					<refillTime>240</refillTime>
+				</refillOptions>
+				<destroyOptions>
+					<li>
+						<thing>VGE_Astrofuel</thing>
+						<spawnWhenDestroyed>false</spawnWhenDestroyed>
+					</li>
+				</destroyOptions>
+			</li>
+			<li Class="PipeSystem.CompProperties_ExplosiveContent">
+				<explosiveMinRadius>1.1</explosiveMinRadius>
+				<explosiveMaxRadius>5.725</explosiveMaxRadius>
+				<radiusRequiredForExplosion>1.1</radiusRequiredForExplosion>
+				<!-- Vanilla options below -->
+				<explosiveDamageType>VGE_AstrofireDamage</explosiveDamageType>
+				<damageAmountBase>14</damageAmountBase>
+				<destroyThingOnExplosionSize>2</destroyThingOnExplosionSize>
+				<startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+				<preExplosionSpawnThingDef>VGE_Filth_Astrofuel</preExplosionSpawnThingDef>
+				<preExplosionSpawnChance>1</preExplosionSpawnChance>
+				<wickTicks>70~150</wickTicks>
+			</li>
+			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
+        <maintenanceFallsOutsideSubstructure>false</maintenanceFallsOutsideSubstructure>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+		</value>
+	</Operation>
+	<!-- Add or set rotatble to true. -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="ChemfuelTank"]/drawPlaceWorkersWhileSelected</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="ChemfuelTank"]</xpath>
+			<value>
+				<rotatable>true</rotatable>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="ChemfuelTank"]/drawPlaceWorkersWhileSelected/text()</xpath>
+			<value>true</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="ChemfuelTank"]/statBases</xpath>
+		<value>
+			<VGE_MaintenanceSensitivity>1</VGE_MaintenanceSensitivity>
+		</value>
+	</Operation>
+  <!-- Change terrain affordance to medium -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="ChemfuelTank"]/terrainAffordanceNeeded</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="ChemfuelTank"]</xpath>
+      <value>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="ChemfuelTank"]/terrainAffordanceNeeded/text()</xpath>
+      <value>Medium</value>
+    </match>
+  </Operation>
+	<!-- Large tank -->
+	<!-- Change label -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="LargeChemfuelTank"]/label</xpath>
+		<value>
+			<label>large astrofuel tank</label>
+		</value>
+	</Operation>
+	<!-- Change description -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="LargeChemfuelTank"]/description</xpath>
+		<value>
+			<description>A massive astrofuel storage tank that supplies fuel for thrusters on a gravship.</description>
+		</value>
+	</Operation>
+	<!-- Change graphic -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="LargeChemfuelTank"]/graphicData/texPath</xpath>
+		<value>
+			<texPath>Things/PipeNetworks/Astrofuel/LargeAstrofuelTank</texPath>
+		</value>
+	</Operation>
+	<!-- Remove vanilla refuelable with pipe resource storage, re-add it as gravship facility (we don't inherit comps), give pipe net explosive content. -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="LargeChemfuelTank"]/comps/li[@Class="CompProperties_Refuelable"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded.CompProperties_PipeNetFuelProvider">
+        <pipeNet>VGE_AstrofuelNet</pipeNet>
+				<providesFuel>true</providesFuel>
+				<componentTypeDef>FuelStorage</componentTypeDef>
+				<requiresLOS>false</requiresLOS>
+				<showMaxSimultaneous>false</showMaxSimultaneous>
+				<maxSimultaneous>9999</maxSimultaneous>
+				<maxDistance>500</maxDistance>
+			</li>
+			<li Class="PipeSystem.CompProperties_ResourceStorage">
+				<pipeNet>VGE_AstrofuelNet</pipeNet>
+				<storageCapacity>750</storageCapacity>
+				<barSize>(1.3, 0.25)</barSize>
+				<margin>0.1</margin>
+				<centerOffset>(0, 0, 0)</centerOffset>
+				<barHorizontal>true</barHorizontal>
+				<extractOptions>
+					<texPath>UI/Gizmos/ExtractAstrofuel_Gizmo</texPath>
+					<labelKey>VGE_ExtractAstrofuel</labelKey>
+					<descKey>VGE_ExtractAstrofuelDesc</descKey>
+					<disabledReasonKey>VGE_ExtractAstrofuelDisabled</disabledReasonKey>
+					<extractAmount>-1</extractAmount>
+					<extractExactAmount>false</extractExactAmount>
+					<thing>VGE_Astrofuel</thing>
+					<extractTime>120</extractTime>
+				</extractOptions>
+				<refillOptions>
+					<thing>VGE_Astrofuel</thing>
+					<refillTime>240</refillTime>
+				</refillOptions>
+				<destroyOptions>
+					<li>
+						<thing>VGE_Astrofuel</thing>
+						<spawnWhenDestroyed>false</spawnWhenDestroyed>
+					</li>
+				</destroyOptions>
+			</li>
+			<li Class="PipeSystem.CompProperties_ExplosiveContent">
+				<explosiveMinRadius>1.1</explosiveMinRadius>
+				<explosiveMaxRadius>14.975</explosiveMaxRadius>
+				<radiusRequiredForExplosion>1.1</radiusRequiredForExplosion>
+				<!-- Vanilla options below -->
+				<explosiveDamageType>VGE_AstrofireDamage</explosiveDamageType>
+				<damageAmountBase>14</damageAmountBase>
+				<destroyThingOnExplosionSize>2</destroyThingOnExplosionSize>
+				<startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+				<preExplosionSpawnThingDef>VGE_Filth_Astrofuel</preExplosionSpawnThingDef>
+				<preExplosionSpawnChance>1</preExplosionSpawnChance>
+				<wickTicks>70~150</wickTicks>
+			</li>
+			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
+        <maintenanceFallsOutsideSubstructure>false</maintenanceFallsOutsideSubstructure>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+		</value>
+	</Operation>
+	<!-- Add or set rotatble to true. -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="LargeChemfuelTank"]/drawPlaceWorkersWhileSelected</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="LargeChemfuelTank"]</xpath>
+			<value>
+				<rotatable>true</rotatable>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="LargeChemfuelTank"]/drawPlaceWorkersWhileSelected/text()</xpath>
+			<value>true</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="LargeChemfuelTank"]/statBases</xpath>
+		<value>
+			<VGE_MaintenanceSensitivity>1</VGE_MaintenanceSensitivity>
+		</value>
+	</Operation>
+  <!-- Change terrain affordance to medium -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="LargeChemfuelTank"]/terrainAffordanceNeeded</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="LargeChemfuelTank"]</xpath>
+      <value>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="LargeChemfuelTank"]/terrainAffordanceNeeded/text()</xpath>
+      <value>Medium</value>
+    </match>
+  </Operation>
+	<!-- Shared -->
+	<!-- Disable comp inheritance for vanilla tanks, since we don't want vanilla explosive contents comp -->
+	<Operation Class="PatchOperationAttributeSet">
+		<xpath>Defs/ThingDef[defName="ChemfuelTank" or defName="LargeChemfuelTank"]/comps</xpath>
+		<attribute>Inherit</attribute>
+		<value>False</value>
+	</Operation>
+	<!-- Change flammability -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="ChemfuelTank" or defName="LargeChemfuelTank"]/statBases/Flammability</xpath>
+		<!-- 1 to 0.6 -->
+		<value>
+			<Flammability>0.6</Flammability>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="ChemfuelTank" or defName="LargeChemfuelTank"]</xpath>
+		<value>
+			<building>
+				<relatedBuildCommands>
+					<li>VGE_AstrofuelPipe</li>
+				</relatedBuildCommands>
+			</building>
+		</value>
+	</Operation>
+</Patch>

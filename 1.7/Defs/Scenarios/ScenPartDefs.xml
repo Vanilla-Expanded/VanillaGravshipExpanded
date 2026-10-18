@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ScenPartDef>
+    <defName>VGE_ChooseStartingGravship</defName>
+    <label>choose starting gravship</label>
+    <scenPartClass>VanillaGravshipExpanded.ScenPart_ChooseStartingGravship</scenPartClass>
+    <category>Fixed</category>
+  </ScenPartDef>
+
+</Defs>

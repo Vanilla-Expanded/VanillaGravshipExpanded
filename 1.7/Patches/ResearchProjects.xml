@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/ResearchProjectDef[defName="BasicGravtech"]</xpath>
+		<value>
+			<tab>VGE_Gravtech</tab>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/ResearchProjectDef[defName="StandardGravtech"]</xpath>
+		<value>
+			<tab>VGE_Gravtech</tab>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/ResearchProjectDef[defName="OrbitalTech"]</xpath>
+		<value>
+			<tab>VGE_Gravtech</tab>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/ResearchProjectDef[defName="AdvancedGravtech"]</xpath>
+		<value>
+			<tab>VGE_Gravtech</tab>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>/Defs/ResearchProjectDef[defName="BasicGravtech"]/prerequisites</xpath>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ResearchProjectDef[defName="BasicGravtech"]/baseCost</xpath>
+		<value>
+			<baseCost>50</baseCost>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ResearchProjectDef[defName="BasicGravtech"]/researchViewX</xpath>
+		<value>
+			<researchViewX>0.00</researchViewX>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ResearchProjectDef[defName="BasicGravtech"]/researchViewY</xpath>
+		<value>
+			<researchViewY>3.00</researchViewY>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ResearchProjectDef[defName="BasicGravtech"]/description</xpath>
+		<value>
+			<description>Refine chemfuel into astrofuel and store it in pressurized tanks. Unlocks the construction of the gravjumper engine, allowing the first steps into gravship travel.</description>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ResearchProjectDef[defName="OrbitalTech"]/prerequisites</xpath>
+		<value>
+			<prerequisites>
+				<li>BasicGravtech</li>
+			</prerequisites>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ResearchProjectDef[defName="OrbitalTech"]/baseCost</xpath>
+		<value>
+			<baseCost>100</baseCost>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ResearchProjectDef[defName="OrbitalTech"]/researchViewX</xpath>
+		<value>
+			<researchViewX>1.00</researchViewX>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ResearchProjectDef[defName="OrbitalTech"]/researchViewY</xpath>
+		<value>
+			<researchViewY>3.50</researchViewY>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ResearchProjectDef[defName="OrbitalTech"]/description</xpath>
+		<value>
+			<description>Build vac barriers to protect against depressurization, and orbital scanners to detect locations in space.</description>
+		</value>
+	</Operation>
+  <Operation Class="PatchOperationRemove">
+    <xpath>/Defs/ResearchProjectDef[defName="OrbitalTech"]/requiredResearchBuilding</xpath>
+  </Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ResearchProjectDef[defName="StandardGravtech"]/baseCost</xpath>
+		<value>
+			<baseCost>200</baseCost>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ResearchProjectDef[defName="StandardGravtech"]/researchViewX</xpath>
+		<value>
+			<researchViewX>2.00</researchViewX>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ResearchProjectDef[defName="StandardGravtech"]/researchViewY</xpath>
+		<value>
+			<researchViewY>3.00</researchViewY>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ResearchProjectDef[defName="StandardGravtech"]/description</xpath>
+		<value>
+			<description>Unlock gravship engines capable of lifting a colony into orbit. Allows construction of control terminals for new gravship systems such as gravtech research and maintenance.</description>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ResearchProjectDef[defName="StandardGravtech"]/prerequisites</xpath>
+		<value>
+			<prerequisites>
+				<li>VGE_GravshipPower</li>
+				<li>VGE_OxygenNetwork</li>
+				<li>OrbitalTech</li>
+				<li>VGE_GravshipLiving</li>
+			</prerequisites>
+		</value>
+	</Operation>
+  <Operation Class="PatchOperationRemove">
+    <xpath>/Defs/ResearchProjectDef[defName="StandardGravtech"]/requiredResearchBuilding</xpath>
+  </Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ResearchProjectDef[defName="AdvancedGravtech"]/baseCost</xpath>
+		<value>
+			<baseCost>800</baseCost>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ResearchProjectDef[defName="AdvancedGravtech"]/researchViewX</xpath>
+		<value>
+			<researchViewX>4.00</researchViewX>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ResearchProjectDef[defName="AdvancedGravtech"]/researchViewY</xpath>
+		<value>
+			<researchViewY>3.00</researchViewY>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ResearchProjectDef[defName="AdvancedGravtech"]/description</xpath>
+		<value>
+			<description>Unlock gravhulks, massive gravships capable of supporting entire colonies. Also allows crafting of gravlite panels, essential ultratech material for advanced gravship construction.</description>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ResearchProjectDef[defName="AdvancedGravtech"]/prerequisites</xpath>
+		<value>
+			<prerequisites>
+				<li>VGE_GravshipWeaponry</li>
+				<li>VGE_CompactWorkspaces</li>
+				<li>VGE_AstrofuelRefining</li>
+				<li>VGE_HeatDissipation</li>
+			</prerequisites>
+		</value>
+	</Operation>
+  <Operation Class="PatchOperationRemove">
+    <xpath>/Defs/ResearchProjectDef[defName="AdvancedGravtech"]/requiredResearchBuilding</xpath>
+  </Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="Apparel_Vacsuit"]/recipeMaker/researchPrerequisite</xpath>
+		<value>
+			<researchPrerequisite>VGE_OxygenNetwork</researchPrerequisite>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="Apparel_VacsuitChildren"]/recipeMaker/researchPrerequisite</xpath>
+		<value>
+			<researchPrerequisite>VGE_OxygenNetwork</researchPrerequisite>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="Apparel_VacsuitHelmet"]/recipeMaker/researchPrerequisite</xpath>
+		<value>
+			<researchPrerequisite>VGE_OxygenNetwork</researchPrerequisite>
+		</value>
+	</Operation>
+
+  <!-- Give the 4 vanilla researches the GravtechResearchExtension so they'll require gravdata research, even if some mod moves it to a different tab. -->
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ResearchProjectDef[defName="BasicGravtech"]</xpath>
+    <value>
+      <li Class="VanillaGravshipExpanded.GravtechResearchExtension" />
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ResearchProjectDef[defName="StandardGravtech"]</xpath>
+    <value>
+      <li Class="VanillaGravshipExpanded.GravtechResearchExtension" />
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ResearchProjectDef[defName="OrbitalTech"]</xpath>
+    <value>
+      <li Class="VanillaGravshipExpanded.GravtechResearchExtension" />
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ResearchProjectDef[defName="AdvancedGravtech"]</xpath>
+    <value>
+      <li Class="VanillaGravshipExpanded.GravtechResearchExtension" />
+    </value>
+  </Operation>
+
+  <!-- Add custom text to orbital tech so it mentions properly that it unlocks vac barrier roofs -->
+  <Operation Class="PatchOperationConditional">
+    <!-- Check if the research project has the "customUnlockTexts" node present -->
+    <xpath>Defs/ResearchProjectDef[defName="OrbitalTech"]/customUnlockTexts</xpath>
+    <!-- If it does have the node, just add another value in. -->
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ResearchProjectDef[defName="OrbitalTech"]/customUnlockTexts</xpath>
+      <value>
+        <li>Vac barrier roof</li>
+      </value>
+    </match>
+    <!-- If it doesn't have the node, add it along with the value. -->
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ResearchProjectDef[defName="OrbitalTech"]</xpath>
+      <value>
+        <customUnlockTexts>
+          <li>Vac barrier roof</li>
+        </customUnlockTexts>
+      </value>
+    </nomatch>
+  </Operation>
+
+</Patch>

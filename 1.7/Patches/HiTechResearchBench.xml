@@ -1,0 +1,15 @@
+<Patch>
+
+  <!-- Make compact research bench an equivalent building to a hi-tech research bench -->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="HiTechResearchBench"]</xpath>
+		<value>
+      <li Class="VEF.Buildings.ResearchBuildingExtension">
+        <equivalentBenches>
+          <li>VGE_CompactResearchBench</li>
+        </equivalentBenches>
+      </li>
+		</value>
+	</Operation>
+
+</Patch>

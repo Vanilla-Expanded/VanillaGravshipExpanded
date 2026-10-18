@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <VEF.Graphics.CustomOverlayDef>
+    <defName>VGE_NoLinkedTerminalOverlay</defName>
+    <overlayPath>UI/Overlays/NoLinkedTargetingTerminal</overlayPath>
+  </VEF.Graphics.CustomOverlayDef>
+
+  <VEF.Graphics.CustomOverlayDef>
+    <defName>VGE_NoLinkedTurretOverlay</defName>
+    <overlayPath>UI/Overlays/NoLinkedTurret_Overlay</overlayPath>
+  </VEF.Graphics.CustomOverlayDef>
+
+  <VEF.Graphics.CustomOverlayDef>
+    <defName>VGE_MultipleGravEnginesOverlay</defName>
+    <overlayPath>UI/Overlays/TooManyGravEngines_Overlay</overlayPath>
+  </VEF.Graphics.CustomOverlayDef>
+
+  <VEF.Graphics.CustomOverlayDef>
+    <defName>VGE_NoLinkedGrajumper</defName>
+    <overlayPath>UI/Overlays/MissingGravjumperEngine</overlayPath>
+  </VEF.Graphics.CustomOverlayDef>
+
+  <VEF.Graphics.CustomOverlayDef>
+    <defName>VGE_NoLinkedGravship</defName>
+    <overlayPath>UI/Overlays/MissingGravshipEngine</overlayPath>
+  </VEF.Graphics.CustomOverlayDef>
+
+  <VEF.Graphics.CustomOverlayDef>
+    <defName>VGE_NoLinkedGravhulk</defName>
+    <overlayPath>UI/Overlays/MissingGravhulkEngine</overlayPath>
+  </VEF.Graphics.CustomOverlayDef>
+
+  <VEF.Graphics.CustomOverlayDef>
+    <defName>VGE_NoAstrofuel</defName>
+    <overlayPath>UI/Overlays/NoAstrofuel</overlayPath>
+  </VEF.Graphics.CustomOverlayDef>
+
+</Defs>

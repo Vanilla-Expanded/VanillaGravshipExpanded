@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<BodyDef>
+		<defName>VGE_Astropede</defName>
+		<label>mechanical astropede</label>
+		<corePart>
+			<def>MechanicalCentipedeBodyFirstRing</def>
+			<height>Middle</height>
+			<depth>Outside</depth>
+			<parts>
+				<li>
+					<def>MechanicalHead</def>
+					<coverage>0.15</coverage>
+					<height>Top</height>
+					<groups>
+						<li>HeadAttackTool</li>
+					</groups>
+					<parts>
+						<li>
+							<def>ArtificialBrain</def>
+							<coverage>0.05</coverage>
+							<depth>Inside</depth>
+						</li>
+						<li>
+							<def>SightSensor</def>
+							<customLabel>left sight sensor</customLabel>
+							<coverage>0.08</coverage>
+						</li>
+						<li>
+							<def>SightSensor</def>
+							<customLabel>right sight sensor</customLabel>
+							<coverage>0.08</coverage>
+						</li>
+						<li>
+							<def>HearingSensor</def>
+							<customLabel>left hearing sensor</customLabel>
+							<coverage>0.08</coverage>
+						</li>
+						<li>
+							<def>HearingSensor</def>
+							<customLabel>right hearing sensor</customLabel>
+							<coverage>0.08</coverage>
+						</li>
+						<li>
+							<def>SmellSensor</def>
+							<coverage>0.08</coverage>
+						</li>
+					</parts>
+				</li>
+				<li>
+					<def>MechanicalCentipedeBodySecondRing</def>
+					<coverage>0.51</coverage>
+					<parts>
+						<li>
+							<def>Reactor</def>
+							<coverage>0.05</coverage>
+							<depth>Inside</depth>
+						</li>
+						<li>
+							<def>MechanicalCentipedeBodyThirdRing</def>
+							<coverage>0.8</coverage>
+							<parts>
+								<li>
+									<def>FluidReprocessor</def>
+									<coverage>0.05</coverage>
+									<depth>Inside</depth>
+								</li>
+								<li>
+									<def>MechanicalCentipedeBodyFourthRing</def>
+									<coverage>0.75</coverage>
+									<parts>
+										<li>
+											<def>FluidReprocessor</def>
+											<coverage>0.06</coverage>
+											<depth>Inside</depth>
+										</li>
+										<li>
+											<def>MechanicalCentipedeBodyFifthRing</def>
+											<coverage>0.66</coverage>
+											<parts>
+												<li>
+													<def>MechanicalCentipedeBodySixthRing</def>
+													<coverage>0.5</coverage>
+												</li>
+											</parts>
+										</li>
+									</parts>
+								</li>
+							</parts>
+						</li>
+					</parts>
+				</li>
+				<li>
+					<def>VGE_MechanicalTail</def>
+					<customLabel>mechanical tail</customLabel>
+					<coverage>0.2</coverage>
+					<height>Bottom</height>
+				</li>
+			</parts>
+		</corePart>
+	</BodyDef>
+</Defs>

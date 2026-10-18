@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="Wall">
+    <defName>VGE_GravshipStructuralBeam</defName>
+    <label>gravship structural beam</label>
+    <description>A structural beam around which a gravship can be constructed. It extends the area in which substructure can be built in a 5x5 square. If destroyed, it causes adjacent beams to collapse.</description>
+    <uiIconPath>Things/Structures/Linked/GravshipStructuralBeam_MenuIcon</uiIconPath>
+    <graphicData>
+      <texPath>Things/Structures/Linked/GravshipStructuralBeam_Atlas</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiOrder>1850</uiOrder>
+    <designationCategory>VGE_Platform</designationCategory>
+    <designationHotKey>Misc1</designationHotKey>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>750</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+    <costList>
+      <GravlitePanel>5</GravlitePanel>
+      <Steel>5</Steel>
+    </costList>
+    <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+    <useStuffTerrainAffordance>false</useStuffTerrainAffordance>
+    <stuffCategories Inherit="False">
+    </stuffCategories>
+    <costStuffCount>0</costStuffCount>
+    <building>
+      <isAirtight>true</isAirtight>
+    </building>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <researchPrerequisites>
+      <li>StandardGravtech</li>
+    </researchPrerequisites>
+    <comps>
+      <li Class="CompProperties_Facility">
+        <maxSimultaneous>9999</maxSimultaneous>
+        <showMaxSimultaneous>false</showMaxSimultaneous>
+        <requiresLOS>False</requiresLOS>
+        <maxDistance>9999</maxDistance>
+      </li>
+      <li Class="CompProperties_SubstructureFootprint">
+        <radius>3.9</radius>
+      </li>
+      <li Class="VanillaGravshipExpanded.CompProperties_StructuralBeam"/>
+    </comps>
+  </ThingDef>
+</Defs>

@@ -1,0 +1,26 @@
+<Patch>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/WorldObjectDef[defName="Gravship"]/comps</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/WorldObjectDef[defName="Gravship"]</xpath>
+      <value>
+        <comps>
+          <li>
+            <compClass>VanillaGravshipExpanded.ExtraGravshipDataComp</compClass>
+          </li>
+        </comps>
+      </value>
+    </nomatch>
+    <!-- In case a different mod adds comps node -->
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/WorldObjectDef[defName="Gravship"]/comps</xpath>
+      <value>
+        <li>
+          <compClass>VanillaGravshipExpanded.ExtraGravshipDataComp</compClass>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

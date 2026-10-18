@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Analyzes building (doesn't have to be a grav engine) without changing its faction, starts the quest. -->
+  <JobDef>
+    <defName>VGE_InspectMechanoidGravEngine</defName>
+    <driverClass>VanillaGravshipExpanded.JobDriver_InspectMechanoidGravEngine</driverClass>
+    <reportString>inspecting TargetA.</reportString>
+  </JobDef>
+
+</Defs>

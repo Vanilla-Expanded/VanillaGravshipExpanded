@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<RecipeDef ParentName="HeavyMechanoidRecipe">
+		<defName>VGE_AstropedeRecipe</defName>
+		<label>gestate astropede</label>
+		<description>Gestate an astropede mechanoid.</description>
+		<gestationCycles>6</gestationCycles>
+		<recipeUsers>
+			<li>LargeMechGestator</li>
+		</recipeUsers>
+		<researchPrerequisite>HighMechtech</researchPrerequisite>
+		<ingredients Inherit="False">
+			<li>
+				<filter>
+					<thingDefs>
+						<li>GravlitePanel</li>
+					</thingDefs>
+				</filter>
+				<count>120</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Plasteel</li>
+					</thingDefs>
+				</filter>
+				<count>255</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ComponentIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>8</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SubcoreHigh</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<products>
+			<VGE_Astropede>1</VGE_Astropede>
+		</products>
+		<descriptionHyperlinks>
+			<ThingDef>VGE_Astropede</ThingDef>
+		</descriptionHyperlinks>
+	</RecipeDef>
+	<RecipeDef ParentName="HeavyMechanoidRecipe">
+		<defName>VGE_HunterRecipe</defName>
+		<label>gestate hunter</label>
+		<description>Gestate a hunter mechanoid.</description>
+		<gestationCycles>2</gestationCycles>
+		<recipeUsers>
+			<li>LargeMechGestator</li>
+		</recipeUsers>
+		<researchPrerequisite>HighMechtech</researchPrerequisite>
+		<ingredients Inherit="False">
+			<li>
+				<filter>
+					<thingDefs>
+						<li>GravlitePanel</li>
+					</thingDefs>
+				</filter>
+				<count>40</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Plasteel</li>
+					</thingDefs>
+				</filter>
+				<count>75</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ComponentIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SubcoreRegular</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<products>
+			<VGE_Hunter>1</VGE_Hunter>
+		</products>
+		<descriptionHyperlinks>
+			<ThingDef>VGE_Hunter</ThingDef>
+		</descriptionHyperlinks>
+	</RecipeDef>
+</Defs>

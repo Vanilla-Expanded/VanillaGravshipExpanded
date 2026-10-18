@@ -2,6 +2,7 @@ using PipeSystem;
 using RimWorld;
 using VEF.Graphics;
 using VEF.OptionalFeatures;
+using VEF.Things;
 using Verse;
 
 namespace VanillaGravshipExpanded
@@ -11,13 +12,14 @@ namespace VanillaGravshipExpanded
     {
         public static StatDef VGE_GravshipTargeting, VGE_AccuracyGlobal, VGE_MaintenanceSensitivity, VGE_MaintenanceDifficulty, VGE_GravshipMaintenance, VGE_GravshipResearch, VGE_GravPowerAdjacency, VGE_GlobalMaintenanceSensitivity;
         public static WorldObjectDef VGE_ArtilleryProjectile, AsteroidMiningSite, VGE_GravshipGenerationSite;
-        public static ThingDef Gun_MiniTurret, VGE_PointDefenseTurret, VGE_GaussSmoke, VGE_SealantGoop, VGE_Filth_DamagedSubstructure, VGE_Astrofire, VGE_AstrofireSpark, VGE_GravtechConsole, VGE_PilotCockpit, VGE_PilotBridge, PilotConsole, VGE_Compressed_Vacstone, VGE_OxygenCanister, VGE_MaintenanceHub, VGE_CapacitorHarmonizer, VGE_DamagedEscapePod, VGE_EscapePodSkyfaller, VGE_GravhulkEngine, VGE_GravjumperEngine, VGE_SolarPanelling, VGE_GravheatAbsorber, VGE_GravshipShelf, VGE_Gravlift, VGE_CommsTerminal, VGE_VacCheckpoint, VacBarrier;
+        public static ThingDef Gun_MiniTurret, VGE_PointDefenseTurret, VGE_GaussSmoke, VGE_SealantGoop, VGE_Filth_DamagedSubstructure, VGE_GravtechConsole, VGE_PilotCockpit, VGE_PilotBridge, PilotConsole, VGE_Compressed_Vacstone, VGE_OxygenCanister, VGE_MaintenanceHub, VGE_CapacitorHarmonizer, VGE_DamagedEscapePod, VGE_EscapePodSkyfaller, VGE_GravhulkEngine, VGE_GravjumperEngine, VGE_SolarPanelling, VGE_GravheatAbsorber, VGE_GravshipShelf, VGE_Gravlift, VGE_CommsTerminal, VGE_VacCheckpoint, VacBarrier;
+        public static CustomFireDef VGE_Astrofire;
         public static ThingDef VGE_AstrofuelPipe, VGE_Filth_Astrofuel, VGE_MechanoidGravEngine, VGE_GravFieldAmplifier;
         public static SoundDef VGE_GravshipTarget_Acquired, VGE_MicrometeorStorm;
         public static TerrainDef VGE_GravshipSubscaffold, VGE_DamagedSubstructure, VGE_AsteroidIce, VGE_Compressed_Vacstone_Floor, VGE_MechanoidSubstructure;
         public static OrbitalDebrisDef VGE_IceAsteroidDebris, VGE_AsteroidClusterDebris, VGE_MixedDebris;
         public static DamageDef VGE_ExtinguishAstrofire, VGE_AstrofireDamage;
-        public static JobDef VGE_BeatAstrofire, VGE_ExtinguishAstrofiresNearby, VGE_ExtinguishSelfAstrofire, VGE_MaintainGrav, VGE_CollectGravdata, VGE_ReplenishOxygenPack, VGE_InspectMechanoidGravEngine, VGE_BuildVacBarrierRoofs;
+        public static JobDef VGE_MaintainGrav, VGE_CollectGravdata, VGE_ReplenishOxygenPack, VGE_InspectMechanoidGravEngine, VGE_BuildVacBarrierRoofs;
         public static FleckDef VGE_MaintenanceSmoke, VGE_JavelinGlow, Fleck_HeatWaveDistortion, VGE_GaussImpact, VGE_GaussDistortion;
         public static ResearchTabDef VGE_Gravtech;
         public static ResearchProjectDef GroundPenetratingScanner, OrbitalTech;

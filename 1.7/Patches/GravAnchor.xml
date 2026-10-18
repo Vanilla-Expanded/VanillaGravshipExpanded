@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <!-- Change description of grav anchor -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravAnchor"]/description/text()</xpath>
+    <value>A surface-mounted stabilizer that absorbs residual gravitational forces after a gravship landing. This allows gravships to launch again immediately, without needing to wait for systems to recalibrate. The anchor also aids in landing precision, reducing the chance of mishaps. Grav anchors cannot be installed aboard gravships.</value>
+  </Operation>
+
+  <!-- Turn research prerequisite from basic to standard gravtech -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravAnchor"]/researchPrerequisites/li[text()="BasicGravtech"]/text()</xpath>
+    <value>StandardGravtech</value>
+  </Operation>
+
+</Patch>

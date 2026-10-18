@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="UglyRockBase">
+		<defName>VGE_Compressed_Vacstone</defName>
+		<label>compressed vacstone</label>
+		<description>An ultra-dense mass of asteroid rock and dust, compacted over millennia into a near-indestructible block. Found only in deep space.</description>
+		<graphicData>
+			<texPath>Things/Natural/DeepRockWallFlecked_Atlas</texPath>
+			<color>(115,106,98)</color>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>3000</MaxHitPoints>
+		</statBases>
+		<building>
+			<mineableThing>ChunkVacstone</mineableThing>
+			<mineableDropChance>1</mineableDropChance>
+			<mineablePreventMeteorite>true</mineablePreventMeteorite>
+			<mineablePreventNaturalRockOnSurface>true</mineablePreventNaturalRockOnSurface>
+			<naturalTerrain>VGE_Compressed_Vacstone_Floor</naturalTerrain>
+			<leaveTerrain>VGE_Compressed_Vacstone_Floor</leaveTerrain>
+		</building>
+	</ThingDef>
+	<ThingDef ParentName="RockBase">
+		<defName>VGE_Compressed_Steel</defName>
+		<label>compressed steel</label>
+		<graphicData>
+			<texPath>Things/Natural/DeepRockWallFlecked_Atlas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<color>(115,106,98)</color>
+			<colorTwo>(155,133,107)</colorTwo>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>7500</MaxHitPoints>
+		</statBases>
+		<description>Ancient structural mass fused into a single, ultra-dense vacstone-steel deposit. Found only in deep space.</description>
+		<building>
+			<isResourceRock>true</isResourceRock>
+			<mineableThing>Steel</mineableThing>
+			<mineableYield>80</mineableYield>
+			<mineableScatterCommonality>0</mineableScatterCommonality>
+			<mineableScatterLumpSizeRange>
+				<min>75</min>
+				<max>120</max>
+			</mineableScatterLumpSizeRange>
+			<veinMineable>true</veinMineable>
+			<mineablePreventMeteorite>true</mineablePreventMeteorite>
+		</building>
+	</ThingDef>
+	<ThingDef ParentName="RockBase">
+		<defName>VGE_Compressed_Silver</defName>
+		<label>compressed silver ore</label>
+		<graphicData>
+			<texPath>Things/Natural/DeepRockWallFlecked_Atlas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<color>(115,106,98)</color>
+			<colorTwo>(147,144,134)</colorTwo>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>7500</MaxHitPoints>
+		</statBases>
+		<description>Silver-bearing rock compacted under extreme pressure into a dense, uniform seam. Found only in deep space.</description>
+		<building>
+			<isResourceRock>true</isResourceRock>
+			<mineableThing>Silver</mineableThing>
+			<mineableYield>80</mineableYield>
+			<mineableScatterCommonality>0</mineableScatterCommonality>
+			<mineableScatterLumpSizeRange>
+				<min>24</min>
+				<max>48</max>
+			</mineableScatterLumpSizeRange>
+			<veinMineable>true</veinMineable>
+			<mineablePreventMeteorite>true</mineablePreventMeteorite>
+		</building>
+	</ThingDef>
+	<ThingDef ParentName="RockBase">
+		<defName>VGE_Compressed_Gold</defName>
+		<label>compressed gold ore</label>
+		<graphicData>
+			<texPath>Things/Natural/DeepRockWallFlecked_Atlas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<color>(115,106,98)</color>
+			<colorTwo>(187,173,25)</colorTwo>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>7500</MaxHitPoints>
+		</statBases>
+		<description>Gold-rich strata crushed and recrystallized into a tight, resilient vein. Found only in deep space.</description>
+		<building>
+			<isResourceRock>true</isResourceRock>
+			<mineableThing>Gold</mineableThing>
+			<mineableYield>80</mineableYield>
+			<mineableScatterCommonality>0</mineableScatterCommonality>
+			<mineableScatterLumpSizeRange>
+				<min>8</min>
+				<max>20</max>
+			</mineableScatterLumpSizeRange>
+			<veinMineable>true</veinMineable>
+			<mineablePreventMeteorite>true</mineablePreventMeteorite>
+		</building>
+	</ThingDef>
+	<ThingDef ParentName="RockBase">
+		<defName>VGE_Compressed_Uranium</defName>
+		<label>compressed uranium ore</label>
+		<graphicData>
+			<texPath>Things/Natural/DeepRockWallFlecked_Atlas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<color>(115,106,98)</color>
+			<colorTwo>(70,70,70)</colorTwo>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>20000</MaxHitPoints>
+		</statBases>
+		<description>Uranium-laden rock sintered into a nearly monolithic deposit, difficult to fracture. Found only in deep space.</description>
+		<building>
+			<isResourceRock>true</isResourceRock>
+			<mineableThing>Uranium</mineableThing>
+			<mineableYield>80</mineableYield>
+			<mineableScatterCommonality>0</mineableScatterCommonality>
+			<mineableScatterLumpSizeRange>
+				<min>18</min>
+				<max>36</max>
+			</mineableScatterLumpSizeRange>
+			<veinMineable>true</veinMineable>
+			<mineablePreventMeteorite>true</mineablePreventMeteorite>
+		</building>
+	</ThingDef>
+	<ThingDef ParentName="RockBase">
+		<defName>VGE_Compressed_Plasteel</defName>
+		<label>compressed plasteel</label>
+		<graphicData>
+			<texPath>Things/Natural/DeepRockWallFlecked_Atlas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<color>(115,106,98)</color>
+			<colorTwo>(134,166,166)</colorTwo>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>40000</MaxHitPoints>
+		</statBases>
+		<description>Ultra-dense plasteel conglomerate formed in vacuum over generations; brutally tough to mine. Found only in deep space.</description>
+		<building>
+			<isResourceRock>true</isResourceRock>
+			<mineableThing>Plasteel</mineableThing>
+			<mineableYield>80</mineableYield>
+			<mineableScatterCommonality>0</mineableScatterCommonality>
+			<mineableScatterLumpSizeRange>
+				<min>10</min>
+				<max>20</max>
+			</mineableScatterLumpSizeRange>
+			<veinMineable>true</veinMineable>
+			<mineablePreventMeteorite>true</mineablePreventMeteorite>
+		</building>
+	</ThingDef>
+	<ThingDef ParentName="RockBase">
+		<defName>VGE_Compressed_Jade</defName>
+		<label>compressed jade</label>
+		<graphicData>
+			<texPath>Things/Natural/DeepRockWallFlecked_Atlas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<color>(115,106,98)</color>
+			<colorTwo>(30,173,25)</colorTwo>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>7500</MaxHitPoints>
+		</statBases>
+		<description>Jade-bearing vacstone compacted into a rigid, fine-grained mass. Found only in deep space.</description>
+		<building>
+			<isResourceRock>true</isResourceRock>
+			<mineableThing>Jade</mineableThing>
+			<mineableYield>80</mineableYield>
+			<mineableScatterCommonality>0</mineableScatterCommonality>
+			<mineableScatterLumpSizeRange>
+				<min>8</min>
+				<max>18</max>
+			</mineableScatterLumpSizeRange>
+			<veinMineable>true</veinMineable>
+			<mineablePreventMeteorite>true</mineablePreventMeteorite>
+		</building>
+	</ThingDef>
+</Defs>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="RoughPlantBase">
+    <defName>VGE_Oxyalgae</defName>
+    <label>oxyalgae</label>
+    <description>A dense mat of harvested aquatic algae, cultivated for use in life support systems. Oxyalgae provides steady oxygen generation but spoils quickly if not processed.</description>
+    <stackLimit>200</stackLimit>
+    <graphicData>
+      <texPath>Things/Items/PlantMatter/Oxyalgae</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>0.2</MarketValue>
+      <Mass>0.014</Mass>
+      <Flammability>0.5</Flammability>
+      <Nutrition>0.025</Nutrition>
+      <DeteriorationRate>12</DeteriorationRate>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>1</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+    </comps>
+    <thingCategories>
+      <li>Foods</li>
+    </thingCategories>
+    <ingestible>
+      <optimalityOffsetFeedingAnimals>7</optimalityOffsetFeedingAnimals>
+    </ingestible>
+    <allowedArchonexusCount>400</allowedArchonexusCount>
+  </ThingDef>
+
+</Defs>

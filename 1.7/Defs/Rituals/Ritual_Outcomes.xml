@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <RitualOutcomeEffectDef Abstract="True" Name="VGE_GravshipLaunchOutcomeEffect">
+    <description>Quality factors determine the engine's cooldown duration and the chance for a mishap when landing.</description>
+    <allowAttachableOutcome>false</allowAttachableOutcome>
+    <workerClass>RitualOutcomeEffectWorker_GravshipLaunch</workerClass>
+    <givesDevelopmentPoints>false</givesDevelopmentPoints>
+    <allowOutcomeWithNoAttendance>true</allowOutcomeWithNoAttendance>
+  </RitualOutcomeEffectDef>
+
+  <RitualOutcomeEffectDef ParentName="VGE_GravshipLaunchOutcomeEffect">
+    <defName>VGE_GravjumperLaunch</defName>
+    <extraOutcomeDescriptions>
+      <li>
+        <description>At the current quality, the gravjumper won't be able to launch again for {0_time} after landing.</description>
+        <qualityToValue>GravshipUtility.LaunchCooldownFromQuality</qualityToValue>
+      </li>
+      <li>
+        <description>Additionally, there's a {0_percentage} chance of having a minor incident when landing the gravjumper.</description>
+        <qualityToValue>GravshipUtility.NegativeLandingOutcomeFromQuality</qualityToValue>
+      </li>
+    </extraOutcomeDescriptions>
+    <comps>
+      <li Class="RitualOutcomeComp_PawnStatScaled">
+        <label>{PAWN_labelShort}'s piloting ability</label>
+        <labelAbstract>pilot's piloting ability</labelAbstract>
+        <roleId>pilot</roleId>
+        <statDef>PilotingAbility</statDef>
+        <curve>
+          <points>
+            <li>(0.1, 0.0)</li>
+            <li>(1.0, 0.4)</li>
+            <li>(2.5, 0.5)</li>
+          </points>
+        </curve>
+      </li>
+      <li Class="RitualOutcomeComp_PawnStatScaled">
+        <label>{PAWN_labelShort}'s piloting ability</label>
+        <labelAbstract>copilot's piloting ability</labelAbstract>
+        <roleId>copilot</roleId>
+        <statDef>PilotingAbility</statDef>
+        <curve>
+          <points>
+            <li>(0.1, 0.0)</li>
+            <li>(1.0, 0.1)</li>
+            <li>(2.5, 0.2)</li>
+          </points>
+        </curve>
+      </li>
+	  <li Class="VanillaGravshipExpanded.RitualOutcomeComp_AverageMaintenance">
+        <label>Average maintenance of the gravship</label>     
+        <curve>
+          <points>
+            <li>(0, -1)</li>
+            <li>(0.5, -0.1)</li>
+            <li>(1, 0)</li>
+          </points>
+        </curve>
+      </li>
+      <li Class="RitualOutcomeComp_ParticipantCount">
+        <label>crew count</label>
+        <curve>
+          <points>
+            <li>(0, 0)</li>
+            <li>(5, 0.05)</li>
+          </points>
+        </curve>
+      </li>
+      <li Class="RitualOutcomeComp_GravshipFacilities">
+        <label>small thrusters</label>
+        <facilityQualityOffsets>
+          <li>
+            <key>SmallThruster</key>
+            <value>0.01</value>
+          </li>
+        </facilityQualityOffsets>
+      </li>
+      <li Class="RitualOutcomeComp_GravshipFacilities">
+        <label>large thrusters</label>
+        <facilityQualityOffsets>
+          <li>
+            <key>LargeThruster</key>
+            <value>0.02</value>
+          </li>
+        </facilityQualityOffsets>
+      </li>
+      <li Class="RitualOutcomeComp_GravshipFacilities">
+        <label>giant thrusters</label>
+        <facilityQualityOffsets>
+          <li>
+            <key>VGE_GiantThruster</key>
+            <value>0.03</value>
+          </li>
+        </facilityQualityOffsets>
+      </li>
+      <li Class="RitualOutcomeComp_GravshipFacilities">
+        <label>pilot subpersona core</label>
+        <facilityQualityOffsets>
+          <li>
+            <key>PilotSubpersonaCore</key>
+            <value>0.15</value>
+          </li>
+        </facilityQualityOffsets>
+      </li>
+      <li Class="VanillaGravshipExpanded.RitualOutcomeComp_LandingOnGravAnchor">
+        <label>landing near grav anchor</label>
+        <qualityOffset>0.2</qualityOffset>
+      </li>
+    </comps>
+  </RitualOutcomeEffectDef>
+
+  <RitualOutcomeEffectDef ParentName="VGE_GravshipLaunchOutcomeEffect">
+    <defName>VGE_GravhulkLaunch</defName>
+    <extraOutcomeDescriptions>
+      <li>
+        <description>At the current quality, the gravhulk won't be able to launch again for {0_time} after landing.</description>
+        <qualityToValue>GravshipUtility.LaunchCooldownFromQuality</qualityToValue>
+      </li>
+      <li>
+        <description>Additionally, there's a {0_percentage} chance of having a minor incident when landing the gravhulk.</description>
+        <qualityToValue>GravshipUtility.NegativeLandingOutcomeFromQuality</qualityToValue>
+      </li>
+    </extraOutcomeDescriptions>
+    <comps>
+      <li Class="RitualOutcomeComp_PawnStatScaled">
+        <label>{PAWN_labelShort}'s piloting ability</label>
+        <labelAbstract>pilot's piloting ability</labelAbstract>
+        <roleId>pilot</roleId>
+        <statDef>PilotingAbility</statDef>
+        <curve>
+          <points>
+            <li>(0.1, 0.0)</li>
+            <li>(1.0, 0.2)</li>
+            <li>(2.5, 0.3)</li>
+          </points>
+        </curve>
+      </li>
+      <li Class="RitualOutcomeComp_PawnStatScaled">
+        <label>{PAWN_labelShort}'s piloting ability</label>
+        <labelAbstract>copilot's piloting ability</labelAbstract>
+        <roleId>copilot</roleId>
+        <statDef>PilotingAbility</statDef>
+        <curve>
+          <points>
+            <li>(0.1, 0.0)</li>
+            <li>(1.0, 0.05)</li>
+            <li>(2.5, 0.1)</li>
+          </points>
+        </curve>
+      </li>
+      <li Class="RitualOutcomeComp_PawnStatScaled">
+        <label>{PAWN_labelShort}'s research ability</label>
+        <labelAbstract>gravtech researcher's research ability</labelAbstract>
+        <roleId>gravtechResearcher</roleId>
+        <statDef>ResearchSpeed</statDef>
+        <curve>
+          <points>
+            <li>(0.1, 0.0)</li>
+            <li>(1.0, 0.05)</li>
+            <li>(2.5, 0.1)</li>
+          </points>
+        </curve>
+      </li>
+      <li Class="RitualOutcomeComp_PawnStatScaled">
+        <label>{PAWN_labelShort}'s maintenance ability</label>
+        <labelAbstract>gravtech engineer's maintenance ability</labelAbstract>
+        <roleId>gravtechEngineer</roleId>
+        <statDef>VGE_GravshipMaintenance</statDef>
+        <curve>
+          <points>
+            <li>(0.1, 0.0)</li>
+            <li>(1.0, 0.05)</li>
+            <li>(2.5, 0.1)</li>
+          </points>
+        </curve>
+      </li>
+	   <li Class="VanillaGravshipExpanded.RitualOutcomeComp_AverageMaintenance">
+        <label>Average maintenance of the gravship</label>     
+        <curve>
+          <points>
+            <li>(0, -1)</li>
+            <li>(0.5, -0.1)</li>
+            <li>(1, 0)</li>
+          </points>
+        </curve>
+      </li>
+      <li Class="RitualOutcomeComp_ParticipantCount">
+        <label>crew count</label>
+        <curve>
+          <points>
+            <li>(0, 0)</li>
+            <li>(5, 0.25)</li>
+          </points>
+        </curve>
+      </li>
+      <li Class="RitualOutcomeComp_GravshipFacilities">
+        <label>small thrusters</label>
+        <facilityQualityOffsets>
+          <li>
+            <key>SmallThruster</key>
+            <value>0.01</value>
+          </li>
+        </facilityQualityOffsets>
+      </li>
+      <li Class="RitualOutcomeComp_GravshipFacilities">
+        <label>large thrusters</label>
+        <facilityQualityOffsets>
+          <li>
+            <key>LargeThruster</key>
+            <value>0.02</value>
+          </li>
+        </facilityQualityOffsets>
+      </li>
+      <li Class="RitualOutcomeComp_GravshipFacilities">
+        <label>giant thrusters</label>
+        <facilityQualityOffsets>
+          <li>
+            <key>VGE_GiantThruster</key>
+            <value>0.03</value>
+          </li>
+        </facilityQualityOffsets>
+      </li>
+      <li Class="VanillaGravshipExpanded.RitualOutcomeComp_MannedGravshipFacilities">
+        <label>manned copilot console</label>
+        <roleId>copilot</roleId>
+        <facilitiesPerPawn>1</facilitiesPerPawn>
+        <facilityQualityOffsets>
+          <li>
+            <key>VGE_CopilotConsole</key>
+            <value>0.1</value>
+          </li>
+        </facilityQualityOffsets>
+      </li>
+      <li Class="RitualOutcomeComp_GravshipFacilities">
+        <label>pilot subpersona core</label>
+        <facilityQualityOffsets>
+          <li>
+            <key>PilotSubpersonaCore</key>
+            <value>0.15</value>
+          </li>
+        </facilityQualityOffsets>
+      </li>
+      <li Class="VanillaGravshipExpanded.RitualOutcomeComp_LandingOnGravAnchor">
+        <label>landing near grav anchor</label>
+        <qualityOffset>0.2</qualityOffset>
+      </li>
+    </comps>
+  </RitualOutcomeEffectDef>
+
+</Defs>

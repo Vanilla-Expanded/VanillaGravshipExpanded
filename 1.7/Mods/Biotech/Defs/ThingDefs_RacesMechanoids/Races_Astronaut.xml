@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="LightMechanoid">
+		<defName>VGE_Astronaut</defName>
+		<label>astronaut</label>
+		<description>A medium sized mechanoid designed to perform construction and firefighting tasks in orbit. It can perform blunt melee attacks if necessary. It is not affected by the slow space traversing speeds.</description>
+		<statBases>
+			<BandwidthCost>1</BandwidthCost>
+			<MarketValue>800</MarketValue>
+			<MoveSpeed>4.2</MoveSpeed>
+			<ArmorRating_Blunt>0.18</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.24</ArmorRating_Sharp>
+			<Mass>26</Mass>
+		</statBases>
+		<comps>
+			<li Class="VEF.AnimalBehaviours.CompProperties_Floating">
+
+			</li>
+		</comps>
+		<tools Inherit="false">
+			<li>
+				<label>torso</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>10</power>
+				<cooldownTime>2.9</cooldownTime>
+				<linkedBodyPartsGroup>SpikedShellAttackTool</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<race>
+			<mechEnabledWorkTypes>
+				<li>Construction</li>
+				<li>Firefighter</li>
+			</mechEnabledWorkTypes>
+			<lifeStageAges>
+				<li>
+					<def>MechanoidFullyFormed</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Wasp_Wounded</soundWounded>
+					<soundDeath>Pawn_Wasp_Death</soundDeath>
+					<soundCall>Pawn_Wasp_Call</soundCall>
+				</li>
+				<li>
+					<def>MechanoidFullyFormed</def>
+					<minAge>100</minAge>
+					<soundWounded>Pawn_Wasp_Wounded</soundWounded>
+					<soundDeath>Pawn_Wasp_Death</soundDeath>
+					<soundCall>Pawn_Wasp_Call</soundCall>
+				</li>
+			</lifeStageAges>
+			<body>Drone</body>
+			<baseHealthScale>1</baseHealthScale>
+			<baseBodySize>1</baseBodySize>
+			<soundMeleeHitPawn>Pawn_Melee_MechanoidSlash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_MechanoidSlash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_MechanoidSlash_Miss</soundMeleeMiss>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="BaseMechanoidKind">
+		<defName>VGE_Astronaut</defName>
+		<label>astronaut</label>
+		<race>VGE_Astronaut</race>
+		<allowInMechClusters>false</allowInMechClusters>
+		<isFighter>false</isFighter>
+		<combatPower>20</combatPower>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Pawns/Mechanoid/Astronaut/Mech_Astronaut</texPath>
+					<maskPath>Things/Pawns/Mechanoid/Astronaut/Allegiance_Mech_Astronaut</maskPath>
+					<shaderType>CutoutWithOverlay</shaderType>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<drawSize>1</drawSize>
+				</bodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Pawns/Mechanoid/Astronaut/MechAncient_Astronaut</texPath>
+					<maskPath>Things/Pawns/Mechanoid/Astronaut/Allegiance_Mech_Astronaut</maskPath>
+					<shaderType>CutoutWithOverlay</shaderType>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<drawSize>1</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+</Defs>

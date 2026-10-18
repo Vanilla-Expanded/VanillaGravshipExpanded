@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="GravshipComponentBase">
+        <defName>VGE_OperatorSubpersonaCore</defName>
+        <label>operator subpersona core</label>
+        <description>A high-grade subcore specialized in gravship combat. It can link with a single gravship artillery piece and control it the same way a crewmember manning a targeting terminal can. It’s combat capabilities are subpar, but it allows for autonomous artillery batteries without the need for human operators.</description>
+        <thingClass>VanillaGravshipExpanded.Building_AutonomousTargeting</thingClass>
+        <tickerType>Normal</tickerType>
+        <graphicData>
+            <texPath>Things/Structures/Biotech/OperatorSubcore</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1, 1)</drawSize>
+        </graphicData>
+        <statBases>
+            <WorkToBuild>1600</WorkToBuild>
+            <MaxHitPoints>80</MaxHitPoints>
+            <Flammability>0.7</Flammability>
+            <Beauty>0</Beauty>
+            <Mass>25</Mass>
+        </statBases>
+        <size>(1,1)</size>
+        <rotatable>false</rotatable>
+        <pathCost>20</pathCost>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.4</fillPercent>
+        <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+        <designationCategory>VGE_Combat</designationCategory>
+        <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+        <constructEffect>ConstructMetal</constructEffect>
+        <researchPrerequisites>
+            <li>VGE_GravshipWeaponry</li>
+            <li>HighMechtech</li>
+        </researchPrerequisites>
+        <costList>
+            <Steel>60</Steel>
+            <GravlitePanel>20</GravlitePanel>
+            <SubcoreHigh>1</SubcoreHigh>
+        </costList>
+        <comps>
+            <li Class="CompProperties_GravshipFacility">
+                <requiresLOS>false</requiresLOS>
+                <maxSimultaneous>16</maxSimultaneous>
+                <maxDistance>500</maxDistance>
+            </li>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>100</basePowerConsumption>
+            </li>
+        </comps>
+        <tradeTags>
+            <li>GravshipUpgrade</li>
+        </tradeTags>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.AutonomousTargetingExtension">
+                <gravshipTargeting>0.9</gravshipTargeting>
+            </li>
+        </modExtensions>
+        <uiOrder>2005</uiOrder>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseMechCharger" Name="VGE_GravshipBaseMechCharger" Abstract="True">
+        <uiOrder>2385</uiOrder>
+        <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+        <researchPrerequisites>
+            <li>VGE_CompactWorkspaces</li>
+        </researchPrerequisites>
+        <pathCost>21</pathCost>
+        <designationCategory>Odyssey</designationCategory>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_GravshipBaseMechCharger">
+        <defName>VGE_GravshipBasicRecharger</defName>
+        <label>compact mech recharger</label>
+        <description>A miniaturized version of the mech recharger, designed to fit within the confined spaces of a gravship. Lightweight mechanoids can recharge here. During recharge, this recharger produces toxic wastepacks and stores them internally. Haulers must remove the wastepacks from time to time. It draws most of the power directly from the grav engine.</description>
+        <graphicData>
+            <texPath>Things/Structures/GravshipMechRechargers/GravshipBasicMechRecharger/GravshipBasicMechRecharger</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(2,2)</drawSize>
+            <shadowData>
+                <volume>(0.9, 0.5, 0.9)</volume>
+            </shadowData>
+        </graphicData>
+        <uiIconScale>0.5</uiIconScale>
+        <interactionCellOffset>(0,0,1)</interactionCellOffset>
+        <passability>PassThroughOnly</passability>
+        <statBases>
+            <MaxHitPoints>150</MaxHitPoints>
+            <WorkToBuild>8000</WorkToBuild>
+            <Mass>25</Mass>
+            <Flammability>0.5</Flammability>
+        </statBases>
+        <size>(1,1)</size>
+        <building>
+            <requiredMechWeightClasses>
+                <li>Light</li>
+            </requiredMechWeightClasses>
+            <barDrawData>
+                <north>
+                    <preRotationOffset>(-0.01598358,0.0255661)</preRotationOffset>
+                    <size>(0.5505219,0.1139069)</size>
+                </north>
+                <south>
+                    <preRotationOffset>(0.006927488,-0.02323151)</preRotationOffset>
+                    <size>(0.5479813,0.1345978)</size>
+                </south>
+                <east>
+                    <preRotationOffset>(0.1157379,-0.006530767)</preRotationOffset>
+                    <size>(0.4481201,0.1160278)</size>
+                </east>
+                <west>
+                    <preRotationOffset>(-0.1114426,-0.005119322)</preRotationOffset>
+                    <size>(0.4646759,0.1281815)</size>
+                </west>
+            </barDrawData>
+        </building>
+        <costList>
+            <Steel>100</Steel>
+            <ComponentIndustrial>1</ComponentIndustrial>
+            <GravlitePanel>10</GravlitePanel>
+        </costList>
+        <researchPrerequisites>
+            <li>BasicMechtech</li>
+        </researchPrerequisites>
+        <comps>
+            <li Class="CompProperties_ThingContainer">
+                <compClass>CompThingContainer</compClass>
+                <stackLimit>5</stackLimit>
+                <drawContainedThing>false</drawContainedThing>
+                <dropEffecterDef>MechChargerWasteRemoved</dropEffecterDef>
+            </li>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>20</basePowerConsumption>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_GravshipBaseMechCharger">
+        <defName>VGE_GravshipStandardRecharger</defName>
+        <label>compact large mech recharger</label>
+        <description>A miniaturized version of the large mech recharger, designed to fit within the confined spaces of a gravship. Medium, heavy, and ultraheavy mechanoids can recharge here. During recharge, this recharger produces toxic wastepacks and stores them internally. Haulers must remove the wastepacks from time to time. It draws most of the power directly from the grav engine.</description>
+        <graphicData>
+            <texPath>Things/Structures/GravshipMechRechargers/GravshipLargeMechRecharger/GravshipLargeMechRecharger</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(3,2)</drawSize>
+            <shadowData>
+                <volume>(2.9, 0.5, 0.9)</volume>
+            </shadowData>
+        </graphicData>
+        <interactionCellOffset>(0,0,1)</interactionCellOffset>
+        <passability>PassThroughOnly</passability>
+        <statBases>
+            <MaxHitPoints>250</MaxHitPoints>
+            <WorkToBuild>10000</WorkToBuild>
+            <Mass>25</Mass>
+            <Flammability>0.5</Flammability>
+        </statBases>
+        <size>(3,1)</size>
+        <building>
+            <requiredMechWeightClasses>
+                <li>Medium</li>
+                <li>Heavy</li>
+                <li>UltraHeavy</li>
+            </requiredMechWeightClasses>
+            <barDrawData>
+                <north>
+                    <preRotationOffset>(-0.01598358,0.0255661)</preRotationOffset>
+                    <size>(0.5505219,0.1139069)</size>
+                </north>
+                <south>
+                    <preRotationOffset>(0.006927488,-0.02323151)</preRotationOffset>
+                    <size>(0.5479813,0.1345978)</size>
+                </south>
+                <east>
+                    <preRotationOffset>(0.1157379,-0.006530767)</preRotationOffset>
+                    <size>(0.4481201,0.1160278)</size>
+                </east>
+                <west>
+                    <preRotationOffset>(-0.1114426,-0.005119322)</preRotationOffset>
+                    <size>(0.4646759,0.1281815)</size>
+                </west>
+            </barDrawData>
+        </building>
+        <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+        <costList>
+            <Steel>150</Steel>
+            <ComponentIndustrial>2</ComponentIndustrial>
+            <GravlitePanel>15</GravlitePanel>
+        </costList>
+        <researchPrerequisites>
+            <li>StandardMechtech</li>
+        </researchPrerequisites>
+        <comps>
+            <li Class="CompProperties_ThingContainer">
+                <compClass>CompThingContainer</compClass>
+                <stackLimit>10</stackLimit>
+                <drawContainedThing>false</drawContainedThing>
+                <dropEffecterDef>MechChargerWasteRemoved</dropEffecterDef>
+            </li>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>40</basePowerConsumption>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="GeneBuildingBase">
+        <defName>VGE_CompactGeneBank</defName>
+        <label>compact gene bank</label>
+        <description>A miniaturized version of the gene bank, designed to fit within the confined spaces of a gravship. It stores genepacks and makes them usable for creating new xenogerms when placed near a gene assembler. It draws power directly from the grav engine and prevents genepacks from deteriorating while slowly repairing deterioration.</description>
+        <graphicData>
+            <texPath>Things/Structures/GravshipGenebank/GravshipGenebank</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(1, 1)</drawSize>
+            <shadowData>
+                <volume>(0.85, 0.3, 0.85)</volume>
+            </shadowData>
+        </graphicData>
+        <uiOrder>2383</uiOrder>
+        <castEdgeShadows>true</castEdgeShadows>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <tickerType>Rare</tickerType>
+        <pathCost>21</pathCost>
+        <passability>PassThroughOnly</passability>
+        <canOverlapZones>false</canOverlapZones>
+        <fillPercent>0.4</fillPercent>
+        <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+        <size>(1, 1)</size>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <!-- shorter than vanilla? -->
+            <WorkToBuild>3000</WorkToBuild>
+            <Mass>20</Mass>
+            <Flammability>0.5</Flammability>
+        </statBases>
+        <thingCategories>
+            <li>BuildingsProduction</li>
+        </thingCategories>
+        <inspectorTabs>
+            <li>ITab_ContentsGenepackHolder</li>
+        </inspectorTabs>
+        <researchPrerequisites>
+            <li>VGE_CompactWorkspaces</li>
+        </researchPrerequisites>
+        <costList>
+            <Steel>30</Steel>
+            <ComponentIndustrial>1</ComponentIndustrial>
+            <GravlitePanel>5</GravlitePanel>
+        </costList>
+        <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+        <descriptionHyperlinks>
+            <ThingDef>Genepack</ThingDef>
+            <ThingDef>GeneAssembler</ThingDef>
+        </descriptionHyperlinks>
+        <comps>
+            <li Class="CompProperties_GenepackContainer">
+                <maxCapacity>4</maxCapacity>
+            </li>
+            <li Class="CompProperties_Facility">
+                <maxSimultaneous>100</maxSimultaneous>
+                <maxDistance>12.9</maxDistance>
+                <showMaxSimultaneous>false</showMaxSimultaneous>
+            </li>
+        </comps>
+        <designationCategory>Odyssey</designationCategory>
+        <modExtensions>
+            <li Class="VEF.Buildings.FacilityExtension">
+                <copyLinksFrom>
+                    <li>GeneBank</li>
+                </copyLinksFrom>
+            </li>
+        </modExtensions>
+    </ThingDef>
+
+</Defs>

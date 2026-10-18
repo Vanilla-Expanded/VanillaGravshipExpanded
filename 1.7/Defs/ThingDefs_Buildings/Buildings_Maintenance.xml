@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="BuildingBase">
+		<defName>VGE_EngineeringConsole</defName>
+		<label>engineering console</label>
+		<description>An interface used to monitor the maintenance status of all gravship components. It draws power directly from the grav engine.\n\n&lt;color=#E5E54C&gt;Gameplay impact:&lt;/color&gt; Reduces maintenance sensitivity of all gravship structures on this gravship by 0.5.</description>
+		<thingClass>Building</thingClass>
+		<interactionCellIcon>DiningChair</interactionCellIcon>
+		<noRightClickDraftAttack>true</noRightClickDraftAttack>
+		<graphicData>
+			<texPath>Things/Structures/EngineeringConsole/EngineeringConsole</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(4,2)</drawSize>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<castEdgeShadows>true</castEdgeShadows>
+		<staticSunShadowHeight>0.20</staticSunShadowHeight>
+		<constructEffect>ConstructMetal</constructEffect>
+		<tickerType>Normal</tickerType>
+		<costList>
+			<Steel>150</Steel>
+			<ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<fillPercent>0.3</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<WorkToBuild>3000</WorkToBuild>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Flammability>0.5</Flammability>
+			<VGE_MaintenanceSensitivity>2</VGE_MaintenanceSensitivity>
+			<Beauty>-4</Beauty>
+		</statBases>
+		<size>(3,1)</size>
+		<designationCategory>Odyssey</designationCategory>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<surfaceType>Item</surfaceType>
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+		<comps>
+			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
+       
+			</li>
+			<li Class="VanillaGravshipExpanded.CompProperties_EngineeringConsole">
+        <statOffsets>
+          <VGE_GlobalMaintenanceSensitivity>-0.5</VGE_GlobalMaintenanceSensitivity>
+        </statOffsets>
+        <maxSimultaneous>1</maxSimultaneous>
+        <maxDistance>200</maxDistance>
+        <requiresLOS>false</requiresLOS>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<building>
+			<relatedTerrain>
+				<li>Substructure</li>
+			</relatedTerrain>
+		</building>
+		<placeWorkers>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+		<researchPrerequisites>
+			<li>StandardGravtech</li>
+		</researchPrerequisites>
+    <uiOrder>2351</uiOrder>
+	</ThingDef>
+</Defs>

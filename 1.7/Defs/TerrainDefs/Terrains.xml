@@ -1,0 +1,184 @@
+<Defs>
+	<TerrainDef>
+		<defName>VGE_DamagedSubstructure</defName>
+		<label>damaged gravship substructure</label>
+		<description>A warped and twisted section of gravship substructure. Once a solid truss with decking, it has been bent out of shape by heavy stress or impact. The grav engine’s levitation field still grips it, but its integrity is compromised: any further damage will cause this piece of substructure to collapse completely.</description>
+		<texturePath>Things/Terrain/Substructure/DamagedSubstructure</texturePath>
+		<fertility>0</fertility>
+		<edgeType>Hard</edgeType>
+		<renderPrecedence>399</renderPrecedence>
+		<constructEffect>ConstructMetal</constructEffect>
+		<isPaintable>true</isPaintable>
+		<isFoundation>true</isFoundation>
+		<preventCraters>true</preventCraters>
+		<layerable>true</layerable>
+		<affordances>
+			<li>Substructure</li>
+			<li>Walkable</li>
+		</affordances>
+		<filthAcceptanceMask>
+			<li>Unnatural</li>
+		</filthAcceptanceMask>
+		<statBases>
+			<Flammability>0</Flammability>
+			<CleaningTimeFactor>0.9</CleaningTimeFactor>
+		</statBases>
+		<terrainAffordanceNeeded>Walkable</terrainAffordanceNeeded>
+		<tags>
+			<li>Substructure</li>
+			<li>DestroyableByArtillery</li>
+		</tags>
+		<placeWorkers>
+			<li>PlaceWorker_InSubstructureFootprint</li>
+			<li>PlaceWorker_BuildingsValidOverSubstructure</li>
+		</placeWorkers>
+		<costList>
+			<GravlitePanel>1</GravlitePanel>
+		</costList>
+	</TerrainDef>
+	<TerrainDef ParentName="NaturalTerrainBase">
+		<defName>VGE_AsteroidIce</defName>
+		<label>asteroid ice</label>
+		<texturePath>Things/Terrain/AsteroidIce</texturePath>
+		<edgeType>Hard</edgeType>
+		<renderPrecedence>350</renderPrecedence>
+		<pathCost>14</pathCost>
+		<statBases>
+			<Beauty>-3</Beauty>
+			<BeautyOutdoors>0</BeautyOutdoors>
+		</statBases>
+		<scatterType>SoftGray</scatterType>
+		<tags>
+			<li>Ice</li>
+		</tags>
+		<affordances>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
+			<li>Diggable</li>
+		</affordances>
+		<generatedFilth>Filth_Dirt</generatedFilth>
+		<fertility>0.00</fertility>
+		<takeFootprints>True</takeFootprints>
+		<pollutedTexturePath>Terrain/Surfaces/IcePolluted</pollutedTexturePath>
+		<pollutionOverlayTexturePath>Terrain/Surfaces/PollutionIce</pollutionOverlayTexturePath>
+		<pollutionColor>(1, 1, 1, 1)</pollutionColor>
+		<pollutionCloudColor>(1, 1, 1, 0.66)</pollutionCloudColor>
+		<canEverTerraform>false</canEverTerraform>
+	</TerrainDef>
+	<TerrainDef ParentName="FloorBase">
+		<defName>VGE_GravshipSubscaffold</defName>
+		<label>gravship subscaffold</label>
+		<description>A scaffold layer built to support the framework of gravships. While part of the gravship’s structure, it cannot support buildings and slows movement significantly. It does not count toward the gravship’s substructure limit, making it ideal for walkways, access paths, or expansion staging areas.</description>
+		<texturePath>Things/Terrain/Substructure/Subscaffolding</texturePath>
+		<uiIconPath>UI/MenuIcons/Subscaffold_MenuIcon</uiIconPath>
+		<fertility>0</fertility>
+		<edgeType>Fade</edgeType>
+		<avoidWander>true</avoidWander>
+		<pathCost>9</pathCost>
+		<renderPrecedence>400</renderPrecedence>
+		<constructEffect>ConstructMetal</constructEffect>
+		<isPaintable>true</isPaintable>
+		<designationCategory>VGE_Platform</designationCategory>
+		<isFoundation>true</isFoundation>
+		<holdSnowOrSand>false</holdSnowOrSand>
+		<preventCraters>true</preventCraters>
+		<affordances Inherit="false">
+			<li>Walkable</li>
+		</affordances>
+		<statBases>
+			<WorkToBuild>300</WorkToBuild>
+			<Flammability>0</Flammability>
+			<CleaningTimeFactor>1.3</CleaningTimeFactor>
+			<Beauty>0</Beauty>
+			<MarketValue>6</MarketValue>
+			<FilthMultiplier>0</FilthMultiplier>
+		</statBases>
+		<costList>
+			<GravlitePanel>1</GravlitePanel>
+		</costList>
+		<uiOrder>1001</uiOrder>
+		<terrainAffordanceNeeded>Walkable</terrainAffordanceNeeded>
+		<resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+		<researchPrerequisites>
+			<li>StandardGravtech</li>
+		</researchPrerequisites>
+		<placeWorkers>
+			<li>PlaceWorker_InSubstructureFootprint</li>
+		</placeWorkers>
+		<tags>
+			<li>Substructure</li>
+			<li>DestroyableByArtillery</li>
+		</tags>
+	</TerrainDef>
+	<TerrainDef ParentName="PlatformBase">
+		<defName>VGE_AncientOrbitalPlatform</defName>
+		<label>ancient orbital platform</label>
+		<texturePath>Things/Terrain/AncientOrbitalPlatform/AncientOrbitalPlatformTerrain</texturePath>
+		<spaceEdgeGraphicData Inherit="False">
+			<OShapeTexPath>Things/Terrain/AncientOrbitalPlatform/BorderInside/AncientOrbitalPlatformBorderInside_OShape</OShapeTexPath>
+			<UShapeTexPath>Things/Terrain/AncientOrbitalPlatform/BorderInside/AncientOrbitalPlatformInside_UShape</UShapeTexPath>
+			<CornerInnerTexPath>Things/Terrain/AncientOrbitalPlatform/BorderInside/AncientOrbitalPlatformInside_CornerInner</CornerInnerTexPath>
+			<CornerOuterTexPath>Things/Terrain/AncientOrbitalPlatform/BorderInside/AncientOrbitalPlatformInside_CornerOuter</CornerOuterTexPath>
+			<FlatTexPath>Things/Terrain/AncientOrbitalPlatform/BorderInside/AncientOrbitalPlatformInside_Flat</FlatTexPath>
+			<LoopLeftTexPath>Things/Terrain/AncientOrbitalPlatform/AncientOrbitalPlatformEdge_Left</LoopLeftTexPath>
+			<LoopRightTexPath>Things/Terrain/AncientOrbitalPlatform/AncientOrbitalPlatformEdge_Right</LoopRightTexPath>
+			<LoopSingleTexPath>Things/Terrain/AncientOrbitalPlatform/AncientOrbitalPlatformEdge_Single</LoopSingleTexPath>
+			<LoopTexPaths>
+				<li>Things/Terrain/AncientOrbitalPlatform/Loop/AncientOrbitalPlatformEdge_Loop1</li>
+				<li>Things/Terrain/AncientOrbitalPlatform/Loop/AncientOrbitalPlatformEdge_Loop2</li>
+				<li>Things/Terrain/AncientOrbitalPlatform/Loop/AncientOrbitalPlatformEdge_Loop3</li>
+				<li>Things/Terrain/AncientOrbitalPlatform/Loop/AncientOrbitalPlatformEdge_Loop4</li>
+				<li>Things/Terrain/AncientOrbitalPlatform/Loop/AncientOrbitalPlatformEdge_Loop5</li>
+			</LoopTexPaths>
+		</spaceEdgeGraphicData>
+	</TerrainDef>
+	<TerrainDef ParentName="PlatformBase">
+		<defName>VGE_Compressed_Vacstone_Floor</defName>
+		<label>compressed vacstone</label>
+		<texturePath>Things/Terrain/CompressedHewnRock/CompressedHewnRock</texturePath>
+		<color>(115,106,98)</color>
+		<spaceEdgeGraphicData Inherit="False">
+			<OShapeTexPath>Terrain/Surfaces/OrbitalPlatform/BorderInside/OrbitalPlatformBorderInside_OShape</OShapeTexPath>
+			<UShapeTexPath>Terrain/Surfaces/OrbitalPlatform/BorderInside/OrbitalPlatformBorderInside_UShape</UShapeTexPath>
+			<CornerInnerTexPath>Terrain/Surfaces/OrbitalPlatform/BorderInside/OrbitalPlatformBorderInside_CornerInner</CornerInnerTexPath>
+			<CornerOuterTexPath>Terrain/Surfaces/OrbitalPlatform/BorderInside/OrbitalPlatformBorderInside_CornerOuter</CornerOuterTexPath>
+			<FlatTexPath>Terrain/Surfaces/OrbitalPlatform/BorderInside/OrbitalPlatformBorderInside_Flat</FlatTexPath>
+			<LoopLeftTexPath>Things/Natural/CompressedAsteroidEdge/CompressedAsteroidEdge_Left</LoopLeftTexPath>
+			<LoopRightTexPath>Things/Natural/CompressedAsteroidEdge/CompressedAsteroidEdge_Right</LoopRightTexPath>
+			<LoopSingleTexPath>Things/Natural/CompressedAsteroidEdge/CompressedAsteroidEdge_Single</LoopSingleTexPath>
+			<LoopTexPaths>
+				<li>Things/Natural/CompressedAsteroidEdge/Loop/CompressedAsteroidEdge_Loop1</li>
+				<li>Things/Natural/CompressedAsteroidEdge/Loop/CompressedAsteroidEdge_Loop2</li>
+				<li>Things/Natural/CompressedAsteroidEdge/Loop/CompressedAsteroidEdge_Loop3</li>
+				<li>Things/Natural/CompressedAsteroidEdge/Loop/CompressedAsteroidEdge_Loop4</li>
+				<li>Things/Natural/CompressedAsteroidEdge/Loop/CompressedAsteroidEdge_Loop5</li>
+			</LoopTexPaths>
+		</spaceEdgeGraphicData>
+	</TerrainDef>
+	<TerrainDef ParentName="PlatformBase">
+		<defName>VGE_MechanoidSubstructure</defName>
+		<label>mechanoid substructure</label>
+		<description>A mechanoid-made lightweight truss structure with flooring on top that forms the deck of a swarmship. Only things on top of this substructure can be lifted by the grav engine's levitation field.</description>
+		<texturePath>Things/Terrain/MechanoidSubstructure/MechanoidSubstructure</texturePath>
+		<edgeType>Hard</edgeType>
+		<renderPrecedence>399</renderPrecedence>
+		<statBases>
+			<Flammability>0</Flammability>
+			<CleaningTimeFactor>0.9</CleaningTimeFactor>
+			<Beauty>0</Beauty>
+			<MarketValue>14</MarketValue>
+			<FilthMultiplier>1</FilthMultiplier>
+		</statBases>
+	</TerrainDef>
+
+	<TerrainDef>
+		<defName>VGE_FakeTerrain</defName>
+		<label>fake terrain</label>
+		<description>fake terrain</description>
+		<texturePath>Things/Terrain/MechanoidSubstructure/MechanoidSubstructure</texturePath>
+		<fertility>0</fertility>
+		<edgeType>Hard</edgeType>
+		<renderPrecedence>399</renderPrecedence>
+	</TerrainDef>
+</Defs>

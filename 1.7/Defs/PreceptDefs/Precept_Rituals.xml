@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <PreceptDef Abstract="True" Name="VGE_GravshipLaunchPrecept">
+    <issue>Ritual</issue>
+    <preceptClass>Precept_GravshipLaunch</preceptClass>
+    <visible>false</visible>
+    <classic>true</classic>
+    <countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>
+    <selectionWeight>1.0</selectionWeight>
+    <usesIdeoVisualEffects>false</usesIdeoVisualEffects>
+    <mergeRitualGizmosFromAllIdeos>true</mergeRitualGizmosFromAllIdeos>
+    <useRepeatPenalty>false</useRepeatPenalty>
+    <showRitualFloatMenuOption>false</showRitualFloatMenuOption>
+    <isNonIdeoRitual>true</isNonIdeoRitual>
+  </PreceptDef>
+
+  <PreceptDef ParentName="VGE_GravshipLaunchPrecept">
+    <defName>VGE_GravjumperLaunch</defName>
+    <label>gravjumper launch</label>
+    <description>Travel to a remote destination using your gravjumper. The pilot’s skill is the most important factor for a successful launch, with the co-pilot also providing a strong boost. Additional crew can help, but only to a small degree compared to a standard gravship. At the end, you can choose to keep the old map open or abandon it.</description>
+    <iconPath>UI/RitualIcons/LaunchGravjumper_Gizmo</iconPath>
+    <ritualPatternBase>VGE_GravjumperLaunch</ritualPatternBase>
+  </PreceptDef>
+
+  <PreceptDef ParentName="VGE_GravshipLaunchPrecept">
+    <defName>VGE_GravhulkLaunch</defName>
+    <label>gravhulk launch</label>
+    <description>Travel to a remote destination using your gravship. Every crewmember aboard contributes greatly to launch success, making a full crew highly valuable. However, smaller thrusters provide no benefit to the launch. You’ll also gather gravdata during the journey to advance research. At the end, you can choose to keep the old map open or abandon it.</description>
+    <iconPath>UI/RitualIcons/LaunchGravhulk_Gizmo</iconPath>
+    <ritualPatternBase>VGE_GravhulkLaunch</ritualPatternBase>
+  </PreceptDef>
+
+</Defs>

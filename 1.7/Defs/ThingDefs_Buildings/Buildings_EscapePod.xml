@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="BuildingBase">
+    <defName>VGE_DamagedEscapePod</defName>
+    <label>damaged escape pod</label>
+    <description>A crashlanded, damaged escape pod. Can be hacked open to reveal what's inside.</description>
+    <graphicData>
+      <texPath>Things/Structures/DamagedDropPod/DamagedDropPod</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.5,1.5)</drawSize>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <Flammability>0</Flammability>
+    </statBases>
+    <pathCost>50</pathCost>
+    <size>(1,1)</size>
+    <comps>
+      <li Class="VanillaGravshipExpanded.CompProperties_HackableEscapePod">
+        <defence>4000</defence>
+        <effectHacking>HackingTerminal</effectHacking>
+        <lockoutDurationHoursRange>0~0</lockoutDurationHoursRange>
+        <showProgressAfterHackCompletion>false</showProgressAfterHackCompletion>
+        <notHackedInspectString>Hack to open.</notHackedInspectString>
+        <hackedInspectString>Opening...</hackedInspectString>
+        <hackedMessage>{HACKER_labelShort} has finished hacking {SUBJECT_labelNoParenthesisDef}.</hackedMessage>
+        <intellectualSkillPrerequisite>5</intellectualSkillPrerequisite>
+      </li>
+      <li Class="VanillaGravshipExpanded.CompProperties_PeriodicSparks">
+        <sparkInterval>120</sparkInterval>
+        <smokeInterval>90</smokeInterval>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>1.55</glowRadius>
+        <glowColor>(239,133,50,0)</glowColor>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="DropPodIncoming">
+    <defName>VGE_EscapePodSkyfaller</defName>
+    <label>escape pod (incoming)</label>
+    <thingClass>VanillaGravshipExpanded.Skyfaller_EscapePod</thingClass>
+    <graphicData>
+      <texPath>Things/Structures/DamagedDropPod/DamagedDropPod</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutFlying</shaderType>
+      <drawSize>(1.5,1.5)</drawSize>
+    </graphicData>
+    <skyfaller>
+      <movementType>Decelerate</movementType>
+      <shadow>Things/Skyfaller/SkyfallerShadowDropPod</shadow>
+      <shadowSize>(1.5, 1.5)</shadowSize>
+      <anticipationSound>DropPod_Fall</anticipationSound>
+      <anticipationSoundTicks>100</anticipationSoundTicks>
+      <impactSound>DropPod_Impact</impactSound>
+      <motesPerCell>2</motesPerCell>
+    </skyfaller>
+    <comps>
+      <li Class="VanillaGravshipExpanded.CompProperties_PeriodicSparks">
+        <sparkInterval>120</sparkInterval>
+        <smokeInterval>90</smokeInterval>
+      </li>
+    </comps>
+  </ThingDef>
+</Defs>
