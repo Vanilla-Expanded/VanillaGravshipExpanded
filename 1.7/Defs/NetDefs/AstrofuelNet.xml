@@ -45,7 +45,7 @@
 		<category>Building</category>
 		<pathCost>30</pathCost>
 		<fillPercent>0.40</fillPercent>
-		<tickerType>Rare</tickerType>
+		<tickerType>Never</tickerType>
 		<graphicData>
 			<texPath>Things/PipeNetworks/Astrofuel/AstrofuelPipes_Atlas</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -110,7 +110,7 @@
 		<description>A hidden, reinforced tube for transporting high-grade astrofuel around. While it’s not visible, it is much more expensive to construct.</description>
 		<thingClass>PipeSystem.Building_Pipe</thingClass>
 		<category>Building</category>
-		<tickerType>Rare</tickerType>
+		<tickerType>Never</tickerType>
 		<graphicData>
 			<texPath>UI/CSG/IConduit</texPath>
 			<graphicClass>Graphic_Single</graphicClass>

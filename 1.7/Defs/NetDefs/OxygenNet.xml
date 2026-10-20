@@ -37,7 +37,7 @@
 		<description>A reinforced tube for moving oxygen around. Can be placed under walls and other buildings.</description>
 		<thingClass>PipeSystem.Building_Pipe</thingClass>
 		<category>Building</category>
-		<tickerType>Rare</tickerType>
+		<tickerType>Never</tickerType>
 		<graphicData>
 			<texPath>Things/PipeNetworks/Oxygen/OxygenPipes_Atlas</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -102,7 +102,7 @@
 		<description>A hidden, reinforced tube for moving oxygen around. While it’s not visible, it is much more expensive to construct.</description>
 		<thingClass>PipeSystem.Building_Pipe</thingClass>
 		<category>Building</category>
-		<tickerType>Rare</tickerType>
+		<tickerType>Never</tickerType>
 		<graphicData>
 			<texPath>UI/CSG/IConduit</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
